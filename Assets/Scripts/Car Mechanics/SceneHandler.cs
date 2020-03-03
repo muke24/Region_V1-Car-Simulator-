@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
-    public void NextScene()
+    public void PlayScene()
 	{
 		SceneManager.LoadScene("InGame");
+	}
+	public void MultiplayerRegisterScene()
+	{
+		SceneManager.LoadScene("LobbyScene");
 	}
 	public void QuitGame()
 	{

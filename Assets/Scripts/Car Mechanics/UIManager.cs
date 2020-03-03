@@ -16,6 +16,6 @@ public class UIManager : MonoBehaviour
 
 	private void Update()
 	{
-		fpsText.text = "FPS: " + (Mathf.Round(1f / Time.deltaTime)).ToString();
+		fpsText.text = "FPS: " + (Mathf.Round(1/Time.smoothDeltaTime)).ToString();
 	}
 }
