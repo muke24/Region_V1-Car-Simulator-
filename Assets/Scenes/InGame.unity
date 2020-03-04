@@ -2640,11 +2640,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610265679339990}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1309166, y: 0.12446165, z: 3.2392406}
-  m_Center: {x: 0, y: -0.07894051, z: 0.051204503}
+  m_Size: {x: 1.1309166, y: 1.0646065, z: 3.575655}
+  m_Center: {x: 0, y: 0.39113194, z: -0.025738895}
 --- !u!54 &135349527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12310,11 +12310,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 38738.8
-    damper: 4703.9976
+    spring: 36239.23
+    damper: 4400.478
     targetPosition: 0.5
-  m_SuspensionDistance: 0.10010205
-  m_ForceAppPointDistance: 0.27688953
+  m_SuspensionDistance: 0.100102045
+  m_ForceAppPointDistance: 0.63186127
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -32371,7 +32371,7 @@ BoxCollider:
   m_GameObject: {fileID: 1574591296}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.5870018, y: 0.4127671, z: 0.5014382}
   m_Center: {x: 0.00005722046, y: 0.07760655, z: 1.9830812}
@@ -32484,7 +32484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1584582379
 Transform:
   m_ObjectHideFlags: 0
@@ -33112,11 +33112,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 38650.723
-    damper: 4693.3022
+    spring: 36190.777
+    damper: 4394.5947
     targetPosition: 0.5
-  m_SuspensionDistance: 0.100102045
-  m_ForceAppPointDistance: 0.27688953
+  m_SuspensionDistance: 0.10010205
+  m_ForceAppPointDistance: 0.63186127
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -43800,11 +43800,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 39661.305
-    damper: 4816.0156
+    spring: 42160.83
+    damper: 5119.5293
     targetPosition: 0.5
-  m_SuspensionDistance: 0.100102045
-  m_ForceAppPointDistance: 0.26853746
+  m_SuspensionDistance: 0.10010205
+  m_ForceAppPointDistance: 0.62350917
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -44420,11 +44420,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 39749.16
-    damper: 4826.684
+    spring: 42209.15
+    damper: 5125.397
     targetPosition: 0.5
   m_SuspensionDistance: 0.10010205
-  m_ForceAppPointDistance: 0.26853746
+  m_ForceAppPointDistance: 0.62350917
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -44589,6 +44589,10 @@ GameObject:
   - component: {fileID: 4664702637320608}
   - component: {fileID: 33118743940337870}
   - component: {fileID: 23845000573093462}
+  - component: {fileID: 1057240634152215}
+  - component: {fileID: 1057240634152217}
+  - component: {fileID: 1057240634152216}
+  - component: {fileID: 1057240634152218}
   m_Layer: 0
   m_Name: Tocus_Bamper_Back
   m_TagString: Untagged
@@ -44596,6 +44600,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1057240634152215
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057240634152214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300072, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!138 &1057240634152216
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057240634152214}
+  m_ConnectedBody: {fileID: 135349527}
+  m_BreakForce: 10000
+  m_BreakTorque: 10000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &1057240634152217
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057240634152214}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1057240634152218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057240634152214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121581661673934
 GameObject:
   m_ObjectHideFlags: 0
@@ -44607,6 +44667,8 @@ GameObject:
   - component: {fileID: 4088688426955066}
   - component: {fileID: 33760330414607028}
   - component: {fileID: 23452417402390448}
+  - component: {fileID: 1121581661673935}
+  - component: {fileID: 1121581661673936}
   m_Layer: 0
   m_Name: Tocus_Win_Light_Right
   m_TagString: Untagged
@@ -44614,6 +44676,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1121581661673935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121581661673934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300088, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1121581661673936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121581661673934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132656428498568
 GameObject:
   m_ObjectHideFlags: 0
@@ -44643,6 +44731,8 @@ GameObject:
   - component: {fileID: 4531317588728984}
   - component: {fileID: 33657021351128012}
   - component: {fileID: 23174946206965490}
+  - component: {fileID: 1145640119482239}
+  - component: {fileID: 1145640119482240}
   m_Layer: 0
   m_Name: Tocus_Salon
   m_TagString: Untagged
@@ -44650,6 +44740,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1145640119482239
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145640119482238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300080, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1145640119482240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145640119482238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1188388790804152
 GameObject:
   m_ObjectHideFlags: 0
@@ -44679,6 +44795,10 @@ GameObject:
   - component: {fileID: 4523266065214062}
   - component: {fileID: 33409746654301832}
   - component: {fileID: 23922139958866942}
+  - component: {fileID: 1192300974560025}
+  - component: {fileID: 1192300974560027}
+  - component: {fileID: 1192300974560026}
+  - component: {fileID: 1192300974560028}
   m_Layer: 0
   m_Name: Tocus_Hood_Back
   m_TagString: Untagged
@@ -44686,6 +44806,83 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1192300974560025
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192300974560024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300074, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!59 &1192300974560026
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192300974560024}
+  m_ConnectedBody: {fileID: 135349527}
+  m_Anchor: {x: 0, y: 0.645, z: -1.6525}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 1
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: -0.019782335
+    max: 77.51634
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: 15000
+  m_BreakTorque: 15000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!54 &1192300974560027
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192300974560024}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1192300974560028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192300974560024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196722259757120
 GameObject:
   m_ObjectHideFlags: 0
@@ -44699,6 +44896,8 @@ GameObject:
   - component: {fileID: 23977666115823278}
   - component: {fileID: 1196722259757123}
   - component: {fileID: 1196722259757122}
+  - component: {fileID: 1196722259757121}
+  - component: {fileID: 1196722259757124}
   m_Layer: 0
   m_Name: Tocus_Hood_Front
   m_TagString: Untagged
@@ -44706,6 +44905,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1196722259757121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196722259757120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300076, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!59 &1196722259757122
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -44718,29 +44931,29 @@ HingeJoint:
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0.525, z: 1.17}
-  m_UseSpring: 0
+  m_UseSpring: 1
   m_Spring:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
     force: 0
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: -140
+    min: -150
     max: 65
     bounciness: 0
-    bounceMinVelocity: 0.2
+    bounceMinVelocity: 0
     contactDistance: 0.15
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 15000
+  m_BreakTorque: 15000
   m_EnableCollision: 0
-  m_EnablePreprocessing: 0
-  m_MassScale: 5
-  m_ConnectedMassScale: 5
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!54 &1196722259757123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44757,6 +44970,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1196722259757124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196722259757120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1256625798120044
 GameObject:
   m_ObjectHideFlags: 0
@@ -44786,6 +45011,8 @@ GameObject:
   - component: {fileID: 4792433252224858}
   - component: {fileID: 33829389521699052}
   - component: {fileID: 23280832436613240}
+  - component: {fileID: 1271686307123321}
+  - component: {fileID: 1271686307123322}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Right_Back
   m_TagString: Untagged
@@ -44793,6 +45020,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1271686307123321
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271686307123320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300100, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1271686307123322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271686307123320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1286567346502496
 GameObject:
   m_ObjectHideFlags: 0
@@ -44804,6 +45057,8 @@ GameObject:
   - component: {fileID: 4406051134309166}
   - component: {fileID: 33293390740519804}
   - component: {fileID: 23649897285693004}
+  - component: {fileID: 1286567346502497}
+  - component: {fileID: 1286567346502498}
   m_Layer: 0
   m_Name: Tocus_Door_Left_Back
   m_TagString: Untagged
@@ -44811,6 +45066,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1286567346502497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286567346502496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300068, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1286567346502498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286567346502496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311625919287456
 GameObject:
   m_ObjectHideFlags: 0
@@ -44840,6 +45121,8 @@ GameObject:
   - component: {fileID: 4407277163017420}
   - component: {fileID: 33767387060716940}
   - component: {fileID: 23560961322038044}
+  - component: {fileID: 1428479270824403}
+  - component: {fileID: 1428479270824404}
   m_Layer: 0
   m_Name: Tocus_Bottom
   m_TagString: Untagged
@@ -44847,6 +45130,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1428479270824403
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428479270824402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300082, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1428479270824404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428479270824402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457886784865496
 GameObject:
   m_ObjectHideFlags: 0
@@ -44858,6 +45167,8 @@ GameObject:
   - component: {fileID: 4655253623076252}
   - component: {fileID: 33788636724504930}
   - component: {fileID: 23223014701761530}
+  - component: {fileID: 1457886784865497}
+  - component: {fileID: 1457886784865498}
   m_Layer: 0
   m_Name: Tocus_Light_Back_Right
   m_TagString: Untagged
@@ -44865,6 +45176,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1457886784865497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457886784865496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300106, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1457886784865498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457886784865496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1539145361405522
 GameObject:
   m_ObjectHideFlags: 0
@@ -44876,6 +45213,8 @@ GameObject:
   - component: {fileID: 4047591191418196}
   - component: {fileID: 33910504549497454}
   - component: {fileID: 23548834414809994}
+  - component: {fileID: 1539145361405523}
+  - component: {fileID: 1539145361405524}
   m_Layer: 0
   m_Name: Tocus_Light_Front_Right
   m_TagString: Untagged
@@ -44883,6 +45222,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1539145361405523
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539145361405522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300108, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1539145361405524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539145361405522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1546418055348626
 GameObject:
   m_ObjectHideFlags: 0
@@ -44894,6 +45259,8 @@ GameObject:
   - component: {fileID: 4920059042666254}
   - component: {fileID: 33207182949982534}
   - component: {fileID: 23214643632834472}
+  - component: {fileID: 1546418055348627}
+  - component: {fileID: 1546418055348628}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Right_Front
   m_TagString: Untagged
@@ -44901,6 +45268,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1546418055348627
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546418055348626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300098, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1546418055348628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546418055348626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551874549781088
 GameObject:
   m_ObjectHideFlags: 0
@@ -44912,6 +45305,8 @@ GameObject:
   - component: {fileID: 4635475174644012}
   - component: {fileID: 33055421733972638}
   - component: {fileID: 23237800264282494}
+  - component: {fileID: 1551874549781089}
+  - component: {fileID: 1551874549781090}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Right
   m_TagString: Untagged
@@ -44919,6 +45314,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1551874549781089
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551874549781088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300102, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1551874549781090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551874549781088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1608621461769856
 GameObject:
   m_ObjectHideFlags: 0
@@ -44930,6 +45351,8 @@ GameObject:
   - component: {fileID: 4060572327780926}
   - component: {fileID: 33209419927578962}
   - component: {fileID: 23121153064008574}
+  - component: {fileID: 1608621461769857}
+  - component: {fileID: 1608621461769858}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Left
   m_TagString: Untagged
@@ -44937,6 +45360,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1608621461769857
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608621461769856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300064, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1608621461769858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608621461769856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1610265679339990
 GameObject:
   m_ObjectHideFlags: 0
@@ -44954,7 +45403,6 @@ GameObject:
   - component: {fileID: 1610265679339991}
   - component: {fileID: 1610265679339992}
   - component: {fileID: 1610265679339993}
-  - component: {fileID: 1610265679339994}
   m_Layer: 0
   m_Name: Tocus
   m_TagString: Untagged
@@ -45011,18 +45459,6 @@ MonoBehaviour:
   dampingRatio: 0.85
   forceShift: 0.03
   setSuspensionDistance: 1
---- !u!114 &1610265679339994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610265679339990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1672185678406310
 GameObject:
   m_ObjectHideFlags: 0
@@ -45034,6 +45470,8 @@ GameObject:
   - component: {fileID: 4339263434397824}
   - component: {fileID: 33918033842001034}
   - component: {fileID: 23278226557466600}
+  - component: {fileID: 1672185678406311}
+  - component: {fileID: 1672185678406312}
   m_Layer: 0
   m_Name: Tocus_Body
   m_TagString: Untagged
@@ -45041,6 +45479,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1672185678406311
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672185678406310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1672185678406312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672185678406310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702959696874492
 GameObject:
   m_ObjectHideFlags: 0
@@ -45052,6 +45516,8 @@ GameObject:
   - component: {fileID: 4063883437354764}
   - component: {fileID: 33275064983535614}
   - component: {fileID: 23594284541718302}
+  - component: {fileID: 1702959696874493}
+  - component: {fileID: 1702959696874494}
   m_Layer: 0
   m_Name: Tocus_Door_Right_Front
   m_TagString: Untagged
@@ -45059,6 +45525,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1702959696874493
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702959696874492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300084, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1702959696874494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702959696874492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1706267939878104
 GameObject:
   m_ObjectHideFlags: 0
@@ -45070,6 +45562,8 @@ GameObject:
   - component: {fileID: 4894980995030462}
   - component: {fileID: 33729548672489102}
   - component: {fileID: 23853734928190640}
+  - component: {fileID: 1706267939878105}
+  - component: {fileID: 1706267939878106}
   m_Layer: 0
   m_Name: Tocus_Win_Back
   m_TagString: Untagged
@@ -45077,6 +45571,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1706267939878105
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706267939878104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300092, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1706267939878106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706267939878104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723125053080058
 GameObject:
   m_ObjectHideFlags: 0
@@ -45088,6 +45608,8 @@ GameObject:
   - component: {fileID: 4453284262626076}
   - component: {fileID: 33949450960900314}
   - component: {fileID: 23265926117468200}
+  - component: {fileID: 1723125053080059}
+  - component: {fileID: 1723125053080060}
   m_Layer: 0
   m_Name: Tocus_Win_Front
   m_TagString: Untagged
@@ -45095,6 +45617,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1723125053080059
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723125053080058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300090, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1723125053080060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723125053080058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729512448860890
 GameObject:
   m_ObjectHideFlags: 0
@@ -45106,6 +45654,8 @@ GameObject:
   - component: {fileID: 4897695106342618}
   - component: {fileID: 33798171681252130}
   - component: {fileID: 23587986381716770}
+  - component: {fileID: 1729512448860891}
+  - component: {fileID: 1729512448860892}
   m_Layer: 0
   m_Name: Tocus_Light_Back_Left
   m_TagString: Untagged
@@ -45113,6 +45663,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1729512448860891
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729512448860890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300104, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1729512448860892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729512448860890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1740878327989998
 GameObject:
   m_ObjectHideFlags: 0
@@ -45124,6 +45700,8 @@ GameObject:
   - component: {fileID: 4531605976845492}
   - component: {fileID: 33311358019606374}
   - component: {fileID: 23821313264012518}
+  - component: {fileID: 1740878327989999}
+  - component: {fileID: 1740878327990000}
   m_Layer: 0
   m_Name: Tocus_Door_Left_Front
   m_TagString: Untagged
@@ -45131,6 +45709,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1740878327989999
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740878327989998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300070, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1740878327990000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740878327989998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746714017020656
 GameObject:
   m_ObjectHideFlags: 0
@@ -45142,6 +45746,8 @@ GameObject:
   - component: {fileID: 4602379448008198}
   - component: {fileID: 33011569618789204}
   - component: {fileID: 23329005627615750}
+  - component: {fileID: 1746714017020657}
+  - component: {fileID: 1746714017020658}
   m_Layer: 0
   m_Name: Tocus_Light_Front_Left
   m_TagString: Untagged
@@ -45149,6 +45755,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1746714017020657
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746714017020656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300110, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1746714017020658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746714017020656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859146604527212
 GameObject:
   m_ObjectHideFlags: 0
@@ -45160,6 +45792,8 @@ GameObject:
   - component: {fileID: 4041643190383618}
   - component: {fileID: 33810521518554954}
   - component: {fileID: 23824537209708736}
+  - component: {fileID: 1859146604527213}
+  - component: {fileID: 1859146604527214}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Left_Back
   m_TagString: Untagged
@@ -45167,6 +45801,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1859146604527213
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859146604527212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300096, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1859146604527214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859146604527212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859605579927752
 GameObject:
   m_ObjectHideFlags: 0
@@ -45178,6 +45838,8 @@ GameObject:
   - component: {fileID: 4699927534666116}
   - component: {fileID: 33252285307347396}
   - component: {fileID: 23557912097244788}
+  - component: {fileID: 1859605579927753}
+  - component: {fileID: 1859605579927754}
   m_Layer: 0
   m_Name: Tocus_Door_Right_Back
   m_TagString: Untagged
@@ -45185,6 +45847,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1859605579927753
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859605579927752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300086, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1859605579927754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859605579927752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884716066326740
 GameObject:
   m_ObjectHideFlags: 0
@@ -45198,6 +45886,8 @@ GameObject:
   - component: {fileID: 23847960014283824}
   - component: {fileID: 1884716066326742}
   - component: {fileID: 1884716066326741}
+  - component: {fileID: 1884716066326743}
+  - component: {fileID: 1884716066326744}
   m_Layer: 0
   m_Name: Tocus_Bamper_Front
   m_TagString: Untagged
@@ -45213,12 +45903,12 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884716066326740}
   m_ConnectedBody: {fileID: 135349527}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_BreakForce: 15000
+  m_BreakTorque: 15000
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 10
+  m_ConnectedMassScale: 10
 --- !u!54 &1884716066326742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -45235,6 +45925,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &1884716066326743
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884716066326740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300078, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1884716066326744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884716066326740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1905702149460276
 GameObject:
   m_ObjectHideFlags: 0
@@ -45246,6 +45962,8 @@ GameObject:
   - component: {fileID: 4250955972750280}
   - component: {fileID: 33364740033703064}
   - component: {fileID: 23538076108819738}
+  - component: {fileID: 1905702149460277}
+  - component: {fileID: 1905702149460278}
   m_Layer: 0
   m_Name: Tocus_Win_Door_Left_Front
   m_TagString: Untagged
@@ -45253,6 +45971,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1905702149460277
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905702149460276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300094, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1905702149460278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905702149460276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913267532724312
 GameObject:
   m_ObjectHideFlags: 0
@@ -45264,6 +46008,8 @@ GameObject:
   - component: {fileID: 4021141574238276}
   - component: {fileID: 33762281413167252}
   - component: {fileID: 23551796083781738}
+  - component: {fileID: 1913267532724313}
+  - component: {fileID: 1913267532724314}
   m_Layer: 0
   m_Name: Tocus_Win_Light_Left
   m_TagString: Untagged
@@ -45271,6 +46017,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &1913267532724313
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913267532724312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300066, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1913267532724314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913267532724312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977516493698882
 GameObject:
   m_ObjectHideFlags: 0
