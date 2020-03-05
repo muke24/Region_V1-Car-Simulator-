@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
 	public GameObject focus;
-	public float distance = 5f;
+	public float distance = 4f;
 	public float height = 2f;
 	public float dampening = 12.5f;
 	public float h2 = 0f;
@@ -18,8 +18,6 @@ public class CameraManager : MonoBehaviour
 
 	private void Update()
 	{
-		
-
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			camMode = (camMode + 1) % 2;
@@ -30,6 +28,17 @@ public class CameraManager : MonoBehaviour
 			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
 			transform.rotation = focus.transform.rotation;
 			Camera.main.fieldOfView = 80f;
+		}
+
+		if (Input.GetKey(KeyCode.I))
+		{
+			distance = -5f;
+			dampening = 40f;
+		}
+		if (!Input.GetKey(KeyCode.I))
+		{
+			distance = 4f;
+			dampening = 12.5f;
 		}
 	}
 
@@ -50,7 +59,9 @@ public class CameraManager : MonoBehaviour
 			else
 			{
 				dampening = 12.5f;				
-			}			
+			}
+
+			
 		}
 	}
 }
