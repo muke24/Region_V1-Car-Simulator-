@@ -63,7 +63,7 @@ public class Interactable : MonoBehaviour
 			carCanv.enabled = true;
 			fpsCanv.enabled = false;
 
-			Cursor.lockState = CursorLockMode.Confined;
+			Cursor.lockState = CursorLockMode.None;
 		}
 		if (!inCar)
 		{
