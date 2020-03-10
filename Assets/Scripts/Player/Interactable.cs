@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
 	public Text intText;
 	public Camera carCam;
 
-	public PlayerController pc;
+	public PlayerMovement pm;
 	public MouseLook ml;
 
 	public CarController cc;
