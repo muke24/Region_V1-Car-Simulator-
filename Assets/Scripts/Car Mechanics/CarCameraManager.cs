@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CarCameraManager : MonoBehaviour
 {
 	public GameObject focus;
 	public float distance = 4f;
