@@ -57,7 +57,7 @@ public class MouseLook : MonoBehaviour
 			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
 			transform.localRotation = originalRotation * yQuaternion;
 		}
-		Cursor.lockState = CursorLockMode.Locked;
+		
 	}
 
 	public static float ClampAngle(float angle, float min, float max)
