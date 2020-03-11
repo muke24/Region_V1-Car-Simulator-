@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
 	public MouseLook ml;
 
 	public CarController cc;
-	public InputManager im;
+	public CarInputManager im;
 
 
 	public List<DragObject> dragObjects;

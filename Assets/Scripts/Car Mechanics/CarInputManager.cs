@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class CarInputManager : MonoBehaviour
 {
 	public float throttle;
 	public float steer;

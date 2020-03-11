@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(InputManager))]
+[RequireComponent(typeof(CarInputManager))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(LightingManager))]
 public class CarController : MonoBehaviour
 {
-	public InputManager im;
+	public CarInputManager im;
 	public LightingManager lm;
 	public UIManager uim;
 
@@ -29,7 +29,7 @@ public class CarController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		im = GetComponent<InputManager>();
+		im = GetComponent<CarInputManager>();
 		rb = GetComponent<Rigidbody>();
 
 		if (CM)

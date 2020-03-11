@@ -9,6 +9,16 @@ public class PauseGame : MonoBehaviour
 	public GameObject pause;
 	public GameObject settings;
 	public GameObject custCar;
+	public int carSetting = 0;
+
+	public float settingChangeTimer = 0.10f;
+	public bool timechanger = false;
+
+	public GameObject suspensionSet;	// carSetting 0
+	public GameObject physicsSet;		// carSetting 1
+	public GameObject engineSet;		// carSetting 2
+	public GameObject strengthSet;		// carSetting 3
+
 
 	void Update()
 	{
@@ -16,6 +26,53 @@ public class PauseGame : MonoBehaviour
 		{
 			PauseGameScreenToggle();
 		}
+
+		if (settingChangeTimer <= 0)
+		{
+			timechanger = false;
+			settingChangeTimer = 0.10f;
+		}
+		if (timechanger)
+		{
+			settingChangeTimer -= Time.deltaTime;
+		}
+
+		if (carSetting == 0)
+		{
+			suspensionSet.SetActive(true);  // carSetting 0
+
+			physicsSet.SetActive(false);    // carSetting 1
+			engineSet.SetActive(false);     // carSetting 2
+			strengthSet.SetActive(false);   // carSetting 3
+		}
+
+		if (carSetting == 1)
+		{
+			physicsSet.SetActive(true);     // carSetting 1
+
+			suspensionSet.SetActive(false); // carSetting 0
+			engineSet.SetActive(false);     // carSetting 2
+			strengthSet.SetActive(false);   // carSetting 3
+		}
+		
+		if (carSetting == 2)
+		{
+			engineSet.SetActive(true);      // carSetting 2
+
+			suspensionSet.SetActive(false); // carSetting 0
+			physicsSet.SetActive(false);    // carSetting 1
+			strengthSet.SetActive(false);   // carSetting 3
+		}
+
+		if (carSetting == 3)
+		{
+			strengthSet.SetActive(true);   // carSetting 3
+
+			suspensionSet.SetActive(false); // carSetting 0
+			physicsSet.SetActive(false);    // carSetting 1
+			engineSet.SetActive(false);     // carSetting 2
+		}
+
 	}
 
 	public void PauseGameScreenToggle()
@@ -49,4 +106,77 @@ public class PauseGame : MonoBehaviour
 		custCar.SetActive(false);
 	}
 
+	public void CarSettingButtonLeft()
+	{
+		if (!timechanger)
+		{
+			if (carSetting == 0)
+			{
+				timechanger = true;
+				carSetting = 3;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 3)
+			{
+				timechanger = true;
+				carSetting = 2;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 2)
+			{
+				timechanger = true;
+				carSetting = 1;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 1)
+			{
+				timechanger = true;
+				carSetting = 0;
+			}
+		}
+		
+
+	}
+	public void CarSettingButtonRight()
+	{
+		if (!timechanger)
+		{
+			if (carSetting == 0)
+			{
+				timechanger = true;
+				carSetting = 1;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 1)
+			{
+				timechanger = true;
+				carSetting = 2;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 2)
+			{
+				timechanger = true;
+				carSetting = 3;
+			}
+		}
+		if (!timechanger)
+		{
+			if (carSetting == 3)
+			{
+				timechanger = true;
+				carSetting = 0;
+			}
+		}
+		
+	}
 }
