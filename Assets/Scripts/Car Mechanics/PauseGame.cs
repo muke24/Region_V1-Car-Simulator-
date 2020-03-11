@@ -80,6 +80,9 @@ public class PauseGame : MonoBehaviour
 		if (pauseMenu.gameObject.activeSelf == true)
 		{
 			pauseMenu.gameObject.SetActive(false);
+			pause.gameObject.SetActive(true);
+			settings.gameObject.SetActive(false);
+			custCar.gameObject.SetActive(false);
 		}
 		else
 		{
