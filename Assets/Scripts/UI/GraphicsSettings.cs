@@ -9,10 +9,17 @@ public class GraphicsSettings : MonoBehaviour
 
 	//public Slider volumeSlider;
 	public Slider resolutionSlider;
+	public Slider reflectSlider;
+
+	public Dropdown rtReflections;
+
+	public ReflectionProbe ReflectionProbe1;
+	public ReflectionProbe ReflectionProbe2;
 
 	//public Text volumeText;
 	public Text resolutionText;
 	public Text resolutionSize;
+	public Text reflectionValueText;
 
 	public string resText;
 
@@ -22,6 +29,8 @@ public class GraphicsSettings : MonoBehaviour
 
 	public int resWidth;
 	public int resHeight;
+
+	public int realtimeReflections = 0;
 
 	public bool resChanged;
 	public bool settingsChanged;
@@ -33,6 +42,13 @@ public class GraphicsSettings : MonoBehaviour
 		settingsChanged = false;
 		resWidth = Screen.width;
 		resHeight = Screen.height;
+
+		ReflectionProbe1.enabled = true;
+		ReflectionProbe2.enabled = true;
+		ReflectionProbe1.resolution = 512;
+		ReflectionProbe2.resolution = 512;
+		reflectionValueText.text = "High";
+
 	}
 
 	// Update is called once per frame
@@ -70,6 +86,66 @@ public class GraphicsSettings : MonoBehaviour
 		if (resChanged == true)
 		{
 			Screen.SetResolution(resolutionIntWidth, resolutionIntHeight, FullScreenMode.ExclusiveFullScreen);
+
+			if (reflectSlider.value == 0)
+			{
+				ReflectionProbe1.enabled = false;
+				ReflectionProbe2.enabled = false;
+				reflectionValueText.text = "Off";
+			}
+			if (reflectSlider.value == 1)
+			{
+				ReflectionProbe1.enabled = true;
+				ReflectionProbe2.enabled = true;
+				ReflectionProbe1.resolution = 64;
+				ReflectionProbe2.resolution = 64;
+				reflectionValueText.text = "Low";
+			}
+			if (reflectSlider.value == 2)
+			{
+				ReflectionProbe1.enabled = true;
+				ReflectionProbe2.enabled = true;
+				ReflectionProbe1.resolution = 256;
+				ReflectionProbe2.resolution = 256;
+				reflectionValueText.text = "Medium";
+			}
+			if (reflectSlider.value == 3)
+			{
+				ReflectionProbe1.enabled = true;
+				ReflectionProbe2.enabled = true;
+				ReflectionProbe1.resolution = 512;
+				ReflectionProbe2.resolution = 512;
+				reflectionValueText.text = "High";
+			}
+			if (reflectSlider.value == 4)
+			{
+				ReflectionProbe1.enabled = true;
+				ReflectionProbe2.enabled = true;
+				reflectionValueText.text = "Custom";
+			}
+
+			if (rtReflections.value == 0)
+			{
+				ReflectionProbe1.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.EveryFrame;
+				ReflectionProbe2.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.EveryFrame;
+				ReflectionProbe1.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.NoTimeSlicing;
+				ReflectionProbe2.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.NoTimeSlicing;
+			}
+			if (rtReflections.value == 1)
+			{
+				ReflectionProbe1.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.EveryFrame;
+				ReflectionProbe2.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.EveryFrame;
+				ReflectionProbe1.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
+				ReflectionProbe2.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
+			}
+			if (rtReflections.value == 2)
+			{
+				ReflectionProbe1.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;
+				ReflectionProbe2.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;
+				ReflectionProbe1.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
+				ReflectionProbe2.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
+			}
+
 			resChanged = false;
 		}
 		settingsChanged = false;
