@@ -10,8 +10,9 @@ public class Interactable : MonoBehaviour
 	public float intTimer = 0.25f;
 	public float intDelay = 0.25f;
 
-	public Canvas carCanv;
-	public Canvas fpsCanv;
+	public GameObject carCanv;
+	public GameObject fpsCanv;
+	public GameObject pauseCanv;
 
 	public GameObject car;
 	public GameObject player;
@@ -60,13 +61,14 @@ public class Interactable : MonoBehaviour
 			carCam.gameObject.SetActive(true);
 			player.SetActive(false);
 
-			carCanv.enabled = true;
-			fpsCanv.enabled = false;
+			carCanv.SetActive(true);
+			fpsCanv.SetActive(false);
 
 			Cursor.lockState = CursorLockMode.None;
 		}
 		if (!inCar)
 		{
+			carCam.gameObject.SetActive(false);
 			player.SetActive(true);
 			im.enabled = false;
 			foreach (DragObject drag in dragObjects)
@@ -74,8 +76,10 @@ public class Interactable : MonoBehaviour
 				drag.enabled = false;
 			}
 
-			carCanv.enabled = false;
-			fpsCanv.enabled = true;
+			
+
+			carCanv.SetActive(false);
+			fpsCanv.SetActive(true);
 
 			Cursor.lockState = CursorLockMode.Locked;
 		}
