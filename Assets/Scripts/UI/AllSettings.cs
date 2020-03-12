@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GraphicsSettings : MonoBehaviour
+public class AllSettings : MonoBehaviour
 {
 	public Button applyButton;
 
 	//public Slider volumeSlider;
 	public Slider resolutionSlider;
 	public Slider reflectSlider;
+	public Slider mouseX;
+	public Slider mouseY;
+
+	public MouseLook mlY;
+	public MouseLook mlX;
 
 	public Dropdown rtReflections;
 
@@ -32,12 +37,18 @@ public class GraphicsSettings : MonoBehaviour
 
 	public int realtimeReflections = 0;
 
+	public bool start = true;
 	public bool resChanged;
 	public bool settingsChanged;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		start = true;
+		if (start)
+		{
+			ApplySettings();
+		}
 		resChanged = false;
 		settingsChanged = false;
 		resWidth = Screen.width;
@@ -48,12 +59,12 @@ public class GraphicsSettings : MonoBehaviour
 		ReflectionProbe1.resolution = 512;
 		ReflectionProbe2.resolution = 512;
 		reflectionValueText.text = "High";
-
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+
 		if (settingsChanged == false)
 		{
 			applyButton.gameObject.SetActive(false);
@@ -83,10 +94,14 @@ public class GraphicsSettings : MonoBehaviour
 
 	public void ApplySettings()
 	{
-		if (resChanged == true)
+		if (resChanged)
 		{
 			Screen.SetResolution(resolutionIntWidth, resolutionIntHeight, FullScreenMode.ExclusiveFullScreen);
 
+			resChanged = false;
+		}
+		if (settingsChanged == true || start == true)
+		{
 			if (reflectSlider.value == 0)
 			{
 				ReflectionProbe1.enabled = false;
@@ -146,9 +161,13 @@ public class GraphicsSettings : MonoBehaviour
 				ReflectionProbe2.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
 			}
 
-			resChanged = false;
+			mlX.sensitivityX = mouseX.value;
+			mlY.sensitivityY = mouseY.value;
+
+			start = false;
+			settingsChanged = false;
 		}
-		settingsChanged = false;
+
 		//AudioListener.volume = volumeSlider.value;
 	}
 	public void ResolutionChanged()
