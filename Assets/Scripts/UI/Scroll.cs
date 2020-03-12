@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Scroll : MonoBehaviour
 {
-	public GameObject graphicsSettings;
+	public GameObject allSettings;
 	public Scrollbar scrollbar;
 
 	public Vector3 scroll;
@@ -40,7 +40,7 @@ public class Scroll : MonoBehaviour
 	public void ScrollToPosition()
 	{
 
-		graphicsSettings.transform.localPosition = scroll * 1000;
+		allSettings.transform.localPosition = scroll * 2000;
 		scrollY = scrollbar.value;
 	}
 }

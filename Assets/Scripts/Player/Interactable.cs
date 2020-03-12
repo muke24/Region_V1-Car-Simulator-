@@ -75,13 +75,19 @@ public class Interactable : MonoBehaviour
 			{
 				drag.enabled = false;
 			}
-
-			
+			if (pauseCanv.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.None;
+			}
+			if (!pauseCanv.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+			}
 
 			carCanv.SetActive(false);
 			fpsCanv.SetActive(true);
 
-			Cursor.lockState = CursorLockMode.Locked;
+			
 		}
 
 		if (interactDist >= Vector3.Distance(car.transform.position, player.transform.position) && !inCar)
