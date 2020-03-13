@@ -2107,16 +2107,16 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 2
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 28
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Sens
 --- !u!222 &197810443
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3137,7 +3137,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 825, y: 0}
-  m_SizeDelta: {x: 80, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358145658
 MonoBehaviour:
@@ -3181,14 +3181,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 358145659}
   m_TextComponent: {fileID: 1149226459}
   m_Placeholder: {fileID: 197810442}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterValidation: 2
+  m_CharacterLimit: 5
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -3205,7 +3205,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -7837,6 +7837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5817ada7970fb4eac897311b78d520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allSettings: {fileID: 1792530285}
   focus: {fileID: 1610265679339990}
   distance: 4
   height: 1.25
@@ -7846,6 +7847,9 @@ MonoBehaviour:
   l: -0.35
   objDistance: 0
   maxDistance: 5.5
+  sensitivityX: 15
+  minimumX: -360
+  maximumX: 360
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8599,6 +8603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054923839}
   - component: {fileID: 1054923840}
+  - component: {fileID: 1054923841}
   m_Layer: 5
   m_Name: MouseXSlider
   m_TagString: Untagged
@@ -8689,6 +8694,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1054923841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054923838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1054923838}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1081297854
 GameObject:
   m_ObjectHideFlags: 0
@@ -11815,7 +11848,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 825, y: 0}
-  m_SizeDelta: {x: 80, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318453102
 MonoBehaviour:
@@ -11859,14 +11892,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1318453103}
   m_TextComponent: {fileID: 765710019}
   m_Placeholder: {fileID: 1331952583}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
-  m_CharacterLimit: 4
+  m_CharacterValidation: 2
+  m_CharacterLimit: 5
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -12400,16 +12433,16 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 2
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 28
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Sens
 --- !u!222 &1331952584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14862,6 +14895,8 @@ MonoBehaviour:
   reflectSlider: {fileID: 2110252306}
   mouseX: {fileID: 1054923840}
   mouseY: {fileID: 418254517}
+  mXinput: {fileID: 0}
+  mYinput: {fileID: 0}
   mlY: {fileID: 56254493}
   mlX: {fileID: 2356385}
   rtReflections: {fileID: 1081297856}
@@ -14879,6 +14914,7 @@ MonoBehaviour:
   start: 1
   resChanged: 0
   settingsChanged: 0
+  dragging: 0
 --- !u!1 &1803673695
 GameObject:
   m_ObjectHideFlags: 0

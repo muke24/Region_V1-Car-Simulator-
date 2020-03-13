@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarCameraManager : MonoBehaviour
 {
+	public AllSettings allSettings;
+
 	public GameObject focus;
 	public float distance = 4f;
 	public float height = 2f;
@@ -14,8 +16,37 @@ public class CarCameraManager : MonoBehaviour
 	public float objDistance = 0f;
 	public float maxDistance = 8f;
 
+	public float fpsCarTimer = 0.1f;
+
+	#region MouseLook
+
+	public float sensitivityX = 10f;
+	public float minimumX = -360F;
+	public float maximumX = 360F;
+
+	private float rotationX = 0F;
+
+	Quaternion originalRotation;
+
+	#endregion
+
 	private int camMode = 0;
 
+	public static float ClampAngle(float angle, float min, float max)
+	{
+		if (angle < -360F)
+		{
+			angle += 360F;
+		}
+
+
+		if (angle > 360F)
+		{
+			angle -= 360F;
+		}
+
+		return Mathf.Clamp(angle, min, max);
+	}
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.C))
@@ -23,13 +54,38 @@ public class CarCameraManager : MonoBehaviour
 			camMode = (camMode + 1) % 2;
 		}
 
+		if (camMode == 0)
+		{
+			if (fpsCarTimer <= 0f)
+			{
+				fpsCarTimer = 0.1f;
+			}
+		}
 		if (camMode == 1)
 		{
-			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
-			transform.rotation = focus.transform.rotation;
-			Camera.main.fieldOfView = 80f;
+			if (fpsCarTimer > 0f)
+			{
+				fpsCarTimer -= Time.deltaTime;
+				Cursor.lockState = CursorLockMode.Locked;
+				transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
+				transform.rotation = focus.transform.rotation;
+				Camera.main.fieldOfView = 80f;
+			}
+
+			if (Input.GetMouseButton(1) && fpsCarTimer <= 0f)
+			{
+				rotationX += Input.GetAxis("Mouse X") * allSettings.mouseX.value;
+				rotationX = ClampAngle(rotationX, minimumX, maximumX);
+				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+				transform.localRotation = originalRotation * xQuaternion;
+			}
 		}
 
+
+	}
+
+	void FixedUpdate()
+	{
 		if (Input.GetKey(KeyCode.I))
 		{
 			distance = -5f;
@@ -40,10 +96,7 @@ public class CarCameraManager : MonoBehaviour
 			distance = 4f;
 			dampening = 12.5f;
 		}
-	}
 
-	void FixedUpdate()
-	{
 		if (camMode == 0)
 		{
 			objDistance = Vector3.Distance(focus.transform.position, transform.position);
@@ -58,10 +111,10 @@ public class CarCameraManager : MonoBehaviour
 			}
 			else
 			{
-				dampening = 12.5f;				
+				dampening = 12.5f;
 			}
 
-			
+
 		}
 	}
 }

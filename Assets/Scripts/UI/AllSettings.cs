@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
@@ -12,6 +13,9 @@ public class AllSettings : MonoBehaviour
 	public Slider reflectSlider;
 	public Slider mouseX;
 	public Slider mouseY;
+
+	public InputField mXinput;
+	public InputField mYinput;
 
 	public MouseLook mlY;
 	public MouseLook mlX;
@@ -40,6 +44,7 @@ public class AllSettings : MonoBehaviour
 	public bool start = true;
 	public bool resChanged;
 	public bool settingsChanged;
+	public bool dragging = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -59,6 +64,9 @@ public class AllSettings : MonoBehaviour
 		ReflectionProbe1.resolution = 512;
 		ReflectionProbe2.resolution = 512;
 		reflectionValueText.text = "High";
+
+		mXinput.text = mouseX.value.ToString();
+		mYinput.text = mouseY.value.ToString();
 	}
 
 	// Update is called once per frame
@@ -88,8 +96,8 @@ public class AllSettings : MonoBehaviour
 		//volumeInt = Mathf.RoundToInt(volumeSlider.value);
 		//volumeText.text = volumeSlider.value.ToString() + "%";
 
-
 		resolutionSize.text = resolutionIntWidth.ToString() + " x " + resolutionIntHeight.ToString();
+
 	}
 
 	public void ApplySettings()
@@ -170,13 +178,24 @@ public class AllSettings : MonoBehaviour
 
 		//AudioListener.volume = volumeSlider.value;
 	}
+
 	public void ResolutionChanged()
 	{
 		resChanged = true;
 	}
+
 	public void SettingsHasChanged()
 	{
 		settingsChanged = true;
+	}
+
+	public void OnDragX(IDragHandler eventData)
+	{
+		mXinput.text = mouseX.value.ToString();
+	}
+	public void OnDragY(IDragHandler eventData)
+	{
+		mYinput.text = mouseY.value.ToString();
 	}
 
 }

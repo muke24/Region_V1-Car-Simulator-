@@ -27,19 +27,12 @@ public class JointLock : MonoBehaviour
 		jl = GetComponent<JointLock>();
 		lockState = true;		
 	}
-	private void Update()
+	private void LateUpdate()
 	{
 		if (lockState)
 		{
 			rb.gameObject.transform.localRotation = lockRot;
 			rb.gameObject.transform.localPosition = lockPos;
-		}
-		if (partNumber == 1)
-		{
-			if (rb.transform.localRotation.y >= closedRotYlow && rb.transform.localRotation.y <= closedRotYhigh)
-			{
-				lockState = true;
-			}			
 		}
 		if (transform.localPosition.x > 1f)
 		{
@@ -65,6 +58,18 @@ public class JointLock : MonoBehaviour
 		{
 			jl.enabled = false;
 		}
+	}
+
+	private void FixedUpdate()
+	{
+		if (partNumber == 1)
+		{
+			if (rb.transform.localRotation.y >= closedRotYlow && rb.transform.localRotation.y <= closedRotYhigh)
+			{
+				lockState = true;
+			}
+		}
+		
 	}
 
 	private void OnCollisionEnter(Collision collision)

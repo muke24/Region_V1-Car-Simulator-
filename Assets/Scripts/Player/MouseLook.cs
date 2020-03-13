@@ -45,17 +45,11 @@ public class MouseLook : MonoBehaviour
 		}
 		else if (axes == RotationAxes.MouseX)
 		{
-			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-			rotationX = ClampAngle(rotationX, minimumX, maximumX);
-			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-			transform.localRotation = originalRotation * xQuaternion;
+			MouseX();
 		}
 		else
 		{
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-			rotationY = ClampAngle(rotationY, minimumY, maximumY);
-			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
-			transform.localRotation = originalRotation * yQuaternion;
+			MouseY();
 		}
 		
 	}
@@ -74,5 +68,19 @@ public class MouseLook : MonoBehaviour
 		}
 
 		return Mathf.Clamp(angle, min, max);
+	}
+	public void MouseX()
+	{
+		rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+		rotationX = ClampAngle(rotationX, minimumX, maximumX);
+		Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+		transform.localRotation = originalRotation * xQuaternion;
+	}
+	public void MouseY()
+	{
+		rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+		rotationY = ClampAngle(rotationY, minimumY, maximumY);
+		Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
+		transform.localRotation = originalRotation * yQuaternion;
 	}
 }
