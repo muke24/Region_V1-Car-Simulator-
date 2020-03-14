@@ -34,15 +34,15 @@ public class CarCameraManager : MonoBehaviour
 
 	public static float ClampAngle(float angle, float min, float max)
 	{
-		if (angle < -360F)
+		if (angle < -360f)
 		{
-			angle += 360F;
+			angle += 360f;
 		}
 
 
-		if (angle > 360F)
+		if (angle > 360f)
 		{
-			angle -= 360F;
+			angle -= 360f;
 		}
 
 		return Mathf.Clamp(angle, min, max);
@@ -63,18 +63,19 @@ public class CarCameraManager : MonoBehaviour
 		}
 		if (camMode == 1)
 		{
-			if (fpsCarTimer > 0f)
+			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
+			Cursor.lockState = CursorLockMode.Locked;
+
+			if (!Input.GetMouseButton(1))
 			{
-				fpsCarTimer -= Time.deltaTime;
-				Cursor.lockState = CursorLockMode.Locked;
-				transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
+				
 				transform.rotation = focus.transform.rotation;
 				Camera.main.fieldOfView = 80f;
 			}
 
-			if (Input.GetMouseButton(1) && fpsCarTimer <= 0f)
+			if (Input.GetMouseButton(1))
 			{
-				rotationX += Input.GetAxis("Mouse X") * allSettings.mouseX.value;
+				rotationX += Input.GetAxis("Mouse X") * 7;
 				rotationX = ClampAngle(rotationX, minimumX, maximumX);
 				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
 				transform.localRotation = originalRotation * xQuaternion;

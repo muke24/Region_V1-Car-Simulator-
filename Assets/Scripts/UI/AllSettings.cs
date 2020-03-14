@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
 {
+	public GameObject rtrDropdown;
+
 	public Button applyButton;
 
 	//public Slider volumeSlider;
@@ -59,14 +61,12 @@ public class AllSettings : MonoBehaviour
 		resWidth = Screen.width;
 		resHeight = Screen.height;
 
-		ReflectionProbe1.enabled = true;
-		ReflectionProbe2.enabled = true;
-		ReflectionProbe1.resolution = 512;
-		ReflectionProbe2.resolution = 512;
-		reflectionValueText.text = "High";
+		DefaultSettings();
 
 		mXinput.text = mouseX.value.ToString();
 		mYinput.text = mouseY.value.ToString();
+
+		ResolutionDrag();
 	}
 
 	// Update is called once per frame
@@ -83,21 +83,8 @@ public class AllSettings : MonoBehaviour
 			applyButton.gameObject.SetActive(true);
 		}
 
-		resolutionIntWidth = Mathf.RoundToInt(resWidth * resolutionSlider.value);
-		resolutionIntHeight = Mathf.RoundToInt(resHeight * resolutionSlider.value);
-
-		resolutionText.text = resText;
-		resText = resolutionSlider.value.ToString();
-		if (resText.Length > 3)
-		{
-			resText = resText.Substring(0, 3);
-		}
-
 		//volumeInt = Mathf.RoundToInt(volumeSlider.value);
 		//volumeText.text = volumeSlider.value.ToString() + "%";
-
-		resolutionSize.text = resolutionIntWidth.ToString() + " x " + resolutionIntHeight.ToString();
-
 	}
 
 	public void ApplySettings()
@@ -189,13 +176,94 @@ public class AllSettings : MonoBehaviour
 		settingsChanged = true;
 	}
 
-	public void OnDragX(IDragHandler eventData)
+	public void OnDragX()
 	{
 		mXinput.text = mouseX.value.ToString();
 	}
-	public void OnDragY(IDragHandler eventData)
+
+	public void OnDragY()
 	{
 		mYinput.text = mouseY.value.ToString();
 	}
 
+	public void ChangeInputFieldX()
+	{
+		mouseX.value = float.Parse(mXinput.text);
+		if (float.Parse(mXinput.text) > 30)
+		{
+			mXinput.text = "30";
+		}
+		if (float.Parse(mXinput.text) < 0.01f)
+		{
+			mXinput.text = "0.01";
+		}
+	}
+
+	public void ChangeInputFieldY()
+	{
+		mouseY.value = float.Parse(mYinput.text);
+		if (float.Parse(mYinput.text) > 30f)
+		{
+			mYinput.text = "30";
+		}
+		if (float.Parse(mYinput.text) < 0.01f)
+		{
+			mYinput.text = "0.01";
+		}
+	}
+
+	public void ResolutionDrag()
+	{
+		resolutionIntWidth = Mathf.RoundToInt(resWidth * resolutionSlider.value);
+		resolutionIntHeight = Mathf.RoundToInt(resHeight * resolutionSlider.value);
+
+		resolutionText.text = resText;
+		resText = resolutionSlider.value.ToString();
+
+		if (resText.Length > 3)
+		{
+			resText = resText.Substring(0, 3);
+		}
+
+		resolutionSize.text = resolutionIntWidth.ToString() + " x " + resolutionIntHeight.ToString();
+	}
+
+	public void ReflectionDrag()
+	{
+		if (reflectSlider.value == 0)
+		{
+			reflectionValueText.text = "Off";
+
+			rtrDropdown.SetActive(false);
+		}
+		if (reflectSlider.value == 1)
+		{
+			reflectionValueText.text = "Low";
+			rtrDropdown.SetActive(true);
+		}
+		if (reflectSlider.value == 2)
+		{
+			reflectionValueText.text = "Medium";
+			rtrDropdown.SetActive(true);
+		}
+		if (reflectSlider.value == 3)
+		{
+			reflectionValueText.text = "High";
+			rtrDropdown.SetActive(true);
+		}
+		if (reflectSlider.value == 4)
+		{
+			reflectionValueText.text = "Custom";
+			rtrDropdown.SetActive(true);
+		}
+	}
+
+	void DefaultSettings()
+	{
+		ReflectionProbe1.enabled = true;
+		ReflectionProbe2.enabled = true;
+		ReflectionProbe1.resolution = 64;
+		ReflectionProbe2.resolution = 64;
+		reflectionValueText.text = "Low";
+	}
 }

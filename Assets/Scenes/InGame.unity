@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009e73d23540dcd4688dfc11b66ec15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: {fileID: 1772000077}
   axes: 1
   sensitivityX: 7
   sensitivityY: 7
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009e73d23540dcd4688dfc11b66ec15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: {fileID: 1772000077}
   axes: 2
   sensitivityX: 7
   sensitivityY: 7
@@ -687,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70596900}
   - component: {fileID: 70596901}
+  - component: {fileID: 70596902}
   m_Layer: 5
   m_Name: ResolutionSlider
   m_TagString: Untagged
@@ -788,6 +791,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &70596902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70596899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: ResolutionDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: ResolutionDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &74338499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,12 +3241,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1792530283}
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1792530285}
+        m_MethodName: SettingsHasChanged
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1792530285}
+        m_MethodName: ChangeInputFieldY
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3748,6 +3805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 418254516}
   - component: {fileID: 418254517}
+  - component: {fileID: 418254518}
   m_Layer: 5
   m_Name: MouseYSlider
   m_TagString: Untagged
@@ -3838,6 +3896,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &418254518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418254515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: OnDragY
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: OnDragY
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &435653352
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,6 +4573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529047347}
   - component: {fileID: 529047346}
+  - component: {fileID: 529047348}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4546,6 +4648,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529047348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529047345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9049a187c7d32064aa4da61bb4a5ea1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityX: 7
+  sensitivityY: 7
 --- !u!1 &543769335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7847,6 +7963,7 @@ MonoBehaviour:
   l: -0.35
   objDistance: 0
   maxDistance: 5.5
+  fpsCarTimer: 0.1
   sensitivityX: 15
   minimumX: -360
   maximumX: 360
@@ -8711,12 +8828,27 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1054923838}
-          m_MethodName: 
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: OnDragX
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: OnDragX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -8748,19 +8880,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081297854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1949933121}
   - {fileID: 676957654}
   - {fileID: 83200050}
-  m_Father: {fileID: 1937247069}
-  m_RootOrder: 3
+  m_Father: {fileID: 1256903586}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1300, y: 0}
+  m_AnchoredPosition: {x: 234.99988, y: 0}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081297856
@@ -10494,7 +10626,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1081297855}
   m_Father: {fileID: 1937247069}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11902,27 +12035,27 @@ MonoBehaviour:
   m_CharacterLimit: 5
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
-  m_OnValueChanged:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1792530283}
-        m_MethodName: 
+      - m_Target: {fileID: 1792530285}
+        m_MethodName: ChangeInputFieldX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1792530285}
+        m_MethodName: SettingsHasChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14890,13 +15023,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48de6c3af1fd9b4dad18cbe7925b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rtrDropdown: {fileID: 1256903585}
   applyButton: {fileID: 725672179}
   resolutionSlider: {fileID: 70596901}
   reflectSlider: {fileID: 2110252306}
   mouseX: {fileID: 1054923840}
   mouseY: {fileID: 418254517}
-  mXinput: {fileID: 0}
-  mYinput: {fileID: 0}
+  mXinput: {fileID: 1318453102}
+  mYinput: {fileID: 358145658}
   mlY: {fileID: 56254493}
   mlX: {fileID: 2356385}
   rtReflections: {fileID: 1081297856}
@@ -14912,7 +15046,7 @@ MonoBehaviour:
   resHeight: 0
   realtimeReflections: 0
   start: 1
-  resChanged: 0
+  resChanged: 1
   settingsChanged: 0
   dragging: 0
 --- !u!1 &1803673695
@@ -16364,7 +16498,6 @@ RectTransform:
   - {fileID: 2110252305}
   - {fileID: 1163350598}
   - {fileID: 1256903586}
-  - {fileID: 1081297855}
   m_Father: {fileID: 1467587389}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18098,8 +18231,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2110252305}
   - component: {fileID: 2110252306}
+  - component: {fileID: 2110252307}
   m_Layer: 5
-  m_Name: ResolutionSlider
+  m_Name: ReflectionSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18188,6 +18322,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2110252307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110252304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: ReflectionDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1792530285}
+          m_MethodName: ReflectionDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2118497632
 GameObject:
   m_ObjectHideFlags: 0
