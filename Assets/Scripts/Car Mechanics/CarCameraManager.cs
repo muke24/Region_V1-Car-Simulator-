@@ -6,6 +6,7 @@ public class CarCameraManager : MonoBehaviour
 {
 	public AllSettings allSettings;
 
+	public GameObject pause;
 	public GameObject focus;
 	public float distance = 4f;
 	public float height = 2f;
@@ -64,7 +65,15 @@ public class CarCameraManager : MonoBehaviour
 		if (camMode == 1)
 		{
 			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
-			Cursor.lockState = CursorLockMode.Locked;
+			
+			if (!pause.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			if (pause.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.None;
+			}
 
 			if (!Input.GetMouseButton(1))
 			{

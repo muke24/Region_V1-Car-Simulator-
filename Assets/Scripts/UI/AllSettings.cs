@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
 {
+	//
+	//
+	// CHANGE ALL QUALITY SETTINGS USING QualitySettings.SetQualityLevel()
+	//
+	//
+
+	public List<Light> lights;
+
 	public GameObject rtrDropdown;
 
 	public Button applyButton;
@@ -13,6 +21,7 @@ public class AllSettings : MonoBehaviour
 	//public Slider volumeSlider;
 	public Slider resolutionSlider;
 	public Slider reflectSlider;
+	public Slider shadowSlider;
 	public Slider mouseX;
 	public Slider mouseY;
 
@@ -31,6 +40,7 @@ public class AllSettings : MonoBehaviour
 	public Text resolutionText;
 	public Text resolutionSize;
 	public Text reflectionValueText;
+	public Text shadowValueText;
 
 	public string resText;
 
@@ -67,6 +77,9 @@ public class AllSettings : MonoBehaviour
 		mYinput.text = mouseY.value.ToString();
 
 		ResolutionDrag();
+		ReflectionDrag();
+		Shadows();
+		
 	}
 
 	// Update is called once per frame
@@ -107,24 +120,24 @@ public class AllSettings : MonoBehaviour
 			{
 				ReflectionProbe1.enabled = true;
 				ReflectionProbe2.enabled = true;
-				ReflectionProbe1.resolution = 64;
-				ReflectionProbe2.resolution = 64;
+				ReflectionProbe1.resolution = 128;
+				ReflectionProbe2.resolution = 128;
 				reflectionValueText.text = "Low";
 			}
 			if (reflectSlider.value == 2)
 			{
 				ReflectionProbe1.enabled = true;
 				ReflectionProbe2.enabled = true;
-				ReflectionProbe1.resolution = 256;
-				ReflectionProbe2.resolution = 256;
+				ReflectionProbe1.resolution = 512;
+				ReflectionProbe2.resolution = 512;
 				reflectionValueText.text = "Medium";
 			}
 			if (reflectSlider.value == 3)
 			{
 				ReflectionProbe1.enabled = true;
 				ReflectionProbe2.enabled = true;
-				ReflectionProbe1.resolution = 512;
-				ReflectionProbe2.resolution = 512;
+				ReflectionProbe1.resolution = 2048;
+				ReflectionProbe2.resolution = 2048;
 				reflectionValueText.text = "High";
 			}
 			if (reflectSlider.value == 4)
@@ -156,6 +169,59 @@ public class AllSettings : MonoBehaviour
 				ReflectionProbe2.timeSlicingMode = UnityEngine.Rendering.ReflectionProbeTimeSlicingMode.AllFacesAtOnce;
 			}
 
+			if (shadowSlider.value == 0)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.FromQualitySettings;
+					shadowValueText.text = "Auto";
+				}
+			}
+			if (shadowSlider.value == 1)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadows = LightShadows.None;
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.Low;
+					shadowValueText.text = "None";
+				}
+			}
+			if (shadowSlider.value == 2)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadows = LightShadows.Hard;
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.Low;
+					shadowValueText.text = "Low";
+				}
+			}
+			if (shadowSlider.value == 3)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadows = LightShadows.Hard;
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.Medium;
+					shadowValueText.text = "Medium";
+				}
+			}
+			if (shadowSlider.value == 4)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadows = LightShadows.Hard;
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.High;
+					shadowValueText.text = "High";
+				}
+			}
+			if (shadowSlider.value == 5)
+			{
+				foreach (Light light in lights)
+				{
+					light.shadows = LightShadows.Soft;
+					light.shadowResolution = UnityEngine.Rendering.LightShadowResolution.VeryHigh;
+					shadowValueText.text = "Very High";
+				}
+			}
 			mlX.sensitivityX = mouseX.value;
 			mlY.sensitivityY = mouseY.value;
 
@@ -176,12 +242,12 @@ public class AllSettings : MonoBehaviour
 		settingsChanged = true;
 	}
 
-	public void OnDragX()
+	public void SensOnDragX()
 	{
 		mXinput.text = mouseX.value.ToString();
 	}
 
-	public void OnDragY()
+	public void SensOnDragY()
 	{
 		mYinput.text = mouseY.value.ToString();
 	}
@@ -258,12 +324,42 @@ public class AllSettings : MonoBehaviour
 		}
 	}
 
+	public void Shadows()
+	{
+		if (shadowSlider.value == 0)
+		{
+			shadowValueText.text = "Auto";
+		}
+		if (shadowSlider.value == 1)
+		{
+			shadowValueText.text = "None";
+		}
+		if (shadowSlider.value == 2)
+		{
+			shadowValueText.text = "Low";
+		}
+		if (shadowSlider.value == 3)
+		{
+			shadowValueText.text = "Meduim";
+		}
+		if (shadowSlider.value == 4)
+		{
+			shadowValueText.text = "High";
+		}
+		if (shadowSlider.value == 5)
+		{
+			shadowValueText.text = "Very High";
+		}		
+	}
+
 	void DefaultSettings()
 	{
+		rtReflections.value = 1;
+		reflectSlider.value = 1;
 		ReflectionProbe1.enabled = true;
 		ReflectionProbe2.enabled = true;
-		ReflectionProbe1.resolution = 64;
-		ReflectionProbe2.resolution = 64;
+		ReflectionProbe1.resolution = 128;
+		ReflectionProbe2.resolution = 128;
 		reflectionValueText.text = "Low";
 	}
 }
