@@ -33,6 +33,11 @@ public class CarCameraManager : MonoBehaviour
 
 	private int camMode = 0;
 
+	void Start()
+	{
+		originalRotation = transform.localRotation;
+	}
+
 	public static float ClampAngle(float angle, float min, float max)
 	{
 		if (angle < -360f)

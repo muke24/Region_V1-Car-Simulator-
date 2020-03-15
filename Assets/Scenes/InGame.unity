@@ -8191,8 +8191,8 @@ MonoBehaviour:
   maxDistance: 5.5
   fpsCarTimer: 0.1
   sensitivityX: 15
-  minimumX: -360
-  maximumX: 360
+  minimumX: -120
+  maximumX: 120
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
