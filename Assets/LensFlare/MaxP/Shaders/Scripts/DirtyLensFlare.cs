@@ -40,8 +40,9 @@ public class DirtyLensFlare : MonoBehaviour {
 	#region Image Effect Base
 	private Shader   shader;
 	private Material m_Material;
-	
+
 	// (Modified)
+	[System.Obsolete]
 	protected virtual void Start ()
 	{
 		// Check Resources First
