@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
 {
+	// Disable Applying settings at start
+
 	//
 	//
 	// CHANGE ALL QUALITY SETTINGS USING QualitySettings.SetQualityLevel()
@@ -64,7 +66,7 @@ public class AllSettings : MonoBehaviour
 		start = true;
 		if (start)
 		{
-			ApplySettings();
+			//ApplySettings();
 		}
 		resChanged = false;
 		settingsChanged = false;
