@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43846726, g: 0.48655307, b: 0.5668256, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846697, g: 0.4865523, b: 0.5668253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1734,9 +1734,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1610265679339990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4295547dcfd265542b48a67f30618943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  im: {fileID: 135349529}
+  lm: {fileID: 1610265679339991}
+  uim: {fileID: 1885549742}
+  throttleWheels:
+  - {fileID: 2124237278}
+  - {fileID: 1603631500}
+  - {fileID: 2140935743}
+  - {fileID: 553620985}
+  steeringWheels:
+  - {fileID: 1603631498}
+  - {fileID: 553620983}
+  meshes:
+  - {fileID: 1188388790804152}
+  - {fileID: 1132656428498568}
+  - {fileID: 1311625919287456}
+  - {fileID: 1977516493698882}
+  tailLightColour:
+  - {fileID: 1729512448860890}
+  - {fileID: 1457886784865496}
+  wc: {fileID: 2124237278}
+  strengthCoefficient: 50000
+  maxTurn: 30
+  brakeStrength: 11000
+  CM: {fileID: 2146738740}
+  rb: {fileID: 135349527}
 --- !u!114 &135349529
 MonoBehaviour:
   m_ObjectHideFlags: 0
