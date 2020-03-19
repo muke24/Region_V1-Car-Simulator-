@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerAnimations : MonoBehaviour
 {
 	public Animator playerAnimation;
-
-	public bool getAxisVertical;
+	public float vertical;
+	public float horizontal;
 
 	// Update is called once per frame
 	void Update()
@@ -22,16 +22,64 @@ public class PlayerAnimations : MonoBehaviour
 		}
 		*/
 
-		if (!Input.GetButton("Vertical"))
+		if (!Input.GetButton("Vertical") || !Input.GetButton("Horizontal"))
 		{
 			//playerAnimation.Play("Idle", 1);
 			playerAnimation.SetBool("Moving", false);
 		}
-		if (Input.GetButton("Vertical"))
+		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
-			//playerAnimation.Play("Moving", 1, Input.GetAxis("Vertical"));
+			if (Input.GetAxis("Vertical") > 0)
+			{
+				vertical = Input.GetAxis("Vertical");
+			}
+			if (Input.GetAxis("Vertical") < 0)
+			{
+				vertical = -Input.GetAxis("Vertical");
+			}
+
+			if (Input.GetAxis("Horizontal") > 0)
+			{
+				horizontal = Input.GetAxis("Horizontal");
+			}
+			if (Input.GetAxis("Horizontal") < 0)
+			{
+				horizontal = -Input.GetAxis("Horizontal");
+			}
+			
+			if (Input.GetButton("Vertical") && !Input.GetButton("Horizontal"))
+			{
+				playerAnimation.SetFloat("MoveSpeed", vertical);
+			}
+			if (Input.GetButton("Horizontal") && !Input.GetButton("Vertical"))
+			{
+				playerAnimation.SetFloat("MoveSpeed", horizontal);
+			}
+
+			if (Input.GetButton("Vertical") && Input.GetButton("Horizontal"))
+			{
+				playerAnimation.SetFloat("MoveSpeed", (vertical / 2) + (horizontal / 2));
+			}
+			
 			playerAnimation.SetBool("Moving", true);
-			playerAnimation.SetFloat("MoveSpeed", Input.GetAxis("Vertical"));
+			
+
+
+
+			/*
+			if (Input.GetButton("Vertical"))
+			{
+				playerAnimation.SetBool("Moving", true);
+				playerAnimation.SetFloat("MoveSpeed", Input.GetAxis("Vertical"));
+			}
+			if (Input.GetButton("Horizontal"))
+			{
+				playerAnimation.SetBool("Moving", true);
+				playerAnimation.SetFloat("MoveSpeed", Input.GetAxis("Horizontal"));
+			}
+			*/
+			//playerAnimation.Play("Moving", 1, Input.GetAxis("Vertical"));
+
 		}
 
 		if (!Input.GetMouseButton(1))
