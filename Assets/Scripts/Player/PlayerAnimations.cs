@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+	public PlayerMovement pMovement;
 	public Animator playerAnimation;
+	public Animation sniperMove;
 	public float vertical;
 	public float horizontal;
+	public float animPos;
+
 
 	// Update is called once per frame
 	void Update()
@@ -17,6 +21,10 @@ public class PlayerAnimations : MonoBehaviour
 		}
 		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
+			//animPos = sniperMove.
+
+			playerAnimation.SetBool("Moving", true);
+
 			if (Input.GetAxis("Vertical") > 0)
 			{
 				vertical = Input.GetAxis("Vertical");
@@ -56,8 +64,6 @@ public class PlayerAnimations : MonoBehaviour
 			{
 				playerAnimation.SetFloat("MoveSpeed", (vertical + horizontal) / 2);
 			}
-
-			playerAnimation.SetBool("Moving", true);
 		}
 
 		if (Input.GetAxis("Vertical") == 0)
