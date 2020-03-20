@@ -11,17 +11,30 @@ public class PlayerAnimations : MonoBehaviour
 	public float horizontal;
 	public float animPos;
 
+	private void Start()
+	{
+		playerAnimation.StartPlayback();
+	}
 
 	// Update is called once per frame
 	void Update()
 	{
+
+
 		if (!Input.GetButton("Vertical") || !Input.GetButton("Horizontal"))
 		{
 			playerAnimation.SetBool("Moving", false);
 		}
 		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
-			//animPos = sniperMove.
+			AnimatorStateInfo currentState = playerAnimation.GetCurrentAnimatorStateInfo(0);
+			/*if (currentState.fullPathHash == sniperMove.name && )
+			{
+
+			}
+			*/
+			//animPos = playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime;
+			//playerAnimation.SetFloat("AnimationPosition", animPos);
 
 			playerAnimation.SetBool("Moving", true);
 
