@@ -312,6 +312,7 @@ MonoBehaviour:
   runSpeed: 8
   jumpSpeed: 6
   gravity: 20
+  controller: {fileID: 2356384}
 --- !u!114 &2356388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,9 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e627d3783c740384499e9772ac26ecb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pMovement: {fileID: 0}
+  pMovement: {fileID: 2356387}
   playerAnimation: {fileID: 2356383}
-  sniperMove: {fileID: 0}
   vertical: 0
   horizontal: 0
   animPos: 0
@@ -10408,7 +10408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15693,7 +15693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

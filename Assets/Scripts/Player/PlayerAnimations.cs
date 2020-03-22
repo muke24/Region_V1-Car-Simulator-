@@ -6,7 +6,6 @@ public class PlayerAnimations : MonoBehaviour
 {
 	public PlayerMovement pMovement;
 	public Animator playerAnimation;
-	public Animation sniperMove;
 	public float vertical;
 	public float horizontal;
 	public float animPos;
@@ -19,15 +18,24 @@ public class PlayerAnimations : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (!Input.GetMouseButton(1))
+		{
+			playerAnimation.SetBool("Aim", false);
+		}
+		if (Input.GetMouseButton(1))
+		{
+			playerAnimation.SetBool("Aim", true);
+		}
 
 		if (Input.GetAxis("Vertical") == 0 || Input.GetAxis("Horizontal") == 0)
 		{
 			playerAnimation.SetBool("Moving", false);
+			playerAnimation.SetBool("MovingLeft", false);
+			playerAnimation.SetBool("MovingRight", false);
 		}
 		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
-			
+
 
 			playerAnimation.SetBool("Moving", true);
 
@@ -72,12 +80,26 @@ public class PlayerAnimations : MonoBehaviour
 			}
 		}
 
-		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") == 0)
+		if (Input.GetAxis("Horizontal") != 0)
 		{
-
+			if (Input.GetAxis("Horizontal") > 0)
+			{
+				playerAnimation.SetBool("MovingRight", true);
+				playerAnimation.SetBool("MovingLeft", false);
+			}
+			if (Input.GetAxis("Horizontal") < 0)
+			{
+				playerAnimation.SetBool("MovingLeft", true);
+				playerAnimation.SetBool("MovingRight", false);
+			}
 		}
 
-			if (Input.GetAxis("Vertical") == 0)
+		if (Input.GetButton("Jump") && pMovement.controller.isGrounded)
+		{
+			playerAnimation.SetBool("Jump", true);
+		}
+
+		if (Input.GetAxis("Vertical") == 0)
 		{
 			vertical = 0;
 		}
@@ -86,13 +108,6 @@ public class PlayerAnimations : MonoBehaviour
 			horizontal = 0;
 		}
 
-		if (!Input.GetMouseButton(1))
-		{
-			playerAnimation.SetBool("Aim", false);
-		}
-		if (Input.GetMouseButton(1))
-		{
-			playerAnimation.SetBool("Aim", true);
-		}
+		
 	}
 }

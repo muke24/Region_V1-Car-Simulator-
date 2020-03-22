@@ -3,16 +3,16 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-	//Variables
 	public float speed = 6.0F;
 	public float runSpeed = 10.0F;
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
+	public CharacterController controller;
 	private Vector3 moveDirection = Vector3.zero;
 
 	void Update()
 	{
-		CharacterController controller = GetComponent<CharacterController>();
+		controller = GetComponent<CharacterController>();
 		// is the controller on the ground?
 		if (controller.isGrounded)
 		{
