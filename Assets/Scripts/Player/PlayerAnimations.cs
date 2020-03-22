@@ -13,7 +13,7 @@ public class PlayerAnimations : MonoBehaviour
 
 	private void Start()
 	{
-		playerAnimation.StartPlayback();
+		//playerAnimation.StartPlayback();
 	}
 
 	// Update is called once per frame
@@ -21,20 +21,13 @@ public class PlayerAnimations : MonoBehaviour
 	{
 
 
-		if (!Input.GetButton("Vertical") || !Input.GetButton("Horizontal"))
+		if (Input.GetAxis("Vertical") == 0 || Input.GetAxis("Horizontal") == 0)
 		{
 			playerAnimation.SetBool("Moving", false);
 		}
 		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
-			AnimatorStateInfo currentState = playerAnimation.GetCurrentAnimatorStateInfo(0);
-			/*if (currentState.fullPathHash == sniperMove.name && )
-			{
-
-			}
-			*/
-			//animPos = playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime;
-			//playerAnimation.SetFloat("AnimationPosition", animPos);
+			
 
 			playerAnimation.SetBool("Moving", true);
 
@@ -79,7 +72,12 @@ public class PlayerAnimations : MonoBehaviour
 			}
 		}
 
-		if (Input.GetAxis("Vertical") == 0)
+		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") == 0)
+		{
+
+		}
+
+			if (Input.GetAxis("Vertical") == 0)
 		{
 			vertical = 0;
 		}
