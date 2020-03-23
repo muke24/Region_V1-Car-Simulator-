@@ -55,7 +55,8 @@ public class Sniper : MonoBehaviour
 		{
 			Debug.Log("Gunshot hit " + hit.transform.name);
 
-			Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+			GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+			Destroy(impactGO, 2f);
 		}
 
 
