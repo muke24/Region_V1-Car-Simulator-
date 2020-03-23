@@ -65,8 +65,8 @@ public class Sniper : MonoBehaviour
 		else
 		{
 			//Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range)
-			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, RandomShot.y, 0), out hit, range))
+			Vector2 RandomShot = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
+			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
 				Debug.Log("Gunshot hit " + hit.transform.name);
 
