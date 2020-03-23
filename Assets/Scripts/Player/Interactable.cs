@@ -16,11 +16,22 @@ public class Interactable : MonoBehaviour
 
 	public GameObject car;
 	public GameObject player;
+
+
+
+	public GameObject playerCam;
+	public GameObject playerModel;
+	public MouseLook mouse;
+	public CharacterController charC;
+	public PlayerMovement pMove;
+	public CapsuleCollider cCol;
+
+
+
 	public Text intText;
 	public Camera carCam;
 
-	public PlayerMovement pm;
-	public MouseLook ml;
+	
 
 	public CarController cc;
 	public CarInputManager im;
@@ -32,7 +43,9 @@ public class Interactable : MonoBehaviour
 	{
 		inCar = false;
 		carCam.gameObject.SetActive(false);
-		player.gameObject.SetActive(true);
+		//player.gameObject.SetActive(true);
+		playerEnable();
+
 	}
 
 	// Update is called once per frame
@@ -52,14 +65,15 @@ public class Interactable : MonoBehaviour
 				player.transform.position = new Vector3(car.transform.position.x - 2, car.transform.position.y, car.transform.position.z);
 			}
 
-			player.SetActive(false);
+			playerDisable();
+			//player.SetActive(false);
 			im.enabled = true;
 			foreach (DragObject drag in dragObjects)
 			{
 				drag.enabled = true;
 			}
 			carCam.gameObject.SetActive(true);
-			player.SetActive(false);
+			//player.SetActive(false);
 
 			carCanv.SetActive(true);
 			fpsCanv.SetActive(false);
@@ -69,7 +83,8 @@ public class Interactable : MonoBehaviour
 		if (!inCar)
 		{
 			carCam.gameObject.SetActive(false);
-			player.SetActive(true);
+			playerEnable();
+			//player.SetActive(true);
 			im.enabled = false;
 			foreach (DragObject drag in dragObjects)
 			{
@@ -114,4 +129,44 @@ public class Interactable : MonoBehaviour
 		Gizmos.DrawWireSphere(car.transform.position, interactDist);
 	}
 
+	void playerEnable()
+	{
+		/*
+		foreach (Behaviour yeet in player.GetComponents<Behaviour>())
+		{
+			if (yeet.GetType() != typeof(Animator))
+			{
+				yeet.enabled = true;
+			}
+		}
+		*/
+		
+		playerCam.SetActive(true);
+		playerModel.SetActive(true);
+		mouse.enabled = true;
+		charC.enabled = true;
+		pMove.enabled = true;
+		cCol.enabled = true;
+		
+	}
+	void playerDisable()
+	{
+		/*
+		foreach (Behaviour yeet in player.GetComponents<Behaviour>())
+		{
+			if (yeet.GetType() != typeof(Animator))
+			{
+				yeet.enabled = false;
+			}
+		}
+		*/
+		
+		playerCam.SetActive(false);
+		playerModel.SetActive(false);
+		mouse.enabled = false;
+		charC.enabled = false;
+		pMove.enabled = false;
+		cCol.enabled = false;
+		
+	}
 }

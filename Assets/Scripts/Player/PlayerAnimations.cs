@@ -108,6 +108,6 @@ public class PlayerAnimations : MonoBehaviour
 			horizontal = 0;
 		}
 
-		
+
 	}
 }
