@@ -17,6 +17,8 @@ public class Sniper : MonoBehaviour
 
 	public Camera gunCam;
 
+	public GameObject gunshotDecal;
+
 	public ParticleSystem muzzelFlash;
 	public GameObject impactEffect;
 	public AudioSource gunShot;
@@ -30,7 +32,6 @@ public class Sniper : MonoBehaviour
 	float scopedHorizontalSpeed = 1.0f;
 	float scopedVerticalSpeed = 1.0f;
 
-	private bool isScoped = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -51,13 +52,35 @@ public class Sniper : MonoBehaviour
 	{
 		muzzelFlash.Play();
 		RaycastHit hit;
-		if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
+		if (PlayerAnimations.scoped)
 		{
-			Debug.Log("Gunshot hit " + hit.transform.name);
+			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
+			{
+				Debug.Log("Gunshot hit " + hit.transform.name);
 
-			GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-			Destroy(impactGO, 2f);
+				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+				Instantiate(gunshotDecal, hit.point, hitRotation);
+				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+				Destroy(impactGO, 2f);
+
+			}
 		}
+		else
+		{
+			//Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range)
+			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, RandomShot.y, 0), out hit, range))
+			{
+				Debug.Log("Gunshot hit " + hit.transform.name);
+
+				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+				Instantiate(gunshotDecal, hit.point, hitRotation);
+				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+				Destroy(impactGO, 2f);
+
+			}
+		}
+
 
 
 	}

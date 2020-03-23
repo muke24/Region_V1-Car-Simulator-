@@ -9,6 +9,7 @@ public class PlayerAnimations : MonoBehaviour
 	public float vertical;
 	public float horizontal;
 	public float animPos;
+	public static bool scoped;
 
 	private void Start()
 	{
@@ -20,10 +21,12 @@ public class PlayerAnimations : MonoBehaviour
 	{
 		if (!Input.GetMouseButton(1))
 		{
+			scoped = false;
 			playerAnimation.SetBool("Aim", false);
 		}
 		if (Input.GetMouseButton(1))
 		{
+			scoped = true;
 			playerAnimation.SetBool("Aim", true);
 		}
 
