@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Sniper : MonoBehaviour
 {
-	[Header("Gun Animations")]
-	public Animator animator;
-	public GameObject scopedCam;
-
-
 	[Header("Shoot")]
 
 	public float damage = 100f;
@@ -17,11 +12,13 @@ public class Sniper : MonoBehaviour
 	public float bulletCount = 5f;
 
 	[Space(10)]
-	
-	public ParticleSystem muzzelFlash;
-	public GameObject raycastAim;
-	public GameObject impactEffect;
 
+	public bool scoped;
+
+	public Camera gunCam;
+
+	public ParticleSystem muzzelFlash;
+	public GameObject impactEffect;
 	public AudioSource gunShot;
 
 	private float nextTimeToFire = 0f;
@@ -53,5 +50,14 @@ public class Sniper : MonoBehaviour
 	void Shoot()
 	{
 		muzzelFlash.Play();
+		RaycastHit hit;
+		if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
+		{
+			Debug.Log("Gunshot hit " + hit.transform.name);
+
+			Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+		}
+
+
 	}
 }
