@@ -13,8 +13,6 @@ public class Sniper : MonoBehaviour
 
 	[Space(10)]
 
-	public bool scoped;
-
 	public Camera gunCam;
 
 	public GameObject gunshotDecal;
@@ -62,7 +60,6 @@ public class Sniper : MonoBehaviour
 				Instantiate(gunshotDecal, hit.point, hitRotation);
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
-
 			}
 		}
 		else
@@ -77,11 +74,7 @@ public class Sniper : MonoBehaviour
 				Instantiate(gunshotDecal, hit.point, hitRotation);
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
-
 			}
 		}
-
-
-
 	}
 }

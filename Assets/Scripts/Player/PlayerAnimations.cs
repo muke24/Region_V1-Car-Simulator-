@@ -9,7 +9,10 @@ public class PlayerAnimations : MonoBehaviour
 	public float vertical;
 	public float horizontal;
 	public float animPos;
+
+	public static float scopingTime = 0f;
 	public static bool scoped;
+	public static bool scoping;
 
 	private void Start()
 	{
@@ -19,13 +22,33 @@ public class PlayerAnimations : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!Input.GetMouseButton(1))
+		if (!Input.GetMouseButton(1)) // not scoping
 		{
+			if (scopingTime > 0f && scopingTime <= 0.25f)
+			{
+				scopingTime -= Time.deltaTime;
+				scoping = true;
+			}
+			else
+			{
+				scoping = false;
+				scopingTime = 0f;
+			}
 			scoped = false;
 			playerAnimation.SetBool("Aim", false);
 		}
-		if (Input.GetMouseButton(1))
+		if (Input.GetMouseButton(1)) // scoping
 		{
+			if (scopingTime >= 0f && scopingTime < 0.25f)
+			{
+				scopingTime += Time.deltaTime;
+				scoping = true;
+			}
+			else
+			{
+				scoping = false;
+				scopingTime = 0.25f;
+			}
 			scoped = true;
 			playerAnimation.SetBool("Aim", true);
 		}
@@ -38,8 +61,6 @@ public class PlayerAnimations : MonoBehaviour
 		}
 		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
 		{
-
-
 			playerAnimation.SetBool("Moving", true);
 
 			if (Input.GetAxis("Vertical") > 0)
@@ -110,7 +131,5 @@ public class PlayerAnimations : MonoBehaviour
 		{
 			horizontal = 0;
 		}
-
-
 	}
 }
