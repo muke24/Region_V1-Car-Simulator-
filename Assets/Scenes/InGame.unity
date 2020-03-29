@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43846726, g: 0.48655307, b: 0.5668256, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846697, g: 0.4865523, b: 0.5668253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14160,6 +14160,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1359473438}
     m_Modifications:
+    - target: {fileID: 719927206, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 719927206, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 1280442486, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
       propertyPath: gunCam
       value: 

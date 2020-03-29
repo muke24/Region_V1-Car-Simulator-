@@ -72,6 +72,7 @@ public class Sniper : MonoBehaviour
 
 				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+				gunShot.transform.SetParent(hit.transform);
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
 				Destroy(gunShot, 20f);
