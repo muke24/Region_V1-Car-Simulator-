@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class VersionToText : MonoBehaviour
 {
-	public string version = "1.0";
+	public string version;
 	public string path;
 
     // Start is called before the first frame update
     void Start()
     {
-		
+		version = Application.version.ToString();
 		CreateText();
 	}
 
 	void CreateText()
 	{
-		path = Application.persistentDataPath + "/Version.txt";
+		path = Application.persistentDataPath + "/CurrentVersion.txt";
 		File.WriteAllText(path, version);
 	}
 
