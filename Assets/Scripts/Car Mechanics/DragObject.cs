@@ -5,22 +5,25 @@ using UnityEngine;
 public class DragObject : MonoBehaviour
 {
 	public GameObject paused;
+	public GameObject inCar;
 
-    private Vector3 mOffset;
-    private float mZCoord;
+	private Vector3 mOffset;
+	private float mZCoord;
 
-    private void OnMouseDown()
-    {
+	private void OnMouseDown()
+	{
 		if (paused.activeSelf == false)
 		{
-			mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-			mOffset = gameObject.transform.position - GetMouseWorldPos();
-		}        
-    }
+			if (inCar.activeSelf == true)
+			{
+				mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+				mOffset = gameObject.transform.position - GetMouseWorldPos();
+			}
+		}
+	}
 
-    private Vector3 GetMouseWorldPos()
-    {
-		
+	private Vector3 GetMouseWorldPos()
+	{
 		// Pixel Coordinates x,y
 		Vector3 mousePoint = Input.mousePosition;
 
@@ -28,15 +31,16 @@ public class DragObject : MonoBehaviour
 		mousePoint.z = mZCoord;
 
 		return Camera.main.ScreenToWorldPoint(mousePoint);
-
 	}
 
-    private void OnMouseDrag()
-    {
+	private void OnMouseDrag()
+	{
 		if (paused.activeSelf == false)
 		{
-			transform.position = GetMouseWorldPos() + mOffset;
+			if (inCar.activeSelf == true)
+			{
+				transform.position = GetMouseWorldPos() + mOffset;
+			}
 		}
-		
-    }
+	}
 }

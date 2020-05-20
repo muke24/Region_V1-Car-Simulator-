@@ -4,52 +4,121 @@ using UnityEngine;
 
 public class Sniper : MonoBehaviour
 {
-	[Header("Shoot")]
+	[SerializeField]
+	private GameObject pause;
 
-	public float damage = 100f;
-	public float range = 1000f;
-	public float fireRate = 1f;
-	public float bulletCount = 5f;
+	[Header("Shoot")]
+	[SerializeField]
+	private float damage = 100f;
+	[SerializeField]
+	private float range = 1000f;
+	[SerializeField]
+	private float bulletCount = 5f;
+	[SerializeField]
+	private float boltTimer = 1f;
+	[SerializeField]
+	private float fireRate = 0f;
 
 	[Space(10)]
 
 	public Camera gunCam;
-
+	public bool boltBool;
 	public GameObject gunshotDecal;
-
+	public PlayerAnimations pA;
 	public ParticleSystem muzzelFlash;
 	public GameObject impactEffect;
 	public AudioSource gunShot;
 
-	private float nextTimeToFire = 0f;
-
-	[Header("Sensitivity")]
+	[Header("Sniper Sensitivity")]
 	float HorizontalSpeed = 2.0f;
 	float VerticalSpeed = 2.0f;
 
 	float scopedHorizontalSpeed = 1.0f;
 	float scopedVerticalSpeed = 1.0f;
 
-
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetButtonDown("Fire1"))
+		if (!pause.activeInHierarchy)
 		{
-			Shoot();
+			if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
+			{
+				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
+				{
+					if (Input.GetButtonDown("Fire1"))
+					{
+						Shoot();
+					}
+				}
+			}
 		}
+
+		#region Shoot Animation
+		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
+		{
+			pA.playerAnimation.SetBool("Shoot", false);
+			//pA.playerAnimation.SetBool("Bolt", true);
+		}
+
+		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot"))
+		{
+			pA.playerAnimation.SetBool("Shoot", true);
+			//pA.playerAnimation.SetBool("Bolt", false);
+		}
+
+		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") && boltTimer > 0 || pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction") && boltTimer > 0)
+		{
+			//pA.playerAnimation.SetBool("Bolt", true);
+		}
+		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") && boltTimer < 0 && boltTimer > -0.2f || pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction") && boltTimer < 0 && boltTimer > -0.2f)
+		{
+			pA.playerAnimation.SetBool("Bolt", false);
+		}
+
+		if (pA.playerAnimation.GetBool("Bolt"))
+		{
+			boltTimer -= Time.deltaTime;
+			boltBool = true;
+		}
+		if (!pA.playerAnimation.GetBool("Bolt"))
+		{
+			boltBool = false;
+		}
+		if (boltTimer < 0f && boltTimer > -0.2f)
+		{
+			pA.playerAnimation.SetBool("Bolt", false);
+			boltTimer -= Time.deltaTime;
+		}
+		if (boltTimer <= -0.2f)
+		{
+			boltTimer = 1f;
+		}
+		#endregion
+
+		#region Shoot While Zoomed Animation
+		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+		{
+			pA.playerAnimation.SetBool("Shoot", false);
+			//pA.playerAnimation.SetBool("Bolt", true);
+		}
+
+		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+		{
+			pA.playerAnimation.SetBool("Shoot", true);
+			//pA.playerAnimation.SetBool("Bolt", false);
+		}
+		#endregion
 	}
 
 	void Shoot()
 	{
+		pA.playerAnimation.SetBool("Shoot", true);
+		pA.playerAnimation.SetBool("Bolt", true);
+
 		muzzelFlash.Play();
+
 		RaycastHit hit;
+
 		if (PlayerAnimations.scoped)
 		{
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
@@ -64,6 +133,8 @@ public class Sniper : MonoBehaviour
 		}
 		else
 		{
+
+
 			//Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range)
 			Vector2 RandomShot = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))

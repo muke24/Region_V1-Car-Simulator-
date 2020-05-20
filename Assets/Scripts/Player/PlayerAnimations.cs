@@ -14,11 +14,6 @@ public class PlayerAnimations : MonoBehaviour
 	public static bool scoped;
 	public static bool scoping;
 
-	private void Start()
-	{
-		//playerAnimation.StartPlayback();
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
