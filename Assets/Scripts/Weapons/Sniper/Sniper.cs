@@ -17,17 +17,20 @@ public class Sniper : MonoBehaviour
 	[SerializeField]
 	private float boltTimer = 1f;
 	[SerializeField]
-	private float fireRate = 0f;
+	private float shootTimer = 1.3f;
+	[SerializeField]
+	private Camera gunCam;
+	[SerializeField]
+	private PlayerAnimations pA;
+	[SerializeField]
+	private bool boltBool;
+	[SerializeField]
+	private bool shootBool;
 
-	[Space(10)]
-
-	public Camera gunCam;
-	public bool boltBool;
 	public GameObject gunshotDecal;
-	public PlayerAnimations pA;
 	public ParticleSystem muzzelFlash;
 	public GameObject impactEffect;
-	public AudioSource gunShot;
+	//public AudioSource gunShot;
 
 	[Header("Sniper Sensitivity")]
 	float HorizontalSpeed = 2.0f;
@@ -39,19 +42,40 @@ public class Sniper : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!pause.activeInHierarchy)
-		{
-			if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
-			{
-				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
-				{
-					if (Input.GetButtonDown("Fire1"))
-					{
-						Shoot();
-					}
-				}
-			}
-		}
+		CheckIfCanShoot();
+
+		#region commented out
+		//if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
+		//{
+		//	if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+		//	{
+		//		if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+		//		{
+		//			if (Input.GetButtonDown("Fire1"))
+		//			{
+		//				Shoot();
+		//			}
+		//		}
+		//	}
+		//}
+
+		//if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot") ||
+		//		!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") ||
+		//		!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomShoot") ||
+		//		!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+		//{
+		//	if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot") ||
+		//		!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction") ||
+		//		!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot") ||
+		//		!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+		//	{
+		//		if (Input.GetButtonDown("Fire1"))
+		//		{
+		//			Shoot();
+		//		}
+		//	}
+		//}
+		#endregion
 
 		#region Shoot Animation
 		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
@@ -108,10 +132,61 @@ public class Sniper : MonoBehaviour
 			//pA.playerAnimation.SetBool("Bolt", false);
 		}
 		#endregion
+
+		if (shootBool)
+		{
+			if (shootTimer >= 0 || shootTimer == 1.3f)
+			{
+				shootTimer -= Time.deltaTime;
+			}
+			if (shootTimer < 0)
+			{
+				shootBool = false;
+				shootTimer = 1.3f;
+			}
+		}
+
+	}
+
+	void CheckIfCanShoot()
+	{
+		if (!pause.activeInHierarchy)
+		{
+			if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
+			{
+				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
+				{
+					if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+					{
+						if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+						{
+							if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot"))
+							{
+								if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
+								{
+									if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+									{
+										if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+										{
+											if (Input.GetButtonDown("Fire1"))
+											{
+												Shoot();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	void Shoot()
 	{
+		shootBool = true;
+
 		pA.playerAnimation.SetBool("Shoot", true);
 		pA.playerAnimation.SetBool("Bolt", true);
 
@@ -133,8 +208,6 @@ public class Sniper : MonoBehaviour
 		}
 		else
 		{
-
-
 			//Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range)
 			Vector2 RandomShot = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))

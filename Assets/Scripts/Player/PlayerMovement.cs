@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
 		}
 
-		if (controller.isGrounded && Input.GetKey("left shift"))
+		if (controller.isGrounded && Input.GetButton("Sprint"))
 		{
 			//Feed moveDirection with input.
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
 		}
 
-		if (!controller.isGrounded && Input.GetKey("left shift"))
+		if (!controller.isGrounded && Input.GetButton("Sprint"))
 		{
 			//Feed moveDirection with input.
 			moveDirection.x = Input.GetAxis("Horizontal") / 1.2f;

@@ -12,7 +12,7 @@ public class LightingManager : MonoBehaviour
 	{
 		foreach (Light light in lights)
 		{
-			light.intensity = light.intensity == 0 ? 2 : 0;
+			light.intensity = light.intensity == 0 ? 1 : 0;
 			Debug.Log("Headlights Toggled");
 		}
 

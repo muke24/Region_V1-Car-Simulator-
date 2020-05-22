@@ -274,7 +274,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.075
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -443,7 +443,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10227,14 +10227,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe491cd625d95f4e8e10125104791b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause: {fileID: 0}
   damage: 100
   range: 1000
-  fireRate: 1
   bulletCount: 5
-  scoped: 0
+  boltTimer: 1
+  fireRate: 1
   gunCam: {fileID: 0}
   gunshotDecal: {fileID: 6755025396589174639, guid: db6c3e95a12f3fb44aaafef862531dfc,
     type: 3}
+  pA: {fileID: 0}
   muzzelFlash: {fileID: 719927206}
   impactEffect: {fileID: 7555024470436820771, guid: a37c6e4906cdc664b96b495a9362437f,
     type: 3}

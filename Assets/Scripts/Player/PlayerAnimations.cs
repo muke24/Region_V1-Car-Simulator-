@@ -17,7 +17,7 @@ public class PlayerAnimations : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (!Input.GetMouseButton(1)) // not scoping
+		if (!Input.GetButton("Aim")) // not scoping
 		{
 			if (scopingTime > 0f && scopingTime <= 0.25f)
 			{
@@ -32,7 +32,7 @@ public class PlayerAnimations : MonoBehaviour
 			scoped = false;
 			playerAnimation.SetBool("Aim", false);
 		}
-		if (Input.GetMouseButton(1)) // scoping
+		if (Input.GetButton("Aim")) // scoping
 		{
 			if (scopingTime >= 0f && scopingTime < 0.25f)
 			{
