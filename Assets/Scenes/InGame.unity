@@ -24070,6 +24070,16 @@ PrefabInstance:
       propertyPath: paused
       value: 
       objectReference: {fileID: 1772000077}
+    - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: sensitivityX
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: sensitivityY
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280504643031172, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_Name
@@ -24135,6 +24145,16 @@ PrefabInstance:
       propertyPath: paused
       value: 
       objectReference: {fileID: 1772000077}
+    - target: {fileID: 4276280504643031231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: sensitivityX
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504643031231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: sensitivityY
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280504708054473, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_Layer

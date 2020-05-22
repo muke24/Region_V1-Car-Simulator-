@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 	public GameObject paused;
-
+	
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 
 	public RotationAxes axes = RotationAxes.MouseXAndY;
