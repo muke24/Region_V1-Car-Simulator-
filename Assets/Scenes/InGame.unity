@@ -10091,12 +10091,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185384603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.990622, y: -1, z: -5.8541284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2554574, y: -1, z: -2.5728445}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1970411870}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188139123
 GameObject:
@@ -17358,7 +17358,7 @@ GameObject:
   - component: {fileID: 1927730265}
   - component: {fileID: 1927730264}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AnimatorValues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17402,7 +17402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929066817
 GameObject:
@@ -18194,6 +18194,7 @@ Transform:
   - {fileID: 1425993550}
   - {fileID: 2071126827}
   - {fileID: 1590343053}
+  - {fileID: 1185384607}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23977,6 +23978,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 816616721, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168844581, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348067422, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2633660410689275991, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: assaltRifle
@@ -24002,10 +24015,30 @@ PrefabInstance:
       propertyPath: weaponID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4276280503324008949, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280503438861393, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_Name
       value: GunPivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280503532374667, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280503962304945, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504271121772, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
@@ -24021,6 +24054,16 @@ PrefabInstance:
         type: 3}
       propertyPath: shootTimer
       value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504510021044, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504553750625, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
@@ -24092,6 +24135,11 @@ PrefabInstance:
       propertyPath: paused
       value: 
       objectReference: {fileID: 1772000077}
+    - target: {fileID: 4276280504708054473, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280505253871025, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
