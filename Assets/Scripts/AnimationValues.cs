@@ -30,7 +30,7 @@ public class AnimationValues : MonoBehaviour
 		aim = pA.playerAnimation.GetBool("Aim");
 		jump = pA.playerAnimation.GetBool("Jump");
 		falling = pA.playerAnimation.GetBool("Falling");
-		isGrounded = pA.playerAnimation.GetBool("isGrounded");
+		isGrounded = pA.playerAnimation.GetBool("IsGrounded");
 		moveSpeed = pA.playerAnimation.GetFloat("MoveSpeed");
 		ammoCount = pA.playerAnimation.GetInteger("AmmoCount");
 		shoot = pA.playerAnimation.GetBool("Shoot");
