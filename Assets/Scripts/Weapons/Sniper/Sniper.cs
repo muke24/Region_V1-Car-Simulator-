@@ -137,7 +137,7 @@ public class Sniper : MonoBehaviour
 			//pA.playerAnimation.SetBool("Bolt", false);
 		}
 		#endregion
-		
+
 	}
 
 	void CheckIfCanShoot()
@@ -162,10 +162,14 @@ public class Sniper : MonoBehaviour
 										{
 											if (ammoCount > 0)
 											{
-												if (Input.GetButtonDown("Fire1"))
+												if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
 												{
-													Shoot();
+													if (Input.GetButtonDown("Fire1"))
+													{
+														Shoot();
+													}
 												}
+												
 											}
 										}
 									}

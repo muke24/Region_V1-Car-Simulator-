@@ -9,6 +9,9 @@ public class PauseGame : MonoBehaviour
 	public GameObject pause;
 	public GameObject settings;
 	public GameObject custCar;
+	public GameObject skins;
+	public GameObject gunViewerCam;
+	public RawImage gunImg;
 	public int carSetting = 0;
 
 	public float settingChangeTimer = 0.10f;
@@ -107,6 +110,9 @@ public class PauseGame : MonoBehaviour
 		pause.SetActive(true);
 		settings.SetActive(false);
 		custCar.SetActive(false);
+		skins.SetActive(false);
+		gunViewerCam.SetActive(false);
+		gunImg.gameObject.SetActive(false);
 	}
 
 	public void CarSettingButtonLeft()
@@ -181,5 +187,16 @@ public class PauseGame : MonoBehaviour
 			}
 		}
 		
+	}
+
+	public void Skins()
+	{
+		if (!skins.activeSelf)
+		{
+			skins.SetActive(true);
+			pause.SetActive(false);
+			gunViewerCam.SetActive(true);
+			gunImg.gameObject.SetActive(true);
+		}
 	}
 }
