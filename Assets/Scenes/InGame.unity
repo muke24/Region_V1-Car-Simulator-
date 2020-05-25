@@ -27589,15 +27589,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 325192137, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280503949885106, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: pause
@@ -27668,56 +27659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031228, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031228, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Height
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031228, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.08806157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031230, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031230, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.08806157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031230, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504643031230, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Height
-      value: 1.8
-      objectReference: {fileID: 0}
     - target: {fileID: 4276280504643031231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: paused
       value: 
       objectReference: {fileID: 1772000077}
-    - target: {fileID: 4276280504821228472, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280504942765340, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4276280503361956731, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
