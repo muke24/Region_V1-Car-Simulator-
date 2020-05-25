@@ -23,8 +23,9 @@ public class PlayerMovement : MonoBehaviour
 			moveDirection *= speed;
 			//Jumping
 			if (Input.GetButton("Jump"))
+			{
 				moveDirection.y = jumpSpeed;
-
+			}
 		}
 
 		if (controller.isGrounded && Input.GetButton("Sprint"))
@@ -36,8 +37,9 @@ public class PlayerMovement : MonoBehaviour
 			moveDirection *= runSpeed;
 			//Jumping
 			if (Input.GetButton("Jump"))
+			{
 				moveDirection.y = jumpSpeed;
-
+			}
 		}
 
 		if (!controller.isGrounded)

@@ -5,17 +5,21 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 	public GameObject paused;
-	
+
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 
-	public float sensitivityX = 15f;
-	public float sensitivityY = 15f;
+	public float sensitivityX = 1.5f;
+	public float sensitivityY = 1.5f;
+	public float sensitivityXads = 1f;
+	public float sensitivityYads = 1f;
 	public float minimumX = -360f;
 	public float maximumX = 360f;
 	public float minimumY = -60f;
 	public float maximumY = 60f;
+	public GameObject sniper;
+	public Animator anim;
 
 	private float rotationX = 0f;
 	private float rotationY = 0f;
@@ -50,10 +54,12 @@ public class MouseLook : MonoBehaviour
 			else if (axes == RotationAxes.MouseX)
 			{
 				MouseX();
+				MouseXads();
 			}
 			else
 			{
 				MouseY();
+				MouseYads();
 			}
 		}
 	}
@@ -75,16 +81,78 @@ public class MouseLook : MonoBehaviour
 	}
 	public void MouseX()
 	{
-		rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-		rotationX = ClampAngle(rotationX, minimumX, maximumX);
-		Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-		transform.localRotation = originalRotation * xQuaternion;
+		if (!anim.GetBool("Aim") && sniper)
+		{
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationX = ClampAngle(rotationX, minimumX, maximumX);
+			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;
+		}
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+		{
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationX = ClampAngle(rotationX, minimumX, maximumX);
+			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;
+		}
+		if (!sniper)
+		{
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationX = ClampAngle(rotationX, minimumX, maximumX);
+			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;
+		}
 	}
 	public void MouseY()
 	{
-		rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-		rotationY = ClampAngle(rotationY, minimumY, maximumY);
-		Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
-		transform.localRotation = originalRotation * yQuaternion;
+		if (!anim.GetBool("Aim") && sniper)
+		{
+
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = ClampAngle(rotationY, minimumY, maximumY);
+			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
+			transform.localRotation = originalRotation * yQuaternion;
+
+		}
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+		{
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = ClampAngle(rotationY, minimumY, maximumY);
+			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
+			transform.localRotation = originalRotation * yQuaternion;
+		}
+		if (!sniper)
+		{
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = ClampAngle(rotationY, minimumY, maximumY);
+			Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
+			transform.localRotation = originalRotation * yQuaternion;
+		}
+	}
+	public void MouseXads()
+	{
+		if (anim.GetBool("Aim") && sniper)
+		{
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+			{
+				rotationX += Input.GetAxis("Mouse X") * sensitivityXads;
+				rotationX = ClampAngle(rotationX, minimumX, maximumX);
+				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+				transform.localRotation = originalRotation * xQuaternion;
+			}
+		}
+	}
+	public void MouseYads()
+	{
+		if (anim.GetBool("Aim") && sniper)
+		{
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+			{
+				rotationY += Input.GetAxis("Mouse Y") * sensitivityYads;
+				rotationY = ClampAngle(rotationY, minimumY, maximumY);
+				Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
+				transform.localRotation = originalRotation * yQuaternion;
+			}
+		}
 	}
 }

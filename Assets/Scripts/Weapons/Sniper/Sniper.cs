@@ -6,14 +6,10 @@ public class Sniper : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject pause;
-
-	[Header("Shoot")]
 	[SerializeField]
 	private float damage = 100f;
 	[SerializeField]
 	private float range = 1000f;
-	[SerializeField]
-	private float bulletCount = 5f;
 	[SerializeField]
 	private float boltTimer = 1f;
 	[SerializeField]
@@ -26,10 +22,17 @@ public class Sniper : MonoBehaviour
 	private bool boltBool;
 	[SerializeField]
 	private bool shootBool;
+	[SerializeField]
+	private GameObject gunshotDecal;
+	[SerializeField]
+	private ParticleSystem muzzelFlash;
+	[SerializeField]
+	private GameObject impactEffect;
+	[SerializeField]
+	private bool reload = false;
 
-	public GameObject gunshotDecal;
-	public ParticleSystem muzzelFlash;
-	public GameObject impactEffect;
+	public int maxAmmo = 5;
+	public int ammoCount = 5;
 	//public AudioSource gunShot;
 
 	[Header("Sniper Sensitivity")]
@@ -146,6 +149,20 @@ public class Sniper : MonoBehaviour
 			}
 		}
 
+		if (ammoCount == 0)
+		{
+			reload = true;
+		}
+
+		pA.playerAnimation.SetBool("Reload", reload);
+
+		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+		{
+			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+			{
+				ammoCount = 5;
+			}
+		}
 	}
 
 	void CheckIfCanShoot()
@@ -168,9 +185,12 @@ public class Sniper : MonoBehaviour
 									{
 										if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
 										{
-											if (Input.GetButtonDown("Fire1"))
+											if (ammoCount > 0)
 											{
-												Shoot();
+												if (Input.GetButtonDown("Fire1"))
+												{
+													Shoot();
+												}
 											}
 										}
 									}
@@ -186,6 +206,8 @@ public class Sniper : MonoBehaviour
 	void Shoot()
 	{
 		shootBool = true;
+
+		ammoCount = ammoCount - 1;
 
 		pA.playerAnimation.SetBool("Shoot", true);
 		pA.playerAnimation.SetBool("Bolt", true);

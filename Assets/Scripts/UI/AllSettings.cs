@@ -24,12 +24,16 @@ public class AllSettings : MonoBehaviour
 	public Slider shadowSlider;
 	public Slider mouseX;
 	public Slider mouseY;
+	public Slider adsMouseX;
+	public Slider adsMouseY;
 
 	public InputField mXinput;
 	public InputField mYinput;
+	public InputField adsMXinput;
+	public InputField adsMYinput;
 
-	public MouseLook mlY;
 	public MouseLook mlX;
+	public MouseLook mlY;
 
 	public Dropdown rtReflections;
 
@@ -66,6 +70,7 @@ public class AllSettings : MonoBehaviour
 		{
 			ApplySettings();
 		}
+
 		resChanged = false;
 		settingsChanged = false;
 		resWidth = Screen.width;
@@ -75,6 +80,8 @@ public class AllSettings : MonoBehaviour
 
 		mXinput.text = mouseX.value.ToString();
 		mYinput.text = mouseY.value.ToString();
+		adsMXinput.text = adsMouseX.value.ToString();
+		adsMYinput.text = adsMouseY.value.ToString();
 
 		ResolutionDrag();
 		ReflectionDrag();
@@ -222,8 +229,11 @@ public class AllSettings : MonoBehaviour
 					shadowValueText.text = "Very High";
 				}
 			}
+
 			mlX.sensitivityX = mouseX.value;
 			mlY.sensitivityY = mouseY.value;
+			mlX.sensitivityXads = adsMouseX.value;
+			mlY.sensitivityYads = adsMouseY.value;
 
 			start = false;
 			settingsChanged = false;
@@ -255,26 +265,62 @@ public class AllSettings : MonoBehaviour
 	public void ChangeInputFieldX()
 	{
 		mouseX.value = float.Parse(mXinput.text);
-		if (float.Parse(mXinput.text) > 30)
+		if (float.Parse(mXinput.text) > 1000f)
 		{
-			mXinput.text = "30";
+			mXinput.text = "1000";
 		}
-		if (float.Parse(mXinput.text) < 0.01f)
+		if (float.Parse(mXinput.text) < 1f)
 		{
-			mXinput.text = "0.01";
+			mXinput.text = "1";
 		}
 	}
 
 	public void ChangeInputFieldY()
 	{
 		mouseY.value = float.Parse(mYinput.text);
-		if (float.Parse(mYinput.text) > 30f)
+		if (float.Parse(mYinput.text) > 1000f)
 		{
-			mYinput.text = "30";
+			mYinput.text = "1000";
 		}
-		if (float.Parse(mYinput.text) < 0.01f)
+		if (float.Parse(mYinput.text) < 1f)
 		{
-			mYinput.text = "0.01";
+			mYinput.text = "1";
+		}
+	}
+
+	public void ADSSensOnDragX()
+	{
+		adsMXinput.text = adsMouseX.value.ToString();
+	}
+
+	public void ADSSensOnDragY()
+	{
+		adsMYinput.text = adsMouseY.value.ToString();
+	}
+
+	public void ADSChangeInputFieldX()
+	{
+		adsMouseX.value = float.Parse(adsMXinput.text);
+		if (float.Parse(adsMXinput.text) > 1000f)
+		{
+			adsMXinput.text = "1000";
+		}
+		if (float.Parse(adsMXinput.text) < 1f)
+		{
+			adsMXinput.text = "1";
+		}
+	}
+
+	public void ADSChangeInputFieldY()
+	{
+		adsMouseY.value = float.Parse(adsMYinput.text);
+		if (float.Parse(adsMYinput.text) > 1000f)
+		{
+			adsMYinput.text = "1000";
+		}
+		if (float.Parse(adsMYinput.text) < 1f)
+		{
+			adsMYinput.text = "1";
 		}
 	}
 
