@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
+	public string interactInput;
+
 	public bool inCar;
 	public float interactDist = 3f;
 	public float intTimer = 0.25f;
@@ -17,8 +19,6 @@ public class Interactable : MonoBehaviour
 	public GameObject car;
 	public GameObject player;
 
-
-
 	public GameObject playerCam;
 	public GameObject playerModel;
 	public MouseLook mouse;
@@ -26,12 +26,8 @@ public class Interactable : MonoBehaviour
 	public PlayerMovement pMove;
 	public CapsuleCollider cCol;
 
-
-
 	public Text intText;
-	public Camera carCam;
-
-	
+	public Camera carCam;	
 
 	public CarController cc;
 	public CarInputManager im;
@@ -45,7 +41,7 @@ public class Interactable : MonoBehaviour
 		carCam.gameObject.SetActive(false);
 		//player.gameObject.SetActive(true);
 		playerEnable();
-
+		interactInput = "E";
 	}
 
 	// Update is called once per frame
@@ -108,6 +104,7 @@ public class Interactable : MonoBehaviour
 		if (interactDist >= Vector3.Distance(car.transform.position, player.transform.position) && !inCar)
 		{
 			intText.gameObject.SetActive(true);
+			intText.text = "Press " + interactInput + " to get into car";
 
 			if (Input.GetKeyDown(KeyCode.E) && intTimer <= 0)
 			{
@@ -166,7 +163,6 @@ public class Interactable : MonoBehaviour
 		mouse.enabled = false;
 		charC.enabled = false;
 		pMove.enabled = false;
-		cCol.enabled = false;
-		
+		cCol.enabled = false;		
 	}
 }

@@ -4760,6 +4760,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d038d83652db3e4098cf9492db7509e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactInput:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   inCar: 0
   interactDist: 2.5
   intTimer: 0.25
@@ -24537,12 +24638,12 @@ PrefabInstance:
     - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: sensitivityX
-      value: 0.01
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: sensitivityY
-      value: 0.01
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504643031172, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
@@ -24612,12 +24713,12 @@ PrefabInstance:
     - target: {fileID: 4276280504643031231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: sensitivityX
-      value: 0.01
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504643031231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: sensitivityY
-      value: 0.01
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504708054473, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
