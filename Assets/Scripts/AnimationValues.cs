@@ -32,7 +32,6 @@ public class AnimationValues : MonoBehaviour
 		falling = pA.playerAnimation.GetBool("Falling");
 		isGrounded = pA.playerAnimation.GetBool("IsGrounded");
 		moveSpeed = pA.playerAnimation.GetFloat("MoveSpeed");
-		ammoCount = pA.playerAnimation.GetInteger("AmmoCount");
 		shoot = pA.playerAnimation.GetBool("Shoot");
 		bolt = pA.playerAnimation.GetBool("Bolt");
 		reload = pA.playerAnimation.GetBool("Reload");

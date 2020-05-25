@@ -29,7 +29,7 @@ public class Sniper : MonoBehaviour
 	[SerializeField]
 	private GameObject impactEffect;
 	[SerializeField]
-	private bool reload = false;
+	private bool reload;
 
 	public int maxAmmo = 5;
 	public int ammoCount = 5;
@@ -46,6 +46,8 @@ public class Sniper : MonoBehaviour
 	void Update()
 	{
 		CheckIfCanShoot();
+
+		Reload();
 
 		#region commented out
 		//if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
@@ -135,34 +137,7 @@ public class Sniper : MonoBehaviour
 			//pA.playerAnimation.SetBool("Bolt", false);
 		}
 		#endregion
-
-		if (shootBool)
-		{
-			if (shootTimer >= 0 || shootTimer == 1.3f)
-			{
-				shootTimer -= Time.deltaTime;
-			}
-			if (shootTimer < 0)
-			{
-				shootBool = false;
-				shootTimer = 1.3f;
-			}
-		}
-
-		if (ammoCount == 0)
-		{
-			reload = true;
-		}
-
-		pA.playerAnimation.SetBool("Reload", reload);
-
-		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
-		{
-			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
-			{
-				ammoCount = 5;
-			}
-		}
+		
 	}
 
 	void CheckIfCanShoot()
@@ -199,6 +174,19 @@ public class Sniper : MonoBehaviour
 						}
 					}
 				}
+			}
+		}
+
+		if (shootBool)
+		{
+			if (shootTimer >= 0 || shootTimer == 1.3f)
+			{
+				shootTimer -= Time.deltaTime;
+			}
+			if (shootTimer < 0)
+			{
+				shootBool = false;
+				shootTimer = 1.3f;
 			}
 		}
 	}
@@ -242,6 +230,33 @@ public class Sniper : MonoBehaviour
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
 				Destroy(gunShot, 20f);
+			}
+		}
+	}
+
+	void Reload()
+	{
+		if (ammoCount == 0)
+		{
+			reload = true;
+		}
+
+		pA.playerAnimation.SetBool("Reload", reload);
+
+		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+		{
+			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
+			{
+				ammoCount = 5;
+			}
+		}
+
+		if (Input.GetButtonDown("Reload"))
+		{
+			if (ammoCount < 5)
+			{
+				reload = true;
+				pA.playerAnimation.SetBool("Reload", reload);
 			}
 		}
 	}

@@ -3,26 +3,25 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-	public Text text;
+	public Text speedText;
 	public Text fpsText;
 	public Text ammoText;
-	public Sniper sniper;
-
-	private void Start()
-	{
-		
-	}
+	[SerializeField]
+	private Sniper sniper;
 
 	public virtual void ChangeText(float speed)
 	{
 		float s = speed * 3.6f;
-		text.text = Mathf.Round(s) + " KM/H";
+		speedText.text = Mathf.Round(s) + " KM/H";
 	}
 
 	private void Update()
 	{
 		fpsText.text = "FPS: " + (Mathf.Round(1/Time.smoothDeltaTime)).ToString();
-		AmmoCheck();
+		if (sniper != null)
+		{
+			AmmoCheck();
+		}		
 	}
 
 	public void AmmoCheck()

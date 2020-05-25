@@ -9,6 +9,7 @@ public class PlayerAnimations : MonoBehaviour
 	public float vertical;
 	public float horizontal;
 	public float animPos;
+	public bool crouch = false;
 
 	public static float scopingTime = 0f;
 	public static bool scoped;
@@ -126,5 +127,17 @@ public class PlayerAnimations : MonoBehaviour
 		{
 			horizontal = 0;
 		}
+
+		if (Input.GetButton("Crouch"))
+		{
+			crouch = true;
+			playerAnimation.SetBool("Crouch", crouch);
+		}
+		if (!Input.GetButton("Crouch"))
+		{
+			crouch = false;
+			playerAnimation.SetBool("Crouch", crouch);
+		}
+
 	}
 }
