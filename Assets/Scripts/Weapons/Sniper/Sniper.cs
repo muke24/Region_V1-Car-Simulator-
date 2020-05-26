@@ -6,8 +6,8 @@ public class Sniper : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject pause;
-	[SerializeField]
-	private float damage = 100f;
+	//[SerializeField]
+	//private float damage = 100f;
 	[SerializeField]
 	private float range = 1000f;
 	[SerializeField]
@@ -22,8 +22,9 @@ public class Sniper : MonoBehaviour
 	private bool boltBool;
 	[SerializeField]
 	private bool shootBool;
-	[SerializeField]
-	private GameObject gunshotDecal;
+
+	public GameObject gunshotDecal;
+
 	[SerializeField]
 	private ParticleSystem muzzelFlash;
 	[SerializeField]
@@ -31,20 +32,19 @@ public class Sniper : MonoBehaviour
 	[SerializeField]
 	private bool reload;
 
-	public int maxAmmo = 5;
-	public int ammoCount = 5;
+	public static int maxAmmo = 5;		
+	public static int ammoCount = 5;	
+
+	public int imaxAmmo = 5;        // non-static int
+	public int iammoCount = 5;		// non-static int
 	//public AudioSource gunShot;
-
-	[Header("Sniper Sensitivity")]
-	float HorizontalSpeed = 2.0f;
-	float VerticalSpeed = 2.0f;
-
-	float scopedHorizontalSpeed = 1.0f;
-	float scopedVerticalSpeed = 1.0f;
 
 	// Update is called once per frame
 	void Update()
 	{
+		imaxAmmo = maxAmmo;
+		iammoCount = ammoCount;
+
 		CheckIfCanShoot();
 
 		Reload();
@@ -208,19 +208,21 @@ public class Sniper : MonoBehaviour
 
 		RaycastHit hit;
 
-		if (PlayerAnimations.scoped)
+		if (pA.playerAnimation.GetBool("Aim"))
 		{
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
 				Debug.Log("Gunshot hit " + hit.transform.name);
 
 				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-				Instantiate(gunshotDecal, hit.point, hitRotation);
+				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+				gunShot.transform.SetParent(hit.transform);
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
+				Destroy(gunShot, 20f);
 			}
 		}
-		else
+		if (!pA.playerAnimation.GetBool("Aim"))
 		{
 			//Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range)
 			Vector2 RandomShot = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
@@ -251,13 +253,13 @@ public class Sniper : MonoBehaviour
 		{
 			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
 			{
-				ammoCount = 5;
+				ammoCount = maxAmmo ;
 			}
 		}
 
 		if (Input.GetButtonDown("Reload"))
 		{
-			if (ammoCount < 5)
+			if (ammoCount < maxAmmo)
 			{
 				reload = true;
 				pA.playerAnimation.SetBool("Reload", reload);

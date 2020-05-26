@@ -12,8 +12,8 @@ public class PlayerAnimations : MonoBehaviour
 	public bool crouch = false;
 
 	public static float scopingTime = 0f;
-	public static bool scoped;
-	public static bool scoping;
+	public bool scoped;
+	public bool scoping;
 
 	// Update is called once per frame
 	void Update()
@@ -114,7 +114,7 @@ public class PlayerAnimations : MonoBehaviour
 			}
 		}
 
-		if (Input.GetButton("Jump") && pMovement.controller.isGrounded)
+		if (Input.GetButton("Jump") && PlayerMovement.controller.isGrounded)
 		{
 			playerAnimation.SetBool("Jump", true);
 		}

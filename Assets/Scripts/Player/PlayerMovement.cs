@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 6.0F;
-	public float runSpeed = 10.0F;
-	public float jumpSpeed = 8.0F;
-	public float gravity = 20.0F;
-	public CharacterController controller;
+	public static float speed = 4.5f;
+	public static float runSpeed = 7.0f;
+	public static float jumpSpeed = 6.0f;
+	public static float gravity = 20.0f;
+	public static CharacterController controller;
 
 	public bool isWalking;
 	public bool isRunning;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public PlayerAnimations pA;
 
-	private Vector3 moveDirection = Vector3.zero;
+	public static Vector3 moveDirection = Vector3.zero;
 
 	private void Start()
 	{
@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 			moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2f, 0, Input.GetAxis("Vertical") / 2f);
 			moveDirection = transform.TransformDirection(moveDirection);
 			//Multiply it by speed.
-			moveDirection *= speed / 2f;
+			moveDirection *= speed;
 			//Jumping
 			if (Input.GetButton("Jump"))
 			{
@@ -132,25 +132,34 @@ public class PlayerMovement : MonoBehaviour
 		if (!controller.isGrounded && Input.GetButton("Crouch"))
 		{
 			//Feed moveDirection with input.
-			moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
+			moveDirection.x = Input.GetAxis("Horizontal") / 2.1f;
+			moveDirection.z = Input.GetAxis("Vertical") / 2.1f;
+
+			//moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
 			moveDirection = transform.TransformDirection(moveDirection);
 			//Multiply it by speed.
-			moveDirection *= speed;
-			//Jumping
-			if (Input.GetButton("Jump"))
-			{
-				moveDirection.y = jumpSpeed;
-			}
+			moveDirection.x *= speed;
+			moveDirection.z *= speed;
+			//moveDirection *= speed;
 
 			isWalking = false;
 			isRunning = false;
 			isCrouching = true;
 			isAirBorn = true;
 		}
-		//Applying gravity to the controller
-		moveDirection.y -= gravity * Time.deltaTime;
+
 		//Making the character move
 		controller.Move(moveDirection * Time.deltaTime);
+		if (!Console._cheat2)
+		{
+			Gravity();
+		}		
+	}
+
+	void Gravity()
+	{
+		//Apply gravity to the controller
+		moveDirection.y -= gravity * Time.deltaTime;		
 	}
 
 	void AnimatorMultipliers()
@@ -176,3 +185,23 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 }
+
+//-------FLYING BUG--------// - Press crouch to fly
+//if (!controller.isGrounded && Input.GetButton("Crouch"))
+//{
+//	//Feed moveDirection with input.
+//	moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
+//	moveDirection = transform.TransformDirection(moveDirection);
+//	//Multiply it by speed.
+//	moveDirection *= speed;
+//	//Jumping
+//	if (Input.GetButton("Jump"))
+//	{
+//		moveDirection.y = jumpSpeed;
+//	}
+
+//	isWalking = false;
+//	isRunning = false;
+//	isCrouching = true;
+//	isAirBorn = true;
+//}

@@ -28,7 +28,14 @@ public class UIManager : MonoBehaviour
 	{
 		if (sniper.gameObject)
 		{
-			ammoText.text = sniper.ammoCount.ToString() + " / " + sniper.maxAmmo.ToString();
+			if (!Console._cheat1)
+			{
+				ammoText.text = sniper.iammoCount.ToString() + " / " + sniper.imaxAmmo.ToString();
+			}
+			if (Console._cheat1)
+			{
+				ammoText.text = "∞ / ∞";
+			}
 		}
 	}
 }
