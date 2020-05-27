@@ -9204,10 +9204,10 @@ WheelCollider:
   m_Radius: 0.3075
   m_SuspensionSpring:
     spring: 30591.139
-    damper: 3765.0637
+    damper: 3765.0632
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609469
-  m_ForceAppPointDistance: 0.43693107
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.4745962
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -26346,11 +26346,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 30552.47
-    damper: 3760.304
+    spring: 30552.465
+    damper: 3760.3032
     targetPosition: 0.5
   m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.43693107
+  m_ForceAppPointDistance: 0.4745962
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -35768,7 +35768,7 @@ WheelCollider:
     damper: 4554.943
     targetPosition: 0.5
   m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.42857897
+  m_ForceAppPointDistance: 0.46624416
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -36220,7 +36220,7 @@ WheelCollider:
     damper: 4559.691
     targetPosition: 0.5
   m_SuspensionDistance: 0.11609469
-  m_ForceAppPointDistance: 0.42857897
+  m_ForceAppPointDistance: 0.46624416
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -36588,7 +36588,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.645, z: -1.6525}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525}
+  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525002}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -37424,7 +37424,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7149999, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.71500003, y: 0.25, z: 0.87500006}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -37694,7 +37694,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7149999, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.71500003, y: 0.25, z: 0.87500006}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -38105,7 +38105,7 @@ Transform:
   m_GameObject: {fileID: 1610265679339990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.98, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_Children:
   - {fileID: 1266782646}
   - {fileID: 398619363}
