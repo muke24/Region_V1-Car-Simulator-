@@ -8,10 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: 8b29dc6e0e01caf41b346dc8eb88945a,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: 413345b2c34d5a5448ba9bd4e63d7577, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,6 +18,52 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats: []
-    m_Colors: []
+    m_TexEnvs:
+    - _Normals:
+        m_Texture: {fileID: 2800000, guid: 7060a5f88c6a25346b9df09489ac6aec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normals1:
+        m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
+        m_Scale: {x: 40, y: 40}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 7060a5f88c6a25346b9df09489ac6aec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EdgeDistance: 1
+    - _EdgePower: 0.4
+    - _Float0: 0.299
+    - _Float2: 0.4
+    - _Float3: 0.1
+    - _FoamDistance: 0
+    - _FoamStrength: 1
+    - _NormalSpeed: 1
+    - _NormalSpeed1: 10
+    - _NormalSpeed2: 10
+    - _NormalStrength: 0.13
+    - _NormalTile: 0.25
+    - _NormalTile1: 0.01
+    - _NormalTile2: 0.01
+    - _Smoothness: 1.62
+    - _TransAmbient: 0.2
+    - _TransDirect: 1
+    - _TransNormalDistortion: 0.1
+    - _TransScattering: 2
+    - _TransShadow: 0.9
+    - _Translucency: 1
+    - _WaveScale: 0.2
+    - _WaveSpeed: 25
+    - _WaveStrength: 2
+    - _WaveTile: 0.41
+    - __dirty: 0
+    m_Colors:
+    - _VTInfoBlock: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2: {r: 1, g: 0.3, b: 0, a: 0}
+    - _WaterA: {r: 0.012682448, g: 0.15842494, b: 0.1792453, a: 1}
+    - _WaterB: {r: 0, g: 0.7147929, b: 0.8301887, a: 1}
