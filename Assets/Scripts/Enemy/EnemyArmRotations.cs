@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class OtherPlayer : MonoBehaviour
+public class EnemyArmRotations : MonoBehaviour
 {
-    public GameObject arms;
-    public GameObject lookCam;
-    public GameObject head;
+    [SerializeField]
+    private GameObject arms;
+    [SerializeField]
+    private GameObject lookCam;
+    [SerializeField]
+    private GameObject head;
 
-    public float y;
+    [SerializeField]
+    private float y;
 
     // Update is called once per frame
     void Update()

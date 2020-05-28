@@ -9820,6 +9820,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585407268}
   m_CullTransparentMesh: 0
+--- !u!1 &592683192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1418833979990445891, guid: 9bb69d137dbf91c4b88ba9a299055441,
+    type: 3}
+  m_PrefabInstance: {fileID: 2947838549948155439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &593322979
 GameObject:
   m_ObjectHideFlags: 0
@@ -30430,7 +30436,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1924965206}
   m_OnClick:
     m_PersistentCalls:
@@ -39592,11 +39598,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 1418833979990445947, guid: 9bb69d137dbf91c4b88ba9a299055441,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
 --- !u!1001 &4276280504641053726
@@ -39610,6 +39611,11 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4276280503679876499, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 9015
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: pause
@@ -39620,10 +39626,40 @@ PrefabInstance:
       propertyPath: pM
       value: 
       objectReference: {fileID: 2356387}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: collisions
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: headShotMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: footShotMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: enemyGO
+      value: 
+      objectReference: {fileID: 592683192}
+    - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
+        type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4276280504595284993, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 823
+      value: 9015
       objectReference: {fileID: 0}
     - target: {fileID: 4276280504595284995, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}

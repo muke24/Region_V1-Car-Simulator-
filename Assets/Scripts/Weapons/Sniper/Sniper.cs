@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Sniper : MonoBehaviour
 {
+	#region Sniper
 	[SerializeField]
 	private GameObject pause;
-	//[SerializeField]
-	//private float damage = 100f;
 	[SerializeField]
 	private float range = 1000f;
 	[SerializeField]
@@ -22,6 +21,22 @@ public class Sniper : MonoBehaviour
 	private bool boltBool;
 	[SerializeField]
 	private bool shootBool;
+	#endregion
+
+	#region Deal Damage
+	public Enemy enemy;
+	public Collisions collisions;
+	public float damage = 100f;
+
+	[SerializeField]
+	private float headShotMultiplier = 2f;
+	[SerializeField]
+	private float bodyShotMultiplier = 1f;
+	[SerializeField]
+	private float legShotMultiplier = 0.75f;
+	[SerializeField]
+	private float footShotMultiplier = 0.5f;
+	#endregion
 
 	public GameObject gunshotDecal;
 
@@ -32,12 +47,12 @@ public class Sniper : MonoBehaviour
 	[SerializeField]
 	private bool reload;
 
-	public static int maxAmmo = 5;		
-	public static int ammoCount = 5;	
+	public static int maxAmmo = 5;
+	public static int ammoCount = 5;
 
 	public int imaxAmmo = 5;        // non-static int
-	public int iammoCount = 5;		// non-static int
-	//public AudioSource gunShot;
+	public int iammoCount = 5;      // non-static int
+									//public AudioSource gunShot;
 
 	// Update is called once per frame
 	void Update()
@@ -169,7 +184,7 @@ public class Sniper : MonoBehaviour
 														Shoot();
 													}
 												}
-												
+
 											}
 										}
 									}
@@ -212,7 +227,18 @@ public class Sniper : MonoBehaviour
 		{
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
-				Debug.Log("Gunshot hit " + hit.transform.name);
+				Debug.Log("Gunshot hit " + hit.collider.name);
+
+				if (hit.transform.root.gameObject.tag == "Enemy")
+				{
+					enemy = hit.transform.root.gameObject.GetComponent<Enemy>();
+					collisions = hit.transform.root.gameObject.GetComponent<Collisions>();
+				}
+				else
+				{
+					enemy = null;
+					collisions = null;
+				}
 
 				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
@@ -220,6 +246,56 @@ public class Sniper : MonoBehaviour
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
 				Destroy(gunShot, 20f);
+				#region Hit collider check aimed
+				if (hit.transform.root.tag == "Enemy")
+				{
+					Debug.Log("WORKING");
+					if (enemy.gameObject.activeSelf)
+					{
+						
+						if (hit.collider == collisions.head)
+						{
+							HeadShotHit();
+						}
+						if (hit.collider == collisions.body)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftUpperArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.rightUpperArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftLowerArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.rightLowerArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftUpperLeg)
+						{
+							LegShotHit();
+						}
+						if (hit.collider == collisions.rightUpperLeg)
+						{
+							LegShotHit();
+						}
+						if (hit.collider == collisions.leftLowerLeg)
+						{
+							FootShotHit();
+						}
+						if (hit.collider == collisions.rightLowerLeg)
+						{
+							FootShotHit();
+						}
+					}
+				}
+				#endregion
 			}
 		}
 		if (!pA.playerAnimation.GetBool("Aim"))
@@ -228,7 +304,18 @@ public class Sniper : MonoBehaviour
 			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
-				Debug.Log("Gunshot hit " + hit.transform.name);
+				Debug.Log("Gunshot hit " + hit.collider.name);
+
+				if (hit.transform.root.gameObject.tag == "Enemy")
+				{
+					enemy = hit.transform.root.gameObject.GetComponent<Enemy>();
+					collisions = hit.transform.root.gameObject.GetComponent<Collisions>();
+				}
+				else
+				{
+					enemy = null;
+					collisions = null;
+				}
 
 				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
@@ -236,6 +323,57 @@ public class Sniper : MonoBehaviour
 				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 				Destroy(impactGO, 2f);
 				Destroy(gunShot, 20f);
+
+				#region Hit collider check
+				if (hit.transform.root.tag == "Enemy")
+				{
+					Debug.Log("WORKING");
+					if (enemy.gameObject.activeSelf)
+					{
+
+						if (hit.collider == collisions.head)
+						{
+							HeadShotHit();
+						}
+						if (hit.collider == collisions.body)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftUpperArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.rightUpperArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftLowerArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.rightLowerArm)
+						{
+							BodyShotHit();
+						}
+						if (hit.collider == collisions.leftUpperLeg)
+						{
+							LegShotHit();
+						}
+						if (hit.collider == collisions.rightUpperLeg)
+						{
+							LegShotHit();
+						}
+						if (hit.collider == collisions.leftLowerLeg)
+						{
+							FootShotHit();
+						}
+						if (hit.collider == collisions.rightLowerLeg)
+						{
+							FootShotHit();
+						}
+					}
+				}
+				#endregion
 			}
 		}
 	}
@@ -253,7 +391,7 @@ public class Sniper : MonoBehaviour
 		{
 			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
 			{
-				ammoCount = maxAmmo ;
+				ammoCount = maxAmmo;
 			}
 		}
 
@@ -265,5 +403,25 @@ public class Sniper : MonoBehaviour
 				pA.playerAnimation.SetBool("Reload", reload);
 			}
 		}
+	}
+
+	void HeadShotHit()
+	{
+		enemy.curHealth -= damage * headShotMultiplier;
+	}
+
+	void BodyShotHit()
+	{
+		enemy.curHealth -= damage * bodyShotMultiplier;
+	}
+
+	void LegShotHit()
+	{
+		enemy.curHealth -= damage * legShotMultiplier;
+	}
+
+	void FootShotHit()
+	{
+		enemy.curHealth -= damage * footShotMultiplier;
 	}
 }
