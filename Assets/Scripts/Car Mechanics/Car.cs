@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllValues : MonoBehaviour
+public class Car : MonoBehaviour
 {
-	public float sensitivityX = 7f;
-	public float sensitivityY = 7f;
-
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CarPlayerCollision : MonoBehaviour
 {
-	public Enemy enemy;
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -24,7 +22,7 @@ public class CarPlayerCollision : MonoBehaviour
 		{
 			if (collision.transform.root.gameObject.tag == "Enemy")
 			{
-				enemy = collision.transform.root.GetComponent<Enemy>();
+				Enemy enemy = collision.transform.root.GetComponent<Enemy>();
 				enemy.ragdoll = true;
 			}
 		}

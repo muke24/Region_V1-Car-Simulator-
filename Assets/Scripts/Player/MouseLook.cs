@@ -10,10 +10,10 @@ public class MouseLook : MonoBehaviour
 
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 
-	public float sensitivityX = 1.5f;
-	public float sensitivityY = 1.5f;
-	public float sensitivityXads = 1f;
-	public float sensitivityYads = 1f;
+	public float sensitivityX = 100f;
+	public float sensitivityY = 100f;
+	public float sensitivityXads = 50f;
+	public float sensitivityYads = 50f;
 	public float minimumX = -360f;
 	public float maximumX = 360f;
 	public float minimumY = -60f;

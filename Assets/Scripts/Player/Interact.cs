@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+public class Interact : MonoBehaviour
 {
 	public string interactInput;
 
@@ -47,6 +47,7 @@ public class Interactable : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
 		if (intTimer >= 0)
 		{
 			intTimer -= Time.deltaTime;
@@ -96,9 +97,7 @@ public class Interactable : MonoBehaviour
 			}
 
 			carCanv.SetActive(false);
-			fpsCanv.SetActive(true);
-
-			
+			fpsCanv.SetActive(true);			
 		}
 
 		if (interactDist >= Vector3.Distance(car.transform.position, player.transform.position) && !inCar)
@@ -164,5 +163,5 @@ public class Interactable : MonoBehaviour
 		charC.enabled = false;
 		pMove.enabled = false;
 		cCol.enabled = false;		
-	}
+	}	
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CarCameraManager : MonoBehaviour
 {
-	public AllSettings allSettings;
+	public MouseLook mouseLook;
 
 	public Rigidbody rb;
 	public GameObject pause;
 	public GameObject focus;
-	public float distance = 4f;
+	public float distance = 5f;
 	public float height = 2f;
 	public float dampening = 12.5f;
 	public float h2 = 0f;
@@ -60,6 +60,10 @@ public class CarCameraManager : MonoBehaviour
 	}
 	private void Update()
 	{
+		if (rb == null)
+		{
+			Debug.LogWarning("No Rigidbody is assigned");
+		}
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			camMode = (camMode + 1) % 2;
@@ -113,7 +117,7 @@ public class CarCameraManager : MonoBehaviour
 		}
 		if (!Input.GetKey(KeyCode.I))
 		{
-			distance = 4f;
+			distance = 4.5f;
 			dampening = 12.5f;
 		}
 
@@ -133,8 +137,6 @@ public class CarCameraManager : MonoBehaviour
 			{
 				dampening = 12.5f;
 			}
-
-
 		}
 
 		if (camMode == 1)
@@ -157,7 +159,7 @@ public class CarCameraManager : MonoBehaviour
 				//Camera.main.fieldOfView = 80f;
 			}
 
-			if (Input.GetButtonDown("Aim"))
+			if (Input.GetButtonDown("Aim") || Input.GetButtonUp("Aim"))
 			{
 				originalRotation = rb.transform.rotation;
 				rotationX = 0;
@@ -165,7 +167,7 @@ public class CarCameraManager : MonoBehaviour
 
 			if (Input.GetButton("Aim"))
 			{
-				rotationX += Input.GetAxis("Mouse X") * 30;
+				rotationX += Input.GetAxis("Mouse X") * mouseLook.sensitivityX;
 				rotationX = ClampAngle(rotationX, minimumX, maximumX);
 
 				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
