@@ -6,6 +6,7 @@ public class CarCameraManager : MonoBehaviour
 {
 	public AllSettings allSettings;
 
+	public Rigidbody rb;
 	public GameObject pause;
 	public GameObject focus;
 	public float distance = 4f;
@@ -21,7 +22,6 @@ public class CarCameraManager : MonoBehaviour
 
 	#region MouseLook
 
-	public float sensitivityX = 10f;
 	public float minimumX = -360F;
 	public float maximumX = 360F;
 
@@ -33,9 +33,14 @@ public class CarCameraManager : MonoBehaviour
 
 	private int camMode = 0;
 
+	private void Awake()
+	{
+		rb = focus.GetComponent<Rigidbody>();
+	}
+
 	void Start()
 	{
-		originalRotation = transform.localRotation;
+		originalRotation = rb.transform.rotation;
 	}
 
 	public static float ClampAngle(float angle, float min, float max)
@@ -80,14 +85,14 @@ public class CarCameraManager : MonoBehaviour
 				Cursor.lockState = CursorLockMode.None;
 			}
 
-			if (!Input.GetMouseButton(1))
+			if (!Input.GetButton("Aim"))
 			{
 				
 				transform.rotation = focus.transform.rotation;
 				Camera.main.fieldOfView = 80f;
 			}
 
-			if (Input.GetMouseButton(1))
+			if (Input.GetButton("Aim"))
 			{
 				rotationX += Input.GetAxis("Mouse X") * 7;
 				rotationX = ClampAngle(rotationX, minimumX, maximumX);
@@ -130,6 +135,43 @@ public class CarCameraManager : MonoBehaviour
 			}
 
 
+		}
+
+		if (camMode == 1)
+		{
+			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
+
+			if (!pause.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			if (pause.activeSelf)
+			{
+				Cursor.lockState = CursorLockMode.None;
+			}
+
+			if (!Input.GetButton("Aim"))
+			{
+
+				//transform.rotation = rb.transform.rotation;
+				//Camera.main.fieldOfView = 80f;
+			}
+
+			if (Input.GetButtonDown("Aim"))
+			{
+				originalRotation = rb.transform.rotation;
+				rotationX = 0;
+			}
+
+			if (Input.GetButton("Aim"))
+			{
+				rotationX += Input.GetAxis("Mouse X") * 30;
+				rotationX = ClampAngle(rotationX, minimumX, maximumX);
+
+				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+				transform.localRotation = originalRotation * xQuaternion;
+				originalRotation = rb.transform.rotation;
+			}
 		}
 	}
 }

@@ -8,29 +8,36 @@ using UnityEngine;
 [RequireComponent(typeof(LightingManager))]
 public class CarController : MonoBehaviour
 {
-	public CarInputManager im;
-	public LightingManager lm;
-	public UIManager uim;
+	[SerializeField]
+	private CarInputManager im;
+	[SerializeField]
+	private LightingManager lm;
+	[SerializeField]
+	private UIManager uim;
+	[SerializeField]
+	private Transform CM;
+	[SerializeField]
+	private Rigidbody rb;
+
+	//public WheelCollider wc;
 
 	public List<WheelCollider> throttleWheels;
 	public List<GameObject> steeringWheels;
 	public List<GameObject> meshes;
 	public List<GameObject> tailLightColour;
 
-	public WheelCollider wc;
-
 	public float strengthCoefficient = 20000f;
 	public float maxTurn = 20f;
 	public float brakeStrength;
 
-	public Transform CM;
-	public Rigidbody rb;
+	
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		im = GetComponent<CarInputManager>();
 		rb = GetComponent<Rigidbody>();
+		lm = GetComponent<LightingManager>();
 
 		if (CM)
 		{

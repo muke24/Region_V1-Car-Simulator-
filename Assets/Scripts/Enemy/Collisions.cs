@@ -49,4 +49,9 @@ public class Collisions : MonoBehaviour
 		// Ignore upper right leg and lower right leg collisions ↓ 
 		Physics.IgnoreCollision(rightLowerLeg.GetComponent<Collider>(), rightUpperLeg.GetComponent<Collider>());
 	}
+	
+	void Update()
+	{
+		
+	}
 }

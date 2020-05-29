@@ -5,14 +5,18 @@ public class UIManager : MonoBehaviour
 {
 	public Text speedText;
 	public Text fpsText;
+	public static float carSpeed;
+
 	public Text ammoText;
+
 	[SerializeField]
 	private Sniper sniper;
 
 	public virtual void ChangeText(float speed)
 	{
 		float s = speed * 3.6f;
-		speedText.text = Mathf.Round(s) + " KM/H";
+		carSpeed = Mathf.Round(s);
+		speedText.text = carSpeed + " KM/H";
 	}
 
 	private void Update()

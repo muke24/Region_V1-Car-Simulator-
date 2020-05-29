@@ -7,6 +7,7 @@ TagManager:
   - Camera
   - Gun
   - Enemy
+  - Car
   layers:
   - Default
   - TransparentFX

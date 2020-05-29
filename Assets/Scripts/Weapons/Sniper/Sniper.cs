@@ -249,7 +249,6 @@ public class Sniper : MonoBehaviour
 				#region Hit collider check aimed
 				if (hit.transform.root.tag == "Enemy")
 				{
-					Debug.Log("WORKING");
 					if (enemy.gameObject.activeSelf)
 					{
 						
@@ -327,7 +326,6 @@ public class Sniper : MonoBehaviour
 				#region Hit collider check
 				if (hit.transform.root.tag == "Enemy")
 				{
-					Debug.Log("WORKING");
 					if (enemy.gameObject.activeSelf)
 					{
 
