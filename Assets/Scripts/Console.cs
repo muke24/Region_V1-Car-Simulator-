@@ -17,21 +17,21 @@ public class Console : MonoBehaviour
 	public bool flying;
 
 	[SerializeField]
-	private InputField console;
+	private InputField console = null;
 	[SerializeField]
-	private Animator consoleAnim;
+	private Animator consoleAnim = null;
 	[SerializeField]
 	private bool consoleToggle = false;
 	[SerializeField]
 	private bool consoleCanToggle = true;
 	[SerializeField]
-	private string cheat1;
+	private string cheat1 = "/give me ammo";
 	[SerializeField]
-	private string cheat2;
+	private string cheat2 = "/give me ammo";
 	[SerializeField]
-	private string cheat3;
+	private string cheat3 = "/i am god";
 	[SerializeField]
-	private string disableCheats;
+	private string disableCheats = "/disable cheats";
 
 	// Update is called once per frame
 	void Update()

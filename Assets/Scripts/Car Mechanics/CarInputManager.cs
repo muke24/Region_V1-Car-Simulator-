@@ -11,6 +11,8 @@ public class CarInputManager : MonoBehaviour
 
 	public Rigidbody rb;
 
+	public CarFind findCar;
+
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -18,11 +20,22 @@ public class CarInputManager : MonoBehaviour
 
 	void Update()
 	{
-		throttle = Input.GetAxis("Vertical");
-		steer = Input.GetAxis("Horizontal");
+		if (Car.inCar)
+		{
+			throttle = Input.GetAxis("Vertical");
+			steer = Input.GetAxis("Horizontal");
+			brake = Input.GetKey(KeyCode.Space);
+			lightToggle = Input.GetKeyDown(KeyCode.L);
+		}
 
-		brake = Input.GetKey(KeyCode.Space);
+		if (!Car.inCar)
+		{
+			throttle = 0f;
+			steer = 0f;
+			brake = true;
+		}
 
+		#region BrakeFix
 		//if (transform.InverseTransformVector(rb.velocity).z > 1f)
 		//
 		//	brake = false;
@@ -49,7 +62,7 @@ public class CarInputManager : MonoBehaviour
 		//		brake = true;
 		//	}
 		//
-		
-		lightToggle = Input.GetKeyDown(KeyCode.L);
+		#endregion
+
 	}
 }

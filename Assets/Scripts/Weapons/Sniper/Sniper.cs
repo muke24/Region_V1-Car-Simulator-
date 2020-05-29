@@ -6,7 +6,7 @@ public class Sniper : MonoBehaviour
 {
 	#region Sniper
 	[SerializeField]
-	private GameObject pause;
+	private GameObject pause = null;
 	[SerializeField]
 	private float range = 1000f;
 	[SerializeField]
@@ -14,11 +14,11 @@ public class Sniper : MonoBehaviour
 	[SerializeField]
 	private float shootTimer = 1.3f;
 	[SerializeField]
-	private Camera gunCam;
+	private Camera gunCam = null;
 	[SerializeField]
-	private PlayerAnimations pA;
-	[SerializeField]
-	private bool boltBool;
+	private PlayerAnimations pA = null;
+	//[SerializeField]
+	//private bool boltBool;
 	[SerializeField]
 	private bool shootBool;
 	#endregion
@@ -41,9 +41,9 @@ public class Sniper : MonoBehaviour
 	public GameObject gunshotDecal;
 
 	[SerializeField]
-	private ParticleSystem muzzelFlash;
+	private ParticleSystem muzzelFlash = null;
 	[SerializeField]
-	private GameObject impactEffect;
+	private GameObject impactEffect = null;
 	[SerializeField]
 	private bool reload;
 
@@ -52,7 +52,11 @@ public class Sniper : MonoBehaviour
 
 	public int imaxAmmo = 5;        // non-static int
 	public int iammoCount = 5;      // non-static int
-									//public AudioSource gunShot;
+
+	private void Start()
+	{
+		//boltBool = true;
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -122,11 +126,11 @@ public class Sniper : MonoBehaviour
 		if (pA.playerAnimation.GetBool("Bolt"))
 		{
 			boltTimer -= Time.deltaTime;
-			boltBool = true;
+			//boltBool = true;
 		}
 		if (!pA.playerAnimation.GetBool("Bolt"))
 		{
-			boltBool = false;
+			//boltBool = false;
 		}
 		if (boltTimer < 0f && boltTimer > -0.2f)
 		{

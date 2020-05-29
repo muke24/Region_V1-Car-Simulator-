@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 	public Text ammoText;
 
 	[SerializeField]
-	private Sniper sniper;
+	private Sniper sniper = null;
 
 	public virtual void ChangeText(float speed)
 	{

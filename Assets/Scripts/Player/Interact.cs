@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Interact : MonoBehaviour
 {
-	public string interactInput;
-
 	public bool inCar;
 	public float interactDist = 3f;
 	public float intTimer = 0.25f;
@@ -16,6 +14,7 @@ public class Interact : MonoBehaviour
 	public GameObject fpsCanv;
 	public GameObject pauseCanv;
 
+	public CarFind carFind;
 	public GameObject car;
 	public GameObject player;
 
@@ -27,59 +26,68 @@ public class Interact : MonoBehaviour
 	public CapsuleCollider cCol;
 
 	public Text intText;
-	public Camera carCam;	
+	public Camera carCam;
 
 	public CarController cc;
 	public CarInputManager im;
 
+	public GameObject door1;
 
 	public List<DragObject> dragObjects;
 	// Start is called before the first frame update
 	void Start()
 	{
-		inCar = false;
-		carCam.gameObject.SetActive(false);
-		//player.gameObject.SetActive(true);
+		Car.inCar = false;
+		carCam.enabled = false;
 		playerEnable();
-		interactInput = "E";
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		inCar = Car.inCar;
 
 		if (intTimer >= 0)
 		{
 			intTimer -= Time.deltaTime;
 		}
 
-		if (inCar)
+		if (Car.inCar)
 		{
-			if (Input.GetKeyDown(KeyCode.E) && intTimer <= 0)
+			car.GetComponent<CarInputManager>().enabled = true;
+			car.GetComponent<CarController>().enabled = true;
+
+			if (Input.GetButtonDown("Interact") && intTimer <= 0)
 			{
 				intTimer = intDelay;
-				inCar = false;
-				player.transform.position = new Vector3(car.transform.position.x - 2, car.transform.position.y, car.transform.position.z);
+				Car.inCar = false;
+				player.transform.position = door1.transform.position;
+				//player.transform.rotation = car.transform.rotation;
+				//new Vector3(car.transform.localPosition.x - 2, car.transform.localPosition.y, car.transform.localPosition.z);
 			}
 
 			playerDisable();
-			//player.SetActive(false);
 			im.enabled = true;
 			foreach (DragObject drag in dragObjects)
 			{
 				drag.enabled = true;
 			}
-			carCam.gameObject.SetActive(true);
-			//player.SetActive(false);
+			carCam.enabled = true;
 
 			carCanv.SetActive(true);
 			fpsCanv.SetActive(false);
 
 			Cursor.lockState = CursorLockMode.None;
 		}
-		if (!inCar)
+		if (!Car.inCar)
 		{
-			carCam.gameObject.SetActive(false);
+			car = carFind.closestCar.gameObject;
+			door1 = carFind.closestCar.door1;
+
+			car.GetComponent<CarInputManager>().enabled = false;
+			car.GetComponent<CarController>().enabled = false;
+
+			carCam.enabled = false;
 			playerEnable();
 			//player.SetActive(true);
 			im.enabled = false;
@@ -97,22 +105,22 @@ public class Interact : MonoBehaviour
 			}
 
 			carCanv.SetActive(false);
-			fpsCanv.SetActive(true);			
+			fpsCanv.SetActive(true);
 		}
 
-		if (interactDist >= Vector3.Distance(car.transform.position, player.transform.position) && !inCar)
+		if (interactDist >= Vector3.Distance(car.transform.position, player.transform.position) && !Car.inCar)
 		{
 			intText.gameObject.SetActive(true);
-			intText.text = "Press " + interactInput + " to get into car";
+			intText.text = "Press " + "E" + " to get into car";
 
-			if (Input.GetKeyDown(KeyCode.E) && intTimer <= 0)
+			if (Input.GetButtonDown("Interact") && intTimer <= 0)
 			{
 				intTimer = intDelay;
-				inCar = true;
+				Car.inCar = true;
 			}
 		}
 
-		if (interactDist <= Vector3.Distance(car.transform.position, player.transform.position) && !inCar)
+		if (interactDist <= Vector3.Distance(car.transform.position, player.transform.position) && !Car.inCar)
 		{
 			intText.gameObject.SetActive(false);
 		}
@@ -127,41 +135,20 @@ public class Interact : MonoBehaviour
 
 	void playerEnable()
 	{
-		/*
-		foreach (Behaviour yeet in player.GetComponents<Behaviour>())
-		{
-			if (yeet.GetType() != typeof(Animator))
-			{
-				yeet.enabled = true;
-			}
-		}
-		*/
-		
 		playerCam.SetActive(true);
 		playerModel.SetActive(true);
 		mouse.enabled = true;
 		charC.enabled = true;
 		pMove.enabled = true;
 		cCol.enabled = true;
-		
 	}
 	void playerDisable()
 	{
-		/*
-		foreach (Behaviour yeet in player.GetComponents<Behaviour>())
-		{
-			if (yeet.GetType() != typeof(Animator))
-			{
-				yeet.enabled = false;
-			}
-		}
-		*/
-		
 		playerCam.SetActive(false);
 		playerModel.SetActive(false);
 		mouse.enabled = false;
 		charC.enabled = false;
 		pMove.enabled = false;
-		cCol.enabled = false;		
-	}	
+		cCol.enabled = false;
+	}
 }

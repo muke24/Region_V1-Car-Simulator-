@@ -9,15 +9,15 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
 	[SerializeField]
-	private CarInputManager im;
+	private CarInputManager im = null;
 	[SerializeField]
-	private LightingManager lm;
+	private LightingManager lm = null;
 	[SerializeField]
-	private UIManager uim;
+	private UIManager uim = null;
 	[SerializeField]
-	private Transform CM;
+	private Transform CM = null;
 	[SerializeField]
-	private Rigidbody rb;
+	private Rigidbody rb = null;
 
 	//public WheelCollider wc;
 
@@ -29,9 +29,7 @@ public class CarController : MonoBehaviour
 	public float strengthCoefficient = 20000f;
 	public float maxTurn = 20f;
 	public float brakeStrength;
-
 	
-
 	// Start is called before the first frame update
 	void Start()
 	{

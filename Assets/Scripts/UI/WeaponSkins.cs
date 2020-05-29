@@ -8,13 +8,13 @@ public class WeaponSkins : MonoBehaviour
     [SerializeField]
     private int skinID = 0;
     [SerializeField]
-    private Text skinNameText;
+    private Text skinNameText = null;
     [SerializeField]
-    private Shader rainbow;
+    private Shader rainbow = null;
     [SerializeField]
-    private Shader defaultSkin;
+    private Shader defaultSkin = null;
     [SerializeField]
-    private Renderer rend;
+    private Renderer rend = null;
 
     // Start is called before the first frame update
     void Start()

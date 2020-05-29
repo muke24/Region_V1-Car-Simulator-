@@ -3,11 +3,11 @@
 public class EnemyArmRotations : MonoBehaviour
 {
     [SerializeField]
-    private GameObject arms;
+    private GameObject arms = null;
     [SerializeField]
-    private GameObject lookCam;
+    private GameObject lookCam = null;
     [SerializeField]
-    private GameObject head;
+    private GameObject head = null;
 
     [SerializeField]
     private float y;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationValues : MonoBehaviour
 {
 	[SerializeField]
-	private PlayerAnimations pA;
+	private PlayerAnimations pA = null;
 
 	public bool moving;
 	public bool movingLeft;

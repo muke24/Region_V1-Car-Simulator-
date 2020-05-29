@@ -69,7 +69,7 @@ public class PauseGame : MonoBehaviour
 
 		if (carSetting == 3)
 		{
-			strengthSet.SetActive(true);   // carSetting 3
+			strengthSet.SetActive(true);	// carSetting 3
 
 			suspensionSet.SetActive(false); // carSetting 0
 			physicsSet.SetActive(false);    // carSetting 1

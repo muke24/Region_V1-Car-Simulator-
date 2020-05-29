@@ -12,14 +12,18 @@ public class DragObject : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		if (paused.activeSelf == false)
+		if (CarCameraManager.camMode != 1)
 		{
-			if (inCar.activeSelf == true)
+			if (paused.activeSelf == false)
 			{
-				mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-				mOffset = gameObject.transform.position - GetMouseWorldPos();
+				if (inCar.activeSelf == true)
+				{
+					mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+					mOffset = gameObject.transform.position - GetMouseWorldPos();
+				}
 			}
 		}
+
 	}
 
 	private Vector3 GetMouseWorldPos()
@@ -35,12 +39,15 @@ public class DragObject : MonoBehaviour
 
 	private void OnMouseDrag()
 	{
-		if (paused.activeSelf == false)
+		if (CarCameraManager.camMode != 1)
 		{
-			if (inCar.activeSelf == true)
+			if (paused.activeSelf == false)
 			{
-				transform.position = GetMouseWorldPos() + mOffset;
+				if (inCar.activeSelf == true)
+				{
+					transform.position = GetMouseWorldPos() + mOffset;
+				}
 			}
-		}
+		}		
 	}
 }

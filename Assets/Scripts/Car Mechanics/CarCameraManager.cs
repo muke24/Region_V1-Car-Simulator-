@@ -6,9 +6,11 @@ public class CarCameraManager : MonoBehaviour
 {
 	public MouseLook mouseLook;
 
-	public Rigidbody rb;
+	public CarFind carFind;
+
+	public CurrentCar currentCar;
+	public Rigidbody rb = null;
 	public GameObject pause;
-	public GameObject focus;
 	public float distance = 5f;
 	public float height = 2f;
 	public float dampening = 12.5f;
@@ -19,6 +21,7 @@ public class CarCameraManager : MonoBehaviour
 	public float maxDistance = 8f;
 
 	public float fpsCarTimer = 0.1f;
+	public static int camMode = 0;
 
 	#region MouseLook
 
@@ -31,16 +34,19 @@ public class CarCameraManager : MonoBehaviour
 
 	#endregion
 
-	private int camMode = 0;
+	[SerializeField]
+	private GameObject car = null;
+	[SerializeField]
+	private AudioListener aL = null;
 
 	private void Awake()
 	{
-		rb = focus.GetComponent<Rigidbody>();
+		
 	}
 
 	void Start()
 	{
-		originalRotation = rb.transform.rotation;
+		
 	}
 
 	public static float ClampAngle(float angle, float min, float max)
@@ -58,121 +64,134 @@ public class CarCameraManager : MonoBehaviour
 
 		return Mathf.Clamp(angle, min, max);
 	}
+
 	private void Update()
 	{
-		if (rb == null)
+		
+
+		if (Car.inCar)
 		{
-			Debug.LogWarning("No Rigidbody is assigned");
+			car = currentCar.currentCar;
+			aL.enabled = true;
+			//originalRotation = rb.transform.rotation;
+			rb = currentCar.currentCar.GetComponent<Rigidbody>();
+
+			if (rb == null)
+			{
+				Debug.LogWarning("No Rigidbody is assigned");
+			}
+			if (Input.GetKeyDown(KeyCode.C))
+			{
+				camMode = (camMode + 1) % 2;
+			}
+
+			if (camMode == 0)
+			{
+				if (fpsCarTimer <= 0f)
+				{
+					fpsCarTimer = 0.1f;
+				}
+			}
+			if (camMode == 1)
+			{
+				transform.position = car.transform.position + car.transform.TransformDirection(new Vector3(l, h2, d2));
+
+				if (!pause.activeSelf)
+				{
+					Cursor.lockState = CursorLockMode.Locked;
+				}
+				if (pause.activeSelf)
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
+
+				if (!Input.GetButton("Aim"))
+				{
+
+					transform.rotation = car.transform.rotation;
+					Camera.main.fieldOfView = 80f;
+				}
+
+				if (Input.GetButton("Aim"))
+				{
+					rotationX += Input.GetAxis("Mouse X") * 7;
+					rotationX = ClampAngle(rotationX, minimumX, maximumX);
+					Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+					transform.localRotation = originalRotation * xQuaternion;
+				}
+			}			
 		}
-		if (Input.GetKeyDown(KeyCode.C))
+
+		if (!Car.inCar)
 		{
-			camMode = (camMode + 1) % 2;
+			car = null;
+			aL.enabled = false;
 		}
-
-		if (camMode == 0)
-		{
-			if (fpsCarTimer <= 0f)
-			{
-				fpsCarTimer = 0.1f;
-			}
-		}
-		if (camMode == 1)
-		{
-			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
-			
-			if (!pause.activeSelf)
-			{
-				Cursor.lockState = CursorLockMode.Locked;
-			}
-			if (pause.activeSelf)
-			{
-				Cursor.lockState = CursorLockMode.None;
-			}
-
-			if (!Input.GetButton("Aim"))
-			{
-				
-				transform.rotation = focus.transform.rotation;
-				Camera.main.fieldOfView = 80f;
-			}
-
-			if (Input.GetButton("Aim"))
-			{
-				rotationX += Input.GetAxis("Mouse X") * 7;
-				rotationX = ClampAngle(rotationX, minimumX, maximumX);
-				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-				transform.localRotation = originalRotation * xQuaternion;
-			}
-		}
-
-
 	}
 
 	void FixedUpdate()
 	{
-		if (Input.GetKey(KeyCode.I))
+		if (Car.inCar)
 		{
-			distance = -5f;
-			dampening = 40f;
-		}
-		if (!Input.GetKey(KeyCode.I))
-		{
-			distance = 4.5f;
-			dampening = 12.5f;
-		}
-
-		if (camMode == 0)
-		{
-			objDistance = Vector3.Distance(focus.transform.position, transform.position);
-			transform.LookAt(focus.transform);
-			Camera.main.fieldOfView = 60f;
-			transform.position = Vector3.Lerp(transform.position, focus.transform.position + focus.transform.TransformDirection(new Vector3(0f, height, -distance)), dampening * Time.deltaTime);
-
-			if (objDistance >= maxDistance)
+			if (Input.GetKey(KeyCode.I))
 			{
-				dampening = 13f;
-				//transform.position = 5.5f;
+				distance = -5f;
+				dampening = 40f;
 			}
-			else
+			if (!Input.GetKey(KeyCode.I))
 			{
+				distance = 4.5f;
 				dampening = 12.5f;
 			}
-		}
 
-		if (camMode == 1)
-		{
-			transform.position = focus.transform.position + focus.transform.TransformDirection(new Vector3(l, h2, d2));
-
-			if (!pause.activeSelf)
+			if (camMode == 0)
 			{
-				Cursor.lockState = CursorLockMode.Locked;
-			}
-			if (pause.activeSelf)
-			{
-				Cursor.lockState = CursorLockMode.None;
-			}
+				objDistance = Vector3.Distance(car.transform.position, transform.position);
+				transform.LookAt(car.transform);
+				GetComponent<Camera>().fieldOfView = 60f;
+				transform.position = Vector3.Lerp(transform.position, car.transform.position + car.transform.TransformDirection(new Vector3(0f, height, -distance)), dampening * Time.deltaTime);
 
-			if (!Input.GetButton("Aim"))
-			{
-
-				//transform.rotation = rb.transform.rotation;
-				//Camera.main.fieldOfView = 80f;
+				if (objDistance >= maxDistance)
+				{
+					dampening = 13f;
+					//transform.position = 5.5f;
+				}
+				else
+				{
+					dampening = 12.5f;
+				}
 			}
 
-			if (Input.GetButtonDown("Aim") || Input.GetButtonUp("Aim"))
+			if (camMode == 1)
 			{
-				originalRotation = rb.transform.rotation;
-				rotationX = 0;
-			}
+				transform.position = car.transform.position + car.transform.TransformDirection(new Vector3(l, h2, d2));
 
-			if (Input.GetButton("Aim"))
-			{
-				rotationX += Input.GetAxis("Mouse X") * mouseLook.sensitivityX;
-				rotationX = ClampAngle(rotationX, minimumX, maximumX);
+				GetComponent<Camera>().fieldOfView = 80f;
 
-				Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-				transform.localRotation = originalRotation * xQuaternion;
-				originalRotation = rb.transform.rotation;
+				if (!pause.activeSelf)
+				{
+					Cursor.lockState = CursorLockMode.Locked;
+				}
+				if (pause.activeSelf)
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
+
+				if (Input.GetButtonDown("Aim") || Input.GetButtonUp("Aim"))
+				{					
+					originalRotation = rb.transform.rotation;
+					rotationX = 0;
+				}
+
+				if (Input.GetButton("Aim"))
+				{
+					rotationX += Input.GetAxis("Mouse X") * mouseLook.sensitivityX;
+					rotationX = ClampAngle(rotationX, minimumX, maximumX);
+
+					Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+					transform.localRotation = originalRotation * xQuaternion;
+					originalRotation = rb.transform.rotation;
+				}
 			}
 		}
 	}
