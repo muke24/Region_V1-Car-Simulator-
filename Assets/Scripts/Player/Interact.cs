@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#region This code is written by Peter Thompson
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -152,3 +153,5 @@ public class Interact : MonoBehaviour
 		cCol.enabled = false;
 	}
 }
+// This code is written by Peter Thompson
+#endregion

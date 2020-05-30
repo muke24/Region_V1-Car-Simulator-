@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 
 public class EnemyArmRotations : MonoBehaviour
 {
@@ -24,3 +25,5 @@ public class EnemyArmRotations : MonoBehaviour
         }
     }
 }
+// This code is written by Peter Thompson
+#endregion

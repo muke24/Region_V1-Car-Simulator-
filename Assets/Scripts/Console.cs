@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿#region This code is written by Peter Thompson
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 public class Console : MonoBehaviour
@@ -191,3 +191,5 @@ public class Console : MonoBehaviour
 		}
 	}
 }
+// This code is written by Peter Thompson
+#endregion

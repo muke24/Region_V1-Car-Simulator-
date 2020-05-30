@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private Sniper sniper = null;
 
-	public virtual void ChangeText(float speed)
+	public void ChangeText(float speed)
 	{
 		float s = speed * 3.6f;
 		carSpeed = Mathf.Round(s);
@@ -43,3 +44,5 @@ public class UIManager : MonoBehaviour
 		}
 	}
 }
+// This code is written by Peter Thompson
+#endregion

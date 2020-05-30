@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#region This code is written by Peter Thompson
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,3 +39,5 @@ public class AnimationValues : MonoBehaviour
 		boltActionFloat = pA.playerAnimation.GetFloat("BoltActionFloat");
 	}
 }
+// This code is written by Peter Thompson
+#endregion

@@ -2878,12 +2878,12 @@ ReflectionProbe:
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.1
   m_FarClip: 250
-  m_ShadowDistance: 50
+  m_ShadowDistance: 100
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 823
   m_IntensityMultiplier: 1
   m_BlendDistance: 1
   m_HDR: 1
@@ -2999,6 +2999,10 @@ PrefabInstance:
       propertyPath: pA
       value: 
       objectReference: {fileID: 4276280504643031226}
+    - target: {fileID: 1280442486, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
+      propertyPath: shootTimer
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1346122531, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
       propertyPath: m_Layer
       value: 12

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#region This code is written by Peter Thompson
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,5 +12,6 @@ public class IgnoreCollider : MonoBehaviour
     {
 		Physics.IgnoreCollision(hood.GetComponent<Collider>(), bumper.GetComponent<Collider>());
 	}
-
 }
+// This code is written by Peter Thompson
+#endregion

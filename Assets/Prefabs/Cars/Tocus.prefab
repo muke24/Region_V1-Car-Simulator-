@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3830fe7de4bfbd140a5c1df20efbf61a, type: 2}
+  - {fileID: 2100000, guid: 208c2666b436b294fb26e51b2be5cb5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2779763339562694298
 Transform:
   m_ObjectHideFlags: 0
@@ -805,10 +805,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 40930.03
-    damper: 5037.5425
+    spring: 40930.02
+    damper: 5037.541
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
+  m_SuspensionDistance: 0.116094686
   m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
@@ -867,10 +867,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 41012.184
-    damper: 5047.6533
+    spring: 41012.17
+    damper: 5047.652
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609467
+  m_SuspensionDistance: 0.116094686
   m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
@@ -1232,11 +1232,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43569.86
-    damper: 5362.445
+    spring: 43569.875
+    damper: 5362.446
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609469
-  m_ForceAppPointDistance: 0.5156788
+  m_SuspensionDistance: 0.116094664
+  m_ForceAppPointDistance: 0.5156789
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1294,11 +1294,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43487.93
-    damper: 5352.361
+    spring: 43487.918
+    damper: 5352.359
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609467
-  m_ForceAppPointDistance: 0.5156788
+  m_SuspensionDistance: 0.11609468
+  m_ForceAppPointDistance: 0.5156789
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -3166,6 +3166,7 @@ GameObject:
   - component: {fileID: 2780423566793949863}
   - component: {fileID: 2780423566793949862}
   - component: {fileID: 2780423566793949857}
+  - component: {fileID: 1610265679339991}
   m_Layer: 9
   m_Name: Tocus
   m_TagString: Car
@@ -3180,7 +3181,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780423566793949867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.98, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
@@ -3374,6 +3375,21 @@ MonoBehaviour:
   door2: {fileID: 2779763339771467743}
   door3: {fileID: 2779763339653052953}
   door4: {fileID: 2779763341168716653}
+--- !u!114 &1610265679339991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fcc89762926e84ca6164f011738626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 2779763339696154218}
+  depthBeforeSubmerged: 5
+  displacementAmount: 2.8
 --- !u!1 &2780470758779515165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,7 +5149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf642f94480681949860a13db776f99c, type: 2}
+  - {fileID: 2100000, guid: 7237da027f4c5d94f970e25142bef2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5227,7 +5243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf642f94480681949860a13db776f99c, type: 2}
+  - {fileID: 2100000, guid: 7237da027f4c5d94f970e25142bef2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5320,7 +5336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc503919b5246eb46ae0461fd51f684d, type: 2}
+  - {fileID: 2100000, guid: 22318d43c5da40846a5d6460305956d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5585,7 +5601,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf642f94480681949860a13db776f99c, type: 2}
+  - {fileID: 2100000, guid: 7237da027f4c5d94f970e25142bef2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5678,7 +5694,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf642f94480681949860a13db776f99c, type: 2}
+  - {fileID: 2100000, guid: 7237da027f4c5d94f970e25142bef2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5773,7 +5789,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06c1f2a44737f0f42bb48c36d11eea2c, type: 2}
+  - {fileID: 2100000, guid: cc34a530ace31d545b0635b0f4d947b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6039,7 +6055,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc503919b5246eb46ae0461fd51f684d, type: 2}
+  - {fileID: 2100000, guid: 22318d43c5da40846a5d6460305956d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11102,7 +11118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc503919b5246eb46ae0461fd51f684d, type: 2}
+  - {fileID: 2100000, guid: 22318d43c5da40846a5d6460305956d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

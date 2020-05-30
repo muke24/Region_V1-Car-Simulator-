@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 using System.Collections;
 
 public class AntiRollBar : MonoBehaviour
@@ -47,3 +48,5 @@ public class AntiRollBar : MonoBehaviour
 	}
 
 }
+// This code is written by Peter Thompson
+#endregion

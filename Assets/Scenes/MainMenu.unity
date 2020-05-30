@@ -1616,7 +1616,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2136550620}
   m_OnClick:
     m_PersistentCalls:
@@ -13376,22 +13376,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
-  damage: 100
   range: 1000
   boltTimer: 1
   shootTimer: 1.3
   gunCam: {fileID: 1822969997815412110}
   pA: {fileID: 1822969997757178165}
-  boltBool: 0
   shootBool: 0
+  enemy: {fileID: 0}
+  collisions: {fileID: 0}
+  damage: 100
+  headShotMultiplier: 2
+  bodyShotMultiplier: 1
+  legShotMultiplier: 0.75
+  footShotMultiplier: 0.5
   gunshotDecal: {fileID: 6755025396589174639, guid: db6c3e95a12f3fb44aaafef862531dfc,
     type: 3}
   muzzelFlash: {fileID: 1822969996044898104}
   impactEffect: {fileID: 7555024470436820771, guid: a37c6e4906cdc664b96b495a9362437f,
     type: 3}
   reload: 0
-  maxAmmo: 5
-  ammoCount: 5
+  imaxAmmo: 5
+  iammoCount: 5
 --- !u!4 &1822969997757178122
 Transform:
   m_ObjectHideFlags: 0
@@ -13495,11 +13500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d88c1b5f53e08438b5ef1ee1a13de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  runSpeed: 8
-  jumpSpeed: 6
-  gravity: 20
-  controller: {fileID: 1822969997757178161}
   isWalking: 0
   isRunning: 0
   isCrouching: 0
@@ -13543,6 +13543,8 @@ MonoBehaviour:
   horizontal: 0
   animPos: 0
   crouch: 0
+  scoped: 0
+  scoping: 0
 --- !u!4 &1822969997759515578
 Transform:
   m_ObjectHideFlags: 0

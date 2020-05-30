@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#region This code is written by Peter Thompson
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -70,7 +71,6 @@ public class MouseLook : MonoBehaviour
 		{
 			angle += 360f;
 		}
-
 
 		if (angle > 360f)
 		{
@@ -156,3 +156,5 @@ public class MouseLook : MonoBehaviour
 		}
 	}
 }
+// This code is written by Peter Thompson
+#endregion
