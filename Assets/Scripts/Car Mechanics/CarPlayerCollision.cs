@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class CarPlayerCollision : MonoBehaviour
 {
+	public float highestVelocity;
+
+	private Rigidbody rigid;
+	
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		rigid = GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
 	void Update()
+	{
+
+	}
+
+	private void FixedUpdate()
 	{
 
 	}
@@ -23,9 +32,8 @@ public class CarPlayerCollision : MonoBehaviour
 			if (collision.transform.root.gameObject.tag == "Enemy")
 			{
 				Enemy enemy = collision.transform.root.GetComponent<Enemy>();
-				enemy.ragdoll = true;
+				enemy.curHealth -= UIManager.carSpeed * rigid.mass;
 			}
 		}
-		
 	}
 }

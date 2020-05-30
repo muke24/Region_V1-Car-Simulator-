@@ -18042,6 +18042,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205700274}
   m_CullTransparentMesh: 0
+--- !u!1 &1222120381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2780135097625324457, guid: 2299b71f1b99b86429394880cb37528a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2779763339829404541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1222120388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222120381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highestVelocity: 0
 --- !u!1 &1222321206
 GameObject:
   m_ObjectHideFlags: 0
@@ -35230,7 +35249,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2779763339829404541}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1222120381}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
@@ -35623,11 +35642,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3828906286947502474, guid: 2299b71f1b99b86429394880cb37528a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2299b71f1b99b86429394880cb37528a, type: 3}
 --- !u!1001 &2947838549948155439
@@ -35637,10 +35651,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1833973156, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1418833979990445890, guid: 9bb69d137dbf91c4b88ba9a299055441,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35700,11 +35710,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8401249761382800483, guid: 9bb69d137dbf91c4b88ba9a299055441,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
