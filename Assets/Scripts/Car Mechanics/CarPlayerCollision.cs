@@ -14,16 +14,27 @@ public class CarPlayerCollision : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (UIManager.carSpeed > 10f)
+		if (UIManager.carSpeed > 5)
 		{
 			if (rigid.mass > 10f)
 			{
 				if (collision.transform.root.gameObject.tag == "Enemy")
 				{
 					Enemy enemy = collision.transform.root.GetComponent<Enemy>();
-					enemy.curHealth -= UIManager.carSpeed * (rigid.mass / 10);
+					enemy.curHealth -= UIManager.carSpeed / 2;
 				}
 			}			
+		}
+		if (UIManager.carSpeed < -5)
+		{
+			if (rigid.mass > 10f)
+			{
+				if (collision.transform.root.gameObject.tag == "Enemy")
+				{
+					Enemy enemy = collision.transform.root.GetComponent<Enemy>();
+					enemy.curHealth -= UIManager.carSpeed * -1 / 2;
+				}
+			}
 		}
 	}
 }

@@ -1654,6 +1654,7 @@ GameObject:
   - component: {fileID: 2780135097625324456}
   - component: {fileID: 2780135097625324458}
   - component: {fileID: 2780135097625324453}
+  - component: {fileID: 1222120388}
   m_Layer: 9
   m_Name: Tocus_Bamper_Front
   m_TagString: Untagged
@@ -1750,8 +1751,8 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780135097625324457}
   m_ConnectedBody: {fileID: 2779763339696154218}
-  m_BreakForce: 15000
-  m_BreakTorque: 15000
+  m_BreakForce: 50000
+  m_BreakTorque: 50000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -1784,6 +1785,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: {fileID: 0}
   inCar: {fileID: 0}
+--- !u!114 &1222120388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780135097625324457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2780179909591293201
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,9 +5520,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d30f2dba1dd19f4db2b3162006b7f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eArmRot: {fileID: 0}
+  hands: {fileID: 0}
+  tPose: {fileID: 0}
+  weapon: {fileID: 0}
   maxHealth: 100
   curHealth: 100
   ragdoll: 0
+  weaponSpawned: 0
 --- !u!1 &3828906286987748361
 GameObject:
   m_ObjectHideFlags: 0

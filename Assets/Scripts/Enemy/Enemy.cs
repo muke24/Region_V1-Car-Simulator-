@@ -8,9 +8,11 @@ public class Enemy : MonoBehaviour
 	public EnemyArmRotations eArmRot;
 	public GameObject hands;
 	public GameObject tPose;
+	public GameObject weapon;
 	public float maxHealth = 100;
 	public float curHealth = 100;
 	public bool ragdoll;
+	public bool weaponSpawned = false;
 
 	private Collider[] colliders;
 	private Rigidbody[] rigid;
@@ -40,6 +42,14 @@ public class Enemy : MonoBehaviour
 
 	void RagDollOn()
 	{
+		weapon.transform.parent = null;
+		weapon.GetComponent<Rigidbody>().isKinematic = false;
+		if (weaponSpawned)
+		{
+			weaponSpawned = false;
+					
+		}
+		
 		eArmRot.enabled = false;
 		hands.SetActive(false);
 		tPose.SetActive(true);

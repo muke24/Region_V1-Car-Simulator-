@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class Console : MonoBehaviour
 {
-	public static bool _cheat1; // Gives user unlimited ammo
-	public static bool _cheat2; // Gives user flying ability
-	public static bool _cheat3; // Gives user unlimited health
+	public static bool _cheat1 = false; // Gives user unlimited ammo
+	public static bool _cheat2 = false; // Gives user flying ability
+	public static bool _cheat3 = false; // Gives user unlimited health
 
 	public static bool isFlying;
 	public bool canFly;
@@ -29,7 +29,7 @@ public class Console : MonoBehaviour
 	[SerializeField]
 	private string cheat2 = "/give me ammo";
 	[SerializeField]
-	private string cheat3 = "/i am god";
+	private string cheat3 = "/i control car now";
 	[SerializeField]
 	private string disableCheats = "/disable cheats";
 
@@ -96,8 +96,7 @@ public class Console : MonoBehaviour
 			{
 				console.readOnly = false;
 			}
-
-			
+						
 		}
 
 		if (Input.GetKeyDown(KeyCode.BackQuote))
@@ -187,8 +186,9 @@ public class Console : MonoBehaviour
 
 		if (_cheat3)
 		{
-
+		
 		}
+
 	}
 }
 // This code is written by Peter Thompson
