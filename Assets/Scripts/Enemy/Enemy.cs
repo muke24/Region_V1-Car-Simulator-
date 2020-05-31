@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	public EnemyArmRotations eArmRot;
+	public Animator anim;
 	public GameObject hands;
 	public GameObject tPose;
 	public GameObject weapon;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
 		colliders = GetComponentsInChildren<Collider>();
 		rigid = GetComponentsInChildren<Rigidbody>();
 		eArmRot = GetComponent<EnemyArmRotations>();
+		anim = GetComponent<Animator>();
 		RagDollOff();
 	}
 
@@ -42,8 +44,11 @@ public class Enemy : MonoBehaviour
 
 	void RagDollOn()
 	{
+		anim.enabled = false;
+
 		weapon.transform.parent = null;
 		weapon.GetComponent<Rigidbody>().isKinematic = false;
+
 		if (weaponSpawned)
 		{
 			weaponSpawned = false;
