@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     {
         if (pausePanel.activeSelf)
         {
-            pausePanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width * 2.5f, Screen.height * 2.5f);            
+            pausePanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width * 20f, Screen.height * 20f);            
         }
     }
 

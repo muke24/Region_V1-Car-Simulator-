@@ -85,6 +85,7 @@ public class CarCameraManager : MonoBehaviour
 				{
 					// Lock cursor
 					Cursor.lockState = CursorLockMode.Locked;
+					Cursor.visible = false;
 
 					// If the right click mouse button is not activated
 					if (!Input.GetButton("Aim"))
@@ -99,6 +100,7 @@ public class CarCameraManager : MonoBehaviour
 				{
 					// Unlock cursor
 					Cursor.lockState = CursorLockMode.None;
+					Cursor.visible = true;
 				}
 			}
 		}
@@ -172,11 +174,13 @@ public class CarCameraManager : MonoBehaviour
 					{
 						// Lock cursor
 						Cursor.lockState = CursorLockMode.Locked;
+						Cursor.visible = false;
 					}
 					if (pause.activeSelf)
 					{
 						// Unlock cursor
 						Cursor.lockState = CursorLockMode.None;
+						Cursor.visible = true;
 					}
 
 					if (Input.GetButtonDown("Aim") || Input.GetButtonUp("Aim"))

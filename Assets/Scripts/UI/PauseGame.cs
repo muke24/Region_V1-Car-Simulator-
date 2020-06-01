@@ -18,10 +18,13 @@ public class PauseGame : MonoBehaviour
 	public bool timerchanger = false;
 	public int carSetting = 0;
 
-	public GameObject suspensionSet;	// carSetting 0
-	public GameObject physicsSet;		// carSetting 1
-	public GameObject engineSet;		// carSetting 2
-	public GameObject strengthSet;		// carSetting 3
+	public GameObject suspensionSet;    // carSetting 0
+	public GameObject physicsSet;       // carSetting 1
+	public GameObject engineSet;        // carSetting 2
+	public GameObject strengthSet;      // carSetting 3
+
+	public PlayerMovement playerMovement;
+	public PlayerAnimations playerAnimations;
 
 	void Update()
 	{
@@ -42,6 +45,16 @@ public class PauseGame : MonoBehaviour
 			settingChangeTimer -= Time.deltaTime;
 		}
 
+		//if (pauseMenu.gameObject.activeSelf)
+		//{
+		//	Pause();
+		//}
+
+		//if (!pauseMenu.gameObject.activeSelf)
+		//{
+		//	UnPause();
+		//}
+
 		#region In game car settings changer (planning to remove)
 		if (carSetting == 0)
 		{
@@ -60,7 +73,7 @@ public class PauseGame : MonoBehaviour
 			engineSet.SetActive(false);     // carSetting 2
 			strengthSet.SetActive(false);   // carSetting 3
 		}
-		
+
 		if (carSetting == 2)
 		{
 			engineSet.SetActive(true);      // carSetting 2
@@ -72,7 +85,7 @@ public class PauseGame : MonoBehaviour
 
 		if (carSetting == 3)
 		{
-			strengthSet.SetActive(true);	// carSetting 3
+			strengthSet.SetActive(true);    // carSetting 3
 
 			suspensionSet.SetActive(false); // carSetting 0
 			physicsSet.SetActive(false);    // carSetting 1
@@ -161,7 +174,7 @@ public class PauseGame : MonoBehaviour
 				carSetting = 0;
 			}
 		}
-		
+
 
 	}
 
@@ -199,7 +212,7 @@ public class PauseGame : MonoBehaviour
 				timerchanger = true;
 				carSetting = 0;
 			}
-		}		
+		}
 	}
 
 	// Void is used when UI button is clicked in pause menu
@@ -212,6 +225,18 @@ public class PauseGame : MonoBehaviour
 			gunViewerCam.SetActive(true);
 			gunImg.gameObject.SetActive(true);
 		}
+	}
+
+	void Pause()
+	{
+		playerMovement.enabled = false;
+
+	}
+
+	void UnPause()
+	{
+		playerMovement.enabled = true;
+
 	}
 }
 // This code is written by Peter Thompson

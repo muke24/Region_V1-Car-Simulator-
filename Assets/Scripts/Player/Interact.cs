@@ -41,9 +41,7 @@ public class Interact : MonoBehaviour
 	{
 		Car.inCar = false;
 		carCam.enabled = false;
-		playerEnable();
-
-		
+		playerEnable();		
 	}
 
 	// Update is called once per frame
@@ -79,6 +77,7 @@ public class Interact : MonoBehaviour
 			fpsCanv.SetActive(false);
 
 			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
 		}
 		if (!Car.inCar)
 		{
@@ -96,10 +95,12 @@ public class Interact : MonoBehaviour
 			if (pauseCanv.activeSelf)
 			{
 				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
 			}
 			if (!pauseCanv.activeSelf)
 			{
 				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
 			}
 
 			carCanv.SetActive(false);
