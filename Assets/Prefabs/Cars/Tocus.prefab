@@ -775,11 +775,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 40930.03
-    damper: 5037.5425
+    spring: 41508.055
+    damper: 5108.684
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.52403086
+  m_SuspensionDistance: 0.1160947
+  m_ForceAppPointDistance: 0.5193691
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -837,11 +837,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 41012.176
-    damper: 5047.653
+    spring: 41597.617
+    damper: 5119.707
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.52403086
+  m_SuspensionDistance: 0.11609469
+  m_ForceAppPointDistance: 0.5193691
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1202,11 +1202,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43569.86
-    damper: 5362.445
+    spring: 42991.824
+    damper: 5291.3013
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609469
-  m_ForceAppPointDistance: 0.51567876
+  m_SuspensionDistance: 0.11609467
+  m_ForceAppPointDistance: 0.5110171
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1264,11 +1264,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43487.918
-    damper: 5352.3594
+    spring: 42902.492
+    damper: 5280.307
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609469
-  m_ForceAppPointDistance: 0.51567876
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.5110171
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1939,7 +1939,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300086, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780252857239466569
@@ -3918,7 +3918,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300068, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780744690305430277
