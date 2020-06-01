@@ -10,11 +10,7 @@ public class CarFind : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		if (!Car.inCar)
-		{
-			FindClosestCar();
-		}
-
+		
 	}
 
 	// Update is called once per frame
@@ -30,7 +26,7 @@ public class CarFind : MonoBehaviour
 	{
 		float distanceToClosestCar = Mathf.Infinity;
 		closestCar = null;
-		Car[] allCars = GameObject.FindObjectsOfType<Car>();
+		Car[] allCars = FindObjectsOfType<Car>();
 
 		foreach (Car currentCar in allCars)
 		{

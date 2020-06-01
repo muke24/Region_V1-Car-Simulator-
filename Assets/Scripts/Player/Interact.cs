@@ -34,13 +34,16 @@ public class Interact : MonoBehaviour
 
 	public GameObject door1;
 
-	public List<DragObject> dragObjects;
+	
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		Car.inCar = false;
 		carCam.enabled = false;
 		playerEnable();
+
+		
 	}
 
 	// Update is called once per frame
@@ -69,10 +72,7 @@ public class Interact : MonoBehaviour
 
 			playerDisable();
 			im.enabled = true;
-			foreach (DragObject drag in dragObjects)
-			{
-				drag.enabled = true;
-			}
+			
 			carCam.enabled = true;
 
 			carCanv.SetActive(true);
@@ -92,10 +92,7 @@ public class Interact : MonoBehaviour
 			playerEnable();
 			//player.SetActive(true);
 			im.enabled = false;
-			foreach (DragObject drag in dragObjects)
-			{
-				drag.enabled = false;
-			}
+			
 			if (pauseCanv.activeSelf)
 			{
 				Cursor.lockState = CursorLockMode.None;

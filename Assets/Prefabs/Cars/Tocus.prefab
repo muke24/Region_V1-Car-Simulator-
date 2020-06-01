@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 2802440532233791945}
   - component: {fileID: 2792484514613142733}
   - component: {fileID: 2778800225297939122}
-  - component: {fileID: 2778800225297939117}
   m_Layer: 9
   m_Name: Tocus_Win_Light_Right
   m_TagString: Untagged
@@ -134,7 +133,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -174,20 +173,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300088, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2778800225297939117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2778800225297939123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2778850203948529259
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +187,6 @@ GameObject:
   - component: {fileID: 2778850203948529258}
   - component: {fileID: 2778850203948529252}
   - component: {fileID: 2778850203948529253}
-  - component: {fileID: 2778850203948529255}
   m_Layer: 9
   m_Name: Tocus_Bamper_Back
   m_TagString: Untagged
@@ -245,7 +229,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -316,20 +300,6 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2778850203948529255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2778850203948529259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2779763339472713400
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,8 +778,8 @@ WheelCollider:
     spring: 40930.02
     damper: 5037.541
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.524031
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -867,11 +837,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 41012.176
-    damper: 5047.653
+    spring: 41012.17
+    damper: 5047.652
     targetPosition: 0.5
   m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.524031
+  m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1232,11 +1202,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43569.86
-    damper: 5362.4443
+    spring: 43569.875
+    damper: 5362.446
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.51567894
+  m_SuspensionDistance: 0.116094664
+  m_ForceAppPointDistance: 0.5156789
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1298,7 +1268,7 @@ WheelCollider:
     damper: 5352.359
     targetPosition: 0.5
   m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.51567894
+  m_ForceAppPointDistance: 0.5156789
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1613,7 +1583,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -1653,7 +1623,6 @@ GameObject:
   - component: {fileID: 2780135097625324459}
   - component: {fileID: 2780135097625324456}
   - component: {fileID: 2780135097625324458}
-  - component: {fileID: 2780135097625324453}
   - component: {fileID: 1222120388}
   m_Layer: 9
   m_Name: Tocus_Bamper_Front
@@ -1697,7 +1666,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -1771,20 +1740,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300078, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780135097625324453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780135097625324457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!114 &1222120388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,7 +1764,6 @@ GameObject:
   - component: {fileID: 2804522637737843767}
   - component: {fileID: 2794220020119225277}
   - component: {fileID: 2780179909591293200}
-  - component: {fileID: 2780179909591293203}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Back
   m_TagString: Untagged
@@ -1892,20 +1846,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300096, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780179909591293203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780179909591293201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780180342868079541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1858,6 @@ GameObject:
   - component: {fileID: 2802812100451861177}
   - component: {fileID: 2792238143910946057}
   - component: {fileID: 2780180342868079540}
-  - component: {fileID: 2780180342868079543}
   m_Layer: 9
   m_Name: Tocus_Door_Right_Back
   m_TagString: Untagged
@@ -1962,7 +1901,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2003,20 +1942,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300086, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780180342868079543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780180342868079541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780252857239466569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,7 +1954,6 @@ GameObject:
   - component: {fileID: 2802713458340270053}
   - component: {fileID: 2792279902517653095}
   - component: {fileID: 2780252857239466568}
-  - component: {fileID: 2780252857239466571}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Front
   m_TagString: Untagged
@@ -2112,20 +2036,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300094, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780252857239466571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780252857239466569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780260410141088549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2048,6 @@ GameObject:
   - component: {fileID: 2802442496047524841}
   - component: {fileID: 2792258416176403223}
   - component: {fileID: 2780260410141088548}
-  - component: {fileID: 2780260410141088551}
   m_Layer: 9
   m_Name: Tocus_Win_Light_Left
   m_TagString: Untagged
@@ -2181,7 +2090,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2221,20 +2130,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300066, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780260410141088551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780260410141088549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780269800032393613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,7 +2142,6 @@ GameObject:
   - component: {fileID: 2803195955555614761}
   - component: {fileID: 2792607376665659771}
   - component: {fileID: 2780269800032393612}
-  - component: {fileID: 2780269800032393615}
   m_Layer: 9
   m_Name: Tocus_Light_Front_Left
   m_TagString: Untagged
@@ -2290,7 +2184,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2330,20 +2224,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300110, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780269800032393615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780269800032393613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780287760752787879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2236,6 @@ GameObject:
   - component: {fileID: 2804519110165200991}
   - component: {fileID: 2792364954077945439}
   - component: {fileID: 2780287760752787878}
-  - component: {fileID: 2780287760752787873}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Left
   m_TagString: Untagged
@@ -2399,7 +2278,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2439,20 +2318,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300104, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780287760752787873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780287760752787879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780299139923649939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,7 +2330,6 @@ GameObject:
   - component: {fileID: 2802906409611686939}
   - component: {fileID: 2794225579442843547}
   - component: {fileID: 2780299139923649938}
-  - component: {fileID: 2780299139923649933}
   - component: {fileID: 2780299139923649935}
   - component: {fileID: 2780299139923649932}
   - component: {fileID: 2780299139923649934}
@@ -2512,7 +2376,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2554,20 +2418,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300070, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780299139923649933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780299139923649939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!54 &2780299139923649935
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2655,7 +2505,6 @@ GameObject:
   - component: {fileID: 2804380131663508391}
   - component: {fileID: 2792544284005714773}
   - component: {fileID: 2780316549609562758}
-  - component: {fileID: 2780316549609562753}
   m_Layer: 9
   m_Name: Tocus_Win_Front
   m_TagString: Untagged
@@ -2698,7 +2547,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2738,20 +2587,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300090, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780316549609562753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780316549609562759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780331559971186817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2599,6 @@ GameObject:
   - component: {fileID: 2802790900199578755}
   - component: {fileID: 2792344915235425379}
   - component: {fileID: 2780331559971186816}
-  - component: {fileID: 2780331559971186819}
   - component: {fileID: 2780331559971188605}
   - component: {fileID: 2780331559971186818}
   - component: {fileID: 2780331559971188604}
@@ -2811,7 +2645,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -2853,20 +2687,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300084, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780331559971186819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780331559971186817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!54 &2780331559971188605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2954,7 +2774,6 @@ GameObject:
   - component: {fileID: 2802471379446904307}
   - component: {fileID: 2794214050640785357}
   - component: {fileID: 2780334850897205156}
-  - component: {fileID: 2780334850897205159}
   m_Layer: 9
   m_Name: Tocus_Win_Back
   m_TagString: Untagged
@@ -2997,7 +2816,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3037,20 +2856,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300092, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780334850897205159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780334850897205157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780413186143284733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +2868,6 @@ GameObject:
   - component: {fileID: 2803015560035928623}
   - component: {fileID: 2792672223989733379}
   - component: {fileID: 2780413186143284732}
-  - component: {fileID: 2780413186143284735}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left
   m_TagString: Untagged
@@ -3106,7 +2910,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3146,20 +2950,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300064, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780413186143284735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780413186143284733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780423566793949867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,7 +2966,6 @@ GameObject:
   - component: {fileID: 2780423566793949866}
   - component: {fileID: 2780423566793949861}
   - component: {fileID: 2780423566793949860}
-  - component: {fileID: 2780423566793949863}
   - component: {fileID: 2780423566793949862}
   - component: {fileID: 2780423566793949857}
   - component: {fileID: 1610265679339991}
@@ -3345,20 +3134,6 @@ MonoBehaviour:
   dampingRatio: 0.8
   forceShift: 0.2
   setSuspensionDistance: 1
---- !u!114 &2780423566793949863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780423566793949867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!114 &2780423566793949862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,7 +3190,6 @@ GameObject:
   - component: {fileID: 2803169420740250083}
   - component: {fileID: 2792577704429507075}
   - component: {fileID: 2780470758779515164}
-  - component: {fileID: 2780470758779515167}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right
   m_TagString: Untagged
@@ -3458,7 +3232,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3498,20 +3272,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300102, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780470758779515167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780470758779515165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780485546922951131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,7 +3284,6 @@ GameObject:
   - component: {fileID: 2804392651989628919}
   - component: {fileID: 2792521403962365077}
   - component: {fileID: 2780485546922951130}
-  - component: {fileID: 2780485546922951125}
   m_Layer: 9
   m_Name: Tocus_Body
   m_TagString: Untagged
@@ -3567,7 +3326,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3609,20 +3368,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300062, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780485546922951125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780485546922951131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780579106784290725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3635,7 +3380,6 @@ GameObject:
   - component: {fileID: 2804544725485865503}
   - component: {fileID: 2792571736766734471}
   - component: {fileID: 2780579106784290724}
-  - component: {fileID: 2780579106784290727}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Right
   m_TagString: Untagged
@@ -3678,7 +3422,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3718,20 +3462,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300106, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780579106784290727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780579106784290725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780593670883035823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,7 +3474,6 @@ GameObject:
   - component: {fileID: 2802438835664856817}
   - component: {fileID: 2792232414624469089}
   - component: {fileID: 2780593670883035822}
-  - component: {fileID: 2780593670883035817}
   m_Layer: 9
   m_Name: Tocus_Bottom
   m_TagString: Untagged
@@ -3787,7 +3516,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3829,20 +3558,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300082, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780593670883035817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780593670883035823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780625185356207407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3855,7 +3570,6 @@ GameObject:
   - component: {fileID: 2804561052547471635}
   - component: {fileID: 2792264264021455095}
   - component: {fileID: 2780625185356207406}
-  - component: {fileID: 2780625185356207401}
   m_Layer: 9
   m_Name: Tocus_Light_Front_Right
   m_TagString: Untagged
@@ -3898,7 +3612,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -3938,20 +3652,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300108, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780625185356207401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780625185356207407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780632411408589551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,7 +3664,6 @@ GameObject:
   - component: {fileID: 2803013332386628155}
   - component: {fileID: 2792739330848580821}
   - component: {fileID: 2780632411408589550}
-  - component: {fileID: 2780632411408589545}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Front
   m_TagString: Untagged
@@ -4047,20 +3746,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300098, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780632411408589545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780632411408589551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780723099875685341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +3799,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4152,7 +3837,6 @@ GameObject:
   - component: {fileID: 2802923617713362945}
   - component: {fileID: 2794397202638654769}
   - component: {fileID: 2780733247418898460}
-  - component: {fileID: 2780733247418898463}
   m_Layer: 9
   m_Name: Tocus_Door_Left_Back
   m_TagString: Untagged
@@ -4196,7 +3880,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4237,20 +3921,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300068, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780733247418898463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780733247418898461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780744690305430277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4263,7 +3933,6 @@ GameObject:
   - component: {fileID: 2804506309150876561}
   - component: {fileID: 2792515222539784965}
   - component: {fileID: 2780744690305430276}
-  - component: {fileID: 2780744690305430279}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Back
   m_TagString: Untagged
@@ -4346,20 +4015,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300100, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780744690305430279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780744690305430277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!1 &2780841256562110565
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,7 +4029,6 @@ GameObject:
   - component: {fileID: 2780841256562110564}
   - component: {fileID: 2780841256562110566}
   - component: {fileID: 2780841256562110567}
-  - component: {fileID: 2780841256562110561}
   - component: {fileID: 2780841256562110560}
   m_Layer: 9
   m_Name: Tocus_Hood_Back
@@ -4418,7 +4072,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4511,20 +4165,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2780841256562110561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780841256562110565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!114 &2780841256562110560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,7 +4242,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4681,7 +4321,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4763,7 +4403,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4842,7 +4482,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -4882,7 +4522,6 @@ GameObject:
   - component: {fileID: 2780960048260541246}
   - component: {fileID: 2780960048260541247}
   - component: {fileID: 2780960048260541244}
-  - component: {fileID: 2780960048260541241}
   - component: {fileID: 2780960048260541240}
   - component: {fileID: 2780960048260541243}
   m_Layer: 9
@@ -4927,7 +4566,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -5019,20 +4658,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300076, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780960048260541241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780960048260541245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce0c6c90741624bbd995f24a81602b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: {fileID: 0}
-  inCar: {fileID: 0}
 --- !u!114 &2780960048260541240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5521,13 +5146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eArmRot: {fileID: 0}
+  player: {fileID: 0}
+  sniper: {fileID: 0}
+  anim: {fileID: 0}
   hands: {fileID: 0}
   tPose: {fileID: 0}
   weapon: {fileID: 0}
   maxHealth: 100
   curHealth: 100
   ragdoll: 0
-  weaponSpawned: 0
+  force: 0
 --- !u!1 &3828906286987748361
 GameObject:
   m_ObjectHideFlags: 0

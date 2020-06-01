@@ -11122,7 +11122,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418833979990445891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5f9edcc8a5ce6864f9fdf4c6fe171a64, type: 2}
   m_CullingMode: 2
@@ -11184,6 +11184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eArmRot: {fileID: 0}
+  player: {fileID: 0}
+  sniper: {fileID: 0}
   anim: {fileID: 1418833979990445894}
   hands: {fileID: 8401249761382800483}
   tPose: {fileID: 1833973156}
@@ -11191,7 +11193,7 @@ MonoBehaviour:
   maxHealth: 100
   curHealth: 100
   ragdoll: 0
-  weaponSpawned: 0
+  force: 0
 --- !u!54 &759628621
 Rigidbody:
   m_ObjectHideFlags: 0

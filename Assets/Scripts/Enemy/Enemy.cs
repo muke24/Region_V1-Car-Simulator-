@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	public EnemyArmRotations eArmRot;
+	public GameObject player;
+	public Sniper sniper;
 	public Animator anim;
 	public GameObject hands;
 	public GameObject tPose;
@@ -13,62 +15,91 @@ public class Enemy : MonoBehaviour
 	public float maxHealth = 100;
 	public float curHealth = 100;
 	public bool ragdoll;
-	public bool weaponSpawned = false;
+	public bool force;
 
 	private Collider[] colliders;
 	private Rigidbody[] rigid;
 
-	// Start is called before the first frame update
-	void Start()
+	private void Awake()
 	{
-		curHealth = maxHealth;
 		colliders = GetComponentsInChildren<Collider>();
 		rigid = GetComponentsInChildren<Rigidbody>();
 		eArmRot = GetComponent<EnemyArmRotations>();
 		anim = GetComponent<Animator>();
+		player = GameObject.FindGameObjectWithTag("Player");
+		sniper = player.GetComponentInChildren<Sniper>();
+	}
+
+	// Start is called before the first frame update
+	void Start()
+	{
 		RagDollOff();
+		curHealth = maxHealth;
+		ragdoll = false;
+		tPose.SetActive(false);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (curHealth <= 0f)
+		if (curHealth <= 0)
 		{
-			ragdoll = true;
-			if (ragdoll)
-			{
-				RagDollOn();
-			}
+			RagDollOn();
+
+			hands.SetActive(false);
+			tPose.SetActive(true);
+
+			//ragdoll = true;
+			//if (ragdoll)
+			//{
+			//	RagDollOn();
+			//}
 		}
+		if (curHealth > 0)
+		{
+			RagDollOff();
+
+			//hands.SetActive(true);
+			//tPose.SetActive(false);
+		}
+		//if (!ragdoll)
+		//{
+		//	RagDollOff();
+		//}
 	}
 
 	void RagDollOn()
 	{
+		rigid = GetComponentsInChildren<Rigidbody>();
+
 		anim.enabled = false;
 
 		weapon.transform.parent = null;
 		weapon.GetComponent<Rigidbody>().isKinematic = false;
 
-		if (weaponSpawned)
-		{
-			weaponSpawned = false;
-					
-		}
-		
+		GetComponent<Rigidbody>().rotation = transform.rotation;
+
 		eArmRot.enabled = false;
-		hands.SetActive(false);
-		tPose.SetActive(true);
-		foreach (Rigidbody rb in rigid)
+		//hands.SetActive(false);
+		//tPose.SetActive(true);
+		force = true;
+		if (force)
 		{
-			rb.isKinematic = false;
+			foreach (Rigidbody rb in rigid)
+			{
+				rb.isKinematic = false;
+				GetComponent<Rigidbody>().AddForce(player.transform.forward * sniper.ragdollForce, ForceMode.Force);
+			}
+
+			force = false;
 		}
 	}
 
 	void RagDollOff()
 	{
 		eArmRot.enabled = true;
-		hands.SetActive(true);
-		tPose.SetActive(false);
+		//hands.SetActive(true);
+		//tPose.SetActive(false);
 		foreach (Rigidbody rb in rigid)
 		{
 			rb.isKinematic = true;

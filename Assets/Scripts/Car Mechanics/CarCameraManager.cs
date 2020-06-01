@@ -61,11 +61,9 @@ public class CarCameraManager : MonoBehaviour
 		if (Car.inCar)
 		{
 			// Sets the current car that you are driving to the last closest car that you were in before you got in the car.
-			car = currentCar.currentCar;
+			car = carFind.closestCar.gameObject;
 			// Enables the carCam Audio Listener
 			aL.enabled = true;
-			// Enables the carCam Reflection Probe
-			carCamRP.enabled = true;
 			//originalRotation = rb.transform.rotation;
 			rb = currentCar.currentCar.GetComponent<Rigidbody>();
 
@@ -112,8 +110,6 @@ public class CarCameraManager : MonoBehaviour
 			car = null;
 			// Disables the carCam Audio Listener to ensure you aren't hearing sound from both the player's fps camera Audio Listener and CarCam Audio Listener
 			aL.enabled = false;
-			// Disables the carCam Reflection Probe
-			carCamRP.enabled = false;
 		}
 	}
 

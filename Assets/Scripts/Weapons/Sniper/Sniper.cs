@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Sniper : MonoBehaviour
 {
+	public static GameObject player;
+	public static GameObject thisWeapon;
+
 	#region Sniper
 	[SerializeField] // Makes Unity show the private field in inspector
 	private GameObject pause = null;
@@ -24,6 +27,8 @@ public class Sniper : MonoBehaviour
 	private bool shootBool;
 	[SerializeField] // Makes Unity show the private field in inspector
 	private bool reload;
+
+	public int ragdollForce = 2;
 
 	public GameObject gunshotDecal;
 
@@ -56,6 +61,11 @@ public class Sniper : MonoBehaviour
 	[SerializeField] // Makes Unity show the private field in inspector
 	private GameObject impactEffect = null;
 	#endregion
+
+	private void Start()
+	{
+		player = transform.root.gameObject;
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -126,7 +136,7 @@ public class Sniper : MonoBehaviour
 				}
 			}
 		}
-		
+
 		// When shootBool returns true then the sniper cannot shoot, and shootTimer acts as a reload time
 		if (shootBool)
 		{

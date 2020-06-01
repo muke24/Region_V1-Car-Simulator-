@@ -29,6 +29,8 @@ public class MouseLook : MonoBehaviour
 
 	void Start()
 	{
+		Cursor.visible = false;
+
 		// Make the rigid body not change rotation
 		if (GetComponent<Rigidbody>())
 		{
