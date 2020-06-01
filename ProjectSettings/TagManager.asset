@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - Enemy
   - Car
+  - Wall-Bangable
   layers:
   - Default
   - TransparentFX

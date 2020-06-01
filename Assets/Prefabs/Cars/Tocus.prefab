@@ -267,7 +267,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300072, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2778850203948529252
@@ -778,7 +778,7 @@ WheelCollider:
     spring: 40930.03
     damper: 5037.5425
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094686
+  m_SuspensionDistance: 0.11609468
   m_ForceAppPointDistance: 0.52403086
   m_Mass: 1
   m_WheelDampingRate: 0.25
@@ -1264,10 +1264,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43487.93
-    damper: 5352.361
+    spring: 43487.918
+    damper: 5352.3594
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609467
+  m_SuspensionDistance: 0.11609469
   m_ForceAppPointDistance: 0.51567876
   m_Mass: 1
   m_WheelDampingRate: 0.25
@@ -1737,7 +1737,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300078, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!114 &1222120388
@@ -2415,7 +2415,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300070, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2780299139923649935
@@ -2445,7 +2445,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.71500015, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2684,7 +2684,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300084, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2780331559971188605
@@ -2714,7 +2714,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.71500015, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -4111,7 +4111,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300074, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2780841256562110566
