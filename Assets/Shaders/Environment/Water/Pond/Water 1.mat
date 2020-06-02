@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water 1
+  m_Shader: {fileID: 4800000, guid: c027f55b9feb1ca4db77220d978893c7, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Normals:
+        m_Texture: {fileID: 2800000, guid: 7060a5f88c6a25346b9df09489ac6aec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normals1:
+        m_Texture: {fileID: 2800000, guid: cd460ee4ac5c1e746b7a734cc7cc64dd, type: 3}
+        m_Scale: {x: 40, y: 40}
+        m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 7060a5f88c6a25346b9df09489ac6aec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EdgeDistance: 1
+    - _EdgeLength: 15
+    - _EdgePower: 0.1
+    - _Float0: 0.299
+    - _Float2: 0.4
+    - _Float3: 0.1
+    - _FoamDistance: 0
+    - _FoamStrength: 1
+    - _GlossyReflections: 1
+    - _NormalSpeed: 1
+    - _NormalSpeed1: 10
+    - _NormalSpeed2: 10
+    - _NormalStrength: 0.13
+    - _NormalTile: 0.25
+    - _NormalTile1: 0.01
+    - _NormalTile2: 0.009
+    - _Smoothness: 1.25
+    - _SpecularHighlights: 1
+    - _TessPhongStrength: 0.5
+    - _TransAmbient: 0.2
+    - _TransDirect: 1
+    - _TransNormalDistortion: 0.1
+    - _TransScattering: 2
+    - _TransShadow: 0.9
+    - _Translucency: 1
+    - _WaveScale: 0.01
+    - _WaveSpeed: 25
+    - _WaveStrength: 2.1
+    - _WaveTile: 0.3
+    - __dirty: 0
+    m_Colors:
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _VTInfoBlock: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector2: {r: 1, g: 0.3, b: 0, a: 0}
+    - _WaterA: {r: 0, g: 0.4708205, b: 0.5471698, a: 1}
+    - _WaterB: {r: 0, g: 0.5684987, b: 0.6603774, a: 1}
