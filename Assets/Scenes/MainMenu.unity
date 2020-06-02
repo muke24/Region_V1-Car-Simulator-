@@ -445,6 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411686630}
+  - component: {fileID: 411686631}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -471,6 +472,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411686631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411686629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d755e894bfd975d4fa0d6322d65b25ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454647135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1629,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2136550620}
   m_OnClick:
     m_PersistentCalls:
@@ -13376,12 +13389,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
+  gunCam: {fileID: 1822969997815412110}
+  pA: {fileID: 1822969997757178165}
   range: 1000
   boltTimer: 1
   shootTimer: 1.3
-  gunCam: {fileID: 1822969997815412110}
-  pA: {fileID: 1822969997757178165}
   shootBool: 0
+  reload: 0
+  ragdollForce: 2
+  gunshotDecal: {fileID: 6755025396589174639, guid: db6c3e95a12f3fb44aaafef862531dfc,
+    type: 3}
+  imaxAmmo: 5
+  iammoCount: 5
   enemy: {fileID: 0}
   collisions: {fileID: 0}
   damage: 100
@@ -13389,14 +13408,9 @@ MonoBehaviour:
   bodyShotMultiplier: 1
   legShotMultiplier: 0.75
   footShotMultiplier: 0.5
-  gunshotDecal: {fileID: 6755025396589174639, guid: db6c3e95a12f3fb44aaafef862531dfc,
-    type: 3}
   muzzelFlash: {fileID: 1822969996044898104}
   impactEffect: {fileID: 7555024470436820771, guid: a37c6e4906cdc664b96b495a9362437f,
     type: 3}
-  reload: 0
-  imaxAmmo: 5
-  iammoCount: 5
 --- !u!4 &1822969997757178122
 Transform:
   m_ObjectHideFlags: 0
