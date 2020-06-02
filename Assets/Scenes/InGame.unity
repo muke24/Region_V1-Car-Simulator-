@@ -65093,7 +65093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allLights: []
-  sunLight: {fileID: 0}
+  sunLight: {fileID: 705507994}
   rtrDropdown: {fileID: 1256903585}
   shadowDistAll: {fileID: 15516488}
   shadowType: {fileID: 1408055918}
