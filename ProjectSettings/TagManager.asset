@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Car
   - Wall-Bangable
+  - Sign
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Weapon
   - Hands
   - Enemy
-  - 
+  - Post Processing Scoped
   - 
   - 
   - 

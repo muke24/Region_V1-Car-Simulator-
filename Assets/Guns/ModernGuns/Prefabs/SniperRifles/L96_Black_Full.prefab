@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78216913}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Pivot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 238964474}
   - component: {fileID: 238964473}
   - component: {fileID: 238964472}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ForeArm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc34a530ace31d545b0635b0f4d947b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,6 +123,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &325192134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325192135}
+  - component: {fileID: 325192137}
+  m_Layer: 11
+  m_Name: Camera
+  m_TagString: Gun
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325192135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325192134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4922413645337816}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &325192137
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325192134}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1
+  field of view: 60
+  orthographic: 1
+  orthographic size: 0.5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 990be9a2fcba71b47a18fedb8ee05b03, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &612120304
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 612120305}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ShoulderPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +242,7 @@ GameObject:
   - component: {fileID: 719927204}
   - component: {fileID: 719927206}
   - component: {fileID: 719927205}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: MuzzelFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4925,7 +4999,7 @@ GameObject:
   - component: {fileID: 1251986239}
   - component: {fileID: 1251986238}
   - component: {fileID: 1251986237}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4973,7 +5047,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 22318d43c5da40846a5d6460305956d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5016,7 +5090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346122532}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5048,7 +5122,7 @@ GameObject:
   - component: {fileID: 1727621802}
   - component: {fileID: 1727621804}
   - component: {fileID: 1727621803}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9801,7 +9875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1849682958}
   - component: {fileID: 1849682959}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9895,7 +9969,7 @@ GameObject:
   - component: {fileID: 1954028498}
   - component: {fileID: 1954028497}
   - component: {fileID: 1954028496}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9943,7 +10017,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 22318d43c5da40846a5d6460305956d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9989,7 +10063,7 @@ GameObject:
   - component: {fileID: 2117715004}
   - component: {fileID: 2117715003}
   - component: {fileID: 2117715002}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10036,7 +10110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc34a530ace31d545b0635b0f4d947b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10154,7 +10228,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -10212,6 +10286,7 @@ Transform:
   - {fileID: 4133032194511776}
   - {fileID: 612120305}
   - {fileID: 719927204}
+  - {fileID: 325192135}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10228,19 +10303,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
-  damage: 100
-  range: 1000
-  bulletCount: 5
-  boltTimer: 1
-  fireRate: 1
   gunCam: {fileID: 0}
+  pA: {fileID: 0}
+  range: 1000
+  boltTimer: 1
+  shootTimer: 1.4
+  shootBool: 0
+  reload: 0
+  ragdollForce: 2
   gunshotDecal: {fileID: 6755025396589174639, guid: db6c3e95a12f3fb44aaafef862531dfc,
     type: 3}
-  pA: {fileID: 0}
+  imaxAmmo: 5
+  iammoCount: 5
+  enemy: {fileID: 0}
+  collisions: {fileID: 0}
+  damage: 100
+  headShotMultiplier: 2
+  bodyShotMultiplier: 1
+  legShotMultiplier: 0.75
+  footShotMultiplier: 0.5
   muzzelFlash: {fileID: 719927206}
   impactEffect: {fileID: 7555024470436820771, guid: a37c6e4906cdc664b96b495a9362437f,
     type: 3}
-  gunShot: {fileID: 0}
 --- !u!1 &1904850528769020
 GameObject:
   m_ObjectHideFlags: 0
@@ -10294,7 +10378,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 2
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
