@@ -5,21 +5,26 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class DepthOfFieldOnAim : MonoBehaviour
 {
-    public PostProcessVolume postProcess;
-    public PostProcessProfile aimingProfile;
-    public PostProcessProfile notAimingProfile;
-    public Animator animator;
+	public PostProcessVolume postProcess;
+	public PostProcessProfile aimingProfile;
+	public PostProcessProfile notAimingProfile;
+	public Animator animator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (animator.GetBool("Aim"))
-        {
-            postProcess.profile = aimingProfile;
-        }
-        if (!animator.GetBool("Aim"))
-        {
-            postProcess.profile = notAimingProfile;
-        }
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		//if (animator.GetCurrentAnimatorStateInfo(0).IsName("SniperZoom"))
+		if (animator.GetBool("Aim"))
+		{
+			if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.2f)
+			{
+				postProcess.profile = aimingProfile;
+			}
+		}
+
+		else
+		{
+			postProcess.profile = notAimingProfile;
+		}
+	}
 }
