@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
@@ -185,23 +186,5 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 }
-
-//-------FLYING BUG--------// - Press crouch to fly
-//if (!controller.isGrounded && Input.GetButton("Crouch"))
-//{
-//	//Feed moveDirection with input.
-//	moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
-//	moveDirection = transform.TransformDirection(moveDirection);
-//	//Multiply it by speed.
-//	moveDirection *= speed;
-//	//Jumping
-//	if (Input.GetButton("Jump"))
-//	{
-//		moveDirection.y = jumpSpeed;
-//	}
-
-//	isWalking = false;
-//	isRunning = false;
-//	isCrouching = true;
-//	isAirBorn = true;
-//}
+// This code is written by Peter Thompson
+#endregion

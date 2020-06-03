@@ -14,16 +14,19 @@ public class WeaponSway : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Sets the initial position variable to the first start position
         initialPosition = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If not aiming
         if (!Input.GetButton("Aim"))
         {
             float movementX = -Input.GetAxis("Mouse X") * amount;
             float movementY = -Input.GetAxis("Mouse Y") * amount;
+
             movementX = Mathf.Clamp(movementX, -maxAmount, maxAmount);
             movementY = Mathf.Clamp(movementY, -maxAmount, maxAmount);
 
@@ -31,10 +34,13 @@ public class WeaponSway : MonoBehaviour
             transform.localPosition = Vector3.Lerp(transform.localPosition, finalPosition + initialPosition, Time.deltaTime * smoothAmount);
         }
 
+        // If aiming
         if (Input.GetButton("Aim"))
         {
+            // Sets local float to 
             float movementX = -Input.GetAxis("Mouse X") * (amount * 0.3f);
             float movementY = -Input.GetAxis("Mouse Y") * (amount * 0.3f);
+
             movementX = Mathf.Clamp(movementX, -maxAmount, maxAmount);
             movementY = Mathf.Clamp(movementY, -maxAmount, maxAmount);
 

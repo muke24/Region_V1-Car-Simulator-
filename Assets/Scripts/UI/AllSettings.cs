@@ -3,22 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
 {
 	public Light[] allLights;
 	public Light sunLight;
-
+	[Space (10)]
 	public GameObject rtrDropdown;
 	public GameObject shadowDistAll;
-
+	[Space(10)]
 	public Dropdown shadowType;
-
+	public Dropdown rtReflections;
+	[Space(10)]
 	public Button applyButton;
-
+	[Space(10)]
 	//public Slider volumeSlider;
-	public Toggle fullscreenToggle;
+	public Slider ssReflectionsSlider;
 	public Slider resolutionSlider;
 	public Slider reflectSlider;
 	public Slider shadowSlider;
@@ -27,41 +29,44 @@ public class AllSettings : MonoBehaviour
 	public Slider mouseY;
 	public Slider adsMouseX;
 	public Slider adsMouseY;
-
+	[Space(10)]
+	public Toggle fullscreenToggle;
+	public Toggle postProcessingToggle;
+	[Space(10)]
 	public InputField mXinput;
 	public InputField mYinput;
 	public InputField adsMXinput;
 	public InputField adsMYinput;
-
+	[Space(10)]
 	public MouseLook mlX;
 	public MouseLook mlY;
-
-	public Dropdown rtReflections;
-
+	[Space(10)]
 	public ReflectionProbe ReflectionProbe1;
-
+	[Space(10)]
 	//public Text volumeText;
 	public Text resolutionText;
 	public Text resolutionSize;
 	public Text reflectionValueText;
 	public Text shadowValueText;
 	public Text shadowDistanceText;
+	[Space(10)]
 	public InputField customReflect;
 	public InputField customShadows;
-
+	[Space(10)]
 	public string resText;
-
+	[Space(10)]
 	//public int volumeInt;
 	public int resolutionIntWidth;
 	public int resolutionIntHeight;
-
+	[Space(10)]
 	public int resWidth;
 	public int resHeight;
-
-	//public int realtimeReflections = 0;
-
+	[Space(10)]
 	public bool resChanged;
 	public bool settingsChanged;
+	[Space(10)]
+	public PostProcessLayer normalPostProcess;
+	public PostProcessLayer scopedPostProcess;
 
 	// Start is called before the first frame update
 	void Start()
@@ -96,6 +101,8 @@ public class AllSettings : MonoBehaviour
 		{
 			applyButton.gameObject.SetActive(true);
 		}
+
+
 
 		//volumeInt = Mathf.RoundToInt(volumeSlider.value);
 		//volumeText.text = volumeSlider.value.ToString() + "%";
@@ -411,6 +418,7 @@ public class AllSettings : MonoBehaviour
 		shadowDistanceText.text = shadowDistanceSlider.value.ToString();
 	}
 
+	// Activates when the shadow slider is being moved
 	public void Shadows()
 	{
 		if (shadowSlider.value == 0)
@@ -475,6 +483,46 @@ public class AllSettings : MonoBehaviour
 			customShadows.gameObject.SetActive(true);
 
 			shadowDistAll.SetActive(true);
+		}
+	}
+
+	public void ScreenSpaceReflectionSlider()
+	{
+		if (postProcessingToggle.isOn)
+		{
+			if (resolutionSlider.value == 0)
+			{
+				// Screen Space reflections off
+			}
+			if (resolutionSlider.value == 1)
+			{
+				// Screen Space reflections lower
+
+			}
+			if (resolutionSlider.value == 2)
+			{
+				// Screen Space reflections low
+			}
+			if (resolutionSlider.value == 3)
+			{
+				// Screen Space reflections medium
+			}
+			if (resolutionSlider.value == 4)
+			{
+				// Screen Space reflections high
+			}
+			if (resolutionSlider.value == 5)
+			{
+				// Screen Space reflections higher
+			}
+			if (resolutionSlider.value == 6)
+			{
+				// Screen Space reflections ultra
+			}
+			if (resolutionSlider.value == 7)
+			{
+				// Screen Space reflections overkill
+			}
 		}
 	}
 }
