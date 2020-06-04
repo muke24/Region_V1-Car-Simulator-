@@ -13,9 +13,9 @@ public class SceneHandler : MonoBehaviour
 	{
 		SceneManager.LoadScene("InGame");
 	}
-	public void MultiplayerRegisterScene()
+	public void MultiplayerScene()
 	{
-		SceneManager.LoadScene("LobbyScene");
+		//SceneManager.LoadScene("MultiplayerScene");
 	}
 	public void QuitGame()
 	{
