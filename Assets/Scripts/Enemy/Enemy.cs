@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Enemy : MonoBehaviour
 	private GameObject tPose;
 	private Collider[] colliders;
 	private Rigidbody[] rigid;
+	private EnemyAI enemyAI;
+	private NavMeshAgent agent;
 
 	private void Awake()
 	{
@@ -38,6 +41,8 @@ public class Enemy : MonoBehaviour
 		curHealth = maxHealth;
 		ragdoll = false;
 		tPose.SetActive(false);
+		enemyAI = GetComponent<EnemyAI>();
+		agent = GetComponent<NavMeshAgent>();
 	}
 
 	// Update is called once per frame
@@ -49,29 +54,19 @@ public class Enemy : MonoBehaviour
 
 			hands.SetActive(false);
 			tPose.SetActive(true);
-
-			//ragdoll = true;
-			//if (ragdoll)
-			//{
-			//	RagDollOn();
-			//}
 		}
 		if (curHealth > 0)
 		{
 			RagDollOff();
-
-			//hands.SetActive(true);
-			//tPose.SetActive(false);
 		}
-		//if (!ragdoll)
-		//{
-		//	RagDollOff();
-		//}
 	}
 
 	void RagDollOn()
 	{
 		rigid = GetComponentsInChildren<Rigidbody>();
+
+		enemyAI.enabled = false;
+		agent.enabled = false;
 
 		anim.enabled = false;
 
@@ -81,8 +76,7 @@ public class Enemy : MonoBehaviour
 		GetComponent<Rigidbody>().rotation = transform.rotation;
 
 		eArmRot.enabled = false;
-		//hands.SetActive(false);
-		//tPose.SetActive(true);
+
 		force = true;
 		if (force)
 		{
@@ -101,8 +95,7 @@ public class Enemy : MonoBehaviour
 	void RagDollOff()
 	{
 		eArmRot.enabled = true;
-		//hands.SetActive(true);
-		//tPose.SetActive(false);
+
 		foreach (Rigidbody rb in rigid)
 		{
 			rb.isKinematic = true;

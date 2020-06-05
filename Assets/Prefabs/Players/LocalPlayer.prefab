@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378204869}
   m_Layer: 8
-  m_Name: PostProcessingEffectsWorld(Changes)
+  m_Name: PostProcessingEffectsWorld(ChangesWhenAiming)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3913,6 +3913,10 @@ PrefabInstance:
       propertyPath: pA
       value: 
       objectReference: {fileID: 4276280504643031226}
+    - target: {fileID: 1280442486, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
+      propertyPath: bodyShotMultiplier
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 1825296570637940, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
       propertyPath: m_Name
       value: L96_Black_Full

@@ -48,7 +48,7 @@ public class Sniper : MonoBehaviour
 	[SerializeField] // Makes Unity show the private field in inspector
 	private float headShotMultiplier = 2f;
 	[SerializeField] // Makes Unity show the private field in inspector
-	private float bodyShotMultiplier = 1f;
+	private float bodyShotMultiplier = 0.99f;
 	[SerializeField] // Makes Unity show the private field in inspector
 	private float legShotMultiplier = 0.75f;
 	[SerializeField] // Makes Unity show the private field in inspector
@@ -80,7 +80,6 @@ public class Sniper : MonoBehaviour
 			// Checks if sniper is able to shoot
 			CheckIfCanShoot();
 		}
-
 
 		// Always check reload void
 		Reload();

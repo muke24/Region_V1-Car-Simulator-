@@ -11225,10 +11225,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74d7f3df4418364499a78ad019671b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootAnim: {fileID: 5031456203748735211}
+  weapon: {fileID: 5026630896204995477}
   bodyLook: {fileID: 5000409499635982359}
-  lerpSpeed: 2
+  lerpSpeed: 500
   stoppingDistance: 15
-  rayCastRate: 3
+  castRayRate: 3
+  viewDistance: 150
+  damage: 49
+  searchMode: 1
+  lookAtPlayerMode: 0
+  followPlayerMode: 0
+  readyToShootMode: 0
+  getPlayerPos: 0
+  findPlayer: 0
 --- !u!195 &2035169575
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12692,6 +12702,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c58882db62d3140af26deba11b5ff2, type: 3}
+--- !u!198 &5031456203748735211 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9013803753494555699, guid: 53c58882db62d3140af26deba11b5ff2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4090433960574768344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5026630896204995477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9008899276416061261, guid: 53c58882db62d3140af26deba11b5ff2,
