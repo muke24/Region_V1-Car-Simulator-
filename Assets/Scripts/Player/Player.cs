@@ -25,12 +25,6 @@ public class Player : MonoBehaviour
             allMesh.probeAnchor = transform;            
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 // This code is written by Peter Thompson
 #endregion

@@ -10,13 +10,13 @@ public class Enemy : MonoBehaviour
 	public Sniper sniper;
 	public Animator anim;
 	public GameObject hands;
-	public GameObject tPose;
 	public GameObject weapon;
 	public float maxHealth = 100;
 	public float curHealth = 100;
 	public bool ragdoll;
 	public bool force;
 
+	private GameObject tPose;
 	private Collider[] colliders;
 	private Rigidbody[] rigid;
 
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 		anim = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		sniper = player.GetComponentInChildren<Sniper>();
+		tPose = transform.Find("HeadPivot").transform.Find("T-Pose").gameObject;
 	}
 
 	// Start is called before the first frame update
@@ -88,11 +89,13 @@ public class Enemy : MonoBehaviour
 			foreach (Rigidbody rb in rigid)
 			{
 				rb.isKinematic = false;
-				GetComponent<Rigidbody>().AddForce(player.transform.forward * sniper.ragdollForce, ForceMode.Force);
+				//GetComponent<Rigidbody>().AddForce(player.transform.forward * sniper.ragdollForce, ForceMode.Force);
 			}
 
 			force = false;
 		}
+
+		Destroy(gameObject, 10);
 	}
 
 	void RagDollOff()

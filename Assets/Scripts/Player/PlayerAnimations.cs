@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+	public GameObject pause;
 	public PlayerMovement pMovement;
 	public Animator playerAnimation;
 	public float vertical;
@@ -33,21 +34,25 @@ public class PlayerAnimations : MonoBehaviour
 			scoped = false;
 			playerAnimation.SetBool("Aim", false);
 		}
-		if (Input.GetButton("Aim")) // scoping
+		// If is not paused
+		if (!pause.activeInHierarchy)
 		{
-			if (scopingTime >= 0f && scopingTime < 0.25f)
+			if (Input.GetButton("Aim")) // scoping
 			{
-				scopingTime += Time.deltaTime;
-				scoping = true;
+				if (scopingTime >= 0f && scopingTime < 0.25f)
+				{
+					scopingTime += Time.deltaTime;
+					scoping = true;
+				}
+				else
+				{
+					scoping = false;
+					scopingTime = 0.25f;
+				}
+				scoped = true;
+				playerAnimation.SetBool("Aim", true);
 			}
-			else
-			{
-				scoping = false;
-				scopingTime = 0.25f;
-			}
-			scoped = true;
-			playerAnimation.SetBool("Aim", true);
-		}
+		}		
 
 		if (Input.GetAxis("Vertical") == 0 || Input.GetAxis("Horizontal") == 0)
 		{

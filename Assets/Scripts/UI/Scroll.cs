@@ -11,20 +11,23 @@ public class Scroll : MonoBehaviour
 	public Vector3 scroll;
 	public float scrollY;
 
+	public float scrollSensitivity = 0.1f;
+	public int scrollMaxValue = 1000;
+
 	void Update()
 	{
 		scroll = new Vector3(0, scrollY, 0);
 
 		if (scrollbar.value >= 0 && scrollbar.value <= 1)
 		{
-			if (Input.GetAxis("Mouse ScrollWheel") < 0)
+			if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
 			{
-				scrollbar.value = scrollbar.value + 0.05f;
+				scrollbar.value += scrollSensitivity;
 			}
 
-			if (Input.GetAxis("Mouse ScrollWheel") > 0)
+			if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
 			{
-				scrollbar.value = scrollbar.value - 0.05f;
+				scrollbar.value -= scrollSensitivity;
 			}
 		}
 		if (scrollbar.value < 0)
@@ -39,8 +42,7 @@ public class Scroll : MonoBehaviour
 
 	public void ScrollToPosition()
 	{
-
-		allSettings.transform.localPosition = scroll * 2000;
+		allSettings.transform.localPosition = scroll * scrollMaxValue;
 		scrollY = scrollbar.value;
 	}
 }

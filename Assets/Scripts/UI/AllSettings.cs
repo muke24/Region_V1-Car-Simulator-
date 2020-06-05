@@ -10,7 +10,7 @@ public class AllSettings : MonoBehaviour
 {
 	public Light[] allLights;
 	public Light sunLight;
-	[Space (10)]
+	[Space(10)]
 	public GameObject rtrDropdown;
 	public GameObject shadowDistAll;
 	[Space(10)]
@@ -20,7 +20,6 @@ public class AllSettings : MonoBehaviour
 	public Button applyButton;
 	[Space(10)]
 	//public Slider volumeSlider;
-	public Slider ssReflectionsSlider;
 	public Slider resolutionSlider;
 	public Slider reflectSlider;
 	public Slider shadowSlider;
@@ -31,7 +30,17 @@ public class AllSettings : MonoBehaviour
 	public Slider adsMouseY;
 	[Space(10)]
 	public Toggle fullscreenToggle;
+
 	public Toggle postProcessingToggle;
+
+	public Toggle colourGradingToggle;
+	public Toggle autoExposureToggle;
+	public Toggle depthOfFieldToggle;
+	public Toggle motionBlurToggle;
+	public Toggle screenSpaceReflectionsToggle;
+	public Toggle ambientOcclusionToggle;
+	public Toggle bloomToggle;
+
 	[Space(10)]
 	public InputField mXinput;
 	public InputField mYinput;
@@ -65,8 +74,8 @@ public class AllSettings : MonoBehaviour
 	public bool resChanged;
 	public bool settingsChanged;
 	[Space(10)]
-	public PostProcessLayer normalPostProcess;
-	public PostProcessLayer scopedPostProcess;
+	public GameObject worldPostProcess;
+	public GameObject weaponPostProcess;
 
 	// Start is called before the first frame update
 	void Start()
@@ -87,6 +96,7 @@ public class AllSettings : MonoBehaviour
 		ReflectionDrag();
 		Shadows();
 		ShadowDistDrag();
+		ApplySettings();
 	}
 
 	// Update is called once per frame
@@ -486,43 +496,131 @@ public class AllSettings : MonoBehaviour
 		}
 	}
 
-	public void ScreenSpaceReflectionSlider()
+	public void PostProcessingToggle()
 	{
+		if (!postProcessingToggle.isOn)
+		{
+			colourGradingToggle.interactable = false;
+			autoExposureToggle.interactable = false;
+			depthOfFieldToggle.interactable = false;
+			motionBlurToggle.interactable = false;
+			screenSpaceReflectionsToggle.interactable = false;
+			ambientOcclusionToggle.interactable = false;
+			bloomToggle.interactable = false;
+
+			worldPostProcess.SetActive(false);
+			weaponPostProcess.SetActive(false);
+		}
 		if (postProcessingToggle.isOn)
 		{
-			if (resolutionSlider.value == 0)
-			{
-				// Screen Space reflections off
-			}
-			if (resolutionSlider.value == 1)
-			{
-				// Screen Space reflections lower
+			colourGradingToggle.interactable = true;
+			autoExposureToggle.interactable = true;
+			depthOfFieldToggle.interactable = true;
+			motionBlurToggle.interactable = true;
+			screenSpaceReflectionsToggle.interactable = true;
+			ambientOcclusionToggle.interactable = true;
+			bloomToggle.interactable = true;
 
-			}
-			if (resolutionSlider.value == 2)
-			{
-				// Screen Space reflections low
-			}
-			if (resolutionSlider.value == 3)
-			{
-				// Screen Space reflections medium
-			}
-			if (resolutionSlider.value == 4)
-			{
-				// Screen Space reflections high
-			}
-			if (resolutionSlider.value == 5)
-			{
-				// Screen Space reflections higher
-			}
-			if (resolutionSlider.value == 6)
-			{
-				// Screen Space reflections ultra
-			}
-			if (resolutionSlider.value == 7)
-			{
-				// Screen Space reflections overkill
-			}
+			worldPostProcess.SetActive(true);
+			weaponPostProcess.SetActive(true);
+		}
+	}
+
+	public void ColourGradingToggle()
+	{
+		if (colourGradingToggle.isOn)
+		{
+			worldPostProcess.transform.Find("ColorGrading").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("ColorGrading").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("ColorGrading").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("ColorGrading").gameObject.SetActive(false);
+		}
+	}
+
+	public void AutoExposureToggle()
+	{
+		if (autoExposureToggle.isOn)
+		{
+			worldPostProcess.transform.Find("AutoExposure").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("AutoExposure").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("AutoExposure").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("AutoExposure").gameObject.SetActive(false);
+		}
+	}
+
+	public void DepthOfFieldToggle()
+	{
+		if (depthOfFieldToggle.isOn)
+		{
+			worldPostProcess.transform.Find("DepthOfField").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("DepthOfField").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("DepthOfField").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("DepthOfField").gameObject.SetActive(false);
+		}
+	}
+
+	public void MotionBlurToggle()
+	{
+		if (motionBlurToggle.isOn)
+		{
+			worldPostProcess.transform.Find("MotionBlur").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("MotionBlur").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("MotionBlur").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("MotionBlur").gameObject.SetActive(false);
+		}
+	}
+
+	public void ScreenSpaceReflectionsToggle()
+	{
+		if (screenSpaceReflectionsToggle.isOn)
+		{
+			worldPostProcess.transform.Find("ScreenSpaceReflections").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("ScreenSpaceReflections").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("ScreenSpaceReflections").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("ScreenSpaceReflections").gameObject.SetActive(false);
+		}
+	}
+
+	public void AmbientOcclusionToggle()
+	{
+		if (ambientOcclusionToggle.isOn)
+		{
+			worldPostProcess.transform.Find("AmbientOcclusion").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("AmbientOcclusion").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("AmbientOcclusion").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("AmbientOcclusion").gameObject.SetActive(false);
+		}
+	}
+
+	public void BloomToggle()
+	{
+		if (bloomToggle.isOn)
+		{
+			worldPostProcess.transform.Find("Bloom").gameObject.SetActive(true);
+			weaponPostProcess.transform.Find("Bloom").gameObject.SetActive(true);
+		}
+		else
+		{
+			worldPostProcess.transform.Find("Bloom").gameObject.SetActive(false);
+			weaponPostProcess.transform.Find("Bloom").gameObject.SetActive(false);
 		}
 	}
 }

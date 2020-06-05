@@ -74,9 +74,13 @@ public class Sniper : MonoBehaviour
 		imaxAmmo = maxAmmo;
 		// Sets the inspector ammo count int to the static int to see what the ammo count is in the inspector
 		iammoCount = ammoCount;
+		// If is not paused
+		if (!pause.activeInHierarchy)
+		{
+			// Checks if sniper is able to shoot
+			CheckIfCanShoot();
+		}
 
-		// Always checks if sniper is able to shoot
-		CheckIfCanShoot();
 
 		// Always check reload void
 		Reload();
@@ -90,39 +94,35 @@ public class Sniper : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{
-			// If is not paused
-			if (!pause.activeInHierarchy)
+			// Checks all the animation states to see if the sniper isnt in the shoot or bolt animation already,
+			// or isnt transitioning to the shoot or bolt animation, isnt in the reload animation and has an ammo count greater than 0
+			if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
 			{
-				// Checks all the animation states to see if the sniper isnt in the shoot or bolt animation already,
-				// or isnt transitioning to the shoot or bolt animation, isnt in the reload animation and has an ammo count greater than 0
-				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
+				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
 				{
-					if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
+					if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomShoot"))
 					{
-						if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+						if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
 						{
-							if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+							if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot"))
 							{
-								if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot"))
+								if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
 								{
-									if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
+									if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot"))
 									{
-										if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot"))
+										if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
 										{
-											if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
+											if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
 											{
-												if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
+												if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperReload"))
 												{
-													if (!pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperReload"))
+													// If shoot bool is false then reload time pass passed
+													if (!shootBool)
 													{
-														// If shoot bool is false then reload time pass passed
-														if (!shootBool)
+														if (ammoCount > 0)
 														{
-															if (ammoCount > 0)
-															{
-																// If passed all the if statements the sniper will shoot
-																Shoot();
-															}
+															// If passed all the if statements the sniper will shoot
+															Shoot();
 														}
 													}
 												}
@@ -178,6 +178,14 @@ public class Sniper : MonoBehaviour
 			// Shoot a ray directly forward from the gun camera 
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
+				if (hit.transform.gameObject.tag == "Player")
+				{
+					if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range))
+					{
+						Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
+					}
+				}
+
 				// Tells us the collider that was hit in the debug
 				Debug.Log("Gunshot hit " + hit.collider.name);
 
@@ -193,14 +201,18 @@ public class Sniper : MonoBehaviour
 				{
 					enemy = null;
 					collisions = null;
+				}				
+
+				if (hit.transform.gameObject.tag != "Player")
+				{
+					var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+					GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+					gunShot.transform.SetParent(hit.transform);
+					GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					Destroy(impactGO, 2f);
+					Destroy(gunShot, 20f);
 				}
 
-				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-				gunShot.transform.SetParent(hit.transform);
-				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-				Destroy(impactGO, 2f);
-				Destroy(gunShot, 20f);
 				#region Hit collider check aimed
 				if (hit.transform.root.tag == "Enemy")
 				{
@@ -258,6 +270,14 @@ public class Sniper : MonoBehaviour
 			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
+				if (hit.transform.gameObject.tag == "Player")
+				{
+					if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range))
+					{
+						Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
+					}
+				}
+
 				Debug.Log("Gunshot hit " + hit.collider.name);
 
 				if (hit.transform.root.gameObject.tag == "Enemy")
@@ -270,13 +290,15 @@ public class Sniper : MonoBehaviour
 					enemy = null;
 					collisions = null;
 				}
-
-				var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-				GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-				gunShot.transform.SetParent(hit.transform);
-				GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-				Destroy(impactGO, 2f);
-				Destroy(gunShot, 20f);
+				if (hit.transform.gameObject.tag != "Player")
+				{
+					var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+					GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+					gunShot.transform.SetParent(hit.transform);
+					GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					Destroy(impactGO, 2f);
+					Destroy(gunShot, 20f);
+				}
 
 				#region Hit collider check
 				if (hit.transform.root.tag == "Enemy")
@@ -409,13 +431,16 @@ public class Sniper : MonoBehaviour
 				ammoCount = maxAmmo;
 			}
 		}
-
-		if (Input.GetButtonDown("Reload"))
+		// If is not paused
+		if (!pause.activeInHierarchy)
 		{
-			if (ammoCount < maxAmmo)
+			if (Input.GetButtonDown("Reload"))
 			{
-				reload = true;
-				pA.playerAnimation.SetBool("Reload", reload);
+				if (ammoCount < maxAmmo)
+				{
+					reload = true;
+					pA.playerAnimation.SetBool("Reload", reload);
+				}
 			}
 		}
 	}

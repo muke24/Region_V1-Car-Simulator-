@@ -10,6 +10,7 @@ TagManager:
   - Car
   - Wall-Bangable
   - Sign
+  - Manager
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarPlayerCollision : MonoBehaviour
 {
 	private Rigidbody rigid;
-	
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -14,26 +14,12 @@ public class CarPlayerCollision : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (UIManager.carSpeed > 5)
+		if (rigid.mass > 1f)
 		{
-			if (rigid.mass > 10f)
+			if (collision.transform.root.gameObject.tag == "Enemy")
 			{
-				if (collision.transform.root.gameObject.tag == "Enemy")
-				{
-					Enemy enemy = collision.transform.root.GetComponent<Enemy>();
-					enemy.curHealth -= UIManager.carSpeed / 2;
-				}
-			}			
-		}
-		if (UIManager.carSpeed < -5)
-		{
-			if (rigid.mass > 10f)
-			{
-				if (collision.transform.root.gameObject.tag == "Enemy")
-				{
-					Enemy enemy = collision.transform.root.GetComponent<Enemy>();
-					enemy.curHealth -= UIManager.carSpeed * -1 / 2;
-				}
+				Enemy enemy = collision.transform.root.GetComponent<Enemy>();
+				enemy.curHealth -= rigid.velocity.magnitude * rigid.mass / 2;
 			}
 		}
 	}
