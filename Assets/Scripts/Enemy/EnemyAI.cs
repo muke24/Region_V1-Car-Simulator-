@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
 	public float castRayRate = 3f;
 	public float viewDistance = 150f;
 	public float damage = 49f;
+	public float enemyAccuracy = 1f;
 
 	public bool searchMode = true;
 	public bool lookAtPlayerMode = false;
@@ -336,7 +337,7 @@ public class EnemyAI : MonoBehaviour
 		#region Cast Ray
 		RaycastHit hit;
 
-		Vector2 RandomShot = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+		Vector2 RandomShot = new Vector2(Random.Range(-enemyAccuracy, enemyAccuracy), Random.Range(-enemyAccuracy, enemyAccuracy));
 
 		if (Physics.Raycast(weapon.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position - transform.position + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, 1000))
 		{
@@ -344,6 +345,10 @@ public class EnemyAI : MonoBehaviour
 			if (hit.transform.gameObject.tag == "Player")
 			{
 				castRayRate = 3f;
+
+				player.GetComponent<Player>().curHealth -= damage;
+				player.GetComponent<Player>().wasShot = true;
+				player.GetComponent<Player>().healthIsRegening = false;
 
 				Debug.Log("Player has been shot by " + gameObject.name + " which dealt " + damage + "damage!");
 			}
