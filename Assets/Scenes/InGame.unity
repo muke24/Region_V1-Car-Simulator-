@@ -50528,7 +50528,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1232302397
 GameObject:
@@ -54870,7 +54870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -54895,7 +54895,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307780864}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1001 &1309770446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90927,6 +90927,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1752855764, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 56254491}
+    - target: {fileID: 2008469599, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008469599, guid: 9bb69d137dbf91c4b88ba9a299055441, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1418833979990445890, guid: 9bb69d137dbf91c4b88ba9a299055441,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -91004,42 +91016,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1307780866}
-    - target: {fileID: 378204867, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 378204869, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 378204869, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 378204869, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 473997417, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
       propertyPath: pause
       value: 
       objectReference: {fileID: 1772000077}
-    - target: {fileID: 705128154, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 705128156, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705128156, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 705128156, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4276280504445520231, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: pause
