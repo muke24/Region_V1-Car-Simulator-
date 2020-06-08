@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972287186544712776}
   - component: {fileID: 3414759748276273109}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AutoExposure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775702679112268402}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: HeadPivot
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9013292733133022840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PostProcessingEffectsWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313864401128531510}
   - component: {fileID: 5763877433881902579}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ScreenSpaceReflections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7025572374057153824}
   - component: {fileID: 7584053319459887588}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AmbientOcclusion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5719742797915616019}
   - component: {fileID: 5719742797915616028}
   - component: {fileID: 5719742797915616029}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2726618694838480841}
   - component: {fileID: 8225295592327904826}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MotionBlur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8013220574264395276}
   - component: {fileID: 1976159110194830241}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DepthOfField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 7460292289102769245}
   - component: {fileID: 803582148432686860}
   - component: {fileID: 7460292289102769216}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 7460292289333424178}
   - component: {fileID: 5187604576108097936}
   - component: {fileID: 7460292289333424177}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460292289442440748}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: L96_Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 7460292289594513256}
   - component: {fileID: 3549143770408171317}
   - component: {fileID: 2901684391568138554}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7460292289604914467}
   - component: {fileID: 7460292289604914464}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460292289932784106}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Pivot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 7460292290016939964}
   - component: {fileID: 7460292290016939938}
   - component: {fileID: 7460292290016939965}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5773,7 +5773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460292290104016407}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: T-Pose
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -5808,7 +5808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460292290342819541}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: L96_Black_Full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5843,7 +5843,7 @@ GameObject:
   - component: {fileID: 7460292290634177957}
   - component: {fileID: 7460292290634177963}
   - component: {fileID: 7460292290634177962}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: L96A1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5920,7 +5920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460292290688625579}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5955,7 +5955,7 @@ GameObject:
   - component: {fileID: 7460292290784999420}
   - component: {fileID: 8293496121977583936}
   - component: {fileID: 4438102666011420659}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6109,7 +6109,7 @@ GameObject:
   - component: {fileID: 7460292290809832209}
   - component: {fileID: 7460292290809832215}
   - component: {fileID: 7460292290809832214}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: L96Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6188,7 +6188,7 @@ GameObject:
   - component: {fileID: 7460292290846469621}
   - component: {fileID: 7460292290846469627}
   - component: {fileID: 7460292290846469626}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: MuzzelFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10943,7 +10943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2041643633892816581}
   - component: {fileID: 473758530942877900}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ColorGrading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10995,7 +10995,7 @@ GameObject:
   - component: {fileID: 8374722453056600432}
   - component: {fileID: 7460292291035998011}
   - component: {fileID: 7460292291035998009}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: UpperLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11151,7 +11151,7 @@ GameObject:
   - component: {fileID: 8374722453073578834}
   - component: {fileID: 7460292290775914381}
   - component: {fileID: 7460292290775914483}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: UpperLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11307,7 +11307,7 @@ GameObject:
   - component: {fileID: 7460292290468227801}
   - component: {fileID: 7460292290741797147}
   - component: {fileID: 7460292290741797144}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11461,7 +11461,7 @@ GameObject:
   - component: {fileID: 7460292290406507607}
   - component: {fileID: 7460292290406507600}
   - component: {fileID: 7460292290406507601}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LeftHip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11570,7 +11570,7 @@ GameObject:
   - component: {fileID: 7460292289890332537}
   - component: {fileID: 7460292289890332536}
   - component: {fileID: 7460292289890332539}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: RightHip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11676,7 +11676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8374722453577883448}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11708,9 +11708,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8374722453980153072}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LocalPlayerDeathRagdoll
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11743,7 +11743,7 @@ GameObject:
   - component: {fileID: 8374722454149900657}
   - component: {fileID: 7460292289299206824}
   - component: {fileID: 7460292289299206825}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11809,7 +11809,7 @@ GameObject:
   - component: {fileID: 8374722454230805535}
   - component: {fileID: 7460292290825931243}
   - component: {fileID: 7460292290825931246}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LowLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11965,7 +11965,7 @@ GameObject:
   - component: {fileID: 7460292290580236266}
   - component: {fileID: 7460292289576148709}
   - component: {fileID: 7460292289576148715}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12122,7 +12122,7 @@ GameObject:
   - component: {fileID: 8374722454407203828}
   - component: {fileID: 7460292291086732245}
   - component: {fileID: 7460292291086732248}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LowLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12276,7 +12276,7 @@ GameObject:
   - component: {fileID: 6549424880374126906}
   - component: {fileID: 2205147776274342273}
   - component: {fileID: 1642517359439885298}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -12419,7 +12419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4697871961527715859}
   - component: {fileID: 7714771570759043462}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bloom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

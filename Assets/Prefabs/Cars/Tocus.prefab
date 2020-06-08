@@ -378,7 +378,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!138 &2778850203948529253
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -387,8 +387,8 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2778850203948529259}
   m_ConnectedBody: {fileID: 2779763339696154218}
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -880,11 +880,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 40929.94
-    damper: 5037.5312
+    spring: 40929.934
+    damper: 5037.531
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.524031
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -945,8 +945,8 @@ WheelCollider:
     spring: 41012.27
     damper: 5047.664
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.524031
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.5240309
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1308,10 +1308,10 @@ WheelCollider:
   m_Radius: 0.3075
   m_SuspensionSpring:
     spring: 43569.957
-    damper: 5362.4565
+    damper: 5362.456
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.51567894
+  m_SuspensionDistance: 0.116094664
+  m_ForceAppPointDistance: 0.5156788
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1369,11 +1369,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43487.836
-    damper: 5352.349
+    spring: 43487.82
+    damper: 5352.347
     targetPosition: 0.5
-  m_SuspensionDistance: 0.11609468
-  m_ForceAppPointDistance: 0.51567894
+  m_SuspensionDistance: 0.116094686
+  m_ForceAppPointDistance: 0.5156788
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1816,7 +1816,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!138 &2780135097625324456
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -1825,8 +1825,8 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780135097625324457}
   m_ConnectedBody: {fileID: 2779763339696154218}
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -2539,7 +2539,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &2780299139923649932
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2569,8 +2569,8 @@ HingeJoint:
     bounciness: 0
     bounceMinVelocity: 0
     contactDistance: 0.15
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -2821,7 +2821,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &2780331559971186818
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2851,8 +2851,8 @@ HingeJoint:
     bounciness: 0
     bounceMinVelocity: 0
     contactDistance: 0.15
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -4278,7 +4278,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &2780841256562110567
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -4308,8 +4308,8 @@ HingeJoint:
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 10
@@ -4801,8 +4801,8 @@ HingeJoint:
     bounciness: 0
     bounceMinVelocity: 0
     contactDistance: 0.15
-  m_BreakForce: 50000
-  m_BreakTorque: 50000
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 10
