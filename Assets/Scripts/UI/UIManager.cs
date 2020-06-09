@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 	public Text speedText;
 	public Text fpsText;
 	public static float carSpeed;
+	public CurrentWeapon currentWeapon;
 
 	public Text ammoText;
 
@@ -31,7 +32,7 @@ public class UIManager : MonoBehaviour
 
 	public void AmmoCheck()
 	{
-		if (sniper.gameObject)
+		if (currentWeapon.currentWeapon == 1)
 		{
 			if (!Console._cheat1)
 			{
@@ -41,6 +42,16 @@ public class UIManager : MonoBehaviour
 			{
 				ammoText.text = "∞ / ∞";
 			}
+		}
+
+		if (currentWeapon.currentWeapon == 2)
+		{
+
+		}
+
+		if (currentWeapon.currentWeapon == 3)
+		{
+
 		}
 	}
 }
