@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
 	public float curHealth = 100;
 	public bool ragdoll;
 	public bool force;
+	public Slider healthSlider;
+	public Text healthText;
 
 	private GameObject tPose;
 	private Collider[] colliders;
@@ -59,10 +62,17 @@ public class Enemy : MonoBehaviour
 		{
 			RagDollOff();
 		}
+
+		healthSlider.value = curHealth;
+		healthText.text = (Mathf.RoundToInt(curHealth)).ToString() + " / " + (Mathf.RoundToInt(maxHealth)).ToString();
+
 	}
 
 	void RagDollOn()
 	{
+		healthSlider.gameObject.SetActive(false);
+		healthText.gameObject.SetActive(false);
+
 		rigid = GetComponentsInChildren<Rigidbody>();
 
 		enemyAI.enabled = false;

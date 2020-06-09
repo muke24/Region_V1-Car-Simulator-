@@ -19,7 +19,7 @@ public class CarPlayerCollision : MonoBehaviour
 			if (collision.transform.root.gameObject.tag == "Enemy")
 			{
 				Enemy enemy = collision.transform.root.GetComponent<Enemy>();
-				enemy.curHealth -= rigid.velocity.magnitude * rigid.mass / 2;
+				enemy.curHealth -= (int)rigid.velocity.magnitude * (int)rigid.mass / 2;
 			}
 		}
 	}
