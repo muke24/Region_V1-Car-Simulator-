@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrentWeapon : MonoBehaviour
 {
-    public Animator sniperAnim;
-    public Animator pistolAnim;
-    public Animator flagAnim;
+    public Animator anim;
 
     public int currentWeapon = 0;
 
@@ -16,10 +15,18 @@ public class CurrentWeapon : MonoBehaviour
 
     public bool changeWeapon = false;
 
+    public GameObject sniperGO;
+    public GameObject pistolGO;
+    public GameObject flagPistolGO;
+
+    public Text flagText;
+
     // Start is called before the first frame update
     void Start()
     {
         currentWeapon = sniper;
+        flagText = GameObject.FindGameObjectWithTag("GamePlayCanvas").GetComponentInChildren<Text>();
+        flagText.enabled = false;
     }
 
     // Update is called once per frame
@@ -39,6 +46,15 @@ public class CurrentWeapon : MonoBehaviour
         {
             FlagSwitchOut();
         }
+
+        if (currentWeapon == flagPistol)
+        {
+            flagText.enabled = true;
+        }
+        else
+        {
+            flagText.enabled = false;
+        }
     }
 
     void SniperSwitchOut()
@@ -50,10 +66,19 @@ public class CurrentWeapon : MonoBehaviour
     void PistolSwitchOut()
     {
         changeWeapon = false;
+
     }
 
     void FlagSwitchOut()
     {
-        changeWeapon = false;
+        anim.SetBool("Exit", true);
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        {
+            sniperGO.SetActive(false);
+            flagPistolGO.SetActive(true);
+            changeWeapon = false;
+            anim.SetBool("Exit", false);
+        }        
     }
 }

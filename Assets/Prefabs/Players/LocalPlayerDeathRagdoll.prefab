@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972287186544712776}
   - component: {fileID: 3414759748276273109}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AutoExposure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9013292733133022840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PostProcessingEffectsWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313864401128531510}
   - component: {fileID: 5763877433881902579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScreenSpaceReflections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7025572374057153824}
   - component: {fileID: 7584053319459887588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AmbientOcclusion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2726618694838480841}
   - component: {fileID: 8225295592327904826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MotionBlur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8013220574264395276}
   - component: {fileID: 1976159110194830241}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DepthOfField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10943,7 +10943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2041643633892816581}
   - component: {fileID: 473758530942877900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColorGrading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12419,7 +12419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4697871961527715859}
   - component: {fileID: 7714771570759043462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bloom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,6 +19,7 @@ public class FlagPickup : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) < 2)
         {
             currentWeapon.currentWeapon = currentWeapon.flagPistol;
+            currentWeapon.changeWeapon = true;
             gameObject.SetActive(false);
         }
     }
