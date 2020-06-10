@@ -880,11 +880,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 40929.934
-    damper: 5037.531
+    spring: 40929.94
+    damper: 5037.5312
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.5240309
+  m_SuspensionDistance: 0.11609468
+  m_ForceAppPointDistance: 0.524031
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -945,8 +945,8 @@ WheelCollider:
     spring: 41012.27
     damper: 5047.664
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.5240309
+  m_SuspensionDistance: 0.11609468
+  m_ForceAppPointDistance: 0.524031
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1308,10 +1308,10 @@ WheelCollider:
   m_Radius: 0.3075
   m_SuspensionSpring:
     spring: 43569.957
-    damper: 5362.456
+    damper: 5362.4565
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094664
-  m_ForceAppPointDistance: 0.5156788
+  m_SuspensionDistance: 0.11609468
+  m_ForceAppPointDistance: 0.51567894
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1369,11 +1369,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 43487.82
-    damper: 5352.347
+    spring: 43487.836
+    damper: 5352.349
     targetPosition: 0.5
-  m_SuspensionDistance: 0.116094686
-  m_ForceAppPointDistance: 0.5156788
+  m_SuspensionDistance: 0.11609468
+  m_ForceAppPointDistance: 0.51567894
   m_Mass: 1
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -3162,7 +3162,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2779763339696154213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5240,7 +5240,7 @@ Transform:
   m_GameObject: {fileID: 3828906286947502474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.87, y: 1, z: 1}
   m_Children:
   - {fileID: 3828906286896749834}
   - {fileID: 3828906287618511427}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UILookAt : MonoBehaviour
 {
@@ -18,5 +19,10 @@ public class UILookAt : MonoBehaviour
 		v.x = v.z = 0.0f;
 		transform.LookAt(Camera.main.transform.position - v);
 		transform.Rotate(0, 180, 0);
+
+		if (!flag.activeSelf)
+		{
+			GetComponentInChildren<Image>().enabled = false;
+		}
 	}
 }

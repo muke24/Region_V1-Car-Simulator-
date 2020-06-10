@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CurrentWeapon : MonoBehaviour
 {
-    public Animator anim;
+    public Animator animator;
+    public AnimatorController sniperAnim;
+    public AnimatorController pistolAnim;
+    public AnimatorController flagAnim;
 
     public int currentWeapon = 0;
 
@@ -26,7 +30,7 @@ public class CurrentWeapon : MonoBehaviour
     {
         currentWeapon = sniper;
         flagText = GameObject.FindGameObjectWithTag("GamePlayCanvas").GetComponentInChildren<Text>();
-        flagText.enabled = false;
+        flagText.enabled = false;        
     }
 
     // Update is called once per frame
@@ -34,18 +38,19 @@ public class CurrentWeapon : MonoBehaviour
     {
         if (currentWeapon == sniper && changeWeapon)
         {
-            SniperSwitchOut();
+            SniperSwitch();
         }
 
         if (currentWeapon == pistol && changeWeapon)
         {
-            PistolSwitchOut();
+            PistolSwitch();
         }
 
         if (currentWeapon == flagPistol && changeWeapon)
         {
-            FlagSwitchOut();
+            FlagSwitch();
         }
+
 
         if (currentWeapon == flagPistol)
         {
@@ -57,28 +62,34 @@ public class CurrentWeapon : MonoBehaviour
         }
     }
 
-    void SniperSwitchOut()
+    void SniperSwitch()
     {
-        changeWeapon = false;
+        animator.SetBool("Exit", false);
 
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwayFlag") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        {
+            sniperGO.SetActive(true);
+            flagPistolGO.SetActive(false);
+            changeWeapon = false;
+            animator.runtimeAnimatorController = sniperAnim;
+        }
     }
 
-    void PistolSwitchOut()
+    void PistolSwitch()
     {
         changeWeapon = false;
-
     }
 
-    void FlagSwitchOut()
+    void FlagSwitch()
     {
-        anim.SetBool("Exit", true);
+        animator.SetBool("Exit", true);
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
         {
             sniperGO.SetActive(false);
             flagPistolGO.SetActive(true);
             changeWeapon = false;
-            anim.SetBool("Exit", false);
+            animator.runtimeAnimatorController = flagAnim;
         }        
     }
 }
