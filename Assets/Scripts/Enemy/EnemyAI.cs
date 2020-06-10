@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
 	private Enemy enemy;
 	private CurrentCar currentCar;
 	private Vector3 playersSeenPosition;
+	public GameObject flag;
 
 	public ParticleSystem shootAnim;
 	public Transform weapon;
@@ -42,6 +43,9 @@ public class EnemyAI : MonoBehaviour
 		head = GetComponentInChildren<Transform>(GameObject.Find("LookDirection").transform);
 		enemy = GetComponent<Enemy>();
 		currentCar = GameObject.FindGameObjectWithTag("Manager").GetComponent<CurrentCar>();
+		flag = GameObject.FindGameObjectWithTag("Flag");
+
+		agent.SetDestination(flag.transform.position);
 	}
 
 	// Update is called once per frame

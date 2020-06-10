@@ -11036,7 +11036,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11192,7 +11192,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11348,7 +11348,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11443,7 +11443,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11514,7 +11514,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11621,7 +11621,7 @@ MonoBehaviour:
   viewDistance: 150
   damage: 49
   enemyAccuracy: 0.75
-  searchMode: 1
+  searchMode: 0
   lookAtPlayerMode: 0
   followPlayerMode: 0
   getPlayerPos: 0
@@ -11786,7 +11786,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -11942,7 +11942,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12098,7 +12098,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12226,7 +12226,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12335,7 +12335,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12532,7 +12532,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031456202133210230}
-  m_LocalRotation: {x: -0.64508265, y: 0.1437707, z: 0.13458759, w: 0.7382985}
+  m_LocalRotation: {x: -0.645084, y: 0.14377142, z: 0.13458914, w: 0.73829687}
   m_LocalPosition: {x: -0.365, y: -0.09473452, z: 0.3860628}
   m_LocalScale: {x: 0.25000003, y: 0.4, z: 0.25}
   m_Children:
@@ -12656,7 +12656,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031456202718041219}
-  m_LocalRotation: {x: -0.37977177, y: -0.106084056, z: 0.039248843, w: 0.918139}
+  m_LocalRotation: {x: -0.37977087, y: -0.10608645, z: 0.039247014, w: 0.91813916}
   m_LocalPosition: {x: 0.12599993, y: -0.1491818, z: 0.1491816}
   m_LocalScale: {x: 0.25, y: 0.4, z: 0.25}
   m_Children:
@@ -12750,8 +12750,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031456202881502069}
-  m_LocalRotation: {x: -0.82018584, y: -0.16103208, z: -0.03203126, w: 0.5480308}
-  m_LocalPosition: {x: 0.06699991, y: -0.1838299, z: 0.4723293}
+  m_LocalRotation: {x: -0.8201873, y: -0.16103679, z: -0.03203273, w: 0.5480274}
+  m_LocalPosition: {x: 0.0669999, y: -0.18382993, z: 0.47232932}
   m_LocalScale: {x: 0.25, y: 0.40000015, z: 0.25000006}
   m_Children: []
   m_Father: {fileID: 4533764475846931169}
@@ -12873,8 +12873,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031456203150426555}
-  m_LocalRotation: {x: -0.67076164, y: 0.223783, z: 0.22378303, w: 0.6707617}
-  m_LocalPosition: {x: -0.16100001, y: -0.1272614, z: 0.7537581}
+  m_LocalRotation: {x: -0.67076164, y: 0.223783, z: 0.223783, w: 0.67076164}
+  m_LocalPosition: {x: -0.161, y: -0.1272614, z: 0.7537581}
   m_LocalScale: {x: 0.24999997, y: 0.39999995, z: 0.24999997}
   m_Children: []
   m_Father: {fileID: 4533764475846931169}

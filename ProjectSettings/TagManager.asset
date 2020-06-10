@@ -12,6 +12,7 @@ TagManager:
   - Sign
   - Manager
   - GamePlayCanvas
+  - Flag
   layers:
   - Default
   - TransparentFX

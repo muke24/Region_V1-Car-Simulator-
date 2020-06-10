@@ -6,6 +6,11 @@ public class HealthUI : MonoBehaviour
 {
     public float scaleMultiplier;
 
+    private void Start()
+    {
+        GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Camera>();
+    }
+
     // Update is called once per frame
     void Update()
     {
