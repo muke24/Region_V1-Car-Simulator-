@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
 {
 	public EnemyArmRotations eArmRot;
 	public GameObject player;
-	public Sniper sniper;
 	public Animator anim;
 	public GameObject hands;
 	public GameObject weapon;
@@ -26,26 +25,23 @@ public class Enemy : MonoBehaviour
 	private EnemyAI enemyAI;
 	private NavMeshAgent agent;
 
-	private void Awake()
+	// Start is called before the first frame update
+	void Start()
 	{
 		colliders = GetComponentsInChildren<Collider>();
 		rigid = GetComponentsInChildren<Rigidbody>();
 		eArmRot = GetComponent<EnemyArmRotations>();
 		anim = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
-		sniper = player.GetComponentInChildren<Sniper>();
 		tPose = transform.Find("HeadPivot").transform.Find("T-Pose").gameObject;
-	}
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		RagDollOff();
 		curHealth = maxHealth;
 		ragdoll = false;
 		tPose.SetActive(false);
 		enemyAI = GetComponent<EnemyAI>();
 		agent = GetComponent<NavMeshAgent>();
+
+		RagDollOff();
 	}
 
 	// Update is called once per frame
@@ -93,7 +89,6 @@ public class Enemy : MonoBehaviour
 			foreach (Rigidbody rb in rigid)
 			{
 				rb.isKinematic = false;
-				//GetComponent<Rigidbody>().AddForce(player.transform.forward * sniper.ragdollForce, ForceMode.Force);
 			}
 
 			force = false;

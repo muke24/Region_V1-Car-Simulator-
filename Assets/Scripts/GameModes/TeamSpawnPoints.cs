@@ -12,7 +12,7 @@ public class TeamSpawnPoints : MonoBehaviour
 	public int length = 0;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		spawnPoints = new GameObject[transform.childCount];
 		for (int i = 0; i < transform.childCount; i++)

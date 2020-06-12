@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378204869}
   m_Layer: 8
-  m_Name: PostProcessingEffectsWorld(ChangesWhenAiming)
+  m_Name: PostProcessingEffectsWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
