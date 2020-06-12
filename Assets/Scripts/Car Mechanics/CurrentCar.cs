@@ -8,6 +8,11 @@ public class CurrentCar : MonoBehaviour
     public GameObject currentCar = null;
     public CarFind carFind;
 
+    private void Awake()
+    {
+        carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+    }
+
     // Update is called once per frame
     void Update()
     {

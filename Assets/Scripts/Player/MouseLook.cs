@@ -39,7 +39,8 @@ public class MouseLook : MonoBehaviour
 			GetComponent<Rigidbody>().freezeRotation = true;
 		}
 		// Sets the player rotation to the original rotation at the start
-		originalRotation = transform.localRotation; 
+		originalRotation = transform.localRotation;
+		paused = Pause.pause;
 	}
 
 	void Update()

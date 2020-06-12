@@ -2760,7 +2760,6 @@ GameObject:
   - component: {fileID: 4276280504643031229}
   - component: {fileID: 4276280504643031231}
   - component: {fileID: 4276280504643031226}
-  - component: {fileID: 2633660410689275991}
   - component: {fileID: 2356389}
   - component: {fileID: 2356390}
   - component: {fileID: 2356391}
@@ -2925,25 +2924,6 @@ MonoBehaviour:
   crouch: 0
   scoped: 0
   scoping: 0
---- !u!114 &2633660410689275991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276280504643031172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe293b6014cf2245a3f17d5d25c3fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sniper: {fileID: 4276280503438861393}
-  assaultRifle: {fileID: 1168844581}
-  pistol: {fileID: 816616721}
-  fists: {fileID: 1348067422}
-  weaponChanging: 0
-  weaponID: 0
-  prevWeaponID: 0
 --- !u!114 &2356389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,14 +2992,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5305f50edfb9ed468c04a76b0ff39c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperAnim: {fileID: 0}
-  pistolAnim: {fileID: 0}
-  flagAnim: {fileID: 0}
+  animator: {fileID: 4276280504643031169}
+  sniperAnim: {fileID: 9100000, guid: da6b06bec5a64ab47b798d9b2c205fb9, type: 2}
+  pistolAnim: {fileID: 9100000, guid: 3d18715de051f6a4bac5113fa14a23fc, type: 2}
+  flagAnim: {fileID: 9100000, guid: a1dbaad7dff2e30499cd9d0f2d596e4b, type: 2}
   currentWeapon: 0
   sniper: 1
   pistol: 2
   flagPistol: 3
   changeWeapon: 0
+  sniperGO: {fileID: 4276280503438861393}
+  pistolGO: {fileID: 816616721}
+  flagPistolGO: {fileID: 8959156591753073514}
+  flagText: {fileID: 0}
 --- !u!1 &4276280504678786922
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
         {
             allMesh.probeAnchor = transform;            
         }
+
+        healthBar = Pause.healthBar;
+        healthText = Pause.healthText;
     }
 
     private void Update()

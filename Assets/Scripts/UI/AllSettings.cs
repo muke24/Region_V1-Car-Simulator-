@@ -80,6 +80,14 @@ public class AllSettings : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		mlX = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
+		mlY = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").GetComponent<MouseLook>();
+
+		ReflectionProbe1 = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
+
+		worldPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsWorld").gameObject;
+		weaponPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsGun").gameObject;
+
 		resChanged = false;
 		settingsChanged = false;
 		resWidth = Screen.width;

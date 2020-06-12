@@ -4,28 +4,54 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
+    public GameObject playerCam;
+    public GameObject carCam;
+
     public float scaleMultiplier;
 
     private void Start()
     {
-        GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Camera>();
+        playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+        carCam = GameObject.FindGameObjectWithTag("CarCam");        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Camera.main.transform.position, GetComponent<Canvas>().transform.position) > 10)
+        if (!Car.inCar)
         {
-            GetComponent<Canvas>().transform.localScale = new Vector3(Vector3.Distance(Camera.main.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(Camera.main.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(Camera.main.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier);
+            GetComponent<Canvas>().worldCamera = playerCam.GetComponent<Camera>();
+            if (Vector3.Distance(playerCam.transform.position, GetComponent<Canvas>().transform.position) > 10)
+            {
+                GetComponent<Canvas>().transform.localScale = new Vector3(Vector3.Distance(playerCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(playerCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(playerCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier);
+            }
+            else
+            {
+                GetComponent<Canvas>().transform.localScale = new Vector3(0.006f, 0.006f, 1f);
+            }
+
+            Vector3 v = playerCam.transform.position - transform.position;
+            v.x = v.z = 0.0f;
+            transform.LookAt(playerCam.transform.position - v);
+            transform.Rotate(0, 180, 0);
         }
-        else
+
+        if (Car.inCar)
         {
-            GetComponent<Canvas>().transform.localScale = new Vector3(0.006f, 0.006f, 1f);
+            GetComponent<Canvas>().worldCamera = carCam.GetComponent<Camera>();
+            if (Vector3.Distance(carCam.transform.position, GetComponent<Canvas>().transform.position) > 10)
+            {
+                GetComponent<Canvas>().transform.localScale = new Vector3(Vector3.Distance(carCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(carCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier, Vector3.Distance(carCam.transform.position, GetComponent<Canvas>().transform.position) / 10 * scaleMultiplier);
+            }
+            else
+            {
+                GetComponent<Canvas>().transform.localScale = new Vector3(0.006f, 0.006f, 1f);
+            }
+
+            Vector3 v = carCam.transform.position - transform.position;
+            v.x = v.z = 0.0f;
+            transform.LookAt(carCam.transform.position - v);
+            transform.Rotate(0, 180, 0);
         }
-        
-        Vector3 v = Camera.main.transform.position - transform.position;
-        v.x = v.z = 0.0f;
-        transform.LookAt(Camera.main.transform.position - v);
-        transform.Rotate(0, 180, 0);
     }
 }

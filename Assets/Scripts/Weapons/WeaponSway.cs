@@ -18,6 +18,8 @@ public class WeaponSway : MonoBehaviour
     {
         // Sets the initial position variable to the first start position
         initialPosition = transform.localPosition;
+
+        pause = Pause.pause;
     }
 
     // Update is called once per frame

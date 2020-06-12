@@ -16,6 +16,11 @@ public class PlayerAnimations : MonoBehaviour
 	public bool scoped;
 	public bool scoping;
 
+	private void Start()
+	{
+		pause = Pause.pause;
+	}
+
 	// Update is called once per frame
 	void Update()
 	{

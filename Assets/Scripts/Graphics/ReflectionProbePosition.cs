@@ -16,6 +16,8 @@ public class ReflectionProbePosition : MonoBehaviour
     void Start()
     {
         interact = GetComponent<Interact>();
+        reflectionProbe = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
+        playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
     }
 
     // Update is called once per frame

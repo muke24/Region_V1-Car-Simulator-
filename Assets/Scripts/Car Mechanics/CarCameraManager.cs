@@ -9,7 +9,6 @@ public class CarCameraManager : MonoBehaviour
 	public CarFind carFind;
 	public CurrentCar currentCar;
 
-	public ReflectionProbe carCamRP;
 	public Rigidbody rb = null;
 	public GameObject pause;
 	public float distance = 5f;
@@ -37,6 +36,12 @@ public class CarCameraManager : MonoBehaviour
 	private GameObject car = null;
 	[SerializeField]
 	private AudioListener aL = null;
+
+	private void Start()
+	{
+		mouseLook = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
+		carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+	}
 
 	public static float ClampAngle(float angle, float min, float max)
 	{

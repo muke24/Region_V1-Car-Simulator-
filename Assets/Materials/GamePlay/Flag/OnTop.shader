@@ -1,4 +1,4 @@
-﻿Shader "UI/Default_OverlayNoZTest"
+Shader "UI/Default_OverlayNoZTest"
 {
     Properties
     {

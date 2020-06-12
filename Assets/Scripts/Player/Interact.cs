@@ -34,14 +34,29 @@ public class Interact : MonoBehaviour
 
 	public GameObject door1;
 
-	
-
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
+				
+	}
+
+	private void Start()
+	{
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+		carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+		playerModel = GameObject.FindGameObjectWithTag("Player").transform.Find("Model").gameObject;
+		mouse = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
+		charC = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
+		pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+		cCol = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>();
 		Car.inCar = false;
 		carCam.enabled = false;
-		playerEnable();		
+
+		if (player != null)
+		{
+			playerEnable();
+		}		
 	}
 
 	// Update is called once per frame
@@ -67,8 +82,11 @@ public class Interact : MonoBehaviour
 				//player.transform.rotation = car.transform.rotation;
 				//new Vector3(car.transform.localPosition.x - 2, car.transform.localPosition.y, car.transform.localPosition.z);
 			}
+			if (player != null)
+			{
+				playerDisable();
+			}			
 
-			playerDisable();
 			im.enabled = true;
 			
 			carCam.enabled = true;
@@ -88,8 +106,12 @@ public class Interact : MonoBehaviour
 			car.GetComponent<CarController>().enabled = false;
 
 			carCam.enabled = false;
-			playerEnable();
-			//player.SetActive(true);
+
+			if (player != null)
+			{
+				playerEnable();
+			}			
+						
 			im.enabled = false;
 			
 			if (pauseCanv.activeSelf)

@@ -8,6 +8,11 @@ public class Compass : MonoBehaviour
 	public RawImage compassScrollTexture;
 	public Transform playerPositionInWorld;
 
+	private void Start()
+	{
+		playerPositionInWorld = GameObject.FindGameObjectWithTag("Player").transform;
+	}
+
 	// Update is called once per frame
 	void Update()
 	{

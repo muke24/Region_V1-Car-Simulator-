@@ -11,7 +11,9 @@ public class TeamBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
+        sniper = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("GunPivot").gameObject;
+        flag = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("FlagAndPistol").gameObject;
     }
 
     // Update is called once per frame

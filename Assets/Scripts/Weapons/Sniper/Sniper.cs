@@ -65,6 +65,7 @@ public class Sniper : MonoBehaviour
 	private void Start()
 	{
 		player = transform.root.gameObject;
+		pause = Pause.pause;
 	}
 
 	// Update is called once per frame

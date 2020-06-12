@@ -13,6 +13,7 @@ TagManager:
   - Manager
   - GamePlayCanvas
   - Flag
+  - CarCam
   layers:
   - Default
   - TransparentFX
