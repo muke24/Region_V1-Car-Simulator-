@@ -26,6 +26,11 @@ public class PauseGame : MonoBehaviour
 	public PlayerMovement playerMovement;
 	public PlayerAnimations playerAnimations;
 
+	private void Start()
+	{
+		gunViewerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("GunPivot").Find("ScopePivot").Find("L96_Black_Full").Find("Camera").gameObject;
+	}
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))

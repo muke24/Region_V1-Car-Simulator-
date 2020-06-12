@@ -14,6 +14,12 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private Sniper sniper = null;
 
+	private void Start()
+	{
+		currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
+		sniper = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("GunPivot").Find("ScopePivot").Find("L96_Black_Full").GetComponent<Sniper>();
+	}
+
 	public void ChangeText(float speed)
 	{
 		float s = speed * 3.6f;

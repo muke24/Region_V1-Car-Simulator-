@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-
+		controller = GetComponent<CharacterController>();
 	}
 
 	void Update()
@@ -39,8 +39,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	void Movements()
-	{
-		controller = GetComponent<CharacterController>();
+	{		
 		// is the controller on the ground?
 		if (controller.isGrounded)
 		{

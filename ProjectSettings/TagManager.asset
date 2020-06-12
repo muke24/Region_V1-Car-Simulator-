@@ -14,6 +14,8 @@ TagManager:
   - GamePlayCanvas
   - Flag
   - CarCam
+  - SpectateCamera
+  - TeamPlayer
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Hands
   - Enemy
   - Post Processing Weapon
-  - 
+  - TeamPlayer
   - 
   - 
   - 

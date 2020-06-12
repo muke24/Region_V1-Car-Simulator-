@@ -23,6 +23,8 @@ public class WeaponSkins : MonoBehaviour
         skinID = 0;
         defaultSkin = Shader.Find("Standard");
         rainbow = Shader.Find("_Shaders/Rainbow");
+
+        rend = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("GunPivot").Find("ScopePivot").Find("L96_Black_Full").Find("L96A1_Model").GetComponent<Renderer>();
     }
 
     // Update is called once per frame
