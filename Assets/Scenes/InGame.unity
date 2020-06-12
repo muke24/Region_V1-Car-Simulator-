@@ -39481,7 +39481,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 11063
+    m_Bits: 43831
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -82247,7 +82247,7 @@ GameObject:
   - component: {fileID: 1959106876}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91446,16 +91446,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 459841044}
     m_Modifications:
-    - target: {fileID: 2779763339696154212, guid: 2299b71f1b99b86429394880cb37528a,
-        type: 3}
-      propertyPath: findCar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2779763339696154213, guid: 2299b71f1b99b86429394880cb37528a,
-        type: 3}
-      propertyPath: uim
-      value: 
-      objectReference: {fileID: 1885549742}
     - target: {fileID: 2779763340376864388, guid: 2299b71f1b99b86429394880cb37528a,
         type: 3}
       propertyPath: m_SuspensionSpring.spring

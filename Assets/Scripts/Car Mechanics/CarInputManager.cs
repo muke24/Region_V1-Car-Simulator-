@@ -17,6 +17,7 @@ public class CarInputManager : MonoBehaviour
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		findCar = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
 	}
 
 	void Update()

@@ -16,6 +16,7 @@ TagManager:
   - CarCam
   - SpectateCamera
   - TeamPlayer
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

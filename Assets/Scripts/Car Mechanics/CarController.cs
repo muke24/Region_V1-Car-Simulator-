@@ -37,6 +37,7 @@ public class CarController : MonoBehaviour
 		im = GetComponent<CarInputManager>();
 		rb = GetComponent<Rigidbody>();
 		lm = GetComponent<LightingManager>();
+		uim = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").GetComponent<UIManager>();
 
 		if (CM)
 		{
