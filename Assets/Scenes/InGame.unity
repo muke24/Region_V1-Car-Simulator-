@@ -55145,6 +55145,14 @@ PrefabInstance:
       propertyPath: flagPistolGO
       value: 
       objectReference: {fileID: 910312146}
+    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+      propertyPath: pistolAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: ca4bd7221a0497444ae20495287204f4, type: 2}
+    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
+      propertyPath: flagAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 08894740ccfabfc43b20572086750cc5, type: 2}
     - target: {fileID: 4276280503438861393, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_IsActive
