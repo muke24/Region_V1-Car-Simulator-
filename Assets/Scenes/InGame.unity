@@ -55113,11 +55113,6 @@ PrefabInstance:
       propertyPath: weaponText
       value: 
       objectReference: {fileID: 321093684}
-    - target: {fileID: 4276280503438861393, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4276280504643031172, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_Name
@@ -55176,11 +55171,6 @@ PrefabInstance:
     - target: {fileID: 4276280504643031173, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959156591753073514, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
