@@ -2799,12 +2799,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 57441233}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &58915749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4276280503438861393, guid: f41118679aca40e459611cda8f2dc8ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1302315895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &61027694
 GameObject:
   m_ObjectHideFlags: 0
@@ -37929,12 +37923,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906168246}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &910312146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 429759668134457970, guid: f41118679aca40e459611cda8f2dc8ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1302315895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &912922923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55122,37 +55110,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: pistolGO
-      value: 
-      objectReference: {fileID: 1428669959}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: flagPistol
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
       propertyPath: weaponText
       value: 
       objectReference: {fileID: 321093684}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: mainGO
-      value: 
-      objectReference: {fileID: 58915749}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: secondaryGO
-      value: 
-      objectReference: {fileID: 1428669959}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: flagPistolGO
-      value: 
-      objectReference: {fileID: 910312146}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: pistolAnim
-      value: 
-      objectReference: {fileID: 9100000, guid: ca4bd7221a0497444ae20495287204f4, type: 2}
-    - target: {fileID: 2356380, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
-      propertyPath: flagAnim
-      value: 
-      objectReference: {fileID: 9100000, guid: 08894740ccfabfc43b20572086750cc5, type: 2}
     - target: {fileID: 4276280503438861393, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
       propertyPath: m_IsActive
@@ -55217,16 +55177,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280505253871025, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_BoxProjection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276280505253871025, guid: f41118679aca40e459611cda8f2dc8ba,
-        type: 3}
-      propertyPath: m_FarClip
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8959156591753073514, guid: f41118679aca40e459611cda8f2dc8ba,
         type: 3}
@@ -60927,12 +60877,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7829923697791755006, guid: d45029ee80b20d84b8cf3750f2fcd684,
     type: 3}
   m_PrefabInstance: {fileID: 1428180455}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1428669959 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8959156591753073514, guid: f41118679aca40e459611cda8f2dc8ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1302315895}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1429000749
 PrefabInstance:
@@ -88625,7 +88569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  sniper: {fileID: 0}
   flag: {fileID: 0}
 --- !u!23 &2090580640
 MeshRenderer:

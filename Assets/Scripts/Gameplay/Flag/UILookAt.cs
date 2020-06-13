@@ -48,5 +48,9 @@ public class UILookAt : MonoBehaviour
 		{
 			GetComponentInChildren<Image>().enabled = false;
 		}
+		else
+		{
+			GetComponentInChildren<Image>().enabled = true;
+		}
 	}
 }
