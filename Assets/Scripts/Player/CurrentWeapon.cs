@@ -9,26 +9,29 @@ public class CurrentWeapon : MonoBehaviour
     public Animator animator;
     public AnimatorController sniperAnim;
     public AnimatorController pistolAnim;
-    public AnimatorController flagAnim;
+    public AnimatorController meleeAnim;
 
     public int currentWeapon = 0;
 
-    public int sniper = 1;
-    public int pistol = 2;
-    public int flagPistol = 3;
+    public int mainWeapon = 1;
+    public int secondaryWeapon = 2;
+    public int melee = 3;
+    public bool flagPistol = false;
 
     public bool changeWeapon = false;
 
-    public GameObject sniperGO;
-    public GameObject pistolGO;
+    public GameObject mainGO;
+    public GameObject secondaryGO;
     public GameObject flagPistolGO;
+    public GameObject meleeGO;
 
     public Text flagText;
+    public Text weaponText;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentWeapon = sniper;
+        currentWeapon = mainWeapon;
         flagText = GameObject.FindGameObjectWithTag("GamePlayCanvas").GetComponentInChildren<Text>();
         flagText.enabled = false;        
     }
@@ -36,23 +39,52 @@ public class CurrentWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWeapon == sniper && changeWeapon)
+		#region Weapon Change with scroll
+		if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            SniperSwitch();
+            if (currentWeapon < 3)
+            {
+                currentWeapon++;
+            }
+            else
+            {
+                currentWeapon = 1;
+            }
         }
 
-        if (currentWeapon == pistol && changeWeapon)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            PistolSwitch();
+            if (currentWeapon > 1)
+            {
+                currentWeapon--;
+            }
+            else
+            {
+                currentWeapon = 3;
+            }
+        }
+		#endregion
+
+		#region Weapon Check
+		if (currentWeapon == mainWeapon && changeWeapon)
+        {
+            MainSwitch();
+        }		
+
+		if (currentWeapon == secondaryWeapon && changeWeapon && !flagPistol)
+        {
+            SecondarySwitch();
         }
 
-        if (currentWeapon == flagPistol && changeWeapon)
+        if (currentWeapon == secondaryWeapon && changeWeapon && flagPistol)
         {
             FlagSwitch();
         }
 
+		#endregion
 
-        if (currentWeapon == flagPistol)
+		#region Check if player has flag
+		if (currentWeapon == secondaryWeapon && flagPistol)
         {
             flagText.enabled = true;
         }
@@ -60,24 +92,64 @@ public class CurrentWeapon : MonoBehaviour
         {
             flagText.enabled = false;
         }
-    }
+		#endregion
 
-    void SniperSwitch()
+
+		#region Weapon Text Change for debugging
+		if (currentWeapon == 0)
+        {
+            weaponText.text = "None";
+        }
+        if (currentWeapon == 1)
+        {
+            weaponText.text = "Main Weapon";
+        }
+        if (currentWeapon == 2 && !flagPistol)
+        {
+            weaponText.text = "Second Weapon";
+        }
+        if (currentWeapon == 2 && flagPistol)
+        {
+            weaponText.text = "Flag";
+        }
+        if (currentWeapon == 3)
+        {
+            weaponText.text = "Melee";
+        }
+		#endregion
+	}
+
+	void MainSwitch()
     {
         animator.SetBool("Exit", false);
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwayFlag") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        if (animator.name != sniperAnim.name)
         {
-            sniperGO.SetActive(true);
-            flagPistolGO.SetActive(false);
-            changeWeapon = false;
-            animator.runtimeAnimatorController = sniperAnim;
-        }
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwayWeapon") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+            {
+                mainGO.SetActive(true);
+                flagPistolGO.SetActive(false);
+                secondaryGO.SetActive(false);
+                meleeGO.SetActive(false);
+                changeWeapon = false;
+                animator.runtimeAnimatorController = sniperAnim;
+                animator.SetBool("Exit", true);
+                animator.SetBool("Start", true);
+            }
+        }        
     }
 
-    void PistolSwitch()
+    void SecondarySwitch()
     {
-        changeWeapon = false;
+        animator.SetBool("Exit", true);
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        {
+            mainGO.SetActive(false);
+            secondaryGO.SetActive(true);
+            changeWeapon = false;
+            animator.runtimeAnimatorController = pistolAnim;
+        }
     }
 
     void FlagSwitch()
@@ -86,10 +158,22 @@ public class CurrentWeapon : MonoBehaviour
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
         {
-            sniperGO.SetActive(false);
+            mainGO.SetActive(false);
             flagPistolGO.SetActive(true);
             changeWeapon = false;
-            animator.runtimeAnimatorController = flagAnim;
+            animator.runtimeAnimatorController = pistolAnim;
         }        
+    }
+    void MeleeSwitch()
+    {
+        animator.SetBool("Exit", true);
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeAwaySniper") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99)
+        {
+            mainGO.SetActive(false);
+            flagPistolGO.SetActive(true);
+            changeWeapon = false;
+            animator.runtimeAnimatorController = pistolAnim;
+        }
     }
 }

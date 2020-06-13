@@ -19,11 +19,12 @@ public class TeamBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWeapon.currentWeapon == currentWeapon.flagPistol)
+        if (currentWeapon.currentWeapon == currentWeapon.secondaryWeapon && currentWeapon.flagPistol)
         {
             if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 3)
             {
                 currentWeapon.currentWeapon = 1;
+                currentWeapon.flagPistol = false;
                 sniper.SetActive(true);
                 flag.SetActive(false);
                 //currentWeapon.animator.SetBool("Exit", false);

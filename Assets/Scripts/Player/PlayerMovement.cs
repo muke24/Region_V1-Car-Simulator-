@@ -39,113 +39,116 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	void Movements()
-	{		
-		// is the controller on the ground?
-		if (controller.isGrounded)
+	{
+		if (!Pause.pause.activeSelf)
 		{
-			//Feed moveDirection with input.
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection *= speed;
-			//Jumping
-			if (Input.GetButton("Jump"))
+			// is the controller on the ground?
+			if (controller.isGrounded)
 			{
-				moveDirection.y = jumpSpeed;
+				//Feed moveDirection with input.
+				moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection *= speed;
+				//Jumping
+				if (Input.GetButton("Jump"))
+				{
+					moveDirection.y = jumpSpeed;
+				}
+
+				isWalking = true;
+				isRunning = false;
+				isCrouching = false;
+				isAirBorn = false;
 			}
 
-			isWalking = true;
-			isRunning = false;
-			isCrouching = false;
-			isAirBorn = false;
-		}
-
-		if (controller.isGrounded && Input.GetButton("Sprint") && !Input.GetButton("Aim"))
-		{
-			//Feed moveDirection with input.
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection *= runSpeed;
-			//Jumping
-			if (Input.GetButton("Jump"))
+			if (controller.isGrounded && Input.GetButton("Sprint") && !Input.GetButton("Aim"))
 			{
-				moveDirection.y = jumpSpeed;
-			}
-			isWalking = false;
-			isRunning = true;
-			isCrouching = false;
-			isAirBorn = false;
-		}
-
-		if (!controller.isGrounded)
-		{
-			//Feed moveDirection with input.
-			moveDirection.x = Input.GetAxis("Horizontal") / 1.15f;
-			moveDirection.z = Input.GetAxis("Vertical") / 1.15f;
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection.x *= speed;
-			moveDirection.z *= speed;
-
-			isWalking = true;
-			isRunning = false;
-			isCrouching = false;
-			isAirBorn = true;
-		}
-
-		if (!controller.isGrounded && Input.GetButton("Sprint"))
-		{
-			//Feed moveDirection with input.
-			moveDirection.x = Input.GetAxis("Horizontal") / 1.1f;
-			moveDirection.z = Input.GetAxis("Vertical") / 1.1f;
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection.x *= runSpeed;
-			moveDirection.z *= runSpeed;
-
-			isWalking = false;
-			isRunning = true;
-			isCrouching = false;
-			isAirBorn = true;
-		}
-
-		if (controller.isGrounded && Input.GetButton("Crouch"))
-		{
-			//Feed moveDirection with input.
-			moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2f, 0, Input.GetAxis("Vertical") / 2f);
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection *= speed;
-			//Jumping
-			if (Input.GetButton("Jump"))
-			{
-				moveDirection.y = jumpSpeed;
+				//Feed moveDirection with input.
+				moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection *= runSpeed;
+				//Jumping
+				if (Input.GetButton("Jump"))
+				{
+					moveDirection.y = jumpSpeed;
+				}
+				isWalking = false;
+				isRunning = true;
+				isCrouching = false;
+				isAirBorn = false;
 			}
 
-			isWalking = false;
-			isRunning = false;
-			isCrouching = true;
-			isAirBorn = false;
-		}
+			if (!controller.isGrounded)
+			{
+				//Feed moveDirection with input.
+				moveDirection.x = Input.GetAxis("Horizontal") / 1.15f;
+				moveDirection.z = Input.GetAxis("Vertical") / 1.15f;
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection.x *= speed;
+				moveDirection.z *= speed;
 
-		if (!controller.isGrounded && Input.GetButton("Crouch"))
-		{
-			//Feed moveDirection with input.
-			moveDirection.x = Input.GetAxis("Horizontal") / 2.1f;
-			moveDirection.z = Input.GetAxis("Vertical") / 2.1f;
+				isWalking = true;
+				isRunning = false;
+				isCrouching = false;
+				isAirBorn = true;
+			}
 
-			//moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
-			moveDirection = transform.TransformDirection(moveDirection);
-			//Multiply it by speed.
-			moveDirection.x *= speed;
-			moveDirection.z *= speed;
-			//moveDirection *= speed;
+			if (!controller.isGrounded && Input.GetButton("Sprint"))
+			{
+				//Feed moveDirection with input.
+				moveDirection.x = Input.GetAxis("Horizontal") / 1.1f;
+				moveDirection.z = Input.GetAxis("Vertical") / 1.1f;
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection.x *= runSpeed;
+				moveDirection.z *= runSpeed;
 
-			isWalking = false;
-			isRunning = false;
-			isCrouching = true;
-			isAirBorn = true;
+				isWalking = false;
+				isRunning = true;
+				isCrouching = false;
+				isAirBorn = true;
+			}
+
+			if (controller.isGrounded && Input.GetButton("Crouch"))
+			{
+				//Feed moveDirection with input.
+				moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2f, 0, Input.GetAxis("Vertical") / 2f);
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection *= speed;
+				//Jumping
+				if (Input.GetButton("Jump"))
+				{
+					moveDirection.y = jumpSpeed;
+				}
+
+				isWalking = false;
+				isRunning = false;
+				isCrouching = true;
+				isAirBorn = false;
+			}
+
+			if (!controller.isGrounded && Input.GetButton("Crouch"))
+			{
+				//Feed moveDirection with input.
+				moveDirection.x = Input.GetAxis("Horizontal") / 2.1f;
+				moveDirection.z = Input.GetAxis("Vertical") / 2.1f;
+
+				//moveDirection = new Vector3(Input.GetAxis("Horizontal") / 2.25f, 0, Input.GetAxis("Vertical") / 2.25f);
+				moveDirection = transform.TransformDirection(moveDirection);
+				//Multiply it by speed.
+				moveDirection.x *= speed;
+				moveDirection.z *= speed;
+				//moveDirection *= speed;
+
+				isWalking = false;
+				isRunning = false;
+				isCrouching = true;
+				isAirBorn = true;
+			}
 		}
 
 		//Making the character move
@@ -153,13 +156,13 @@ public class PlayerMovement : MonoBehaviour
 		if (!Console._cheat2)
 		{
 			Gravity();
-		}		
+		}
 	}
 
 	void Gravity()
 	{
 		//Apply gravity to the controller
-		moveDirection.y -= gravity * Time.deltaTime;		
+		moveDirection.y -= gravity * Time.deltaTime;
 	}
 
 	void AnimatorMultipliers()

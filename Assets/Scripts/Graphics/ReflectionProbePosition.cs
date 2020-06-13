@@ -6,8 +6,9 @@ using UnityEngine;
 public class ReflectionProbePosition : MonoBehaviour
 {
     [SerializeField]
-    private Interact interact = null;
+    private Interact interact;
 
+    public Transform seat1Pos;
     public ReflectionProbe reflectionProbe;
     public GameObject carCam;
     public GameObject playerCam;
@@ -26,11 +27,13 @@ public class ReflectionProbePosition : MonoBehaviour
         if (interact.inCar)
         {
             reflectionProbe.transform.parent = carCam.transform;
+            reflectionProbe.transform.localPosition = Vector3.zero;
         }
 
         if (!interact.inCar)
         {
             reflectionProbe.transform.parent = playerCam.transform;
+            reflectionProbe.transform.localPosition = Vector3.zero;
         }
     }
 }
