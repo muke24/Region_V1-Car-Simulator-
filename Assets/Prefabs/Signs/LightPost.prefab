@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 8889382280550933956}
   - component: {fileID: 8889382280550933953}
   - component: {fileID: 8889382280550933954}
-  - component: {fileID: 8889382280550933955}
   m_Layer: 0
   m_Name: LightPost (5)
   m_TagString: Untagged
@@ -125,19 +124,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8889382280550933955
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8889382280550933957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8889382280865770541
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +135,6 @@ GameObject:
   - component: {fileID: 8889382280865770540}
   - component: {fileID: 8889382280865770537}
   - component: {fileID: 8889382280865770538}
-  - component: {fileID: 8889382280865770539}
   m_Layer: 0
   m_Name: LightPost (4)
   m_TagString: Untagged
@@ -218,19 +203,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8889382280865770539
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8889382280865770541}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8889382280952491873
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,12 +739,12 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130823
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

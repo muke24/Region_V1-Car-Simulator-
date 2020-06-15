@@ -98,7 +98,7 @@ public class AllSettings : MonoBehaviour
 		adsMXinput.text = adsMouseX.value.ToString();
 		adsMYinput.text = adsMouseY.value.ToString();
 
-		allLights = FindObjectsOfType<Light>();
+		//allLights = FindObjectsOfType<Light>();
 
 		ResolutionDrag();
 		ReflectionDrag();
@@ -120,14 +120,14 @@ public class AllSettings : MonoBehaviour
 			applyButton.gameObject.SetActive(true);
 		}
 
-
-
 		//volumeInt = Mathf.RoundToInt(volumeSlider.value);
 		//volumeText.text = volumeSlider.value.ToString() + "%";
 	}
 
 	public void ApplySettings()
 	{
+		allLights = FindObjectsOfType<Light>();
+
 		if (resChanged)
 		{
 			Screen.SetResolution(resolutionIntWidth, resolutionIntHeight, fullscreenToggle.isOn);

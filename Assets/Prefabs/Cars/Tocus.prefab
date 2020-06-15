@@ -3249,7 +3249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WheelL: {fileID: 2779763340945271459}
   WheelR: {fileID: 2779763340962133314}
-  AntiRoll: 6750
+  AntiRoll: 7500
 --- !u!114 &2780423566793949860
 MonoBehaviour:
   m_ObjectHideFlags: 0
