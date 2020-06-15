@@ -885,20 +885,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214877
   m_ForceAppPointDistance: 0.32403097
-  m_Mass: 1
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 6
+    m_ExtremumSlip: 0.22
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 6
+    m_AsymptoteSlip: 0.22
     m_AsymptoteValue: 1
-    m_Stiffness: 3.5
+    m_Stiffness: 1.4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 2.2
+    m_Stiffness: 1.45
   m_Enabled: 1
 --- !u!1 &2779763340425698039
 GameObject:
@@ -947,20 +947,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214879
   m_ForceAppPointDistance: 0.32403097
-  m_Mass: 1
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 6
+    m_ExtremumSlip: 0.22
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 6
+    m_AsymptoteSlip: 0.22
     m_AsymptoteValue: 1
-    m_Stiffness: 3.5
+    m_Stiffness: 1.4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 2.2
+    m_Stiffness: 1.45
   m_Enabled: 1
 --- !u!1 &2779763340436243347
 GameObject:
@@ -1312,20 +1312,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214879
   m_ForceAppPointDistance: 0.31567892
-  m_Mass: 1
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 6
+    m_ExtremumSlip: 0.22
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 6
+    m_AsymptoteSlip: 0.22
     m_AsymptoteValue: 1
-    m_Stiffness: 3.5
+    m_Stiffness: 1.4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 2.2
+    m_Stiffness: 1.45
   m_Enabled: 1
 --- !u!1 &2779763340962133315
 GameObject:
@@ -1374,20 +1374,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214877
   m_ForceAppPointDistance: 0.31567892
-  m_Mass: 1
+  m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 6
+    m_ExtremumSlip: 0.22
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 6
+    m_AsymptoteSlip: 0.22
     m_AsymptoteValue: 1
-    m_Stiffness: 3.5
+    m_Stiffness: 1.4
   m_SidewaysFriction:
     m_ExtremumSlip: 1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 2.2
+    m_Stiffness: 1.45
   m_Enabled: 1
 --- !u!1 &2779763340964774222
 GameObject:
@@ -3101,6 +3101,7 @@ GameObject:
   - component: {fileID: 2780423566793949857}
   - component: {fileID: 1610265679339991}
   - component: {fileID: 4054563762720002756}
+  - component: {fileID: 1610265679340000}
   m_Layer: 9
   m_Name: Tocus
   m_TagString: Car
@@ -3188,17 +3189,12 @@ MonoBehaviour:
   steeringWheels:
   - {fileID: 2779763340425698039}
   - {fileID: 2779763340376864394}
-  meshes:
-  - {fileID: 2780846131944652229}
-  - {fileID: 2780887157214928373}
-  - {fileID: 2780723099875685341}
-  - {fileID: 2780043192648307775}
   tailLightColour:
   - {fileID: 2780287760752787879}
   - {fileID: 2780579106784290725}
-  strengthCoefficient: 50000
+  strengthCoefficient: 40000
   maxTurn: 30
-  brakeStrength: 11000
+  brakeStrength: 2000
 --- !u!114 &2779763339696154212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3326,6 +3322,28 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.3, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1610265679340000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f709c4b3fd7efc438639df75406e0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheels:
+  - {fileID: 2780846131944652229}
+  - {fileID: 2780887157214928373}
+  - {fileID: 2780723099875685341}
+  - {fileID: 2780043192648307775}
+  wheelColliders:
+  - {fileID: 2779763340945271459}
+  - {fileID: 2779763340425698033}
+  - {fileID: 2779763340962133314}
+  - {fileID: 2779763340376864388}
 --- !u!1 &2780470758779515165
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,23 +89,22 @@ public class CarCameraManager : MonoBehaviour
 				if (!pause.activeSelf)
 				{
 					// Lock cursor
-					Cursor.lockState = CursorLockMode.Locked;
-					Cursor.visible = false;
-
-					// If the right click mouse button is not activated
-					if (!Input.GetButton("Aim"))
+					if (Cursor.lockState != CursorLockMode.Locked)
 					{
-						// Lock the camera rotation to the car rotation;
-						transform.rotation = car.transform.rotation;
-					}
+						Cursor.lockState = CursorLockMode.Locked;
+						Cursor.visible = false;
+					}					
 				}
 
 				// If paused
 				if (pause.activeSelf)
 				{
-					// Unlock cursor
-					Cursor.lockState = CursorLockMode.None;
-					Cursor.visible = true;
+					if (Cursor.lockState != CursorLockMode.None)
+					{
+						// Unlock cursor
+						Cursor.lockState = CursorLockMode.None;
+						Cursor.visible = true;
+					}					
 				}
 			}
 		}
@@ -186,6 +185,16 @@ public class CarCameraManager : MonoBehaviour
 						// Unlock cursor
 						Cursor.lockState = CursorLockMode.None;
 						Cursor.visible = true;
+					}
+
+					if (!Input.GetButton("Aim"))
+					{
+						/* Lock the camera rotation to the car rigidbody rotation (Originally had it in Update and had it locked the the cars rotation, 
+						 * but tried a few stuff out and found that this way gives the camera a nice look when turning around corners, 
+						 * as it pretty much doesnt fully lock to the cars rotation, but it keeps the camera a little behind time and has a nice look to it) */					
+						Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+						transform.localRotation = originalRotation * xQuaternion;
+						originalRotation = rb.transform.rotation;
 					}
 
 					if (Input.GetButtonDown("Aim") || Input.GetButtonUp("Aim"))

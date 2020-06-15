@@ -7,6 +7,7 @@ public class Compass : MonoBehaviour
 {
 	public RawImage compassScrollTexture;
 	public Transform playerPositionInWorld;
+	public CurrentCar currentCar;
 
 	private void Start()
 	{
@@ -17,5 +18,10 @@ public class Compass : MonoBehaviour
 	void Update()
 	{
 		compassScrollTexture.uvRect = new Rect(playerPositionInWorld.localEulerAngles.y / 360f, 0, 1, 1);
+
+		if (Car.inCar)
+		{
+			playerPositionInWorld = currentCar.currentCar.transform;
+		}
 	}
 }

@@ -65,6 +65,23 @@ public class EnemyAI : MonoBehaviour
 		{
 			FollowPlayerMode();
 		}
+		if (enemy.curHealth > 0)
+		{
+			if (agent.velocity.magnitude > 1)
+			{
+				anim.SetBool("Moving", true);
+			}
+			else
+			{
+				anim.SetBool("Moving", false);
+			}
+		}
+		else
+		{
+			agent.enabled = false;
+			agent.updatePosition = false;
+			anim.SetBool("Moving", false);
+		}
 
 		//AIMovement();
 	}
