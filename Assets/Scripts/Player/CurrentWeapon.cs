@@ -35,6 +35,7 @@ public class CurrentWeapon : MonoBehaviour
 		currentWeapon = mainWeapon;
 		flagText = GameObject.FindGameObjectWithTag("GamePlayCanvas").GetComponentInChildren<Text>();
 		flagText.enabled = false;
+		weaponText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("CurrentWeaponText").GetComponent<Text>();
 	}
 
 	// Update is called once per frame
