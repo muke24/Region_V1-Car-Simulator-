@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1935408588}
   m_Layer: 9
   m_Name: Spot Light
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2778800225297939122}
   m_Layer: 9
   m_Name: Tocus_Win_Light_Right
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,9 +280,10 @@ GameObject:
   - component: {fileID: 2778850203948529252}
   - component: {fileID: 2778850203948529253}
   - component: {fileID: 8656026958982032172}
+  - component: {fileID: 140510017}
   m_Layer: 9
   m_Name: Tocus_Bamper_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,6 +406,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &140510017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778850203948529259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.4
+  areaToDeform: 0.2
+  maximumDistance: 0.15
 --- !u!1 &2779763339472713400
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +868,7 @@ GameObject:
   - component: {fileID: 2779763340376864388}
   m_Layer: 9
   m_Name: FR
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,17 +898,17 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 29304.867
-    damper: 4262.5264
+    spring: 29110.574
+    damper: 3969.6235
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.32403097
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.88200545
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.22
+    m_ExtremumSlip: 0.75
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.22
+    m_AsymptoteSlip: 0.75
     m_AsymptoteValue: 1
     m_Stiffness: 1.4
   m_SidewaysFriction:
@@ -898,7 +916,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 1.45
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &2779763340425698039
 GameObject:
@@ -912,7 +930,7 @@ GameObject:
   - component: {fileID: 2779763340425698033}
   m_Layer: 9
   m_Name: FL
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,17 +960,17 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 29363.81
-    damper: 4271.1
+    spring: 29007.709
+    damper: 3955.5967
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: 0.32403097
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.88200545
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.22
+    m_ExtremumSlip: 0.75
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.22
+    m_AsymptoteSlip: 0.75
     m_AsymptoteValue: 1
     m_Stiffness: 1.4
   m_SidewaysFriction:
@@ -960,7 +978,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 1.45
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &2779763340436243347
 GameObject:
@@ -1277,7 +1295,7 @@ GameObject:
   - component: {fileID: 2779763340945271459}
   m_Layer: 9
   m_Name: BL
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1307,17 +1325,17 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 31195.055
-    damper: 4537.463
+    spring: 31389.56
+    damper: 4280.3945
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: 0.31567892
+  m_SuspensionDistance: 0.16214874
+  m_ForceAppPointDistance: 0.8736534
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.22
+    m_ExtremumSlip: 0.75
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.22
+    m_AsymptoteSlip: 0.75
     m_AsymptoteValue: 1
     m_Stiffness: 1.4
   m_SidewaysFriction:
@@ -1325,7 +1343,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 1.45
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &2779763340962133315
 GameObject:
@@ -1339,7 +1357,7 @@ GameObject:
   - component: {fileID: 2779763340962133314}
   m_Layer: 9
   m_Name: BR
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1369,17 +1387,17 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 31136.26
-    damper: 4528.9106
+    spring: 31492.152
+    damper: 4294.385
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.31567892
+  m_SuspensionDistance: 0.16214879
+  m_ForceAppPointDistance: 0.8736534
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.22
+    m_ExtremumSlip: 0.75
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.22
+    m_AsymptoteSlip: 0.75
     m_AsymptoteValue: 1
     m_Stiffness: 1.4
   m_SidewaysFriction:
@@ -1387,7 +1405,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 1
     m_AsymptoteValue: 1
-    m_Stiffness: 1.45
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &2779763340964774222
 GameObject:
@@ -1648,7 +1666,7 @@ GameObject:
   - component: {fileID: 2792459952622482579}
   m_Layer: 9
   m_Name: Tocus_Wheel_Right_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1729,9 +1747,10 @@ GameObject:
   - component: {fileID: 2780135097625324456}
   - component: {fileID: 2780135097625324458}
   - component: {fileID: 1222120388}
+  - component: {fileID: 1390447703}
   m_Layer: 9
   m_Name: Tocus_Bamper_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1857,6 +1876,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1390447703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780135097625324457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.4
+  areaToDeform: 0.2
+  maximumDistance: 0.15
 --- !u!1 &2780179909591293201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1907,7 @@ GameObject:
   - component: {fileID: 2780179909591293200}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1963,9 +1999,13 @@ GameObject:
   - component: {fileID: 2802812100451861177}
   - component: {fileID: 2792238143910946057}
   - component: {fileID: 2780180342868079540}
+  - component: {fileID: 206098680}
+  - component: {fileID: 206098679}
+  - component: {fileID: 206098682}
+  - component: {fileID: 206098685}
   m_Layer: 9
   m_Name: Tocus_Door_Right_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2047,6 +2087,97 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300086, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!54 &206098680
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780180342868079541}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!59 &206098679
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780180342868079541}
+  m_ConnectedBody: {fileID: 2779763339696154218}
+  m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
+  m_Axis: {x: 0, y: -1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: -0.15}
+  m_UseSpring: 1
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 1
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: 2.4083385
+    max: 40
+    bounciness: 0
+    bounceMinVelocity: 0
+    contactDistance: 0.15
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 10
+  m_ConnectedMassScale: 10
+--- !u!114 &206098682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780180342868079541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closedRotXlow: 0
+  closedRotXhigh: 0
+  closedRotYlow: -0.55
+  closedRotYhigh: -0.45
+  closedRotZlow: 0
+  closedRotZhigh: 0
+  partNumber: 1
+  lockState: 1
+  rb: {fileID: 0}
+  lockRot: {x: 0, y: 0, z: 0, w: 0}
+  lockPos: {x: 0, y: 0, z: 0}
+--- !u!114 &206098685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780180342868079541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.1
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780252857239466569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2192,7 @@ GameObject:
   - component: {fileID: 2780252857239466568}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2155,7 +2286,7 @@ GameObject:
   - component: {fileID: 2780260410141088548}
   m_Layer: 9
   m_Name: Tocus_Win_Light_Left
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2249,7 +2380,7 @@ GameObject:
   - component: {fileID: 2780269800032393612}
   m_Layer: 9
   m_Name: Tocus_Light_Front_Left
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2343,7 +2474,7 @@ GameObject:
   - component: {fileID: 2780287760752787878}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Left
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2439,9 +2570,10 @@ GameObject:
   - component: {fileID: 2780299139923649932}
   - component: {fileID: 2780299139923649934}
   - component: {fileID: 2907391044458346218}
+  - component: {fileID: 1740878327990007}
   m_Layer: 9
   m_Name: Tocus_Door_Left_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,7 +2683,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.7149994, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2587,7 +2719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jl: {fileID: 0}
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: -0.55
@@ -2595,7 +2726,7 @@ MonoBehaviour:
   closedRotZlow: 0
   closedRotZhigh: 0
   partNumber: 1
-  lockState: 0
+  lockState: 1
   rb: {fileID: 2780299139923649935}
   lockRot: {x: 0, y: 0, z: 0, w: 0}
   lockPos: {x: 0, y: 0, z: 0}
@@ -2611,6 +2742,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1740878327990007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780299139923649939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.1
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780316549609562759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,7 +2773,7 @@ GameObject:
   - component: {fileID: 2780316549609562758}
   m_Layer: 9
   m_Name: Tocus_Win_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2721,9 +2869,10 @@ GameObject:
   - component: {fileID: 2780331559971186818}
   - component: {fileID: 2780331559971188604}
   - component: {fileID: 5141253573667793006}
+  - component: {fileID: 1702959696874493}
   m_Layer: 9
   m_Name: Tocus_Door_Right_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2814,7 +2963,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780331559971186817}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2833,7 +2982,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7149994, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2869,7 +3018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jl: {fileID: 0}
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: 0.0375
@@ -2877,7 +3025,7 @@ MonoBehaviour:
   closedRotZlow: 0
   closedRotZhigh: 0
   partNumber: 1
-  lockState: 0
+  lockState: 1
   rb: {fileID: 0}
   lockRot: {x: 0, y: 0, z: 0, w: 0}
   lockPos: {x: 0, y: 0, z: 0}
@@ -2893,6 +3041,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1702959696874493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780331559971186817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.1
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780334850897205157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,7 +3072,7 @@ GameObject:
   - component: {fileID: 2780334850897205156}
   m_Layer: 9
   m_Name: Tocus_Win_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3001,7 +3166,7 @@ GameObject:
   - component: {fileID: 2780413186143284732}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3195,6 +3360,9 @@ MonoBehaviour:
   strengthCoefficient: 40000
   maxTurn: 30
   brakeStrength: 2000
+  AWD: 1
+  RWD: 0
+  FWD: 0
 --- !u!114 &2779763339696154212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,7 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   naturalFrequency: 11
-  dampingRatio: 0.8
+  dampingRatio: 0.75
   forceShift: 0.4
   setSuspensionDistance: 1
 --- !u!114 &2780423566793949862
@@ -3358,7 +3526,7 @@ GameObject:
   - component: {fileID: 2780470758779515164}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3450,9 +3618,12 @@ GameObject:
   - component: {fileID: 2804392651989628919}
   - component: {fileID: 2792521403962365077}
   - component: {fileID: 2780485546922951130}
+  - component: {fileID: 2108274628}
+  - component: {fileID: 2108274625}
+  - component: {fileID: 2108274629}
   m_Layer: 9
   m_Name: Tocus_Body
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3533,7 +3704,54 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300062, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+  m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!54 &2108274628
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780485546922951131}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
+--- !u!64 &2108274625
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780485546922951131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &2108274629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780485546922951131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 1
+  areaToDeform: 0.1
+  maximumDistance: 0.2
 --- !u!1 &2780579106784290725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,7 +3766,7 @@ GameObject:
   - component: {fileID: 2780579106784290724}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Right
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3640,9 +3858,11 @@ GameObject:
   - component: {fileID: 2802438835664856817}
   - component: {fileID: 2792232414624469089}
   - component: {fileID: 2780593670883035822}
+  - component: {fileID: 1859067401}
+  - component: {fileID: 1859067403}
   m_Layer: 9
   m_Name: Tocus_Bottom
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3724,6 +3944,39 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300082, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!54 &1859067401
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780593670883035823}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1859067403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780593670883035823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.75
+  areaToDeform: 0.1
+  maximumDistance: 0.4
 --- !u!1 &2780625185356207407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3991,7 @@ GameObject:
   - component: {fileID: 2780625185356207406}
   m_Layer: 9
   m_Name: Tocus_Light_Front_Right
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3832,7 +4085,7 @@ GameObject:
   - component: {fileID: 2780632411408589550}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3925,7 +4178,7 @@ GameObject:
   - component: {fileID: 2792601481172683721}
   m_Layer: 9
   m_Name: Tocus_Wheel_Right_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4003,9 +4256,13 @@ GameObject:
   - component: {fileID: 2802923617713362945}
   - component: {fileID: 2794397202638654769}
   - component: {fileID: 2780733247418898460}
+  - component: {fileID: 164250257}
+  - component: {fileID: 164250256}
+  - component: {fileID: 164250258}
+  - component: {fileID: 164250259}
   m_Layer: 9
   m_Name: Tocus_Door_Left_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4087,6 +4344,97 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300068, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!54 &164250257
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780733247418898461}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!59 &164250256
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780733247418898461}
+  m_ConnectedBody: {fileID: 2779763339696154218}
+  m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: -0.15}
+  m_UseSpring: 1
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 1
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: -0.5
+    max: 40
+    bounciness: 0
+    bounceMinVelocity: 0
+    contactDistance: 0.15
+  m_BreakForce: 20000
+  m_BreakTorque: 20000
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 10
+  m_ConnectedMassScale: 10
+--- !u!114 &164250258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780733247418898461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closedRotXlow: 0
+  closedRotXhigh: 0
+  closedRotYlow: -0.55
+  closedRotYhigh: -0.45
+  closedRotZlow: 0
+  closedRotZhigh: 0
+  partNumber: 1
+  lockState: 1
+  rb: {fileID: 0}
+  lockRot: {x: 0, y: 0, z: 0, w: 0}
+  lockPos: {x: 0, y: 0, z: 0}
+--- !u!114 &164250259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780733247418898461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.1
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780744690305430277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,7 +4449,7 @@ GameObject:
   - component: {fileID: 2780744690305430276}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4195,11 +4543,11 @@ GameObject:
   - component: {fileID: 2780841256562110564}
   - component: {fileID: 2780841256562110566}
   - component: {fileID: 2780841256562110567}
-  - component: {fileID: 2780841256562110560}
   - component: {fileID: 6850890221374197109}
+  - component: {fileID: 1783208164}
   m_Layer: 9
   m_Name: Tocus_Hood_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4332,30 +4680,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 10
   m_ConnectedMassScale: 10
---- !u!114 &2780841256562110560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780841256562110565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jl: {fileID: 0}
-  closedRotXlow: 0
-  closedRotXhigh: 0
-  closedRotYlow: -0.45
-  closedRotYhigh: -0.55
-  closedRotZlow: 0
-  closedRotZhigh: 0
-  partNumber: 0
-  lockState: 0
-  rb: {fileID: 0}
-  lockRot: {x: 0, y: 0, z: 0, w: 0}
-  lockPos: {x: 0, y: 0, z: 0}
 --- !u!114 &6850890221374197109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,6 +4692,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1783208164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780841256562110565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.2
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780846131944652229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,7 +4722,7 @@ GameObject:
   - component: {fileID: 2794233763305869449}
   m_Layer: 9
   m_Name: Tocus_Wheel_Left_Back
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4460,7 +4801,7 @@ GameObject:
   - component: {fileID: 2792761159029472655}
   m_Layer: 9
   m_Name: Tocus_Salon
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4543,7 +4884,7 @@ GameObject:
   - component: {fileID: 2792690113526047373}
   m_Layer: 9
   m_Name: Tocus_Wheel_Left_Font
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4622,7 +4963,7 @@ GameObject:
   - component: {fileID: 2792544293580390297}
   m_Layer: 9
   m_Name: Tocus_Body_Physics
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4702,12 +5043,12 @@ GameObject:
   - component: {fileID: 2780960048260541246}
   - component: {fileID: 2780960048260541247}
   - component: {fileID: 2780960048260541244}
-  - component: {fileID: 2780960048260541240}
   - component: {fileID: 2780960048260541243}
   - component: {fileID: 6113301037948301899}
+  - component: {fileID: 1634057644}
   m_Layer: 9
   m_Name: Tocus_Hood_Front
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4839,30 +5180,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300076, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!114 &2780960048260541240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780960048260541245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jl: {fileID: 0}
-  closedRotXlow: 0
-  closedRotXhigh: 0
-  closedRotYlow: 0
-  closedRotYhigh: 0
-  closedRotZlow: 0
-  closedRotZhigh: 0
-  partNumber: 0
-  lockState: 0
-  rb: {fileID: 2780960048260541246}
-  lockRot: {x: 0, y: 0, z: 0, w: 0}
-  lockPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2780960048260541243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4889,6 +5206,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d8df7acf9592944b50e7fb411c755d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1634057644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780960048260541245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshes: []
+  colliders: []
+  damagePerHit: 0.2
+  areaToDeform: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2918501166945775486
 GameObject:
   m_ObjectHideFlags: 0

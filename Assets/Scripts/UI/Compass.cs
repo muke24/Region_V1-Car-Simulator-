@@ -23,5 +23,9 @@ public class Compass : MonoBehaviour
 		{
 			playerPositionInWorld = currentCar.currentCar.transform;
 		}
+		else
+		{
+			playerPositionInWorld = GameObject.FindGameObjectWithTag("Player").transform;
+		}
 	}
 }

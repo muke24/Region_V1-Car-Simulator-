@@ -20,8 +20,6 @@ public class CarController : MonoBehaviour
 	[SerializeField]
 	private Rigidbody rb = null;
 
-	//public WheelCollider wc;
-
 	public List<WheelCollider> throttleWheels;
 	public List<GameObject> steeringWheels;
 	public List<GameObject> tailLightColour;
@@ -29,6 +27,10 @@ public class CarController : MonoBehaviour
 	public float strengthCoefficient = 20000f;
 	public float maxTurn = 20f;
 	public float brakeStrength;
+
+	public bool AWD;
+	public bool RWD;
+	public bool FWD;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -72,16 +74,37 @@ public class CarController : MonoBehaviour
 	{
 		foreach (WheelCollider wheel in throttleWheels)
 		{
-
-			if (im.brake == true)
+			if (im.brake)
 			{
-				wheel.motorTorque = 0f;
-				wheel.brakeTorque = brakeStrength * Time.deltaTime;
+				HandBrake();
 			}
 			else
 			{
-				wheel.motorTorque = strengthCoefficient * Time.deltaTime * im.throttle;
-				wheel.brakeTorque = 0f;
+				if (AWD)
+				{
+					wheel.motorTorque = strengthCoefficient * Time.deltaTime * im.throttle;
+					wheel.brakeTorque = 0f;
+				}				
+			}
+		}
+
+		if (!im.brake)
+		{
+			if (RWD)
+			{
+				throttleWheels[0].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[0].brakeTorque = 0f;
+				throttleWheels[2].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[2].brakeTorque = 0f;
+			}
+			if (FWD)
+			{
+				throttleWheels[1].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[1].brakeTorque = 0f;
+				throttleWheels[0].brakeTorque = 0f;
+				throttleWheels[3].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[3].brakeTorque = 0f;
+				throttleWheels[2].brakeTorque = 0f;
 			}
 		}
 
@@ -90,6 +113,53 @@ public class CarController : MonoBehaviour
 			wheel.GetComponent<WheelCollider>().steerAngle = maxTurn * im.steer;
 			wheel.transform.localEulerAngles = new Vector3(0f, im.steer * maxTurn, 0f);
 		}		
+	}
+
+	void Brake()
+	{
+		foreach (WheelCollider wheel in throttleWheels)
+		{
+			wheel.motorTorque = 0f;
+			wheel.brakeTorque = brakeStrength * Time.deltaTime;
+		}		
+	}
+
+	void HandBrake()
+	{
+		if (im.brake)
+		{
+			if (AWD)
+			{
+				throttleWheels[0].motorTorque = 0f;
+				throttleWheels[0].brakeTorque = brakeStrength * Time.deltaTime;
+				throttleWheels[2].motorTorque = 0f;
+				throttleWheels[2].brakeTorque = brakeStrength * Time.deltaTime;
+
+				throttleWheels[1].motorTorque = strengthCoefficient * Time.deltaTime * im.throttle;
+				throttleWheels[1].brakeTorque = 0f;
+				throttleWheels[3].motorTorque = strengthCoefficient * Time.deltaTime * im.throttle;
+				throttleWheels[3].brakeTorque = 0f;
+			}
+			if (RWD)
+			{
+				throttleWheels[0].motorTorque = 0f;
+				throttleWheels[0].brakeTorque = (brakeStrength * 2) * Time.deltaTime;
+				throttleWheels[2].motorTorque = 0f;
+				throttleWheels[2].brakeTorque = (brakeStrength * 2) * Time.deltaTime;
+			}
+			if (FWD)
+			{
+				throttleWheels[0].motorTorque = 0f;
+				throttleWheels[0].brakeTorque = (brakeStrength * 2) * Time.deltaTime;
+				throttleWheels[2].motorTorque = 0f;
+				throttleWheels[2].brakeTorque = (brakeStrength * 2) * Time.deltaTime;
+
+				throttleWheels[1].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[1].brakeTorque = 0f;
+				throttleWheels[3].motorTorque = (strengthCoefficient * 2) * Time.deltaTime * im.throttle;
+				throttleWheels[3].brakeTorque = 0f;
+			}
+		}
 	}
 }
 // This code is written by Peter Thompson

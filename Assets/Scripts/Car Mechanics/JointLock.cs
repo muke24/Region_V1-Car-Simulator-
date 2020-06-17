@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class JointLock : MonoBehaviour
 {
-	public JointLock jl;
-
 	public float closedRotXlow;
 	public float closedRotXhigh;
 	public float closedRotYlow = -0.55f;
@@ -20,14 +18,14 @@ public class JointLock : MonoBehaviour
 	public Rigidbody rb;
 	public Quaternion lockRot = new Quaternion(0, 0, 0, 0);
 	public Vector3 lockPos = new Vector3(0, 0, 0);
-	
 
 	void Start()
 	{
+		Physics.IgnoreLayerCollision(9, 9);
 		rb = GetComponent<Rigidbody>();
-		jl = GetComponent<JointLock>();
-		lockState = true;		
+		lockState = true;
 	}
+
 	private void LateUpdate()
 	{
 		if (lockState)
@@ -37,27 +35,27 @@ public class JointLock : MonoBehaviour
 		}
 		if (transform.localPosition.x > 1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 		if (transform.localPosition.y > 1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 		if (transform.localPosition.z > 1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 		if (transform.localPosition.x < -1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 		if (transform.localPosition.y < -1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 		if (transform.localPosition.z < -1f)
 		{
-			jl.enabled = false;
+			enabled = false;
 		}
 	}
 
@@ -70,12 +68,31 @@ public class JointLock : MonoBehaviour
 				lockState = true;
 			}
 		}
-		
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		lockState = false;
+		if (collision.transform.root.tag == "Car")
+		{
+			lockState = true;			
+		}
+		else
+		{
+			lockState = false;
+			
+		}
+	}
+
+	private void OnCollisionStay(Collision collision)
+	{
+		if (collision.transform.root.tag == "Car")
+		{
+			lockState = true;
+		}
+		else
+		{
+			lockState = false;
+		}
 	}
 }
 // This code is written by Peter Thompson

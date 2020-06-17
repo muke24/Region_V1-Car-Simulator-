@@ -10990,7 +10990,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5966979495730993237}
   - component: {fileID: 5785556477367195026}
-  - component: {fileID: 2325143955103293750}
   m_Layer: 0
   m_Name: MiniMapCamera
   m_TagString: Untagged
@@ -11055,14 +11054,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2325143955103293750
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909365412886899455}
-  m_Enabled: 1
 --- !u!1 &1993526679160169117
 GameObject:
   m_ObjectHideFlags: 0
@@ -12699,7 +12690,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4276280504643031172}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -14435,15 +14426,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
---- !u!4 &4271974990597971401 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4922413645337816, guid: b73c5bd09e0af5e48a81b829614fca32,
-    type: 3}
-  m_PrefabInstance: {fileID: 4276280503301392657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4277885760067508069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825296570637940, guid: b73c5bd09e0af5e48a81b829614fca32,
+    type: 3}
+  m_PrefabInstance: {fileID: 4276280503301392657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4271974990597971401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4922413645337816, guid: b73c5bd09e0af5e48a81b829614fca32,
     type: 3}
   m_PrefabInstance: {fileID: 4276280503301392657}
   m_PrefabAsset: {fileID: 0}
