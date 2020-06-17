@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class MeshDeformation : MonoBehaviour
@@ -170,3 +171,5 @@ public class MeshDeformation : MonoBehaviour
 		return damagedVertices > 0 ? totalDamage / damagedVertices : 0.0f;
 	}
 }
+// This code is written by Peter Thompson
+#endregion
