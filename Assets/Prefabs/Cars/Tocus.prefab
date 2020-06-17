@@ -420,9 +420,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes: []
   colliders: []
-  damagePerHit: 0.4
+  damagePerHit: 0.3
   areaToDeform: 0.2
-  maximumDistance: 0.15
+  maximumDistance: 0.2
 --- !u!1 &2779763339472713400
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,11 +898,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 29110.574
-    damper: 3969.6235
+    spring: 27107.781
+    damper: 3696.5151
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: 0.88200545
+  m_ForceAppPointDistance: 0.075478554
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -960,11 +960,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 29007.709
-    damper: 3955.5967
+    spring: 27772.947
+    damper: 3787.2202
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: 0.88200545
+  m_ForceAppPointDistance: 0.075478554
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1325,11 +1325,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 31389.56
-    damper: 4280.3945
+    spring: 33391.355
+    damper: 4553.366
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214874
-  m_ForceAppPointDistance: 0.8736534
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.06712648
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1387,11 +1387,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 31492.152
-    damper: 4294.385
+    spring: 32727.904
+    damper: 4462.896
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: 0.8736534
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.06712648
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1890,9 +1890,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes: []
   colliders: []
-  damagePerHit: 0.4
+  damagePerHit: 0.3
   areaToDeform: 0.2
-  maximumDistance: 0.15
+  maximumDistance: 0.2
 --- !u!1 &2780179909591293201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2114,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: -0.15}
+  m_ConnectedAnchor: {x: 0.7149994, y: 0.25, z: -0.15}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2127,7 +2127,7 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 2.4083385
+    min: -2.5
     max: 40
     bounciness: 0
     bounceMinVelocity: 0
@@ -2150,6 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hingeAngle: 0
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: -0.55
@@ -2683,7 +2684,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.7149994, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2719,6 +2720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hingeAngle: 0
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: -0.55
@@ -2982,7 +2984,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.7149994, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3018,6 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hingeAngle: 0
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: 0.0375
@@ -3267,6 +3270,7 @@ GameObject:
   - component: {fileID: 1610265679339991}
   - component: {fileID: 4054563762720002756}
   - component: {fileID: 1610265679340000}
+  - component: {fileID: 1610265679340001}
   m_Layer: 9
   m_Name: Tocus
   m_TagString: Car
@@ -3512,6 +3516,19 @@ MonoBehaviour:
   - {fileID: 2779763340425698033}
   - {fileID: 2779763340962133314}
   - {fileID: 2779763340376864388}
+--- !u!65 &1610265679340001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1480713, y: 0.18186091, z: 1.9880928}
+  m_Center: {x: -0.010128784, y: -0.07207268, z: -0.06891346}
 --- !u!1 &2780470758779515165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,7 +3719,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2108274628
@@ -3732,7 +3749,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!114 &2108274629
@@ -3749,9 +3766,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes: []
   colliders: []
-  damagePerHit: 1
-  areaToDeform: 0.1
-  maximumDistance: 0.2
+  damagePerHit: 0.1
+  areaToDeform: 0.2
+  maximumDistance: 0.5
 --- !u!1 &2780579106784290725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,7 +3976,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &1859067403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3974,9 +3991,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshes: []
   colliders: []
-  damagePerHit: 0.75
-  areaToDeform: 0.1
-  maximumDistance: 0.4
+  damagePerHit: 0.5
+  areaToDeform: 0.01
+  maximumDistance: 1
 --- !u!1 &2780625185356207407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4371,7 +4388,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: -0.15}
+  m_ConnectedAnchor: {x: -0.7149994, y: 0.25, z: -0.15}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -4407,6 +4424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8413e6782d104746914e2c6899ea928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hingeAngle: 0
   closedRotXlow: 0
   closedRotXhigh: 0
   closedRotYlow: -0.55
@@ -4708,7 +4726,7 @@ MonoBehaviour:
   colliders: []
   damagePerHit: 0.2
   areaToDeform: 0.2
-  maximumDistance: 0.1
+  maximumDistance: 0.2
 --- !u!1 &2780846131944652229
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,7 +5240,7 @@ MonoBehaviour:
   colliders: []
   damagePerHit: 0.2
   areaToDeform: 0.2
-  maximumDistance: 0.1
+  maximumDistance: 0.2
 --- !u!1 &2918501166945775486
 GameObject:
   m_ObjectHideFlags: 0

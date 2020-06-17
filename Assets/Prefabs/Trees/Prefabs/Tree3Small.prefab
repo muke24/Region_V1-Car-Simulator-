@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 461078144383056229}
   - component: {fileID: 1594839866}
   - component: {fileID: 1594839867}
+  - component: {fileID: 8671591903990969232}
   m_Layer: 0
   m_Name: Tree3Small
   m_TagString: Untagged
@@ -69,7 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
+  m_ReceiveGI: 2
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -123,3 +124,19 @@ CapsuleCollider:
   m_Height: 2.132493
   m_Direction: 1
   m_Center: {x: -0.15173939, y: 1.0499187, z: -0.12048578}
+--- !u!54 &8671591903990969232
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186656}
+  serializedVersion: 2
+  m_Mass: 500
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3

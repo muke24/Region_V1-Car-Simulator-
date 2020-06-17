@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class JointLock : MonoBehaviour
 {
+	public float hingeAngle = 0f;
+
 	public float closedRotXlow;
 	public float closedRotXhigh;
 	public float closedRotYlow = -0.55f;
@@ -67,6 +69,19 @@ public class JointLock : MonoBehaviour
 			{
 				lockState = true;
 			}
+
+			if (enabled)
+			{
+				hingeAngle = GetComponent<HingeJoint>().angle;
+			}			
+
+			if (!lockState)
+			{
+				if (GetComponent<HingeJoint>().angle < 0.5f)
+				{
+					lockState = true;
+				}
+			}			
 		}
 	}
 
@@ -78,8 +93,7 @@ public class JointLock : MonoBehaviour
 		}
 		else
 		{
-			lockState = false;
-			
+			lockState = false;			
 		}
 	}
 
