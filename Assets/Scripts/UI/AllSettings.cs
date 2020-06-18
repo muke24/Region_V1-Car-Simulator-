@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class AllSettings : MonoBehaviour
 {
+	// This is so badly coded that I really didnt want to comment on this script. I should have used lists or arrays >:-/
+
 	public Light[] allLights;
 	public Light sunLight;
 	[Space(10)]
@@ -80,26 +82,30 @@ public class AllSettings : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		// Gets the x axis and y axis mouseLook scripts thats attached to the player in the scene at the start
 		mlX = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
 		mlY = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").GetComponent<MouseLook>();
 
+		// Gets the reflection probe attached to the player at the start
 		ReflectionProbe1 = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
 
+		// Gets post process gameobjects thats attached to the player (I have no clue why I put it on the player, but I did, and I didnt have time to take it off of it)
 		worldPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsWorld").gameObject;
 		weaponPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsGun").gameObject;
 
+		// Sets the resolution changed and settings changed bool to false, then sets the res width and height to the screen width and height at the start
 		resChanged = false;
 		settingsChanged = false;
 		resWidth = Screen.width;
 		resHeight = Screen.height;
 
+		// Sets the texts to the slider values
 		mXinput.text = mouseX.value.ToString();
 		mYinput.text = mouseY.value.ToString();
 		adsMXinput.text = adsMouseX.value.ToString();
 		adsMYinput.text = adsMouseY.value.ToString();
 
-		//allLights = FindObjectsOfType<Light>();
-
+		// Applies the default settings which are the set values on the sliders at the start
 		ResolutionDrag();
 		ReflectionDrag();
 		Shadows();
@@ -110,30 +116,37 @@ public class AllSettings : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		// Hides the apply button if the settings have been applied
 		if (settingsChanged == false)
 		{
 			applyButton.gameObject.SetActive(false);
 		}
 
+		// Hides the apply button if the settings have been applied
 		if (settingsChanged == true)
 		{
 			applyButton.gameObject.SetActive(true);
 		}
 
+		// This would change the volume if there was any sounds playing in the game
 		//volumeInt = Mathf.RoundToInt(volumeSlider.value);
 		//volumeText.text = volumeSlider.value.ToString() + "%";
 	}
 
 	public void ApplySettings()
 	{
+		// Gets all the lights in the scene when the apply button has been pressed
 		allLights = FindObjectsOfType<Light>();
 
+		// If the res has been changed when the apply button has been pressed than set the resolution to the value set by the player on the slider
 		if (resChanged)
 		{
 			Screen.SetResolution(resolutionIntWidth, resolutionIntHeight, fullscreenToggle.isOn);
 
 			resChanged = false;
 		}
+
+		// If the settings changed bool is true and aply button pressed than apply the settings that are set from the sliders
 
 		if (settingsChanged == true)
 		{
@@ -287,12 +300,14 @@ public class AllSettings : MonoBehaviour
 			mlY.sensitivityYads = adsMouseY.value;
 			#endregion
 
+			// Sets the settings changed bool to false so the apply button disappears
 			settingsChanged = false;
 		}
 
 		//AudioListener.volume = volumeSlider.value;
 	}
 
+	#region These are voids that will be used by the UI in the settings when they have been interacted with
 	public void ResolutionChanged()
 	{
 		resChanged = true;
@@ -631,6 +646,9 @@ public class AllSettings : MonoBehaviour
 			weaponPostProcess.transform.Find("Bloom").gameObject.SetActive(false);
 		}
 	}
+
+	#endregion
 }
+
 // This code is written by Peter Thompson
 #endregion

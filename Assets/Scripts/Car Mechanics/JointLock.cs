@@ -72,16 +72,22 @@ public class JointLock : MonoBehaviour
 
 			if (enabled)
 			{
-				hingeAngle = GetComponent<HingeJoint>().angle;
-			}			
+				if (GetComponent<HingeJoint>())
+				{
+					hingeAngle = GetComponent<HingeJoint>().angle;
+				}
+			}
 
 			if (!lockState)
 			{
-				if (GetComponent<HingeJoint>().angle < 0.5f)
+				if (GetComponent<HingeJoint>())
 				{
-					lockState = true;
-				}
-			}			
+					if (GetComponent<HingeJoint>().angle < 0.5f)
+					{
+						lockState = true;
+					}
+				}				
+			}
 		}
 	}
 
@@ -89,11 +95,11 @@ public class JointLock : MonoBehaviour
 	{
 		if (collision.transform.root.tag == "Car")
 		{
-			lockState = true;			
+			lockState = true;
 		}
 		else
 		{
-			lockState = false;			
+			lockState = false;
 		}
 	}
 

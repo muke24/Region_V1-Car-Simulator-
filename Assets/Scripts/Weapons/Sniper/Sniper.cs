@@ -64,7 +64,9 @@ public class Sniper : MonoBehaviour
 
 	private void Start()
 	{
+		// Sets the players gameobject to the player in the scene at the start
 		player = transform.root.gameObject;
+		// Sets the pause script to the pause script in the scene at the start
 		pause = Pause.pause;
 	}
 
@@ -94,8 +96,8 @@ public class Sniper : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire1"))
 		{
-			// Checks all the animation states to see if the sniper isnt in the shoot or bolt animation already,
-			// or isnt transitioning to the shoot or bolt animation, isnt in the reload animation and has an ammo count greater than 0
+			/* Checks all the animation states to see if the sniper isnt in the shoot or bolt animation already,
+			* or isnt transitioning to the shoot or bolt animation, isnt in the reload animation and has an ammo count greater than 0 */
 			if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperShoot"))
 			{
 				if (!pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction"))
@@ -356,41 +358,50 @@ public class Sniper : MonoBehaviour
 	void ShootAnimation()
 	{
 		#region Shoot Animation
+
+		// If the next animation is the sniper bolt animation then set the shoot bool to false
 		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperBoltAction"))
 		{
 			pA.playerAnimation.SetBool("Shoot", false);
-			//pA.playerAnimation.SetBool("Bolt", true);
 		}
 
+		// If the next animation is the shoot animation then set the shoot bool to false
 		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperShoot"))
 		{
 			pA.playerAnimation.SetBool("Shoot", true);
-			//pA.playerAnimation.SetBool("Bolt", false);
 		}
 
-		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") && boltTimer > 0 || pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction") && boltTimer > 0)
-		{
-			//pA.playerAnimation.SetBool("Bolt", true);
-		}
+		//// If the current animation playing is the bolt animation and the bolt timer is greater than 0, or the bolt while aiming animation is playing and the bolt timer is greater than 0 then
+		//if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") && boltTimer > 0 || pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction") && boltTimer > 0)
+		//{
+		//	//pA.playerAnimation.SetBool("Bolt", true);
+		//}
+
+		// If the current animation playing is the bolt animation and the bolt timer is less than 0 and greater than -0,2, or the bolt while aiming animation is playing and the bolt timer is less than 0 and greater than -0.2 then set the bolt bool to false
 		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperBoltAction") && boltTimer < 0 && boltTimer > -0.2f || pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperZoomBoltAction") && boltTimer < 0 && boltTimer > -0.2f)
 		{
 			pA.playerAnimation.SetBool("Bolt", false);
 		}
 
+		// If the bolt bool is true then minus the bolt timer by the time that passes
 		if (pA.playerAnimation.GetBool("Bolt"))
 		{
 			boltTimer -= Time.deltaTime;
-			//boltBool = true;
 		}
-		if (!pA.playerAnimation.GetBool("Bolt"))
-		{
-			//boltBool = false;
-		}
+
+		//if (!pA.playerAnimation.GetBool("Bolt"))
+		//{
+		//	//boltBool = false;
+		//}
+
+		// If the bolt timer is less than 0 and greater than -0.2 than set the bolt bool to false and minus the bolt timer by the time that passes
 		if (boltTimer < 0f && boltTimer > -0.2f)
 		{
 			pA.playerAnimation.SetBool("Bolt", false);
 			boltTimer -= Time.deltaTime;
 		}
+
+		// If the bolt timer is less than -0.2 than set the bolt timer to 1
 		if (boltTimer <= -0.2f)
 		{
 			boltTimer = 1f;
@@ -401,29 +412,34 @@ public class Sniper : MonoBehaviour
 	void ShootWhileZoomedAnimation()
 	{
 		#region Shoot While Zoomed Animation
+
+		// If the next animation is the sniper bolt animation then set the shoot bool to false
 		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomBoltAction"))
 		{
 			pA.playerAnimation.SetBool("Shoot", false);
-			//pA.playerAnimation.SetBool("Bolt", true);
 		}
 
+		// If the next animation is the shoot animation then set the shoot bool to true
 		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("SniperZoomShoot"))
 		{
 			pA.playerAnimation.SetBool("Shoot", true);
-			//pA.playerAnimation.SetBool("Bolt", false);
 		}
+
 		#endregion
 	}
 
 	void Reload()
 	{
+		// If the sniper ammo count is 0 then set the reload bool to true
 		if (ammoCount == 0)
 		{
 			reload = true;
 		}
 
+		// Sets the reload bool in the sniper animation to true which plays the reload animation
 		pA.playerAnimation.SetBool("Reload", reload);
 
+		// If sniper reload animation is finished then set the sniper ammo to the maximum ammo count
 		if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload"))
 		{
 			if (pA.playerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
@@ -431,7 +447,8 @@ public class Sniper : MonoBehaviour
 				ammoCount = maxAmmo;
 			}
 		}
-		// If is not paused
+
+		// If game isnt paused and reload button is pressed then reload the sniper
 		if (!pause.activeInHierarchy)
 		{
 			if (Input.GetButtonDown("Reload"))
