@@ -13,12 +13,12 @@ public class SceneHandler : MonoBehaviour
 	{
 		SceneManager.LoadScene("InGame");
 	}
-	public void MultiplayerScene()
-	{
-		//SceneManager.LoadScene("MultiplayerScene");
-	}
 	public void QuitGame()
 	{
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
 		Application.Quit();
+		#endif
 	}
 }
