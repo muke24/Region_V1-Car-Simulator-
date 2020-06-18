@@ -11,11 +11,18 @@ public class MenuManager : MonoBehaviour
 	public Button brButton;
 	public GameObject brAvailableText;
 
+	private Animator anim;
+
+	private void Start()
+	{
+		anim = mainMenuUI.GetComponent<Animator>();
+	}
+
 	// Hides the main menu and makes the mode select options appear
 	public void GameModeSelect()
 	{
 		mainMenuUI.SetActive(false);
-		modeSelect.SetActive(true);
+		modeSelect.SetActive(true);		
 
 		// If multiplayer mode is true then make the BR button interactable and disable the BR not available text
 		if (GameMode.multiplayer == true)
@@ -38,13 +45,29 @@ public class MenuManager : MonoBehaviour
 		mainMenuUI.SetActive(true);
 		modeSelect.SetActive(false);
 
+		anim.speed = 0f;
+		anim.Play("ButtonFadeIn", 0, 1f);
+
 		GameMode.SetAllValuesToFalse();
 	}
 
+	// Hides the mode select options and shows the type select options. It then toggles on all of the toggles in case they have been turned off previously
 	public void GameTypeSelect()
 	{
 		modeSelect.SetActive(false);
 		typeSelect.SetActive(true);
+
+		foreach (Toggle toggle in typeSelect.transform.Find("Panel").GetComponentsInChildren<Toggle>())
+		{
+			toggle.isOn = true;
+		}
+	}
+
+	// Hides the type select options and shows the mode select options
+	public void BackToGameModeSelect()
+	{
+		modeSelect.SetActive(true);
+		typeSelect.SetActive(false);
 	}
 }
 // This code is written by Peter Thompson

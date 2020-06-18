@@ -33,7 +33,6 @@ public class CarObjectCollision : MonoBehaviour
 			{
 				rigid.isKinematic = false;
 				rigid.AddForce(collision.relativeVelocity * 5, ForceMode.Force);
-				print("Force = " + force);				
 				lightObject.material = lightOff;
 
 				Destroy(spotLight);
