@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 
 public class GameMode : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class GameMode : MonoBehaviour
         }
     }
 
+    // Sets all the bools to false when this void has been called
     public static void SetAllValuesToFalse()
     {
         singleplayer    = false;
@@ -124,3 +126,5 @@ public class GameMode : MonoBehaviour
     }
 	#endregion
 }
+// This code is written by Peter Thompson
+#endregion
