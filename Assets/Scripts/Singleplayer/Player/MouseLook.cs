@@ -41,6 +41,9 @@ public class MouseLook : MonoBehaviour
 		// Sets the player rotation to the original rotation at the start
 		originalRotation = transform.localRotation;
 		paused = Pause.pause;
+
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update()

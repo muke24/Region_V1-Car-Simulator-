@@ -13,13 +13,18 @@ public class GamemodeSelect : MonoBehaviour
 
     public void OnPlay()
     {
+        SelectGameType();
+    }
+
+    void SelectGameType()
+    {
         if (ToggleFFA.isOn && ToggleTDM.isOn && ToggleCTF.isOn)
         {
             gameMode = Random.Range(1, 4);
 
             if (gameMode == 1)
             {
-                GameMode.freeForAll     = true;
+                GameMode.freeForAll = true;
                 GameMode.teamDeathMatch = false;
                 GameMode.captureTheFlag = false;
                 Debug.Log("Random Gamemode has been chosen. The chosen gamemode is Free For All");
@@ -27,7 +32,7 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 2)
             {
-                GameMode.freeForAll     = false;
+                GameMode.freeForAll = false;
                 GameMode.teamDeathMatch = true;
                 GameMode.captureTheFlag = false;
                 print("Random Gamemode has been chosen. The chosen gamemode is Team Death Match");
@@ -35,11 +40,11 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 3)
             {
-                GameMode.freeForAll     = false;
+                GameMode.freeForAll = false;
                 GameMode.teamDeathMatch = false;
                 GameMode.captureTheFlag = true;
                 print("Random Gamemode has been chosen. The chosen gamemode is Capture The Flag");
-            }            
+            }
         }
 
         if (ToggleFFA.isOn && ToggleTDM.isOn && !ToggleCTF.isOn)
@@ -48,7 +53,7 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 1)
             {
-                GameMode.freeForAll     = true;
+                GameMode.freeForAll = true;
                 GameMode.teamDeathMatch = false;
                 GameMode.captureTheFlag = false;
                 print("Random Gamemode has been chosen. The chosen gamemode is Free For All");
@@ -56,7 +61,7 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 2)
             {
-                GameMode.freeForAll     = false;
+                GameMode.freeForAll = false;
                 GameMode.teamDeathMatch = true;
                 GameMode.captureTheFlag = false;
                 print("Random Gamemode has been chosen. The chosen gamemode is Team Death Match");
@@ -69,7 +74,7 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 1)
             {
-                GameMode.freeForAll     = true;
+                GameMode.freeForAll = true;
                 GameMode.teamDeathMatch = false;
                 GameMode.captureTheFlag = false;
                 print("Random Gamemode has been chosen. The chosen gamemode is Free For All");
@@ -77,7 +82,7 @@ public class GamemodeSelect : MonoBehaviour
 
             if (gameMode == 2)
             {
-                GameMode.freeForAll     = false;
+                GameMode.freeForAll = false;
                 GameMode.teamDeathMatch = false;
                 GameMode.captureTheFlag = true;
                 print("Random Gamemode has been chosen. The chosen gamemode is Capture The Flag");
@@ -127,6 +132,26 @@ public class GamemodeSelect : MonoBehaviour
             GameMode.teamDeathMatch = false;
             GameMode.captureTheFlag = true;
             print("The chosen gamemode is Capture The Flag");
+        }
+
+        CheckPlayType();
+    }
+
+    void CheckPlayType()
+    {
+        if (GameMode.singleplayer)
+        {
+            SceneHandler.PlayScene();
+        }
+
+        if (GameMode.multiplayer)
+        {
+
+        }
+
+        if (!GameMode.singleplayer && !GameMode.multiplayer)
+        {
+            SceneHandler.PlayScene();
         }
     }
 }

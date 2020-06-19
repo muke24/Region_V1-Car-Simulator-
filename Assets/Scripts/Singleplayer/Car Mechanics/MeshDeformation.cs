@@ -41,6 +41,9 @@ public class MeshDeformation : MonoBehaviour
 			meshesOriginals[i] = mesh.vertices;
 			mesh.MarkDynamic();
 		}
+
+		meshes[0] = GetComponent<MeshFilter>();
+		colliders[0] = GetComponent<MeshCollider>();
 	}
 	void OnDisable()
 	{
@@ -57,6 +60,9 @@ public class MeshDeformation : MonoBehaviour
 			// recalculates the bounds
 			mesh.RecalculateBounds();
 		}
+
+		meshes[0] = GetComponent<MeshFilter>();
+		colliders[0] = GetComponent<MeshCollider>();
 	}
 
 	void OnCollisionEnter(Collision collision)

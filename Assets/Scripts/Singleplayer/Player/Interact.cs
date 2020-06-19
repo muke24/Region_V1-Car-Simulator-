@@ -34,12 +34,6 @@ public class Interact : MonoBehaviour
 
 	public GameObject door1;
 
-	// Start is called before the first frame update
-	void Awake()
-	{
-				
-	}
-
 	private void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -79,6 +73,7 @@ public class Interact : MonoBehaviour
 				intTimer = intDelay;
 				Car.inCar = false;
 				player.transform.position = door1.transform.position;
+				JointLock.changeCarLayer = true;
 				//player.transform.rotation = car.transform.rotation;
 				//new Vector3(car.transform.localPosition.x - 2, car.transform.localPosition.y, car.transform.localPosition.z);
 			}
@@ -138,6 +133,7 @@ public class Interact : MonoBehaviour
 			{
 				intTimer = intDelay;
 				Car.inCar = true;
+				JointLock.changeCarLayer = true;
 			}
 		}
 

@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
 	public Button brButton;
 	public GameObject brAvailableText;
 
+	public Button playButton;
+
 	private Animator anim;
 
 	private void Start()
@@ -60,6 +62,21 @@ public class MenuManager : MonoBehaviour
 		foreach (Toggle toggle in typeSelect.transform.Find("Panel").GetComponentsInChildren<Toggle>())
 		{
 			toggle.isOn = true;
+		}
+
+		if (GameMode.singleplayer)
+		{
+			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
+		}
+
+		if (GameMode.multiplayer)
+		{
+			playButton.transform.Find("Text").GetComponent<Text>().text = "Find Game";
+		}
+
+		if (!GameMode.multiplayer && !GameMode.singleplayer)
+		{
+			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
 		}
 	}
 

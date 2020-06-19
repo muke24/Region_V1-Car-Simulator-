@@ -11,12 +11,13 @@ public class CurrentCar : MonoBehaviour
     private void Awake()
     {
         carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+        currentCar = carFind.closestCar.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // gets the current car from the closest car script. This script is placed on the manager gameobject as its always active
+        // Gets the current car from the closest car script. This script is placed on the manager gameobject as its always active
         currentCar = carFind.closestCar.gameObject;
     }
 }

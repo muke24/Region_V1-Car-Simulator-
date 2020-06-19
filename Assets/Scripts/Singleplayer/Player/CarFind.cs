@@ -8,9 +8,9 @@ public class CarFind : MonoBehaviour
 	public Car closestCar;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
-		
+		FindClosestCar();
 	}
 
 	// Update is called once per frame
@@ -39,7 +39,6 @@ public class CarFind : MonoBehaviour
 		}
 
 		Debug.DrawLine(this.transform.position, closestCar.transform.position, Color.red);
-
 	}
 }
 // This code is written by Peter Thompson

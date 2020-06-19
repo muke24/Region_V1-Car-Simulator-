@@ -14,10 +14,13 @@ public class Car : MonoBehaviour
     public GameObject door3 = null;
     public GameObject door4 = null;
 
-    // Start is called before the first frame update
-    void Start()
+    public CurrentCar _currentCar;
+
+    private void Awake()
     {
-        
+        _currentCar = GameObject.FindGameObjectWithTag("Manager").GetComponent<CurrentCar>();
+
+        inCarPlayer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,11 +28,13 @@ public class Car : MonoBehaviour
     {
         if (inCar)
         {
-            inCarPlayer.SetActive(true);
+            _currentCar.currentCar.transform.Find("Seats").Find("Seat1").Find("DrivingPlayer").gameObject.SetActive(true);
+            //inCarPlayer.SetActive(true);
         }
         if (!inCar)
         {
-            inCarPlayer.SetActive(false);
+            _currentCar.currentCar.transform.Find("Seats").Find("Seat1").Find("DrivingPlayer").gameObject.SetActive(false);
+            //inCarPlayer.SetActive(false);
         }
     }
 }

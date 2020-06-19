@@ -24201,7 +24201,7 @@ GameObject:
   - component: {fileID: 1150937955}
   - component: {fileID: 1150937954}
   m_Layer: 0
-  m_Name: GameMode
+  m_Name: GameModeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44284,6 +44284,7 @@ MonoBehaviour:
   typeSelect: {fileID: 757867298}
   brButton: {fileID: 666946599}
   brAvailableText: {fileID: 433108040}
+  playButton: {fileID: 1258233385}
 --- !u!4 &2032704737
 Transform:
   m_ObjectHideFlags: 0

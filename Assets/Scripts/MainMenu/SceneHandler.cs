@@ -9,10 +9,12 @@ public class SceneHandler : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainMenu");
 	}
-	public void PlayScene()
+
+	public static void PlayScene()
 	{
-		SceneManager.LoadScene("InGame");
+		SceneManager.LoadScene("Loading");
 	}
+
 	public void QuitGame()
 	{
 		#if UNITY_EDITOR
