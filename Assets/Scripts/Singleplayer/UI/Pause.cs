@@ -19,9 +19,4 @@ public class Pause : MonoBehaviour
         healthBar = healthBarSlider;
         healthText = healthTxt;
     }
-
-    private void Update()
-    {
-        
-    }
 }

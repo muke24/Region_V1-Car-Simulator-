@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿#region This code is written by Peter Thompson
 using UnityEngine;
 
 public class IgnoreCollisionsOnCar : MonoBehaviour
@@ -36,3 +35,5 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 		}
 	}
 }
+// This code is written by Peter Thompson
+#endregion

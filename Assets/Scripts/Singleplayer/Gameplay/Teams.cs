@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class Teams : MonoBehaviour
 {
-    public bool gameMode1v1 = true;
-    public bool gameModeTeams = false;
+    public float team;
+
+    public GameObject spawn1;
+    public GameObject spawn2;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
+    {
+        if (!GameMode.singleplayer && !GameMode.multiplayer)
+        {
+            team = Random.Range(1, 3);
+        }
+
+        if (GameMode.singleplayer)
+        {
+            team = Random.Range(1, 3);
+        }
+
+        if (GameMode.multiplayer)
+        {
+
+        }
+    }
+
+    void PlayerPos()
     {
         
     }
