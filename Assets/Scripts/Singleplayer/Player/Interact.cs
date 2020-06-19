@@ -73,7 +73,6 @@ public class Interact : MonoBehaviour
 				intTimer = intDelay;
 				Car.inCar = false;
 				player.transform.position = door1.transform.position;
-				JointLock.changeCarLayer = true;
 				//player.transform.rotation = car.transform.rotation;
 				//new Vector3(car.transform.localPosition.x - 2, car.transform.localPosition.y, car.transform.localPosition.z);
 			}
@@ -133,7 +132,6 @@ public class Interact : MonoBehaviour
 			{
 				intTimer = intDelay;
 				Car.inCar = true;
-				JointLock.changeCarLayer = true;
 			}
 		}
 

@@ -899,10 +899,10 @@ WheelCollider:
   m_Radius: 0.3075
   m_SuspensionSpring:
     spring: 27107.73
-    damper: 3696.5088
+    damper: 3696.509
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.075478524
+  m_SuspensionDistance: 0.16214879
+  m_ForceAppPointDistance: 0.075478554
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -960,11 +960,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27772.998
-    damper: 3787.227
+    spring: 27773.004
+    damper: 3787.228
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: 0.075478524
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: 0.075478554
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1326,9 +1326,9 @@ WheelCollider:
   m_Radius: 0.3075
   m_SuspensionSpring:
     spring: 33391.406
-    damper: 4553.373
+    damper: 4553.3735
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214874
+  m_SuspensionDistance: 0.16214877
   m_ForceAppPointDistance: 0.06712648
   m_Mass: 10
   m_WheelDampingRate: 0.25
@@ -1390,7 +1390,7 @@ WheelCollider:
     spring: 32727.85
     damper: 4462.8887
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
+  m_SuspensionDistance: 0.16214877
   m_ForceAppPointDistance: 0.06712648
   m_Mass: 10
   m_WheelDampingRate: 0.25
@@ -3271,6 +3271,7 @@ GameObject:
   - component: {fileID: 4054563762720002756}
   - component: {fileID: 1610265679340000}
   - component: {fileID: 1610265679340001}
+  - component: {fileID: 1610265679340002}
   m_Layer: 9
   m_Name: Tocus
   m_TagString: Car
@@ -3530,6 +3531,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1480713, y: 0.18186091, z: 1.9880928}
   m_Center: {x: -0.010128784, y: -0.07207268, z: -0.06891346}
+--- !u!114 &1610265679340002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818c3af2372b2164c90801fb09f6a7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carColliders: []
 --- !u!1 &2780470758779515165
 GameObject:
   m_ObjectHideFlags: 0

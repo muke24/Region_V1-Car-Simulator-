@@ -23,40 +23,19 @@ public class JointLock : MonoBehaviour
 	public Quaternion lockRot = new Quaternion(0, 0, 0, 0);
 	public Vector3 lockPos = new Vector3(0, 0, 0);
 
-	public static bool changeCarLayer = false;
 
 	void Start()
 	{
 		_currentCar = GameObject.FindGameObjectWithTag("Manager").GetComponent<CurrentCar>();
 
-		Physics.IgnoreLayerCollision(9, 9);
+		//Physics.IgnoreLayerCollision(9, 9);
 		rb = GetComponent<Rigidbody>();
 		lockState = true;
 	}
 
 	private void Update()
 	{
-		if (Car.inCar && changeCarLayer)
-		{
-			Transform[] allChildren = _currentCar.currentCar.GetComponentsInChildren<Transform>();
-			foreach (Transform child in allChildren)
-			{
-				child.gameObject.layer = 17;
-			}
-			Physics.IgnoreLayerCollision(17, 17);
-			changeCarLayer = false;
-		}
-
-		if (!Car.inCar && changeCarLayer)
-		{
-			Transform[] allChildren = _currentCar.currentCar.GetComponentsInChildren<Transform>();
-			foreach (Transform child in allChildren)
-			{
-				child.gameObject.layer = 9;
-			}
-			Physics.IgnoreLayerCollision(9, 9);
-			changeCarLayer = false;
-		}
+		
 	}
 
 	private void LateUpdate()
@@ -144,6 +123,11 @@ public class JointLock : MonoBehaviour
 		{
 			lockState = false;
 		}
+	}
+
+	void IgnoreCollisions()
+	{
+
 	}
 }
 // This code is written by Peter Thompson
