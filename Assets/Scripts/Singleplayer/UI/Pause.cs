@@ -22,16 +22,6 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (pauseGO.activeSelf && !Cursor.visible)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;            
-        }
-
-        if (!pauseGO.activeSelf && Cursor.visible)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;            
-        }
+        
     }
 }
