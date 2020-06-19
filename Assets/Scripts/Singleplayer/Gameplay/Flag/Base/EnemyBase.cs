@@ -12,21 +12,28 @@ public class EnemyBase : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
-		enemyMat = Resources.Load<Material>("Materials/Base/EnemyBase"); 
-
-		Renderer renderer = GetComponent<Renderer>();
-		renderer.material = enemyMat;
-
-		//currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
+		if (!GameMode.captureTheFlag)
+		{
+			Destroy(gameObject);
+		}
 
 		if (GameMode.captureTheFlag)
 		{
-			flag = GameObject.FindGameObjectWithTag("Flag");
-		}
-		if (!GameMode.captureTheFlag)
-		{
-			flag = null;
+			enemyMat = Resources.Load<Material>("Materials/Base/EnemyBase");
+
+			Renderer renderer = GetComponent<Renderer>();
+			renderer.material = enemyMat;
+
+			//currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
+
+			if (GameMode.captureTheFlag)
+			{
+				flag = GameObject.FindGameObjectWithTag("Flag");
+			}
+			if (!GameMode.captureTheFlag)
+			{
+				flag = null;
+			}
 		}
 	}
 
