@@ -10,7 +10,6 @@ public class Flag : MonoBehaviour
         if (!GameMode.captureTheFlag)
         {
             Destroy(transform.Find("FlagCanvas").gameObject);
-            Destroy(transform.Find("FlagPlatform").gameObject);
             Destroy(transform.Find("Flag").gameObject);
         }
     }
