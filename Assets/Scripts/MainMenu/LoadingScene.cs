@@ -55,7 +55,7 @@ public class LoadingScene : MonoBehaviour
 		}
 		if (GameMode.mode100Players)
 		{
-			gameModeText.text = "";
+			gameModeText.text = "Battle Royale";
 		}
 		#endregion
 

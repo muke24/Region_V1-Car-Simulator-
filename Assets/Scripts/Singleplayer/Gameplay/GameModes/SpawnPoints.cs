@@ -64,26 +64,34 @@ public class SpawnPoints : MonoBehaviour
 					{
 						base1.transform.Find("FlagCapture").gameObject.AddComponent<TeamBase>();
 						base2.transform.Find("FlagCapture").gameObject.AddComponent<EnemyBase>();
+
+						spawnPoints = new GameObject[spawn1.transform.childCount];
+						for (int i = 0; i < spawn1.transform.childCount; i++)
+						{
+							spawnPoints[i] = spawn1.transform.GetChild(i).gameObject;
+						}
+
+						enemySpawnPoints = new GameObject[spawn2.transform.childCount];
+						for (int i = 0; i < spawn2.transform.childCount; i++)
+						{
+							enemySpawnPoints[i] = spawn2.transform.GetChild(i).gameObject;
+						}
 					}
 
 					if (team == 2)
 					{
 						base1.transform.Find("FlagCapture").gameObject.AddComponent<EnemyBase>();
 						base2.transform.Find("FlagCapture").gameObject.AddComponent<TeamBase>();
-					}
 
-					spawnPoints = new GameObject[1];
-					for (int i = 0; i < 1; i++)
-					{
-						if (team == 1)
-						{
-							spawnPoints[i] = spawn1.transform.GetChild(i).gameObject;
-							enemySpawnPoints[i] = spawn2.transform.GetChild(i).gameObject;
-						}
-
-						if (team == 2)
+						spawnPoints = new GameObject[spawn2.transform.childCount];
+						for (int i = 0; i < spawn2.transform.childCount; i++)
 						{
 							spawnPoints[i] = spawn2.transform.GetChild(i).gameObject;
+						}
+
+						enemySpawnPoints = new GameObject[spawn1.transform.childCount];
+						for (int i = 0; i < spawn1.transform.childCount; i++)
+						{
 							enemySpawnPoints[i] = spawn1.transform.GetChild(i).gameObject;
 						}
 					}
@@ -154,7 +162,7 @@ public class SpawnPoints : MonoBehaviour
 	{
 		if (GameMode.singleplayer)
 		{
-			Instantiate<GameObject>(player, spawnPoints[0].transform.position, spawnPoints[0].transform.rotation, null);
+			Instantiate<GameObject>(player, spawnPoints[2].transform.position, spawnPoints[2].transform.rotation, null);
 		}		
 	}
 
@@ -174,7 +182,7 @@ public class SpawnPoints : MonoBehaviour
 	{
 		if (GameMode.singleplayer)
 		{
-			Instantiate(enemyPlayer, enemySpawnPoints[0].transform.position, enemySpawnPoints[0].transform.rotation, null);
+			Instantiate(enemyPlayer, enemySpawnPoints[2].transform.position, enemySpawnPoints[2].transform.rotation, null);
 		}		
 	}
 
