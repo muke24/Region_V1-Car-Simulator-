@@ -35,22 +35,31 @@ public class Client : MonoBehaviour
 
 	private void Start()
 	{
-		tcp = new TCP();
-		udp = new UDP();
+		if (GameMode.multiplayer)
+		{
+			tcp = new TCP();
+			udp = new UDP();
+		}
 	}
 
 	private void OnApplicationQuit()
 	{
-		Disconnect(); // Disconnect when the game is closed
+		if (GameMode.multiplayer)
+		{
+			Disconnect(); // Disconnect when the game is closed
+		}
 	}
 
 	/// <summary>Attempts to connect to the server.</summary>
 	public void ConnectToServer()
 	{
-		InitializeClientData();
+		if (GameMode.multiplayer)
+		{
+			InitializeClientData();
 
-		isConnected = true;
-		tcp.Connect(); // Connect tcp, udp gets connected once tcp is done
+			isConnected = true;
+			tcp.Connect(); // Connect tcp, udp gets connected once tcp is done
+		}
 	}
 
 	public class TCP
@@ -64,71 +73,83 @@ public class Client : MonoBehaviour
 		/// <summary>Attempts to connect to the server via TCP.</summary>
 		public void Connect()
 		{
-			socket = new TcpClient
+			if (GameMode.multiplayer)
 			{
-				ReceiveBufferSize = dataBufferSize,
-				SendBufferSize = dataBufferSize
-			};
+				socket = new TcpClient
+				{
+					ReceiveBufferSize = dataBufferSize,
+					SendBufferSize = dataBufferSize
+				};
 
-			receiveBuffer = new byte[dataBufferSize];
-			socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+				receiveBuffer = new byte[dataBufferSize];
+				socket.BeginConnect(instance.ip, instance.port, ConnectCallback, socket);
+			}
 		}
 
 		/// <summary>Initializes the newly connected client's TCP-related info.</summary>
 		private void ConnectCallback(IAsyncResult _result)
 		{
-			socket.EndConnect(_result);
-
-			if (!socket.Connected)
+			if (GameMode.multiplayer)
 			{
-				return;
+				socket.EndConnect(_result);
+
+				if (!socket.Connected)
+				{
+					return;
+				}
+
+				stream = socket.GetStream();
+
+				receivedData = new Packet();
+
+				stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 			}
-
-			stream = socket.GetStream();
-
-			receivedData = new Packet();
-
-			stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 		}
 
 		/// <summary>Sends data to the client via TCP.</summary>
 		/// <param name="_packet">The packet to send.</param>
 		public void SendData(Packet _packet)
 		{
-			try
+			if (GameMode.multiplayer)
 			{
-				if (socket != null)
+				try
 				{
-					stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null); // Send data to server
+					if (socket != null)
+					{
+						stream.BeginWrite(_packet.ToArray(), 0, _packet.Length(), null, null); // Send data to server
+					}
 				}
-			}
-			catch (Exception _ex)
-			{
-				Debug.Log($"Error sending data to server via TCP: {_ex}");
+				catch (Exception _ex)
+				{
+					Debug.Log($"Error sending data to server via TCP: {_ex}");
+				}
 			}
 		}
 
 		/// <summary>Reads incoming data from the stream.</summary>
 		private void ReceiveCallback(IAsyncResult _result)
 		{
-			try
+			if (GameMode.multiplayer)
 			{
-				int _byteLength = stream.EndRead(_result);
-				if (_byteLength <= 0)
+				try
 				{
-					instance.Disconnect();
-					return;
+					int _byteLength = stream.EndRead(_result);
+					if (_byteLength <= 0)
+					{
+						instance.Disconnect();
+						return;
+					}
+
+					byte[] _data = new byte[_byteLength];
+					Array.Copy(receiveBuffer, _data, _byteLength);
+
+					receivedData.Reset(HandleData(_data)); // Reset receivedData if all data was handled
+					stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
 				}
-
-				byte[] _data = new byte[_byteLength];
-				Array.Copy(receiveBuffer, _data, _byteLength);
-
-				receivedData.Reset(HandleData(_data)); // Reset receivedData if all data was handled
-				stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
-			}
-			catch
-			{
-				Disconnect();
+				catch
+				{
+					Disconnect();
+				}
 			}
 		}
 
@@ -136,38 +157,15 @@ public class Client : MonoBehaviour
 		/// <param name="_data">The recieved data.</param>
 		private bool HandleData(byte[] _data)
 		{
-			int _packetLength = 0;
-
-			receivedData.SetBytes(_data);
-
-			if (receivedData.UnreadLength() >= 4)
+			if (GameMode.multiplayer)
 			{
-				// If client's received data contains a packet
-				_packetLength = receivedData.ReadInt();
-				if (_packetLength <= 0)
-				{
-					// If packet contains no data
-					return true; // Reset receivedData instance to allow it to be reused
-				}
-			}
+				int _packetLength = 0;
 
-			while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
-			{
-				// While packet contains data AND packet data length doesn't exceed the length of the packet we're reading
-				byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
-				ThreadManager.ExecuteOnMainThread(() =>
-				{
-					using (Packet _packet = new Packet(_packetBytes))
-					{
-						int _packetId = _packet.ReadInt();
-						packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
-					}
-				});
+				receivedData.SetBytes(_data);
 
-				_packetLength = 0; // Reset packet length
 				if (receivedData.UnreadLength() >= 4)
 				{
-					// If client's received data contains another packet
+					// If client's received data contains a packet
 					_packetLength = receivedData.ReadInt();
 					if (_packetLength <= 0)
 					{
@@ -175,25 +173,53 @@ public class Client : MonoBehaviour
 						return true; // Reset receivedData instance to allow it to be reused
 					}
 				}
-			}
 
-			if (_packetLength <= 1)
-			{
-				return true; // Reset receivedData instance to allow it to be reused
-			}
+				while (_packetLength > 0 && _packetLength <= receivedData.UnreadLength())
+				{
+					// While packet contains data AND packet data length doesn't exceed the length of the packet we're reading
+					byte[] _packetBytes = receivedData.ReadBytes(_packetLength);
+					ThreadManager.ExecuteOnMainThread(() =>
+					{
+						using (Packet _packet = new Packet(_packetBytes))
+						{
+							int _packetId = _packet.ReadInt();
+							packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
+						}
+					});
 
+					_packetLength = 0; // Reset packet length
+					if (receivedData.UnreadLength() >= 4)
+					{
+						// If client's received data contains another packet
+						_packetLength = receivedData.ReadInt();
+						if (_packetLength <= 0)
+						{
+							// If packet contains no data
+							return true; // Reset receivedData instance to allow it to be reused
+						}
+					}
+				}
+
+				if (_packetLength <= 1)
+				{
+					return true; // Reset receivedData instance to allow it to be reused
+				}
+			}
 			return false;
 		}
 
 		/// <summary>Disconnects from the server and cleans up the TCP connection.</summary>
 		private void Disconnect()
 		{
-			instance.Disconnect();
+			if (GameMode.multiplayer)
+			{
+				instance.Disconnect();
 
-			stream = null;
-			receivedData = null;
-			receiveBuffer = null;
-			socket = null;
+				stream = null;
+				receivedData = null;
+				receiveBuffer = null;
+				socket = null;
+			}
 		}
 	}
 
@@ -204,21 +230,27 @@ public class Client : MonoBehaviour
 
 		public UDP()
 		{
-			endPoint = new IPEndPoint(IPAddress.Parse(instance.ip), instance.port);
+			if (GameMode.multiplayer)
+			{
+				endPoint = new IPEndPoint(IPAddress.Parse(instance.ip), instance.port);
+			}
 		}
 
 		/// <summary>Attempts to connect to the server via UDP.</summary>
 		/// <param name="_localPort">The port number to bind the UDP socket to.</param>
 		public void Connect(int _localPort)
 		{
-			socket = new UdpClient(_localPort);
-
-			socket.Connect(endPoint);
-			socket.BeginReceive(ReceiveCallback, null);
-
-			using (Packet _packet = new Packet())
+			if (GameMode.multiplayer)
 			{
-				SendData(_packet);
+				socket = new UdpClient(_localPort);
+
+				socket.Connect(endPoint);
+				socket.BeginReceive(ReceiveCallback, null);
+
+				using (Packet _packet = new Packet())
+				{
+					SendData(_packet);
+				}
 			}
 		}
 
@@ -226,39 +258,45 @@ public class Client : MonoBehaviour
 		/// <param name="_packet">The packet to send.</param>
 		public void SendData(Packet _packet)
 		{
-			try
+			if (GameMode.multiplayer)
 			{
-				_packet.InsertInt(instance.myId); // Insert the client's ID at the start of the packet
-				if (socket != null)
+				try
 				{
-					socket.BeginSend(_packet.ToArray(), _packet.Length(), null, null);
+					_packet.InsertInt(instance.myId); // Insert the client's ID at the start of the packet
+					if (socket != null)
+					{
+						socket.BeginSend(_packet.ToArray(), _packet.Length(), null, null);
+					}
 				}
-			}
-			catch (Exception _ex)
-			{
-				Debug.Log($"Error sending data to server via UDP: {_ex}");
+				catch (Exception _ex)
+				{
+					Debug.Log($"Error sending data to server via UDP: {_ex}");
+				}
 			}
 		}
 
 		/// <summary>Receives incoming UDP data.</summary>
 		private void ReceiveCallback(IAsyncResult _result)
 		{
-			try
+			if (GameMode.multiplayer)
 			{
-				byte[] _data = socket.EndReceive(_result, ref endPoint);
-				socket.BeginReceive(ReceiveCallback, null);
-
-				if (_data.Length < 4)
+				try
 				{
-					instance.Disconnect();
-					return;
-				}
+					byte[] _data = socket.EndReceive(_result, ref endPoint);
+					socket.BeginReceive(ReceiveCallback, null);
 
-				HandleData(_data);
-			}
-			catch
-			{
-				Disconnect();
+					if (_data.Length < 4)
+					{
+						instance.Disconnect();
+						return;
+					}
+
+					HandleData(_data);
+				}
+				catch
+				{
+					Disconnect();
+				}
 			}
 		}
 
@@ -266,58 +304,70 @@ public class Client : MonoBehaviour
 		/// <param name="_data">The recieved data.</param>
 		private void HandleData(byte[] _data)
 		{
-			using (Packet _packet = new Packet(_data))
-			{
-				int _packetLength = _packet.ReadInt();
-				_data = _packet.ReadBytes(_packetLength);
-			}
-
-			ThreadManager.ExecuteOnMainThread(() =>
+			if (GameMode.multiplayer)
 			{
 				using (Packet _packet = new Packet(_data))
 				{
-					int _packetId = _packet.ReadInt();
-					packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
+					int _packetLength = _packet.ReadInt();
+					_data = _packet.ReadBytes(_packetLength);
 				}
-			});
+
+				ThreadManager.ExecuteOnMainThread(() =>
+				{
+					using (Packet _packet = new Packet(_data))
+					{
+						int _packetId = _packet.ReadInt();
+						packetHandlers[_packetId](_packet); // Call appropriate method to handle the packet
+					}
+				});
+			}
 		}
 
 		/// <summary>Disconnects from the server and cleans up the UDP connection.</summary>
 		private void Disconnect()
 		{
-			instance.Disconnect();
+			if (GameMode.multiplayer)
+			{
+				instance.Disconnect();
 
-			endPoint = null;
-			socket = null;
+				endPoint = null;
+				socket = null;
+			}			
 		}
 	}
 
 	/// <summary>Initializes all necessary client data.</summary>
 	private void InitializeClientData()
 	{
-		packetHandlers = new Dictionary<int, PacketHandler>()
+		if (GameMode.multiplayer)
 		{
-			{ (int)ServerPackets.welcome, ClientHandle.Welcome },
-			{ (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
-			{ (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
-			{ (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation },
-			{ (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected },
-			{ (int)ServerPackets.playerHealth, ClientHandle.PlayerHealth },
-			{ (int)ServerPackets.playerRespawned, ClientHandle.PlayerRespawned }
-		};
-		Debug.Log("Initialized packets.");
+			packetHandlers = new Dictionary<int, PacketHandler>()
+			{
+				{ (int)ServerPackets.welcome, ClientHandle.Welcome },
+				{ (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
+				{ (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
+				{ (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation },
+				{ (int)ServerPackets.playerDisconnected, ClientHandle.PlayerDisconnected },
+				{ (int)ServerPackets.playerHealth, ClientHandle.PlayerHealth },
+				{ (int)ServerPackets.playerRespawned, ClientHandle.PlayerRespawned }
+			};
+			Debug.Log("Initialized packets.");
+		}
 	}
 
 	/// <summary>Disconnects from the server and stops all network traffic.</summary>
 	private void Disconnect()
 	{
-		if (isConnected)
+		if (GameMode.multiplayer)
 		{
-			isConnected = false;
-			tcp.socket.Close();
-			udp.socket.Close();
+			if (isConnected)
+			{
+				isConnected = false;
+				tcp.socket.Close();
+				udp.socket.Close();
 
-			Debug.Log("Disconnected from server.");
+				Debug.Log("Disconnected from server.");
+			}
 		}
 	}
 }

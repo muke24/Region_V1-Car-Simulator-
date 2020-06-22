@@ -77,6 +77,7 @@ public class Sniper : MonoBehaviour
 		imaxAmmo = maxAmmo;
 		// Sets the inspector ammo count int to the static int to see what the ammo count is in the inspector
 		iammoCount = ammoCount;
+
 		// If is not paused
 		if (!pause.activeInHierarchy)
 		{
@@ -177,6 +178,11 @@ public class Sniper : MonoBehaviour
 		// If aiming
 		if (pA.playerAnimation.GetBool("Aim"))
 		{
+			if (GameMode.multiplayer)
+			{
+				ClientSend.PlayerShoot(gunCam.transform.forward);
+			}			
+
 			// Shoot a ray directly forward from the gun camera 
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
@@ -270,6 +276,12 @@ public class Sniper : MonoBehaviour
 		if (!pA.playerAnimation.GetBool("Aim"))
 		{
 			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+
+			if (GameMode.multiplayer)
+			{
+				ClientSend.PlayerShoot(gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y));
+			}
+			
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
 				if (hit.transform.gameObject.tag == "Player")
