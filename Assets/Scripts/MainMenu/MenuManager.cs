@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject brAvailableText;
 
 	public Button playButton;
+	public Button findManuallyButton;
 
 	private Animator anim;
 
@@ -67,16 +68,19 @@ public class MenuManager : MonoBehaviour
 		if (GameMode.singleplayer)
 		{
 			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
+			findManuallyButton.gameObject.SetActive(false);
 		}
 
 		if (GameMode.multiplayer)
 		{
 			playButton.transform.Find("Text").GetComponent<Text>().text = "Find Game";
+			findManuallyButton.gameObject.SetActive(true);
 		}
 
 		if (!GameMode.multiplayer && !GameMode.singleplayer)
 		{
 			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
+			findManuallyButton.gameObject.SetActive(false);
 		}
 	}
 
