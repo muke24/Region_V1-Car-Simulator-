@@ -38,14 +38,6 @@ public class PlayerMovement : MonoBehaviour
 		AnimatorMultipliers();
 	}
 
-	private void FixedUpdate()
-	{
-		if (GameMode.multiplayer)
-		{
-			SendInputToServer();
-		}		
-	}
-
 	void Movements()
 	{
 		if (GameMode.singleplayer)
@@ -197,22 +189,6 @@ public class PlayerMovement : MonoBehaviour
 				pA.playerAnimation.speed = airBornMultiplier;
 			}
 		}
-	}
-
-	private void SendInputToServer()
-	{
-		bool[] _inputs = new bool[]
-		{
-			Input.GetKey(KeyCode.W),
-			Input.GetKey(KeyCode.S),
-			Input.GetKey(KeyCode.A),
-			Input.GetKey(KeyCode.D),
-			Input.GetKey(KeyCode.Space),
-
-			Input.GetKey(KeyCode.LeftControl)
-		};
-
-		ClientSend.PlayerMovement(_inputs);
 	}
 }
 // This code is written by Peter Thompson

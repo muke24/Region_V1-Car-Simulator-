@@ -178,11 +178,6 @@ public class Sniper : MonoBehaviour
 		// If aiming
 		if (pA.playerAnimation.GetBool("Aim"))
 		{
-			if (GameMode.multiplayer)
-			{
-				ClientSend.PlayerShoot(gunCam.transform.forward);
-			}			
-
 			// Shoot a ray directly forward from the gun camera 
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
@@ -209,7 +204,7 @@ public class Sniper : MonoBehaviour
 				{
 					enemy = null;
 					collisions = null;
-				}				
+				}
 
 				if (hit.transform.gameObject.tag != "Player")
 				{
@@ -277,11 +272,6 @@ public class Sniper : MonoBehaviour
 		{
 			Vector2 RandomShot = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
 
-			if (GameMode.multiplayer)
-			{
-				ClientSend.PlayerShoot(gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y));
-			}
-			
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
 				if (hit.transform.gameObject.tag == "Player")
