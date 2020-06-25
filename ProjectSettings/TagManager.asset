@@ -18,6 +18,7 @@ TagManager:
   - TeamPlayer
   - MainCanvas
   - MapUI
+  - Error
   layers:
   - Default
   - TransparentFX
