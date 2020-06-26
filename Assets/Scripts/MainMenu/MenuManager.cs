@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
 	public GameObject mainMenuUI;
+	public GameObject multiplayerTypeUI;
 	public GameObject modeSelect;
 	public GameObject typeSelect;
 
@@ -21,23 +22,43 @@ public class MenuManager : MonoBehaviour
 		anim = mainMenuUI.GetComponent<Animator>();
 	}
 
+	public void MultiplayerTypeSelect()
+	{
+		// If multiplayer mode is not true then make then skip to GameModeSelect()
+		if (GameMode.multiplayer == false)
+		{
+			GameModeSelect();
+			return;
+		}
+
+		// If multiplayer mode is true then make the main menu ui inactive and make the multiplayerType UI active
+		if (GameMode.multiplayer == true)
+		{
+			multiplayerTypeUI.SetActive(true);
+			mainMenuUI.SetActive(false);
+		}		
+	}
+
 	// Hides the main menu and makes the mode select options appear
 	public void GameModeSelect()
 	{
-		mainMenuUI.SetActive(false);
-		modeSelect.SetActive(true);		
-
-		// If multiplayer mode is true then make the BR button interactable and disable the BR not available text
+		// If multiplayer mode is true then make the BR button active and disable the BR not available text
 		if (GameMode.multiplayer == true)
 		{
-			brButton.interactable = true;
+			multiplayerTypeUI.SetActive(false);
+			modeSelect.SetActive(true);
+
+			brButton.gameObject.SetActive(true);
 			brAvailableText.SetActive(false);
 		}
 
-		// If multiplayer mode is not true then make the BR button not interactable and enable the BR not available text
+		// If multiplayer mode is not true then make the BR button inactive and enable the BR not available text
 		if (GameMode.multiplayer == false)
 		{
-			brButton.interactable = false;
+			mainMenuUI.SetActive(false);
+			modeSelect.SetActive(true);
+
+			brButton.gameObject.SetActive(false);
 			brAvailableText.SetActive(true);
 		}
 	}
@@ -45,13 +66,33 @@ public class MenuManager : MonoBehaviour
 	// Makes the main menu reappear and hides the mode select options, then resets all the selected modes back to their default value of False
 	public void BackToMainMenu()
 	{
-		mainMenuUI.SetActive(true);
-		modeSelect.SetActive(false);
+		if (GameMode.singleplayer)
+		{
+			modeSelect.SetActive(false);
+			mainMenuUI.SetActive(true);
+			GameMode.SetAllValuesToFalse();
+		}
+		if (GameMode.multiplayer)
+		{
+			if (multiplayerTypeUI.activeInHierarchy)
+			{
+				multiplayerTypeUI.SetActive(false);
+				mainMenuUI.SetActive(true);
+				GameMode.SetAllValuesToFalse();
+			}
+			if (modeSelect.activeInHierarchy)
+			{
+				modeSelect.SetActive(false);
+				multiplayerTypeUI.SetActive(true);
+				GameMode.online = false;
+				GameMode.lan = false;
+			}
+		}		
 
 		anim.speed = 0f;
 		anim.Play("ButtonFadeIn", 0, 1f);
 
-		GameMode.SetAllValuesToFalse();
+		
 	}
 
 	// Hides the mode select options and shows the type select options. It then toggles on all of the toggles in case they have been turned off previously

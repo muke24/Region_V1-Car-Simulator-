@@ -9,6 +9,9 @@ public class GameMode : MonoBehaviour
 	public static bool singleplayer = false;
 	public static bool multiplayer = false;
 
+	public static bool online = false;
+	public static bool lan = false;
+
 	// Bools to check the mode with how many number of players
 	public static bool mode2Players = false;
 	public static bool mode10Players = false;
@@ -40,6 +43,8 @@ public class GameMode : MonoBehaviour
 	{
 		singleplayer = false;
 		multiplayer = false;
+		online = false;
+		lan = false;
 
 		mode2Players = false;
 		mode10Players = false;
@@ -64,6 +69,18 @@ public class GameMode : MonoBehaviour
 		// Sets the mode to multiplayer
 		singleplayer = false;
 		multiplayer = true;
+	}
+
+	public void Online()
+	{
+		online = true;
+		lan = false;
+	}
+
+	public void LAN()
+	{
+		online = false;
+		lan = true;
 	}
 	#endregion
 
