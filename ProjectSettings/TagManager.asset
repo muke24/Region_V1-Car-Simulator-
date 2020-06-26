@@ -19,6 +19,8 @@ TagManager:
   - MainCanvas
   - MapUI
   - Error
+  - PlayerPanel
+  - PlayerPanelParent
   layers:
   - Default
   - TransparentFX
