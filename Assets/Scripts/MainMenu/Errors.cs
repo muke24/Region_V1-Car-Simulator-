@@ -1,10 +1,10 @@
-﻿using Boo.Lang;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Errors : MonoBehaviour
 {
 	private static Errors instance;
+	private static Canvas canvas = new Canvas();
 
 	public static Object errorObject;
 	public static GameObject warningPanel;  // Warning panel
@@ -33,10 +33,23 @@ public class Errors : MonoBehaviour
 		}
 	}
 
+	private static void InstantiateMainCanvas()
+	{
+		if (GameObject.FindGameObjectWithTag("MainCanvas").gameObject == null)
+		{
+			Instantiate(canvas, null);
+			canvas.name = "ErrorCanvas";
+			canvas.tag = "MainCanvas";
+			canvas.sortingOrder = 100;
+		}
+	}
+
 	public static void Error000()       // Unknown, unknown error
 	{
 		if (error000 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -52,6 +65,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error001 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -67,6 +82,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error002 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -82,6 +99,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error003 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -99,6 +118,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error004 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -106,7 +127,7 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:004";
 			errorText.text = "Cannot detect game integrity, multiplayer services will be disabled. Please check if you have updated Region to the latest version available.";
-			Debug.LogWarning("Error:004 - Cannot detect game integrity, multiplayer services will be disabled.");
+			Debug.LogError("Error:004 - Cannot detect game integrity, multiplayer services will be disabled.");
 			error004 = true;
 
 			GameMode.genuineGame = false;
@@ -116,6 +137,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error005 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -123,7 +146,7 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:005";
 			errorText.text = "Unknown Error";
-			Debug.LogWarning("Error:005 - Unknown Error");
+			Debug.LogError("Error:005 - Unknown Error");
 			error005 = true;
 		}
 	}
@@ -131,6 +154,8 @@ public class Errors : MonoBehaviour
 	{
 		if (error006 == false)
 		{
+			InstantiateMainCanvas();
+
 			Instantiate(Resources.Load("Error Panel/WarningPanel") as GameObject, GameObject.FindGameObjectWithTag("MainCanvas").transform);
 			GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel(Clone)").name = "WarningPanel";
 			errorCodeText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorCodeText").GetComponent<Text>();
@@ -138,7 +163,7 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:006";
 			errorText.text = "Unknown Error";
-			Debug.LogWarning("Error:006 - Unknown Error");
+			Debug.LogError("Error:006 - Unknown Error");
 			error006 = true;
 		}
 	}
