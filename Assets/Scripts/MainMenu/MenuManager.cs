@@ -1,11 +1,14 @@
 ﻿#region This code is written by Peter Thompson
+using System.Linq;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
 	public GameObject mainMenuUI;
-	public GameObject multiplayerTypeUI;
+	public GameObject multiplayerType;
+	public GameObject joinOrHostLan;
 	public GameObject modeSelect;
 	public GameObject typeSelect;
 
@@ -15,11 +18,83 @@ public class MenuManager : MonoBehaviour
 	public Button playButton;
 	public Button findManuallyButton;
 
+	public InputField ipAdressField;
+	public InputField portField;
+
+	public string ipString;
+	public string portString = "6969";
+
 	private Animator anim;
 
 	private void Start()
 	{
 		anim = mainMenuUI.GetComponent<Animator>();
+	}
+
+	// Makes the main menu reappear and hides the mode select options, then resets all the selected modes back to their default value of False
+	public void BackSelect()
+	{
+		if (GameMode.singleplayer)
+		{
+			if (modeSelect.activeInHierarchy)
+			{
+				modeSelect.SetActive(false);
+				mainMenuUI.SetActive(true);
+				GameMode.SetAllValuesToFalse();
+			}
+
+			if (typeSelect.activeInHierarchy)
+			{
+				modeSelect.SetActive(true);
+				typeSelect.SetActive(false);
+			}
+		}
+
+		if (GameMode.multiplayer)
+		{
+			if (multiplayerType.activeInHierarchy)
+			{
+				multiplayerType.SetActive(false);
+				mainMenuUI.SetActive(true);
+				GameMode.SetAllValuesToFalse();
+			}
+
+			if (modeSelect.activeInHierarchy)
+			{
+				if (GameMode.online)
+				{
+					modeSelect.SetActive(false);
+					multiplayerType.SetActive(true);
+					GameMode.online = false;
+					GameMode.lan = false;
+				}
+
+				if (GameMode.lan)
+				{
+					modeSelect.SetActive(false);
+					joinOrHostLan.SetActive(true);
+					GameMode.hosting = false;
+					GameMode.joining = false;
+				}
+			}
+
+			if (joinOrHostLan.activeInHierarchy)
+			{
+				joinOrHostLan.SetActive(false);
+				multiplayerType.SetActive(true);
+				GameMode.online = false;
+				GameMode.lan = false;
+			}
+
+			if (typeSelect.activeInHierarchy)
+			{
+				modeSelect.SetActive(true);
+				typeSelect.SetActive(false);
+			}
+		}
+
+		anim.speed = 0f;
+		anim.Play("ButtonFadeIn", 0, 1f);
 	}
 
 	public void MultiplayerTypeSelect()
@@ -34,9 +109,85 @@ public class MenuManager : MonoBehaviour
 		// If multiplayer mode is true then make the main menu ui inactive and make the multiplayerType UI active
 		if (GameMode.multiplayer == true)
 		{
-			multiplayerTypeUI.SetActive(true);
+			multiplayerType.SetActive(true);
 			mainMenuUI.SetActive(false);
-		}		
+		}
+	}
+
+	public void LANSelect()
+	{
+		multiplayerType.SetActive(false);
+		joinOrHostLan.SetActive(true);
+	}
+
+	public void OnlineSelect()
+	{
+		GameModeSelect();
+	}
+
+	private string GetLocalIPv4()
+	{
+		return Dns.GetHostEntry(Dns.GetHostName()).AddressList.First(first => first.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToString();
+	}
+
+	public void HostLAN()
+	{
+		
+
+		GameMode.hosting = true;
+		GameMode.joining = false;
+
+		ipAdressField.interactable = false;
+		portField.interactable = false;
+
+		ipString = GetLocalIPv4();
+		ipAdressField.text = ipString;
+		portField.text = "6969";
+	}	
+
+	public void JoinLAN()
+	{
+		GameMode.hosting = false;
+		GameMode.joining = true;
+
+		ipAdressField.interactable = false;
+		portField.interactable = false;
+
+		ipString = GetLocalIPv4();
+		ipAdressField.text = ipString;
+		portField.text = "6969";
+	}
+
+	public void HostLocalHost()
+	{
+		GameMode.hosting = true;
+		GameMode.joining = false;
+
+		ipAdressField.interactable = false;
+		portField.interactable = false;
+
+		ipString = GetLocalIPv4();
+		ipAdressField.text = ipString;
+		portField.text = "6969";
+	}
+
+	public void JoinLocalHost()
+	{
+		GameMode.hosting = false;
+		GameMode.joining = true;
+
+		ipAdressField.interactable = false;
+		portField.interactable = false;
+
+		ipString = GetLocalIPv4();
+		ipAdressField.text = ipString;
+		portField.text = "6969";
+	}
+
+	public void JoinCustomLAN()
+	{
+		GameMode.hosting = false;
+		GameMode.joining = true;
 	}
 
 	// Hides the main menu and makes the mode select options appear
@@ -45,7 +196,7 @@ public class MenuManager : MonoBehaviour
 		// If multiplayer mode is true then make the BR button active and disable the BR not available text
 		if (GameMode.multiplayer == true)
 		{
-			multiplayerTypeUI.SetActive(false);
+			multiplayerType.SetActive(false);
 			modeSelect.SetActive(true);
 
 			brButton.gameObject.SetActive(true);
@@ -61,38 +212,6 @@ public class MenuManager : MonoBehaviour
 			brButton.gameObject.SetActive(false);
 			brAvailableText.SetActive(true);
 		}
-	}
-
-	// Makes the main menu reappear and hides the mode select options, then resets all the selected modes back to their default value of False
-	public void BackToMainMenu()
-	{
-		if (GameMode.singleplayer)
-		{
-			modeSelect.SetActive(false);
-			mainMenuUI.SetActive(true);
-			GameMode.SetAllValuesToFalse();
-		}
-		if (GameMode.multiplayer)
-		{
-			if (multiplayerTypeUI.activeInHierarchy)
-			{
-				multiplayerTypeUI.SetActive(false);
-				mainMenuUI.SetActive(true);
-				GameMode.SetAllValuesToFalse();
-			}
-			if (modeSelect.activeInHierarchy)
-			{
-				modeSelect.SetActive(false);
-				multiplayerTypeUI.SetActive(true);
-				GameMode.online = false;
-				GameMode.lan = false;
-			}
-		}		
-
-		anim.speed = 0f;
-		anim.Play("ButtonFadeIn", 0, 1f);
-
-		
 	}
 
 	// Hides the mode select options and shows the type select options. It then toggles on all of the toggles in case they have been turned off previously
@@ -123,13 +242,6 @@ public class MenuManager : MonoBehaviour
 			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
 			findManuallyButton.gameObject.SetActive(false);
 		}
-	}
-
-	// Hides the type select options and shows the mode select options
-	public void BackToGameModeSelect()
-	{
-		modeSelect.SetActive(true);
-		typeSelect.SetActive(false);
 	}
 }
 // This code is written by Peter Thompson

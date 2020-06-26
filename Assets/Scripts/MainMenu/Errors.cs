@@ -44,7 +44,7 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:000";
 			errorText.text = "Unknown Error";
-			Debug.Log("Error:000 - Unknown Error");
+			Debug.LogError("Error:000 - Unknown Error");
 			error001 = true;
 		}
 	}
@@ -59,11 +59,11 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:001";
 			errorText.text = "Internet connection lost";
-			Debug.Log("Error:001 - Internet connection lost");
+			Debug.LogError("Error:001 - Internet connection lost");
 			error001 = true;
 		}
 	}
-	public static void Error002()       // Internet connection error, could not find server with host name
+	public static void Error002()       // Server connection error, could not find server with host name
 	{
 		if (error002 == false)
 		{
@@ -73,12 +73,12 @@ public class Errors : MonoBehaviour
 			errorText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorMessage").GetComponent<Text>();
 
 			errorCodeText.text = "Error:002";
-			errorText.text = "Unknown Error";
-			Debug.Log("Error:002 - Unknown Error");
+			errorText.text = "Could not find server with host name";
+			Debug.LogError("Error:002 - Server connection error, could not find server with host name");
 			error002 = true;
 		}
 	}
-	public static void Error003()       // Unknown, unknown error
+	public static void Error003()       // Application, integrity error
 	{
 		if (error003 == false)
 		{
@@ -88,12 +88,14 @@ public class Errors : MonoBehaviour
 			errorText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorMessage").GetComponent<Text>();
 
 			errorCodeText.text = "Error:003";
-			errorText.text = "Unknown Error";
-			Debug.Log("Error:003 - Unknown Error");
+			errorText.text = "Detected game is not genuine, or has been tampered with.";
+			Debug.LogError("Error:003 - Game is not genuine, or has been tampered with");
 			error003 = true;
+
+			UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.FatalError);
 		}
 	}
-	public static void Error004()       // Unknown, unknown error
+	public static void Error004()       // Application, integrity check error
 	{
 		if (error004 == false)
 		{
@@ -103,9 +105,11 @@ public class Errors : MonoBehaviour
 			errorText = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("WarningPanel").transform.Find("ErrorMessage").GetComponent<Text>();
 
 			errorCodeText.text = "Error:004";
-			errorText.text = "Unknown Error";
-			Debug.Log("Error:004 - Unknown Error");
+			errorText.text = "Cannot detect game integrity, multiplayer services will be disabled. Please check if you have updated Region to the latest version available.";
+			Debug.LogWarning("Error:004 - Cannot detect game integrity, multiplayer services will be disabled.");
 			error004 = true;
+
+			GameMode.genuineGame = false;
 		}
 	}
 	public static void Error005()       // Unknown, unknown error
@@ -119,7 +123,7 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:005";
 			errorText.text = "Unknown Error";
-			Debug.Log("Error:005 - Unknown Error");
+			Debug.LogWarning("Error:005 - Unknown Error");
 			error005 = true;
 		}
 	}
@@ -134,8 +138,8 @@ public class Errors : MonoBehaviour
 
 			errorCodeText.text = "Error:006";
 			errorText.text = "Unknown Error";
-			Debug.Log("Error:006 - Unknown Error");
+			Debug.LogWarning("Error:006 - Unknown Error");
 			error006 = true;
-		};
+		}
 	}
 }

@@ -12,6 +12,26 @@ public class SetSettingsAtStart : MonoBehaviour
 	private string maxResW;
 	private string maxResH;
 
+	private void Awake()
+	{
+		Errors.error000 = false;
+		Errors.error001 = false;
+		Errors.error002 = false;
+		Errors.error003 = false;
+		Errors.error004 = false;
+		Errors.error005 = false;
+		Errors.error006 = false;
+
+		if (!Application.genuine)
+		{
+			Errors.Error003();
+		}
+		if (!Application.genuineCheckAvailable)
+		{
+			Errors.Error004();
+		}
+	}
+
 	// Start is called before the first frame update
 	void Start()
 	{

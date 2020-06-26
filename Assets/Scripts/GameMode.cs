@@ -12,6 +12,9 @@ public class GameMode : MonoBehaviour
 	public static bool online = false;
 	public static bool lan = false;
 
+	public static bool joining = false;
+	public static bool hosting = false;
+
 	// Bools to check the mode with how many number of players
 	public static bool mode2Players = false;
 	public static bool mode10Players = false;
@@ -22,6 +25,9 @@ public class GameMode : MonoBehaviour
 	public static bool teamDeathMatch = false;
 	public static bool captureTheFlag = false;
 	public static bool battleRoyale = false;
+
+	// Bool for multiplayer availability
+	public static bool genuineGame = true;
 
 	// Singleton
 	private void Awake()
