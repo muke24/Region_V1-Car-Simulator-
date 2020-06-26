@@ -179,7 +179,7 @@ public class HostPlayerDrag : MonoBehaviour
 					if (item.gameObject.CompareTag("PlayerPanel") && item.gameObject != selectedDragGameObject)
 					{
 						playerOnSpot = true;
-						Debug.Log("Another player is on this spot already");
+						Debug.Log("Switching player '" + selectedDragGameObject.GetComponentInChildren<Text>().text + "' with player '" + item.gameObject.GetComponentInChildren<Text>().text + "'");
 					}
 
 					if (!item.gameObject.CompareTag("PlayerPanelParent") && !playerOnSpot)
@@ -210,9 +210,15 @@ public class HostPlayerDrag : MonoBehaviour
 
 					if (playerOnSpot)
 					{
-						selectedDragGameObject.transform.SetParent(firstParent);
+						Transform transform1 = item.gameObject.transform.parent;
+						Transform transform2 = firstParent;
+
+						selectedDragGameObject.transform.SetParent(transform1);
 						selectedDragGameObject.transform.localPosition = firstPos;
 						selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+
+						item.gameObject.transform.SetParent(transform2);
+						item.gameObject.transform.localPosition = firstPos;
 
 						firstPos = Vector3.zero;
 						firstParent = null;
