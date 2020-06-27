@@ -297,7 +297,7 @@ public class MenuManager : MonoBehaviour
 	public void HostGame()
 	{
 		typeSelect.SetActive(false);
-		lobby.SetActive(true);
+		//lobby.SetActive(true);
 		networkManager.StartHost();
 	}
 }

@@ -30,13 +30,13 @@ public class Login : MonoBehaviour
 	private void Start()
 	{
 		bool lostConnection = false;
-		OnStart(lostConnection);
+		OnStart();
 
 		coroutine = CheckForInternet(5f, lostConnection);
 		StartCoroutine(coroutine);
 	}
 
-	private void OnStart(bool lostConnection)
+	private void OnStart()
 	{
 		if (Application.internetReachability != NetworkReachability.NotReachable)
 		{
@@ -44,11 +44,14 @@ public class Login : MonoBehaviour
 
 			if (usernameField.text != "")
 			{
-				logInButton.gameObject.SetActive(false);
-				registerButton.gameObject.SetActive(false);
-				logOutButton.gameObject.SetActive(true);
+				LogIn();
 
-				loggedInText.text = "Logged In as " + usernameField.text;
+				//logInButton.gameObject.SetActive(false);
+				//registerButton.gameObject.SetActive(false);
+				//logOutButton.gameObject.SetActive(true);
+
+				//loggedInText.text = "Logged In as " + usernameField.text;
+				//playerUsername = usernameField.text;
 			}
 			else
 			{
