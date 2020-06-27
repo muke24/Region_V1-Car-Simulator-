@@ -12,6 +12,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
 	//[SerializeField] private Text[] playerReadyTexts = new Text[10];
 	[SerializeField] private Image[] playerReadycolour = new Image[10];
 	[SerializeField] private Button startGameButton = null;
+	[SerializeField] private Button readyButton = null;
 
 	[SyncVar(hook = nameof(HandleDisplayNameChanged))]
 	public string DisplayName = "Loading...";
@@ -110,7 +111,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
 		{
 			playerNameTexts[i].text = Room.RoomPlayers[i].DisplayName;
 			//playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
-			playerReadycolour[i].color = new Color(0, 1, 0, 0.5f);
+			playerReadycolour[i].color = Room.RoomPlayers[i].IsReady ? new Color(0, 1, 0, 0.5f) : new Color(1, 0, 0, 0.5f);
 		}
 	}
 
@@ -136,6 +137,21 @@ public class NetworkRoomPlayer : NetworkBehaviour
 		IsReady = !IsReady;
 
 		Room.NotifyPlayersOfReadyState();
+
+		if (!IsReady)
+		{
+			readyButton.GetComponentInChildren<Text>().text = "Ready";
+			ColorBlock unreadyCb = readyButton.colors;
+			unreadyCb.normalColor = new Color(1, 0.5f, 0.5f, 1);
+			readyButton.colors = unreadyCb;
+		}
+		if (IsReady)
+		{
+			readyButton.GetComponentInChildren<Text>().text = "Unready";
+			ColorBlock readyCb = readyButton.colors;
+			readyCb.normalColor = new Color(0.5f, 1, 0.5f, 1);
+			readyButton.colors = readyCb;
+		}
 	}
 
 	[Command]
