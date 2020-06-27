@@ -11,9 +11,12 @@ public class MenuManager : MonoBehaviour
 	public GameObject joinOrHostLan;
 	public GameObject modeSelect;
 	public GameObject typeSelect;
+	public GameObject lobby;
 
 	public Button brButton;
 	public GameObject brAvailableText;
+
+	public Button mode1v1Button;
 
 	public Button playButton;
 	public Button findManuallyButton;
@@ -25,6 +28,9 @@ public class MenuManager : MonoBehaviour
 	public string portString = "6969";
 
 	private Animator anim;
+
+	[SerializeField] 
+	private NetworkManagerLobby networkManager = null;
 
 	private void Start()
 	{
@@ -166,9 +172,11 @@ public class MenuManager : MonoBehaviour
 		ipAdressField.interactable = false;
 		portField.interactable = false;
 
-		ipString = GetLocalIPv4();
+		ipString = "localhost";
 		ipAdressField.text = ipString;
 		portField.text = "6969";
+
+		GameModeSelect();
 	}
 
 	public void JoinLocalHost()
@@ -179,7 +187,7 @@ public class MenuManager : MonoBehaviour
 		ipAdressField.interactable = false;
 		portField.interactable = false;
 
-		ipString = GetLocalIPv4();
+		ipString = "localhost";
 		ipAdressField.text = ipString;
 		portField.text = "6969";
 	}
@@ -196,11 +204,34 @@ public class MenuManager : MonoBehaviour
 		// If multiplayer mode is true then make the BR button active and disable the BR not available text
 		if (GameMode.multiplayer == true)
 		{
-			multiplayerType.SetActive(false);
-			modeSelect.SetActive(true);
+			if (GameMode.lan)
+			{
+				if (GameMode.hosting)
+				{
+					joinOrHostLan.SetActive(false);
+					modeSelect.SetActive(true);
 
-			brButton.gameObject.SetActive(true);
-			brAvailableText.SetActive(false);
+					brButton.gameObject.SetActive(true);
+					brAvailableText.SetActive(false);
+
+					brButton.interactable = false;					
+					mode1v1Button.interactable = false;
+				}
+
+				if (GameMode.joining)
+				{
+
+				}
+			}
+
+			if (GameMode.online)
+			{
+				multiplayerType.SetActive(false);
+				modeSelect.SetActive(true);
+
+				brButton.gameObject.SetActive(true);
+				brAvailableText.SetActive(false);
+			}			
 		}
 
 		// If multiplayer mode is not true then make the BR button inactive and enable the BR not available text
@@ -217,6 +248,7 @@ public class MenuManager : MonoBehaviour
 	// Hides the mode select options and shows the type select options. It then toggles on all of the toggles in case they have been turned off previously
 	public void GameTypeSelect()
 	{
+		#region Set Settings
 		modeSelect.SetActive(false);
 		typeSelect.SetActive(true);
 
@@ -224,6 +256,7 @@ public class MenuManager : MonoBehaviour
 		{
 			toggle.isOn = true;
 		}
+		#endregion
 
 		if (GameMode.singleplayer)
 		{
@@ -233,8 +266,25 @@ public class MenuManager : MonoBehaviour
 
 		if (GameMode.multiplayer)
 		{
-			playButton.transform.Find("Text").GetComponent<Text>().text = "Find Game";
-			findManuallyButton.gameObject.SetActive(true);
+			if (GameMode.lan)
+			{
+				if (GameMode.hosting)
+				{
+					playButton.transform.Find("Text").GetComponent<Text>().text = "Host Game";
+					findManuallyButton.gameObject.SetActive(false);
+				}
+
+				if (GameMode.joining)
+				{
+
+				}
+			}
+
+			if (GameMode.online)
+			{
+				playButton.transform.Find("Text").GetComponent<Text>().text = "Find Game";
+				findManuallyButton.gameObject.SetActive(true);
+			}			
 		}
 
 		if (!GameMode.multiplayer && !GameMode.singleplayer)
@@ -242,6 +292,13 @@ public class MenuManager : MonoBehaviour
 			playButton.transform.Find("Text").GetComponent<Text>().text = "Play";
 			findManuallyButton.gameObject.SetActive(false);
 		}
+	}
+
+	public void HostGame()
+	{
+		typeSelect.SetActive(false);
+		lobby.SetActive(true);
+		networkManager.StartHost();
 	}
 }
 // This code is written by Peter Thompson

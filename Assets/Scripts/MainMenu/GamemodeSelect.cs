@@ -11,6 +11,8 @@ public class GamemodeSelect : MonoBehaviour
 
     public int gameMode = 0;
 
+    public MenuManager menuManager;
+
     public void OnPlay()
     {
         SelectGameType();
@@ -139,6 +141,11 @@ public class GamemodeSelect : MonoBehaviour
 
     void CheckPlayType()
     {
+        if (!GameMode.singleplayer && !GameMode.multiplayer)
+        {
+            SceneHandler.PlayScene();
+        }
+
         if (GameMode.singleplayer)
         {
             SceneHandler.PlayScene();
@@ -146,12 +153,18 @@ public class GamemodeSelect : MonoBehaviour
 
         if (GameMode.multiplayer)
         {
+            if (GameMode.lan)
+            {
+                if (GameMode.hosting)
+                {
+                    menuManager.HostGame();
+                }
 
-        }
+                if (GameMode.joining)
+                {
 
-        if (!GameMode.singleplayer && !GameMode.multiplayer)
-        {
-            SceneHandler.PlayScene();
-        }
+                }
+            }
+        }        
     }
 }

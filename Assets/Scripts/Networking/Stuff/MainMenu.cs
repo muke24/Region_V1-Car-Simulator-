@@ -28,5 +28,4 @@ public class MainMenu : MonoBehaviour
 
         landingPagePanel.SetActive(false);
     }
-
 }

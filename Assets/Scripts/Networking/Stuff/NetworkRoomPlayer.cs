@@ -9,7 +9,8 @@ public class NetworkRoomPlayer : NetworkBehaviour
 	[Header("UI")]
 	[SerializeField] private GameObject lobbyUI = null;
 	[SerializeField] private Text[] playerNameTexts = new Text[10];
-	[SerializeField] private Text[] playerReadyTexts = new Text[10];
+	//[SerializeField] private Text[] playerReadyTexts = new Text[10];
+	[SerializeField] private Image[] playerReadycolour = new Image[10];
 	[SerializeField] private Button startGameButton = null;
 
 	[SyncVar(hook = nameof(HandleDisplayNameChanged))]
@@ -101,13 +102,15 @@ public class NetworkRoomPlayer : NetworkBehaviour
 		for (int i = 0; i < playerNameTexts.Length; i++)
 		{
 			playerNameTexts[i].text = "Waiting for Player...";
-			playerReadyTexts[i].text = string.Empty;
+			//playerReadyTexts[i].text = string.Empty;
+			playerReadycolour[i].color = new Color(1, 0, 0, 0.5f);
 		}
 
 		for (int i = 0; i < Room.RoomPlayers.Count; i++)
 		{
 			playerNameTexts[i].text = Room.RoomPlayers[i].DisplayName;
-			playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
+			//playerReadyTexts[i].text = Room.RoomPlayers[i].IsReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
+			playerReadycolour[i].color = new Color(0, 1, 0, 0.5f);
 		}
 	}
 
