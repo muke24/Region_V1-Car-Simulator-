@@ -27,6 +27,13 @@ public class ReflectionProbePosition : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (reflectionProbe == null)
+		{
+			reflectionProbe = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
+			// Retrieves the player's camera
+			playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+		}
+
 		// Sets the reflection probe to the car's camera position
 		if (interact.inCar)
 		{

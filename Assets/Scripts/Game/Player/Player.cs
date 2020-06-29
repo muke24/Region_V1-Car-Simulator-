@@ -1,4 +1,6 @@
 ﻿#region This code is written by Peter Thompson
+using Mirror;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -39,6 +41,21 @@ public class Player : MonoBehaviour
 		if (GameMode.singleplayer)
 		{
 			username = "";
+		}
+
+		if (GameMode.singleplayer || !GameMode.singleplayer && !GameMode.multiplayer)
+		{
+			foreach (var item in FindObjectsOfType<NetworkedPlayer>())
+			{
+				Destroy(item);
+			}
+
+			foreach (var item in FindObjectsOfType<NetworkIdentity>())
+			{
+				Destroy(item);
+			}
+			
+			Destroy(FindObjectOfType<NetworkManager>());
 		}
 	}
 

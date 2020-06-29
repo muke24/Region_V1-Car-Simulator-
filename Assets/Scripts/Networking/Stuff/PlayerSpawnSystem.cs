@@ -19,7 +19,10 @@ public class PlayerSpawnSystem : NetworkBehaviour
 		spawnPoints = spawnPoints.OrderBy(x => x.GetSiblingIndex()).ToList();
 	}
 
-	public static void RemoveSpawnPoint(Transform spawnTransform) => spawnPoints.Remove(spawnTransform);
+	public static void RemoveSpawnPoint(Transform spawnTransform)
+	{
+		spawnPoints.Remove(spawnTransform);
+	}
 
 	public override void OnStartServer()
 	{

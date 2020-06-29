@@ -17,6 +17,11 @@ public class Compass : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (playerPositionInWorld == null)
+		{
+			playerPositionInWorld = GameObject.FindGameObjectWithTag("Player").transform;
+		}
+
 		compassScrollTexture.uvRect = new Rect(playerPositionInWorld.localEulerAngles.y / 360f, 0, 1, 1);
 
 		if (Car.inCar)

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimations : MonoBehaviour
 {
 	public GameObject pause;
-	public PlayerMovement pMovement;
 	public Animator playerAnimation;
 	public float vertical;
 	public float horizontal;
@@ -123,10 +122,20 @@ public class PlayerAnimations : MonoBehaviour
 				}
 			}
 
-			if (Input.GetButton("Jump") && PlayerMovement.controller.isGrounded)
+			if (GameMode.singleplayer)
 			{
-				playerAnimation.SetBool("Jump", true);
+				if (Input.GetButton("Jump") && PlayerMovement.controller.isGrounded)
+				{
+					playerAnimation.SetBool("Jump", true);
+				}
 			}
+			if (GameMode.multiplayer)
+			{
+				if (Input.GetButton("Jump") && PlayerNetworkMovement.controller.isGrounded)
+				{
+					playerAnimation.SetBool("Jump", true);
+				}
+			}			
 
 			if (Input.GetAxis("Vertical") == 0)
 			{

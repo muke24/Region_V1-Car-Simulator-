@@ -116,6 +116,20 @@ public class AllSettings : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (mlX == null)
+		{
+			// Gets the x axis and y axis mouseLook scripts thats attached to the player in the scene at the start
+			mlX = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
+			mlY = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").GetComponent<MouseLook>();
+
+			// Gets the reflection probe attached to the player at the start
+			ReflectionProbe1 = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
+
+			// Gets post process gameobjects thats attached to the player (I have no clue why I put it on the player, but I did, and I didnt have time to take it off of it)
+			worldPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsWorld").gameObject;
+			weaponPostProcess = GameObject.FindGameObjectWithTag("Player").transform.Find("PostProcessingEffectsGun").gameObject;
+		}
+
 		// Hides the apply button if the settings have been applied
 		if (settingsChanged == false)
 		{

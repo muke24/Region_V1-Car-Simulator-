@@ -147,22 +147,29 @@ public class SpawnPoints : MonoBehaviour
 
 					SpawnTeam5v5();
 					SpawnEnemies5v5();
+					
 				}
 			}
 		}
 
 		if (GameMode.multiplayer)
 		{
+			//team = GameMode.team;
+			team = 1;
 
+			foreach (GameObject item in spawnPoints)
+			{
+				//item.AddComponent<PlayerSpawnPoint>();
+				Debug.Log("Added spawns");
+			}
 		}
-
 	}
 
 	void SpawnTeam1v1()
 	{
 		if (GameMode.singleplayer)
 		{
-			Instantiate<GameObject>(player, spawnPoints[2].transform.position, spawnPoints[2].transform.rotation, null);
+			Instantiate(player, spawnPoints[2].transform.position, spawnPoints[2].transform.rotation, null);
 		}		
 	}
 

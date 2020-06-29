@@ -23998,6 +23998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 973097471}
   - component: {fileID: 973097472}
+  - component: {fileID: 973097473}
   m_Layer: 5
   m_Name: LANJoinOrHostSelect
   m_TagString: Untagged
@@ -24043,6 +24044,21 @@ MonoBehaviour:
   ToggleCTF: {fileID: 0}
   gameMode: 0
   menuManager: {fileID: 0}
+--- !u!114 &973097473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973097470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a38a2c903cc8bd408258c55d289fee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 1144336088}
+  menuManager: {fileID: 2032704736}
+  joinButton: {fileID: 2086033921}
 --- !u!1 &973605956
 GameObject:
   m_ObjectHideFlags: 0
@@ -27124,7 +27140,7 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
-  minPlayers: 2
+  minPlayers: 1
   menuScene: Assets/Scenes/MainMenu.unity
   roomPlayerPrefab: {fileID: 6456088699167790367, guid: bc5e6f7f54582ef4cad13fc05e56d273,
     type: 3}
@@ -50748,7 +50764,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2086033922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 973097473}
+        m_MethodName: JoinLobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2086033922
 MonoBehaviour:
   m_ObjectHideFlags: 0

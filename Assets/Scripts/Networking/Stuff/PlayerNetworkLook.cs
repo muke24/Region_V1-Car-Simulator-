@@ -1,17 +1,14 @@
-﻿#region This code is written by Peter Thompson
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class MouseLook : MonoBehaviour
+public class PlayerNetworkLook : NetworkBehaviour
 {
 	public GameObject paused;
 
 	// Enum holding three values - mouse X and mouse Y, mouse X, mouse Y
-	public enum RotationAxes 
-	{ 
-		MouseXAndY = 0 /* MouseXAndY isnt needed but I kept it just in case */, MouseX = 1, MouseY = 2 
-	}
+	public enum RotationAxes { MouseXAndY = 0 /* MouseXAndY isnt needed but I kept it just in case */, MouseX = 1, MouseY = 2 }
 
 	// Sets default enum to mouseXandY (MouseXandY rotates the object this script is attached to both the X and Y axis, 
 	// which having MouseX would only rotate it on the X axis and same goes with the MouseY)
@@ -21,8 +18,8 @@ public class MouseLook : MonoBehaviour
 	public float sensitivityY = 100f;
 	public float sensitivityXads = 50f;
 	public float sensitivityYads = 50f;
-	public float minimumX = -360f;	// Minimum X rotation
-	public float maximumX = 360f;	// Maximum X rotation
+	public float minimumX = -360f;  // Minimum X rotation
+	public float maximumX = 360f;   // Maximum X rotation
 	public float minimumY = -60f;   // Minimum Y rotation
 	public float maximumY = 60f;    // Maximum Y rotation
 	public GameObject sniper;
@@ -51,7 +48,7 @@ public class MouseLook : MonoBehaviour
 
 	void Update()
 	{
-		// If the game isn't paused
+		// IF the game isn't paused
 		if (!paused.activeSelf)
 		{
 			// If MouseXandY is selected in inspector
@@ -99,7 +96,7 @@ public class MouseLook : MonoBehaviour
 	}
 
 	// Only applies to the mouse X axis when not aiming
-	public void MouseX() 
+	public void MouseX()
 	{
 		// If sniper isnt aiming and sniper is active then set the mouse sensitivity to the normal set X sensitivity
 		if (!anim.GetBool("Aim") && sniper)
@@ -211,5 +208,3 @@ public class MouseLook : MonoBehaviour
 		}
 	}
 }
-// This code is written by Peter Thompson
-#endregion

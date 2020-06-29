@@ -24,6 +24,7 @@ public class Interact : MonoBehaviour
 	public MouseLook mouse;
 	public CharacterController charC;
 	public PlayerMovement pMove;
+	public PlayerNetworkMovement pMoveNet;
 	public CapsuleCollider cCol;
 
 	public Text intText;
@@ -43,6 +44,7 @@ public class Interact : MonoBehaviour
 		mouse = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
 		charC = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
 		pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+		pMoveNet = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerNetworkMovement>();
 		cCol = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>();
 		Car.inCar = false;
 		carCam.enabled = false;
@@ -50,12 +52,32 @@ public class Interact : MonoBehaviour
 		if (player != null)
 		{
 			playerEnable();
-		}		
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (player == null)
+		{
+			player = GameObject.FindGameObjectWithTag("Player");
+			playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+			carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+			playerModel = GameObject.FindGameObjectWithTag("Player").transform.Find("Model").gameObject;
+			mouse = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
+			charC = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
+			pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+			pMoveNet = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerNetworkMovement>();
+			cCol = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>();
+			Car.inCar = false;
+			carCam.enabled = false;
+
+			if (player != null)
+			{
+				playerEnable();
+			}
+		}
+
 		inCar = Car.inCar;
 
 		if (intTimer >= 0)
@@ -79,10 +101,10 @@ public class Interact : MonoBehaviour
 			if (player != null)
 			{
 				playerDisable();
-			}			
+			}
 
 			im.enabled = true;
-			
+
 			carCam.enabled = true;
 
 			carCanv.SetActive(true);
@@ -104,10 +126,10 @@ public class Interact : MonoBehaviour
 			if (player != null)
 			{
 				playerEnable();
-			}			
-						
+			}
+
 			im.enabled = false;
-			
+
 			if (pauseCanv.activeSelf)
 			{
 				Cursor.lockState = CursorLockMode.None;
@@ -154,7 +176,14 @@ public class Interact : MonoBehaviour
 		playerModel.SetActive(true);
 		mouse.enabled = true;
 		charC.enabled = true;
-		pMove.enabled = true;
+		if (GameMode.singleplayer)
+		{
+			pMove.enabled = true;
+		}
+		if (GameMode.multiplayer)
+		{
+			pMoveNet.enabled = true;
+		}
 		cCol.enabled = true;
 	}
 	void playerDisable()
@@ -163,7 +192,14 @@ public class Interact : MonoBehaviour
 		playerModel.SetActive(false);
 		mouse.enabled = false;
 		charC.enabled = false;
-		pMove.enabled = false;
+		if (GameMode.singleplayer)
+		{
+			pMove.enabled = false;
+		}
+		if (GameMode.multiplayer)
+		{
+			pMoveNet.enabled = false;
+		}
 		cCol.enabled = false;
 	}
 }

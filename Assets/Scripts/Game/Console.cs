@@ -82,7 +82,7 @@ public class Console : MonoBehaviour
 		{
 			console.readOnly = true;
 		}
-		
+
 		if (consoleToggle)
 		{
 			EventSystem.current.SetSelectedGameObject(console.gameObject, null);
@@ -96,7 +96,7 @@ public class Console : MonoBehaviour
 			{
 				console.readOnly = false;
 			}
-						
+
 		}
 
 		if (Input.GetKeyDown(KeyCode.BackQuote))
@@ -152,43 +152,45 @@ public class Console : MonoBehaviour
 
 	void SetCheats()
 	{
-		if (_cheat1) // Max Ammo
+		if (GameMode.singleplayer)
 		{
-			Sniper.ammoCount = Sniper.maxAmmo;
-		}
+			if (_cheat1) // Max Ammo
+			{
+				Sniper.ammoCount = Sniper.maxAmmo;
+			}
 
-		if (_cheat2) // Can fly
-		{
-			if (!PlayerMovement.controller.isGrounded && Input.GetButton("Jump") && !Input.GetButton("Crouch"))
+			if (_cheat2) // Can fly
 			{
-				PlayerMovement.moveDirection *= PlayerMovement.speed * 2f;
-				//Jumping
-				PlayerMovement.moveDirection.y = PlayerMovement.jumpSpeed;
-			}
-			if (!PlayerMovement.controller.isGrounded && Input.GetButton("Crouch") && !Input.GetButton("Jump"))
-			{
-				PlayerMovement.moveDirection *= PlayerMovement.speed * 2f;
-				//Jumping
-				PlayerMovement.moveDirection.y = PlayerMovement.jumpSpeed * -1f;
-			}
-			if (!PlayerMovement.controller.isGrounded && !Input.GetButton("Jump"))
-			{
-				if (!PlayerMovement.controller.isGrounded && !Input.GetButton("Crouch"))
+				if (!PlayerMovement.controller.isGrounded && Input.GetButton("Jump") && !Input.GetButton("Crouch"))
+				{
+					PlayerMovement.moveDirection *= PlayerMovement.speed * 2f;
+					//Jumping
+					PlayerMovement.moveDirection.y = PlayerMovement.jumpSpeed;
+				}
+				if (!PlayerMovement.controller.isGrounded && Input.GetButton("Crouch") && !Input.GetButton("Jump"))
+				{
+					PlayerMovement.moveDirection *= PlayerMovement.speed * 2f;
+					//Jumping
+					PlayerMovement.moveDirection.y = PlayerMovement.jumpSpeed * -1f;
+				}
+				if (!PlayerMovement.controller.isGrounded && !Input.GetButton("Jump"))
+				{
+					if (!PlayerMovement.controller.isGrounded && !Input.GetButton("Crouch"))
+					{
+						PlayerMovement.moveDirection.y = 0f;
+					}
+				}
+				if (!PlayerMovement.controller.isGrounded && Input.GetButton("Jump") && Input.GetButton("Crouch"))
 				{
 					PlayerMovement.moveDirection.y = 0f;
 				}
 			}
-			if (!PlayerMovement.controller.isGrounded && Input.GetButton("Jump") && Input.GetButton("Crouch"))
+
+			if (_cheat3)
 			{
-				PlayerMovement.moveDirection.y = 0f;
+
 			}
 		}
-
-		if (_cheat3)
-		{
-		
-		}
-
 	}
 }
 // This code is written by Peter Thompson

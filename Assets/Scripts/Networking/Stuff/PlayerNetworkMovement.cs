@@ -1,7 +1,7 @@
-﻿#region This code is written by Peter Thompson
-using UnityEngine;
+﻿using UnityEngine;
+using Mirror;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerNetworkMovement : NetworkBehaviour
 {
 	public static float speed = 4.5f;
 	public static float runSpeed = 7.0f;
@@ -26,25 +26,31 @@ public class PlayerMovement : MonoBehaviour
 
 	public static Vector3 moveDirection = Vector3.zero;
 
+	[Client]
 	private void Start()
 	{
-		if (GameMode.singleplayer)
+		if (GameMode.multiplayer)
 		{
 			controller = GetComponent<CharacterController>();
 		}
-		if (GameMode.multiplayer)
+		if (GameMode.singleplayer)
 		{
 			Destroy(this);
 		}
 	}
 
+	[Client]
 	void Update()
 	{
-		if (GameMode.singleplayer)
+		if (GameMode.multiplayer)
 		{
-			Movements();
-			AnimatorMultipliers();
-		}		
+			if (!hasAuthority)
+			{
+				return;
+			}
+
+			CmdMove();
+		}
 	}
 
 	void Movements()
@@ -160,8 +166,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-
-
 		if (!Console._cheat2)
 		{
 			Gravity();
@@ -174,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
 	void Gravity()
 	{
 		//Apply gravity to the controller
+
 		moveDirection.y -= gravity * Time.deltaTime;
 	}
 
@@ -199,6 +204,19 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
+
+	[Command]
+	private void CmdMove()
+	{
+		RpcMove();
+	}
+
+	[ClientRpc]
+	private void RpcMove()
+	{
+		//transform.Translate(moveDirection.normalized);
+
+		Movements();
+		AnimatorMultipliers();
+	}
 }
-// This code is written by Peter Thompson
-#endregion

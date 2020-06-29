@@ -20,6 +20,7 @@ public class CurrentCar : MonoBehaviour
         if (carFind == null)
         {
             carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
+            currentCar = carFind.closestCar.gameObject;
         }
 
         // Gets the current car from the closest car script. This script is placed on the manager gameobject as its always active

@@ -16,6 +16,12 @@ public class FlagPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player = null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            currentWeapon = player.GetComponent<CurrentWeapon>();
+        }
+
         if (Vector3.Distance(player.transform.position, transform.position) < 2)
         {
             currentWeapon.currentWeapon = currentWeapon.secondaryWeapon;

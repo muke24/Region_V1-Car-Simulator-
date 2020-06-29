@@ -5,29 +5,30 @@ using UnityEngine;
 
 public class NetworkedPlayer : NetworkBehaviour
 {
-    [SerializeField] private Vector3 movement = new Vector3();
+	[SerializeField] private Vector3 movement = new Vector3();
 
-    [Client]
-    void Update()
-    {
-        if (!hasAuthority)
-        { 
-            return; 
-        }
+	[Client]
+	void Update()
+	{
+		if (!hasAuthority)
+		{
+			return;
+		}
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            CmdMove();
-        }
-    }
+		movement = PlayerMovement.moveDirection;
 
-    [Command]
-    private void CmdMove()
-    {
-        RpcMove();
-    }
+		CmdMove();
+	}
 
-    [ClientRpc]
-    private void RpcMove() => transform.Translate(movement);
+	[Command]
+	private void CmdMove()
+	{
+		RpcMove();
+	}
 
+	[ClientRpc]
+	private void RpcMove()
+	{
+		transform.Translate(PlayerMovement.moveDirection);
+	}
 }

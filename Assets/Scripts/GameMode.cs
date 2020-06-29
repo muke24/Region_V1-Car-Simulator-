@@ -26,6 +26,9 @@ public class GameMode : MonoBehaviour
 	public static bool captureTheFlag = false;
 	public static bool battleRoyale = false;
 
+	// Team ints
+	public static int team = 0;
+
 	// Bool for multiplayer availability
 	public static bool genuineGame = true;
 
