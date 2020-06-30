@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using UnityScript.Steps;
 
 public class AllSettings : MonoBehaviour
 {
@@ -79,6 +80,16 @@ public class AllSettings : MonoBehaviour
 	public GameObject worldPostProcess;
 	public GameObject weaponPostProcess;
 
+	private Resolution[] resolutions;
+	private List<string> resStringW = new List<string>();
+	private List<string> resStringH = new List<string>();
+	private int resolutionCountW;
+	private int resolutionCountH;
+	private string maxResW;
+	private string maxResH;
+
+	private bool isStart = true;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -110,7 +121,7 @@ public class AllSettings : MonoBehaviour
 		ReflectionDrag();
 		Shadows();
 		ShadowDistDrag();
-		ApplySettings();
+		ApplySettingsAtStart();
 	}
 
 	// Update is called once per frame
@@ -147,7 +158,14 @@ public class AllSettings : MonoBehaviour
 		//volumeText.text = volumeSlider.value.ToString() + "%";
 	}
 
-	public void ApplySettings()
+	void ApplySettingsAtStart()
+	{
+		isStart = true;
+		ApplySettings();
+		isStart = false;
+	}
+
+	void ApplySettingsWhenCalled()
 	{
 		// Gets all the lights in the scene when the apply button has been pressed
 		allLights = FindObjectsOfType<Light>();
@@ -319,6 +337,22 @@ public class AllSettings : MonoBehaviour
 		}
 
 		//AudioListener.volume = volumeSlider.value;
+	}
+
+	public void ApplySettings()
+	{
+		if (isStart == true)
+		{
+			LoadSettings();
+			ApplySettingsWhenCalled();
+			return;
+		}
+
+		if (isStart == false)
+		{
+			SaveSettings();
+			ApplySettingsWhenCalled();			
+		}
 	}
 
 	#region These are voids that will be used by the UI in the settings when they have been interacted with
@@ -661,6 +695,61 @@ public class AllSettings : MonoBehaviour
 		}
 	}
 
+	#endregion
+
+	#region Save/Load Settings
+	void SaveSettings()
+	{
+		PlayerPrefs.SetInt("ScreenResolutionHeight", resolutionIntHeight);
+		PlayerPrefs.SetInt("ScreenResolutionWidth", resolutionIntWidth);
+		PlayerPrefs.SetInt("ReflectionResolutionLevel", Mathf.RoundToInt(reflectSlider.value));
+		PlayerPrefs.SetInt("RTReflections", Mathf.RoundToInt(rtReflections.value));
+		PlayerPrefs.SetInt("ShadowResolution", Mathf.RoundToInt(shadowSlider.value));
+		PlayerPrefs.SetInt("ShadowDistance", Mathf.RoundToInt(shadowDistanceSlider.value));
+		PlayerPrefs.SetInt("MouseSensitivityX", Mathf.RoundToInt(mouseX.value));
+		PlayerPrefs.SetInt("MouseSensitivityY", Mathf.RoundToInt(mouseY.value));
+		PlayerPrefs.SetInt("ADSMouseSensitivityX", Mathf.RoundToInt(adsMouseX.value));
+		PlayerPrefs.SetInt("ADSMouseSensitivityY", Mathf.RoundToInt(adsMouseY.value));
+
+	}
+
+	void LoadSettings()
+	{
+		GetMaxResSupported();
+		resolutionIntHeight = PlayerPrefs.GetInt("ScreenResolutionHeight", int.Parse(maxResH));
+		resolutionIntWidth = PlayerPrefs.GetInt("ScreenResolutionWidth", int.Parse(maxResW));
+		reflectSlider.value = PlayerPrefs.GetInt("ReflectionResolutionLevel", 2);
+		rtReflections.value = PlayerPrefs.GetInt("RTReflections", 1);
+		shadowSlider.value = PlayerPrefs.GetInt("ShadowResolution", 3);
+		shadowDistanceSlider.value = PlayerPrefs.GetInt("ShadowDistance", 150);
+		mouseX.value = PlayerPrefs.GetInt("MouseSensitivityX", 100);
+		mouseY.value = PlayerPrefs.GetInt("MouseSensitivityY", 100);
+		adsMouseX.value = PlayerPrefs.GetInt("ADSMouseSensitivityX", 30);
+		adsMouseY.value = PlayerPrefs.GetInt("ADSMouseSensitivityY", 30);
+	}
+
+	public void GetMaxResSupported()
+	{
+		// Shows all supported resolutions in the resolutions array
+		resolutions = Screen.resolutions;
+
+		foreach (Resolution res in resolutions)
+		{
+			// Add resolutions from array to the res lists
+			resStringW.Add(res.width.ToString());
+			resStringH.Add(res.height.ToString());
+		}
+
+		// Gets the total number of resolutions
+		resolutionCountW = resStringW.Count;
+		resolutionCountH = resStringH.Count;
+
+		// Sets the maxRes strings to the total count of elements in the resString lists, 
+		// then taking away one as the elements start at zero, and the count of all the elements start at one
+		maxResW = resStringW[resolutionCountW - 1];
+		maxResH = resStringH[resolutionCountH - 1];
+
+	}
 	#endregion
 }
 

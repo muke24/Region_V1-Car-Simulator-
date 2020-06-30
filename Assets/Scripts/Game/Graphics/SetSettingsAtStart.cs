@@ -55,7 +55,10 @@ public class SetSettingsAtStart : MonoBehaviour
 		maxResH = resStringH[resolutionCountH - 1];
 
 		// Sets screen resolution to max supported resolution
-		Screen.SetResolution(int.Parse(maxResW), int.Parse(maxResH), true);
-		Debug.Log("Screen set to maximum supported resolution - " + maxResW + "x" + maxResH);
+		if (Screen.width != int.Parse(maxResW) || Screen.height != int.Parse(maxResH))
+		{
+			Screen.SetResolution(int.Parse(maxResW), int.Parse(maxResH), true);
+			Debug.Log("Screen set to maximum supported resolution - " + maxResW + "x" + maxResH);
+		}		
 	}
 }

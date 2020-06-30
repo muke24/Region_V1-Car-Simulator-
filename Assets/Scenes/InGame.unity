@@ -23026,6 +23026,7 @@ GameObject:
   - component: {fileID: 529047350}
   - component: {fileID: 529047351}
   - component: {fileID: 529047352}
+  - component: {fileID: 529047353}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -23060,6 +23061,7 @@ MonoBehaviour:
   mouse: {fileID: 0}
   charC: {fileID: 0}
   pMove: {fileID: 0}
+  pMoveNet: {fileID: 0}
   cCol: {fileID: 0}
   intText: {fileID: 1350858348}
   carCam: {fileID: 963194227}
@@ -23209,6 +23211,18 @@ MonoBehaviour:
   pauseGO: {fileID: 1772000077}
   healthBarSlider: {fileID: 1001088814}
   healthTxt: {fileID: 1307780866}
+--- !u!114 &529047353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529047345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cfba9ffdacc044eacbd67e6e35af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &533350493
 PrefabInstance:
   m_ObjectHideFlags: 0

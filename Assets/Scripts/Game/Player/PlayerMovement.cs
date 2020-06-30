@@ -26,15 +26,19 @@ public class PlayerMovement : MonoBehaviour
 
 	public static Vector3 moveDirection = Vector3.zero;
 
+	private void Awake()
+	{
+		if (GameMode.multiplayer)
+		{
+			Destroy(this);
+		}
+	}
+
 	private void Start()
 	{
 		if (GameMode.singleplayer)
 		{
 			controller = GetComponent<CharacterController>();
-		}
-		if (GameMode.multiplayer)
-		{
-			Destroy(this);
 		}
 	}
 

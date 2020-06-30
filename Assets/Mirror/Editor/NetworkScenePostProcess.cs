@@ -56,7 +56,7 @@ namespace Mirror
 					// because this function would return afterwards.
 					else
 					{
-						Debug.LogError("Scene " + identity.gameObject.scene.path + " needs to be opened and resaved, because the scene object " + identity.name + " has no valid sceneId yet.");
+						Debug.LogWarning("Ignore this warning if the game is set to singleplayer - " + "Scene " + identity.gameObject.scene.path + " needs to be opened and resaved, because the scene object " + identity.name + " has no valid sceneId yet.");
 					}
 				}
 			}

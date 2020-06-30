@@ -26,16 +26,20 @@ public class PlayerNetworkMovement : NetworkBehaviour
 
 	public static Vector3 moveDirection = Vector3.zero;
 
+	private void Awake()
+	{
+		if (GameMode.singleplayer)
+		{
+			Destroy(this);
+		}
+	}
+
 	[Client]
 	private void Start()
 	{
 		if (GameMode.multiplayer)
 		{
 			controller = GetComponent<CharacterController>();
-		}
-		if (GameMode.singleplayer)
-		{
-			Destroy(this);
 		}
 	}
 

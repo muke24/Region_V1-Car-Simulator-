@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FlagPickup : MonoBehaviour
 {
-    private GameObject player;
-    private CurrentWeapon currentWeapon;
+    public GameObject player;
+    public CurrentWeapon currentWeapon;
 
     private void Start()
     {
@@ -16,18 +16,20 @@ public class FlagPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player = null)
+        if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             currentWeapon = player.GetComponent<CurrentWeapon>();
         }
-
-        if (Vector3.Distance(player.transform.position, transform.position) < 2)
+        if (player != null)
         {
-            currentWeapon.currentWeapon = currentWeapon.secondaryWeapon;
-            currentWeapon.flag = true;
-            currentWeapon.changeWeapon = true;
-            gameObject.SetActive(false);
-        }
+            if (Vector3.Distance(player.transform.position, transform.position) < 2)
+            {
+                currentWeapon.currentWeapon = currentWeapon.secondaryWeapon;
+                currentWeapon.flag = true;
+                currentWeapon.changeWeapon = true;
+                gameObject.SetActive(false);
+            }
+        }        
     }
 }

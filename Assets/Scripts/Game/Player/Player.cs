@@ -44,18 +44,9 @@ public class Player : MonoBehaviour
 		}
 
 		if (GameMode.singleplayer || !GameMode.singleplayer && !GameMode.multiplayer)
-		{
-			foreach (var item in FindObjectsOfType<NetworkedPlayer>())
-			{
-				Destroy(item);
-			}
-
-			foreach (var item in FindObjectsOfType<NetworkIdentity>())
-			{
-				Destroy(item);
-			}
-			
-			Destroy(FindObjectOfType<NetworkManager>());
+		{			
+			Destroy(GetComponent<PlayerNetworkMovement>());
+			Destroy(GetComponent<NetworkIdentity>());
 		}
 	}
 

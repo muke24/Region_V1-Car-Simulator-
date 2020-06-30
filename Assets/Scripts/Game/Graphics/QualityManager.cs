@@ -22,6 +22,11 @@ public class QualityManager : MonoBehaviour
     public Button highMedButton;
     public Button highButton;
 
+    private void Awake()
+    {
+        Load();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -216,7 +221,7 @@ public class QualityManager : MonoBehaviour
         }
     }
 
-    public void LowQuality()            // Quality level 0
+    public void LowQuality()            // Quality level 0 (Low)
     {
         #region Change button colour to selected graphics
         ColorBlock colourLow = lowButton.colors;
@@ -251,9 +256,11 @@ public class QualityManager : MonoBehaviour
         highMedium = false;
         high = false;
         QualitySettings.SetQualityLevel(0);
+        PlayerPrefs.SetInt("QualityLevel", 0);
+        PlayerPrefs.SetInt("HasQualityLevel", 1);
     }
 
-    public void LowMediumQuality()      // Quality level 1
+    public void LowMediumQuality()      // Quality level 1 (Medium)
     {
         #region Change button colour to selected graphics
         ColorBlock colourLow = lowButton.colors;
@@ -288,9 +295,11 @@ public class QualityManager : MonoBehaviour
         highMedium = false;
         high = false;
         QualitySettings.SetQualityLevel(1);
+        PlayerPrefs.SetInt("QualityLevel", 1);
+        PlayerPrefs.SetInt("HasQualityLevel", 1);
     }
 
-    public void MediumQuality()         // Quality level 2
+    public void MediumQuality()         // Quality level 2 (High)
     {
         #region Change button colour to selected graphics
         ColorBlock colourLow = lowButton.colors;
@@ -325,9 +334,11 @@ public class QualityManager : MonoBehaviour
         highMedium = false;
         high = false;
         QualitySettings.SetQualityLevel(2);
+        PlayerPrefs.SetInt("QualityLevel", 2);
+        PlayerPrefs.SetInt("HasQualityLevel", 1);
     }
 
-    public void HighMediumQuality()     // Quality level 3
+    public void HighMediumQuality()     // Quality level 3 (Very High)
     {
         #region Change button colour to selected graphics
         ColorBlock colourLow = lowButton.colors;
@@ -362,9 +373,11 @@ public class QualityManager : MonoBehaviour
         highMedium = true;
         high = false;
         QualitySettings.SetQualityLevel(3);
+        PlayerPrefs.SetInt("QualityLevel", 3);
+        PlayerPrefs.SetInt("HasQualityLevel", 1);
     }
 
-    public void HighQuality()           // Quality level 4
+    public void HighQuality()           // Quality level 4 (Ultra)
     {
         #region Change button colour to selected graphics
         ColorBlock colourLow = lowButton.colors;
@@ -399,6 +412,40 @@ public class QualityManager : MonoBehaviour
         highMedium = false;
         high = true;
         QualitySettings.SetQualityLevel(4);
+        PlayerPrefs.SetInt("QualityLevel", 4);
+        PlayerPrefs.SetInt("HasQualityLevel", 1);
+    }
+
+    void Load()
+    {
+        if (PlayerPrefs.GetInt("HasQualityLevel") == 1)
+        {
+            if (PlayerPrefs.GetInt("QualityLevel") == 0)
+            {
+                LowQuality();
+            }
+            if (PlayerPrefs.GetInt("QualityLevel") == 1)
+            {
+                LowMediumQuality();
+            }
+            if (PlayerPrefs.GetInt("QualityLevel") == 2)
+            {
+                MediumQuality();
+            }
+            if (PlayerPrefs.GetInt("QualityLevel") == 3)
+            {
+                HighMediumQuality();
+            }
+            if (PlayerPrefs.GetInt("QualityLevel") == 4)
+            {
+                HighQuality();
+            }
+        }
+
+        if (PlayerPrefs.GetInt("HasQualityLevel") != 1)
+        {
+            MediumQuality();
+        }
     }
 }
 // This code is written by Peter Thompson
