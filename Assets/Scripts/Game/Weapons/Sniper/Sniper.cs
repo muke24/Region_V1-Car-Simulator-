@@ -2,11 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 public class Sniper : MonoBehaviour
 {
 	public static GameObject player;
 	public static GameObject thisWeapon;
+	public Image[] reticle;
+	public Image[] hitMarkerHit;
+	public Image[] hitMarkerDead;
+	private bool hitEnemy = false;
+	private bool deadEnemy = false;
+	private float hitMarkerTimer = 0.2f;
+	private float deadMarkerTimer = 0.2f;
+	public float maxRays = 10;
 
 	#region Sniper
 	[SerializeField] // Makes Unity show the private field in inspector
@@ -68,11 +78,39 @@ public class Sniper : MonoBehaviour
 		player = transform.root.gameObject;
 		// Sets the pause script to the pause script in the scene at the start
 		pause = Pause.pause;
+
+		reticle = new Image[GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("Reticle").GetComponentsInChildren<Image>().Length];
+		hitMarkerHit = new Image[GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("HitMarkerHit").GetComponentsInChildren<Image>().Length];
+		hitMarkerDead = new Image[GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("HitMarkerDead").GetComponentsInChildren<Image>().Length];
+
+		for (int i = 0; i < reticle.Length; i++)
+		{
+			reticle[i] = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("Reticle").GetComponentsInChildren<Image>()[i];
+		}
+		for (int i = 0; i < hitMarkerHit.Length; i++)
+		{
+			hitMarkerHit[i] = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("HitMarkerHit").GetComponentsInChildren<Image>()[i];
+		}
+		for (int i = 0; i < hitMarkerDead.Length; i++)
+		{
+			hitMarkerDead[i] = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("Canvas").Find("FPSCanv").Find("HitMarkerDead").GetComponentsInChildren<Image>()[i];
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (hitEnemy)
+		{
+			HitMarkerHit();
+		}
+
+
+		if (deadEnemy)
+		{
+			HitMarkerDead();
+		}
+
 		// Sets the inspector max ammo int to the static int to see what the max ammo is in the inspector
 		imaxAmmo = maxAmmo;
 		// Sets the inspector ammo count int to the static int to see what the ammo count is in the inspector
@@ -91,6 +129,8 @@ public class Sniper : MonoBehaviour
 		ShootAnimation();
 		// Always check ShootWhileZoomedAnimation void 
 		ShootWhileZoomedAnimation();
+
+		SetReticleTransparency();
 	}
 
 	void CheckIfCanShoot()
@@ -175,98 +215,19 @@ public class Sniper : MonoBehaviour
 		// Raycast hit info variable
 		RaycastHit hit;
 
+		int raycastCount = 0;
+		float wallbangMultiplier = 1f;
+
 		// If aiming
 		if (pA.playerAnimation.GetBool("Aim"))
 		{
 			// Shoot a ray directly forward from the gun camera 
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward, out hit, range))
 			{
-				if (hit.transform.gameObject.tag == "Player")
-				{
-					if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range))
-					{
-						Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
-					}
-				}
-
-				// Tells us the collider that was hit in the debug
-				Debug.Log("Gunshot hit " + hit.collider.name);
-
-				// If an enemy was hit then get its specific enemy script and collision script. The collision script holds all of the enemy's hitboxes
-				if (hit.transform.root.gameObject.tag == "Enemy")
-				{
-					enemy = hit.transform.root.gameObject.GetComponent<Enemy>();
-					collisions = hit.transform.root.gameObject.GetComponent<Collisions>();
-				}
-
-				// If an enemy wasn't hit then set the current enemy and collisions script to null
-				else
-				{
-					enemy = null;
-					collisions = null;
-				}
-
-				if (hit.transform.gameObject.tag != "Player")
-				{
-					var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-					GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-					gunShot.transform.SetParent(hit.transform);
-					GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-					Destroy(impactGO, 2f);
-					Destroy(gunShot, 20f);
-				}
-
-				#region Hit collider check aimed
-				if (hit.transform.root.tag == "Enemy")
-				{
-					if (enemy.gameObject.activeSelf)
-					{
-						if (hit.collider == collisions.head)
-						{
-							HeadShotHit();
-						}
-						if (hit.collider == collisions.body)
-						{
-							BodyShotHit();
-						}
-						if (hit.collider == collisions.leftUpperArm)
-						{
-							BodyShotHit();
-						}
-						if (hit.collider == collisions.rightUpperArm)
-						{
-							BodyShotHit();
-						}
-						if (hit.collider == collisions.leftLowerArm)
-						{
-							BodyShotHit();
-						}
-						if (hit.collider == collisions.rightLowerArm)
-						{
-							BodyShotHit();
-						}
-						if (hit.collider == collisions.leftUpperLeg)
-						{
-							LegShotHit();
-						}
-						if (hit.collider == collisions.rightUpperLeg)
-						{
-							LegShotHit();
-						}
-						if (hit.collider == collisions.leftLowerLeg)
-						{
-							FootShotHit();
-						}
-						if (hit.collider == collisions.rightLowerLeg)
-						{
-							FootShotHit();
-						}
-					}
-				}
-				#endregion
+				RaycastShot(hit, raycastCount, wallbangMultiplier);
 			}
+			return;
 		}
-
 
 		if (!pA.playerAnimation.GetBool("Aim"))
 		{
@@ -274,85 +235,176 @@ public class Sniper : MonoBehaviour
 
 			if (Physics.Raycast(gunCam.transform.position, gunCam.transform.forward + new Vector3(RandomShot.x, 0, RandomShot.y), out hit, range))
 			{
-				if (hit.transform.gameObject.tag == "Player")
+				RaycastShot(hit, raycastCount, wallbangMultiplier);
+			}
+			return;
+		}
+	}
+
+	void RaycastShot(RaycastHit hit, int raycastCount, float wallbangMultiplier)
+	{
+		raycastCount++;
+
+		if (raycastCount < maxRays)
+		{
+			if (!hit.transform.gameObject.CompareTag("Player"))
+			{
+				if (!hit.transform.root.gameObject.CompareTag("Enemy"))
 				{
-					if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range))
+					if (!hit.transform.root.gameObject.CompareTag("TeamPlayer"))
 					{
-						Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
+						if (hit.transform.GetComponent<IgnoreRaycasts>() == null)
+						{
+							var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+							GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+							gunShot.transform.SetParent(hit.transform);
+							GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+							Destroy(impactGO, 2f);
+							Destroy(gunShot, 20f);
+						}
 					}
 				}
+			}
 
-				Debug.Log("Gunshot hit " + hit.collider.name);
+			// Tells us the collider that was hit in the debug
+			Debug.Log("Gunshot hit " + hit.collider.name);
 
-				if (hit.transform.root.gameObject.tag == "Enemy")
+			if (hit.transform.GetComponent<WallBang>() != null && wallbangMultiplier > 0.5f)
+			{
+				wallbangMultiplier *= hit.transform.GetComponent<WallBang>().damageCutOffMultiplier;
+				print("Wallbang! Shot damage reduced to " + (damage * wallbangMultiplier).ToString());
+				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
+				RaycastHit hit2;
+				if (Physics.Raycast(hit.point, gunCam.transform.forward, out hit2, range - distance))
 				{
-					enemy = hit.transform.root.gameObject.GetComponent<Enemy>();
-					collisions = hit.transform.root.gameObject.GetComponent<Collisions>();
+					if (hit.transform == hit2.transform)
+					{
+						print("Cannot shoot ray past this object");
+						RaycastHit hit3;
+						if (Physics.Raycast((hit2.point + hit.point) / 2, gunCam.transform.forward * 0.05f, out hit3, range - distance))
+						{
+							RaycastShot(hit3, raycastCount, wallbangMultiplier);
+						}
+					}
+					else
+					{
+						RaycastShot(hit2, raycastCount, wallbangMultiplier);
+					}					
 				}
-				else
-				{
-					enemy = null;
-					collisions = null;
-				}
-				if (hit.transform.gameObject.tag != "Player")
-				{
-					var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-					GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-					gunShot.transform.SetParent(hit.transform);
-					GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-					Destroy(impactGO, 2f);
-					Destroy(gunShot, 20f);
-				}
+				return;
+			}
 
-				#region Hit collider check
-				if (hit.transform.root.tag == "Enemy")
+			if (hit.transform.gameObject.CompareTag("Player"))
+			{
+				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
+				if (Physics.Raycast(hit.point, gunCam.transform.forward, out hit, range - distance))
+				{
+					Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
+
+					RaycastShot(hit, raycastCount, wallbangMultiplier);
+				}
+				return;
+			}
+
+			#region Enemy
+
+			if (hit.transform.root.gameObject.CompareTag("Enemy") || hit.transform.gameObject.CompareTag("Enemy"))
+			{
+				enemy = hit.transform.root.gameObject.GetComponent<Enemy>();
+				collisions = hit.transform.root.gameObject.GetComponent<Collisions>();
+
+				if (enemy.curHealth > 0)
 				{
 					if (enemy.gameObject.activeSelf)
 					{
-
 						if (hit.collider == collisions.head)
 						{
-							HeadShotHit();
+							HeadShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.body)
 						{
-							BodyShotHit();
+							BodyShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.leftUpperArm)
 						{
-							BodyShotHit();
+							BodyShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.rightUpperArm)
 						{
-							BodyShotHit();
+							BodyShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.leftLowerArm)
 						{
-							BodyShotHit();
+							BodyShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.rightLowerArm)
 						{
-							BodyShotHit();
+							BodyShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.leftUpperLeg)
 						{
-							LegShotHit();
+							LegShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.rightUpperLeg)
 						{
-							LegShotHit();
+							LegShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.leftLowerLeg)
 						{
-							FootShotHit();
+							FootShotHit(wallbangMultiplier);
 						}
 						if (hit.collider == collisions.rightLowerLeg)
 						{
-							FootShotHit();
+							FootShotHit(wallbangMultiplier);
+						}
+						if (enemy.curHealth > 0)
+						{
+							hitEnemy = true;
+
+						}
+						if (enemy.curHealth <= 0 && !enemy.isDead)
+						{
+							deadEnemy = true;
+							enemy.isDead = true;
 						}
 					}
 				}
-				#endregion
+
+				float distance = hit.distance;
+				if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range - distance))
+				{
+					Debug.Log("Raycast has hit an enemy, shooting another ray from that hit point.");
+
+					if (raycastCount > maxRays)
+					{
+						return;
+					}
+					else
+					{
+						RaycastShot(hit, raycastCount, wallbangMultiplier);
+					}
+				}
+				return;
+			}
+
+			else
+			{
+				enemy = null;
+				collisions = null;
+			}
+
+			#endregion
+
+			if (hit.transform.root.gameObject.CompareTag("TeamPlayer") || hit.transform.gameObject.CompareTag("TeamPlayer"))
+			{
+				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
+				if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range - distance))
+				{
+					Debug.Log("Raycast has hit a team player, shooting another ray from that hit point.");
+
+					RaycastShot(hit, raycastCount, wallbangMultiplier);
+				}
+				return;
 			}
 		}
 	}
@@ -464,25 +516,148 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	void SetReticleTransparency()
+	{
+		// Local variables
+		Color reticleColour = reticle[0].color;
+		float reticleAlpha = reticleColour.a;
+
+		// If aiming reduce the alpha colour of the reticle
+		if (pA.playerAnimation.GetBool("Aim") && !pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("SniperReload") && !pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("TakeOutSniper") && !pA.playerAnimation.GetCurrentAnimatorStateInfo(0).IsName("TakeAwayWeapon"))
+		{
+			if (reticleAlpha >= 0 && reticleAlpha <= 1)
+			{
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha -= Time.deltaTime * 4);
+			}
+			if (reticleAlpha <= 0)
+			{
+				reticleAlpha = 0;
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha);
+			}
+			if (reticleAlpha >= 1)
+			{
+				reticleAlpha = 1;
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha);
+			}
+		}
+
+		// If not aiming increase the alpha colour of the reticle
+		if (!pA.playerAnimation.GetBool("Aim"))
+		{
+			if (reticleAlpha >= 0 && reticleAlpha <= 1)
+			{
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha += Time.deltaTime * 4);
+			}
+			if (reticleAlpha <= 0)
+			{
+				reticleAlpha = 0;
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha);
+			}
+			if (reticleAlpha >= 1)
+			{
+				reticleAlpha = 1;
+				reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha);
+			}
+		}
+
+		// If changing weapon set reticle alpha to 1
+		if (pA.playerAnimation.GetNextAnimatorStateInfo(0).IsName("TakeAwayWeapon"))
+		{
+			reticleAlpha = 1;
+			reticleColour = new Color(reticleColour.r, reticleColour.g, reticleColour.b, reticleAlpha);
+		}
+
+		// Apply the reticle alpha
+		foreach (Image item in reticle)
+		{
+			item.color = reticleColour;
+			item.GetComponent<Outline>().effectColor = new Color(0, 0, 0, reticleColour.a);
+		}
+	}
+
+	void HitMarkerHit()
+	{
+		Color hitMarkerColour = hitMarkerHit[0].color;
+
+		if (hitMarkerTimer >= 0)
+		{
+			hitMarkerTimer -= Time.deltaTime;
+
+			if (hitMarkerHit[0].color.a != 1)
+			{
+				foreach (Image hitmarker in hitMarkerHit)
+				{
+					hitmarker.color = new Color(hitMarkerColour.r, hitMarkerColour.g, hitMarkerColour.b, 1);
+					hitmarker.GetComponent<Outline>().effectColor = new Color(0, 0, 0, 1);
+				}
+			}
+		}
+
+		if (hitMarkerTimer <= 0)
+		{
+			hitMarkerTimer = 0.2f;
+
+			foreach (Image hitmarker in hitMarkerHit)
+			{
+				hitmarker.color = new Color(hitMarkerColour.r, hitMarkerColour.g, hitMarkerColour.b, 0);
+				hitmarker.GetComponent<Outline>().effectColor = new Color(0, 0, 0, 0);
+			}
+
+			hitEnemy = false;
+		}
+	}
+
+	void HitMarkerDead()
+	{
+		Color hitMarkerColour = hitMarkerDead[0].color;
+
+		if (deadMarkerTimer >= 0)
+		{
+			deadMarkerTimer -= Time.deltaTime;
+
+			if (hitMarkerDead[0].color.a != 1)
+			{
+				foreach (Image hitmarker in hitMarkerDead)
+				{
+					hitmarker.color = new Color(hitMarkerColour.r, hitMarkerColour.g, hitMarkerColour.b, 1);
+					hitmarker.GetComponent<Outline>().effectColor = new Color(0, 0, 0, 1);
+				}
+			}
+		}
+
+		if (deadMarkerTimer <= 0)
+		{
+			deadMarkerTimer = 0.2f;
+
+			foreach (Image hitmarker in hitMarkerDead)
+			{
+				hitmarker.color = new Color(hitMarkerColour.r, hitMarkerColour.g, hitMarkerColour.b, 0);
+				hitmarker.GetComponent<Outline>().effectColor = new Color(0, 0, 0, 0);
+			}
+
+			deadEnemy = false;
+		}
+	}
+
 	#region Hitboxes
-	void HeadShotHit()
+	void HeadShotHit(float wallbangMultiplier)
 	{
-		enemy.curHealth -= damage * headShotMultiplier;
+		enemy.curHealth -= damage * wallbangMultiplier * headShotMultiplier;
 	}
 
-	void BodyShotHit()
+	void BodyShotHit(float wallbangMultiplier)
 	{
-		enemy.curHealth -= damage * bodyShotMultiplier;
+		enemy.curHealth -= damage * wallbangMultiplier * bodyShotMultiplier;
 	}
 
-	void LegShotHit()
+	void LegShotHit(float wallbangMultiplier)
 	{
-		enemy.curHealth -= damage * legShotMultiplier;
+		enemy.curHealth -= damage * wallbangMultiplier * legShotMultiplier;
 	}
 
-	void FootShotHit()
+	void FootShotHit(float wallbangMultiplier)
 	{
-		enemy.curHealth -= damage * footShotMultiplier;
+		enemy.curHealth -= damage * wallbangMultiplier * footShotMultiplier;
 	}
 	#endregion
 }

@@ -40,7 +40,7 @@ public class Floater : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (!other.TryGetComponent<Player>(out Player player))
+		if (other.CompareTag("Car"))
 		{
 			if (other.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
 			{

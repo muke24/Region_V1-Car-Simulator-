@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class IgnoreCollisionsOnCar : MonoBehaviour
 {
-	private Collider[] carColliders;
+	public Collider[] carColliders;
 
 	// Start is called before the first frame update
 	void Start()
@@ -12,26 +12,35 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 		
 		for (int i = 0; i < carColliders.Length; i++)
 		{
-			foreach (Collider collider in carColliders)
+			try
 			{
-				if (i == 29)
+				foreach (Collider collider in carColliders)
 				{
-					Physics.IgnoreCollision(collider, carColliders[i++ - 1]);
-				}
-				if (i >= 0 && i < 29)
-				{
-					Physics.IgnoreCollision(collider, carColliders[i++]);
-				}				
+					if (i == 29)
+					{
+						Physics.IgnoreCollision(collider, carColliders[i++ - 1]);
+					}
+					if (i >= 0 && i < 29)
+					{
+						Physics.IgnoreCollision(collider, carColliders[i++]);
+					}
 
-				if (i == 0)
-				{
-					Physics.IgnoreCollision(collider, carColliders[1 - i--]);
+					if (i == 0)
+					{
+						Physics.IgnoreCollision(collider, carColliders[1 - i--]);
+					}
+					if (i <= 28 && i > 0)
+					{
+						Physics.IgnoreCollision(collider, carColliders[i--]);
+					}
 				}
-				if (i <= 28 && i > 0)
-				{
-					Physics.IgnoreCollision(collider, carColliders[i--]);
-				}				
 			}
+			catch (System.Exception)
+			{
+				
+				//throw;
+			}
+			
 		}
 	}
 }

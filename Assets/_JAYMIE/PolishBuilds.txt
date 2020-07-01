@@ -1,0 +1,9 @@
+Polish Builds Assignment 2 Particles, Fluids and VFX
+Muzzle flash particle is found in the sniper prefab located at "Assets/GunPrefabs/ModernGuns/Prefabs/SniperRifles/L96_Black_Full"
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Polish Builds Assignment 3 Shaders
+Amplify ocean shader is located at "Assets/Shaders/Environment/Water/Ocean/Water"
+I didn't know how to use comment boxes as after I did most of the work I realised the youtube video I was using to help me was 
+actually using the Unity shader graphs

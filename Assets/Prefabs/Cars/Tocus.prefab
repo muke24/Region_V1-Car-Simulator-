@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &576144266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576144267}
+  - component: {fileID: 576144268}
+  - component: {fileID: 576144269}
+  m_Layer: 9
+  m_Name: Collider
+  m_TagString: Car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576144267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576144266}
+  m_LocalRotation: {x: -0.18746705, y: 0, z: 0, w: 0.9822709}
+  m_LocalPosition: {x: 0, y: 0.775, z: -1.341}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2775017755018755779}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -21.61, y: 0, z: 0}
+--- !u!65 &576144268
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576144266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0675225, y: 0.03, z: 0.7500277}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &576144269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576144266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 1
 --- !u!1 &1935408586
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,11 +956,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27107.73
-    damper: 3696.509
+    spring: 27607.615
+    damper: 3764.6748
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: 0.075478554
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.059904456
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -960,11 +1018,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27773.004
-    damper: 3787.228
+    spring: 28286.143
+    damper: 3857.2012
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.075478554
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.059904456
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1325,11 +1383,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 33391.406
-    damper: 4553.3735
+    spring: 32891.51
+    damper: 4485.206
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.06712648
+  m_SuspensionDistance: 0.16214874
+  m_ForceAppPointDistance: 0.051552385
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1387,11 +1445,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 32727.85
-    damper: 4462.8887
+    spring: 32214.729
+    damper: 4392.918
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: 0.06712648
+  m_SuspensionDistance: 0.16214879
+  m_ForceAppPointDistance: 0.051552385
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1904,7 +1962,6 @@ GameObject:
   - component: {fileID: 2782643881488193407}
   - component: {fileID: 2804522637737843767}
   - component: {fileID: 2794220020119225277}
-  - component: {fileID: 2780179909591293200}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Back
   m_TagString: Car
@@ -1973,20 +2030,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780179909591293200
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780179909591293201}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300096, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780180342868079541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2046,7 @@ GameObject:
   - component: {fileID: 206098679}
   - component: {fileID: 206098682}
   - component: {fileID: 206098685}
+  - component: {fileID: 347369349}
   m_Layer: 9
   m_Name: Tocus_Door_Right_Back
   m_TagString: Car
@@ -2179,6 +2223,19 @@ MonoBehaviour:
   damagePerHit: 0.1
   areaToDeform: 0.2
   maximumDistance: 0.1
+--- !u!114 &347369349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780180342868079541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780252857239466569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2247,6 @@ GameObject:
   - component: {fileID: 2782290256732965045}
   - component: {fileID: 2802713458340270053}
   - component: {fileID: 2792279902517653095}
-  - component: {fileID: 2780252857239466568}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left_Front
   m_TagString: Car
@@ -2259,20 +2315,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780252857239466568
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780252857239466569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300094, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780260410141088549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,6 +2614,7 @@ GameObject:
   - component: {fileID: 2780299139923649934}
   - component: {fileID: 2907391044458346218}
   - component: {fileID: 1740878327990007}
+  - component: {fileID: 1740878327989999}
   m_Layer: 9
   m_Name: Tocus_Door_Left_Front
   m_TagString: Car
@@ -2761,6 +2804,19 @@ MonoBehaviour:
   damagePerHit: 0.1
   areaToDeform: 0.2
   maximumDistance: 0.1
+--- !u!114 &1740878327989999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780299139923649939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780316549609562759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2829,7 @@ GameObject:
   - component: {fileID: 2804380131663508391}
   - component: {fileID: 2792544284005714773}
   - component: {fileID: 2780316549609562758}
+  - component: {fileID: 1269980740}
   m_Layer: 9
   m_Name: Tocus_Win_Front
   m_TagString: Car
@@ -2855,6 +2912,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300090, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1269980740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780316549609562759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780331559971186817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2942,7 @@ GameObject:
   - component: {fileID: 2780331559971188604}
   - component: {fileID: 5141253573667793006}
   - component: {fileID: 1702959696874493}
+  - component: {fileID: 3023111709957418271}
   m_Layer: 9
   m_Name: Tocus_Door_Right_Front
   m_TagString: Car
@@ -3061,6 +3132,19 @@ MonoBehaviour:
   damagePerHit: 0.1
   areaToDeform: 0.2
   maximumDistance: 0.1
+--- !u!114 &3023111709957418271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780331559971186817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780334850897205157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,7 +3174,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 576144267}
   m_Father: {fileID: 2779763340760511179}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3150,7 +3235,7 @@ MeshCollider:
   m_GameObject: {fileID: 2780334850897205157}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
@@ -3167,6 +3252,7 @@ GameObject:
   - component: {fileID: 2803015560035928623}
   - component: {fileID: 2792672223989733379}
   - component: {fileID: 2780413186143284732}
+  - component: {fileID: 7538819}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Left
   m_TagString: Car
@@ -3249,6 +3335,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300064, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &7538819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780413186143284733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780423566793949867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,7 +3366,6 @@ GameObject:
   - component: {fileID: 2780423566793949860}
   - component: {fileID: 2780423566793949862}
   - component: {fileID: 2780423566793949857}
-  - component: {fileID: 1610265679339991}
   - component: {fileID: 4054563762720002756}
   - component: {fileID: 1610265679340000}
   - component: {fileID: 1610265679340001}
@@ -3465,21 +3563,6 @@ MonoBehaviour:
   door3: {fileID: 2779763339653052953}
   door4: {fileID: 2779763341168716653}
   _currentCar: {fileID: 0}
---- !u!114 &1610265679339991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780423566793949867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fcc89762926e84ca6164f011738626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid: {fileID: 2779763339696154218}
-  depthBeforeSubmerged: 6
-  displacementAmount: 2.8
 --- !u!208 &4054563762720002756
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -3556,6 +3639,7 @@ GameObject:
   - component: {fileID: 2803169420740250083}
   - component: {fileID: 2792577704429507075}
   - component: {fileID: 2780470758779515164}
+  - component: {fileID: 175449692}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right
   m_TagString: Car
@@ -3638,6 +3722,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300102, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &175449692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780470758779515165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780485546922951131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,10 +3746,10 @@ GameObject:
   - component: {fileID: 2782343375061744637}
   - component: {fileID: 2804392651989628919}
   - component: {fileID: 2792521403962365077}
-  - component: {fileID: 2780485546922951130}
   - component: {fileID: 2108274628}
   - component: {fileID: 2108274625}
   - component: {fileID: 2108274629}
+  - component: {fileID: 1048736991}
   m_Layer: 9
   m_Name: Tocus_Body
   m_TagString: Car
@@ -3723,20 +3820,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780485546922951130
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780485546922951131}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!54 &2108274628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3784,6 +3867,19 @@ MonoBehaviour:
   damagePerHit: 0.1
   areaToDeform: 0.2
   maximumDistance: 0.5
+--- !u!114 &1048736991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780485546922951131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 1
 --- !u!1 &2780579106784290725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4210,6 @@ GameObject:
   - component: {fileID: 2775007657825432691}
   - component: {fileID: 2803013332386628155}
   - component: {fileID: 2792739330848580821}
-  - component: {fileID: 2780632411408589550}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Front
   m_TagString: Car
@@ -4183,20 +4278,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780632411408589550
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780632411408589551}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300098, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780723099875685341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,6 +4373,7 @@ GameObject:
   - component: {fileID: 164250256}
   - component: {fileID: 164250258}
   - component: {fileID: 164250259}
+  - component: {fileID: 377222927}
   m_Layer: 9
   m_Name: Tocus_Door_Left_Back
   m_TagString: Car
@@ -4468,6 +4550,19 @@ MonoBehaviour:
   damagePerHit: 0.1
   areaToDeform: 0.2
   maximumDistance: 0.1
+--- !u!114 &377222927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780733247418898461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.95
 --- !u!1 &2780744690305430277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,7 +4574,6 @@ GameObject:
   - component: {fileID: 2774976818652163111}
   - component: {fileID: 2804506309150876561}
   - component: {fileID: 2792515222539784965}
-  - component: {fileID: 2780744690305430276}
   m_Layer: 9
   m_Name: Tocus_Win_Door_Right_Back
   m_TagString: Car
@@ -4548,20 +4642,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780744690305430276
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780744690305430277}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300100, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780841256562110565
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,7 +5090,7 @@ Transform:
   m_GameObject: {fileID: 2780905576756896017}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
   m_RootOrder: 3
@@ -5030,7 +5110,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780905576756896017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

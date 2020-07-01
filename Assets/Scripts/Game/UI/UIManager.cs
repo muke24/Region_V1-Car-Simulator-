@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField]
 	private Sniper sniper = null;
 
+	private float fpsTimer = 0.2f;
+
 	private void Start()
 	{
 		currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
@@ -29,11 +31,23 @@ public class UIManager : MonoBehaviour
 
 	private void Update()
 	{
-		fpsText.text = "FPS: " + (Mathf.Round(1/Time.smoothDeltaTime)).ToString();
+		if (fpsTimer > 0)
+		{
+			fpsTimer -= Time.unscaledDeltaTime;
+		}
+		else
+		{
+			fpsText.text = "FPS: " + Mathf.Round(1 / Time.smoothDeltaTime).ToString();
+			fpsTimer = 0.2f;
+		}
+	}
+
+	private void FixedUpdate()
+	{
 		if (sniper != null)
 		{
 			AmmoCheck();
-		}		
+		}
 	}
 
 	public void AmmoCheck()

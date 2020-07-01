@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 3496539729532627707}
   - component: {fileID: 1335901878078313848}
   - component: {fileID: 2343941066721668578}
+  - component: {fileID: 1063549352}
   m_Layer: 0
   m_Name: LightPost
   m_TagString: Sign
@@ -301,6 +302,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &1063549352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889382280952491873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.9
 --- !u!1 &8889382281214605747
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +406,7 @@ GameObject:
   - component: {fileID: 8889382281492506349}
   - component: {fileID: 8889382281492506350}
   - component: {fileID: 8889382281492506351}
+  - component: {fileID: 1253266895}
   m_Layer: 0
   m_Name: LightPost (3)
   m_TagString: Untagged
@@ -473,6 +488,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1253266895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889382281492506257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.9
 --- !u!1 &8889382281896860425
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +513,7 @@ GameObject:
   - component: {fileID: 8889382281896860421}
   - component: {fileID: 8889382281896860422}
   - component: {fileID: 8889382281896860423}
+  - component: {fileID: 2048892192}
   m_Layer: 0
   m_Name: LightPost (1)
   m_TagString: Untagged
@@ -566,6 +595,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2048892192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889382281896860425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.9
 --- !u!1 &8889382282039479159
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +620,7 @@ GameObject:
   - component: {fileID: 8889382282039479155}
   - component: {fileID: 8889382282039479156}
   - component: {fileID: 8889382282039479157}
+  - component: {fileID: 184069233}
   m_Layer: 0
   m_Name: LightPost (2)
   m_TagString: Untagged
@@ -659,6 +702,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &184069233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889382282039479159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCutOffMultiplier: 0.9
 --- !u!1 &8889382282275470619
 GameObject:
   m_ObjectHideFlags: 0

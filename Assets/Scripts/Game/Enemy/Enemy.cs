@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+	public bool isDead = false;
 	public EnemyArmRotations eArmRot;
 	public GameObject player;
 	public Animator anim;
