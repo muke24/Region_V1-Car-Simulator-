@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeshDeformation : MonoBehaviour
 {
 	public MeshFilter[] meshes;
-	public MeshCollider[] colliders;
+	public Collider[] colliders;
 	[Range(0.01f, 100f)]
 	public float damagePerHit = 0.5f;
 	[Range(0.01f, 100f)]
@@ -23,11 +23,17 @@ public class MeshDeformation : MonoBehaviour
 	{
 		rigid = GetComponent<Rigidbody>();
 
-		meshes = new MeshFilter[1];
-		colliders = new MeshCollider[1];
+		meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
+		colliders = new Collider[GetComponents<Collider>().Length];
 
-		meshes[0] = GetComponent<MeshFilter>();
-		colliders[0] = GetComponent<MeshCollider>();
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			colliders[i] = GetComponents<Collider>()[i];
+		}
+		for (int i = 0; i < meshes.Length; i++)
+		{
+			meshes[i] = GetComponents<MeshFilter>()[i];
+		}		
 	}
 
 	void OnEnable()
@@ -42,8 +48,17 @@ public class MeshDeformation : MonoBehaviour
 			mesh.MarkDynamic();
 		}
 
-		meshes[0] = GetComponent<MeshFilter>();
-		colliders[0] = GetComponent<MeshCollider>();
+		meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
+		colliders = new Collider[GetComponents<Collider>().Length];
+
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			colliders[i] = GetComponents<Collider>()[i];
+		}
+		for (int i = 0; i < meshes.Length; i++)
+		{
+			meshes[i] = GetComponents<MeshFilter>()[i];
+		}
 	}
 	void OnDisable()
 	{
@@ -61,8 +76,14 @@ public class MeshDeformation : MonoBehaviour
 			mesh.RecalculateBounds();
 		}
 
-		meshes[0] = GetComponent<MeshFilter>();
-		colliders[0] = GetComponent<MeshCollider>();
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			colliders[i] = null;
+		}
+		for (int i = 0; i < meshes.Length; i++)
+		{
+			meshes[i] = null;
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -171,8 +192,40 @@ public class MeshDeformation : MonoBehaviour
 		mesh.RecalculateBounds();
 
 		// Sets the mesh collider to be the same as the damaged mesh
-		colliders[0].sharedMesh = null;
-		colliders[0].sharedMesh = meshes[0].sharedMesh;
+
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			if (colliders[i].GetComponent<MeshCollider>() != null)
+			{
+				colliders[i].GetComponent<MeshCollider>().sharedMesh = null;
+				colliders[i].GetComponent<MeshCollider>().sharedMesh = meshes[i].sharedMesh;
+			}
+			else if (GetComponent<NonConvexMeshCollider>() != null)
+			{
+				//GetComponent<NonConvexMeshCollider>().Calculate();
+				//if (transform.parent.name == "Body")
+				//{
+				//	transform.parent.parent.GetComponent<IgnoreCollisionsOnCar>().FindAndIgnoreColliders();
+				//}
+				//else
+				//{
+				//	transform.parent.parent.parent.GetComponent<IgnoreCollisionsOnCar>().FindAndIgnoreColliders();
+				//}
+
+				//colliders = new Collider[GetComponents<Collider>().Length];
+
+				//for (int l = 0; l < colliders.Length; l++)
+				//{
+				//	colliders[l] = GetComponents<Collider>()[l];
+				//}				
+
+				return damagedVertices > 0 ? totalDamage / damagedVertices : 0.0f;
+			}
+			else
+			{
+				Debug.Log("Cannot deform mesh on " + transform.name);
+			}
+		}
 
 		return damagedVertices > 0 ? totalDamage / damagedVertices : 0.0f;
 	}

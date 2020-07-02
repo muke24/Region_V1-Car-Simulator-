@@ -8,19 +8,24 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		FindAndIgnoreColliders();
+	}
+
+	public void FindAndIgnoreColliders()
+	{
 		carColliders = GetComponentsInChildren<Collider>();
-		
+
 		for (int i = 0; i < carColliders.Length; i++)
 		{
 			try
 			{
 				foreach (Collider collider in carColliders)
 				{
-					if (i == 29)
+					if (i == carColliders.Length - 1)
 					{
 						Physics.IgnoreCollision(collider, carColliders[i++ - 1]);
 					}
-					if (i >= 0 && i < 29)
+					if (i >= 0 && i < (carColliders.Length - 1))
 					{
 						Physics.IgnoreCollision(collider, carColliders[i++]);
 					}
@@ -29,7 +34,7 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 					{
 						Physics.IgnoreCollision(collider, carColliders[1 - i--]);
 					}
-					if (i <= 28 && i > 0)
+					if (i <= carColliders.Length - 1 && i > 0)
 					{
 						Physics.IgnoreCollision(collider, carColliders[i--]);
 					}
@@ -37,10 +42,9 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 			}
 			catch (System.Exception)
 			{
-				
-				//throw;
+
+				throw;
 			}
-			
 		}
 	}
 }

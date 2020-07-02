@@ -244,24 +244,22 @@ public class Sniper : MonoBehaviour
 	void RaycastShot(RaycastHit hit, int raycastCount, float wallbangMultiplier)
 	{
 		raycastCount++;
+		float distance = Vector3.Distance(gunCam.transform.position, hit.point);
 
 		if (raycastCount < maxRays)
 		{
-			if (!hit.transform.gameObject.CompareTag("Player"))
+			if (!hit.transform.gameObject.CompareTag("Player") || hit.transform.name == "Environment")
 			{
 				if (!hit.transform.root.gameObject.CompareTag("Enemy"))
 				{
 					if (!hit.transform.root.gameObject.CompareTag("TeamPlayer"))
 					{
-						if (hit.transform.GetComponent<IgnoreRaycasts>() == null)
-						{
-							var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-							GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-							gunShot.transform.SetParent(hit.transform);
-							GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-							Destroy(impactGO, 2f);
-							Destroy(gunShot, 20f);
-						}
+						var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+						GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+						gunShot.transform.SetParent(hit.transform);
+						GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+						Destroy(impactGO, 2f);
+						Destroy(gunShot, 20f);
 					}
 				}
 			}
@@ -269,34 +267,13 @@ public class Sniper : MonoBehaviour
 			// Tells us the collider that was hit in the debug
 			Debug.Log("Gunshot hit " + hit.collider.name);
 
-			if (hit.transform.GetComponent<WallBang>() != null && wallbangMultiplier > 0.5f)
+			if (hit.transform.GetComponent<WallBang>() != null && wallbangMultiplier > 0.5f || hit.transform.CompareTag("Wall-Bangable") && wallbangMultiplier > 0.5f)
 			{
-				wallbangMultiplier *= hit.transform.GetComponent<WallBang>().damageCutOffMultiplier;
-				print("Wallbang! Shot damage reduced to " + (damage * wallbangMultiplier).ToString());
-				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
-				RaycastHit hit2;
-				if (Physics.Raycast(hit.point, gunCam.transform.forward, out hit2, range - distance))
-				{
-					if (hit.transform == hit2.transform)
-					{
-						print("Cannot shoot ray past this object");
-						RaycastHit hit3;
-						if (Physics.Raycast((hit2.point + hit.point) / 2, gunCam.transform.forward * 0.05f, out hit3, range - distance))
-						{
-							RaycastShot(hit3, raycastCount, wallbangMultiplier);
-						}
-					}
-					else
-					{
-						RaycastShot(hit2, raycastCount, wallbangMultiplier);
-					}					
-				}
-				return;
+				Wallbang(hit, raycastCount, wallbangMultiplier, distance);
 			}
 
 			if (hit.transform.gameObject.CompareTag("Player"))
 			{
-				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
 				if (Physics.Raycast(hit.point, gunCam.transform.forward, out hit, range - distance))
 				{
 					Debug.Log("Raycast has hit player, shooting another ray from that hit point.");
@@ -370,7 +347,6 @@ public class Sniper : MonoBehaviour
 					}
 				}
 
-				float distance = hit.distance;
 				if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range - distance))
 				{
 					Debug.Log("Raycast has hit an enemy, shooting another ray from that hit point.");
@@ -397,7 +373,6 @@ public class Sniper : MonoBehaviour
 
 			if (hit.transform.root.gameObject.CompareTag("TeamPlayer") || hit.transform.gameObject.CompareTag("TeamPlayer"))
 			{
-				float distance = Vector3.Distance(gunCam.transform.position, hit.point);
 				if (Physics.Raycast(hit.transform.position, gunCam.transform.forward, out hit, range - distance))
 				{
 					Debug.Log("Raycast has hit a team player, shooting another ray from that hit point.");
@@ -405,6 +380,25 @@ public class Sniper : MonoBehaviour
 					RaycastShot(hit, raycastCount, wallbangMultiplier);
 				}
 				return;
+			}
+		}
+	}
+
+	void Wallbang(RaycastHit hit, int raycastCount, float wallbangMultiplier, float distance)
+	{
+		wallbangMultiplier *= hit.transform.GetComponent<WallBang>().damageCutOffMultiplier;
+		print("Wallbang! Shot damage reduced to " + (damage * wallbangMultiplier).ToString());
+		foreach (Collider col in hit.transform.GetComponentsInChildren<Collider>())
+		{
+			col.enabled = false;
+		}
+		RaycastHit hit2;
+		if (Physics.Raycast(hit.point, gunCam.transform.forward, out hit2, range - distance))
+		{
+			RaycastShot(hit2, raycastCount, wallbangMultiplier);
+			foreach (Collider col in hit.transform.GetComponentsInChildren<Collider>())
+			{
+				col.enabled = true;
 			}
 		}
 	}
