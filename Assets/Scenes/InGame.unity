@@ -79080,26 +79080,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1938654754}
     m_Modifications:
-    - target: {fileID: 6075725830801975388, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923696875761836, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923697460146682, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923697627050523, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7829923697791755006, guid: d45029ee80b20d84b8cf3750f2fcd684,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -79159,26 +79139,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923698206558179, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923698210954244, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923698334881489, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829923698432916457, guid: d45029ee80b20d84b8cf3750f2fcd684,
-        type: 3}
-      propertyPath: m_ProbeAnchor
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45029ee80b20d84b8cf3750f2fcd684, type: 3}
