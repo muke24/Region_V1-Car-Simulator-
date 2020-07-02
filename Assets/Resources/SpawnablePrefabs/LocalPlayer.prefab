@@ -11042,7 +11042,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 98321
+    m_Bits: 65536
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: edf1cc0b1a2928d48b29959308f4461c, type: 2}
   m_TargetDisplay: 0
@@ -12811,7 +12811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 0}
-  pMovement: {fileID: 4276280504643031229}
   playerAnimation: {fileID: 4276280504643031169}
   vertical: 0
   horizontal: 0

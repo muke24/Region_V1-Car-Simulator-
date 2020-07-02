@@ -2,139 +2,13 @@ fileFormatVersion: 2
 guid: 298a34f1f6661ae47b4507e6a147672f
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Tree1Large
-  - first:
-      1: 100002
-    second: Tree1Small
-  - first:
-      1: 100004
-    second: Tree2Large
-  - first:
-      1: 100006
-    second: Tree2Small
-  - first:
-      1: 100008
-    second: Tree3Large
-  - first:
-      1: 100010
-    second: Tree3Small
-  - first:
-      1: 100012
-    second: Tree4Large
-  - first:
-      1: 100014
-    second: Tree4Small
-  - first:
-      1: 100016
-    second: //RootNode
-  - first:
-      4: 400000
-    second: Tree1Large
-  - first:
-      4: 400002
-    second: Tree1Small
-  - first:
-      4: 400004
-    second: Tree2Large
-  - first:
-      4: 400006
-    second: Tree2Small
-  - first:
-      4: 400008
-    second: Tree3Large
-  - first:
-      4: 400010
-    second: Tree3Small
-  - first:
-      4: 400012
-    second: Tree4Large
-  - first:
-      4: 400014
-    second: Tree4Small
-  - first:
-      4: 400016
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: Tree1Large
-  - first:
-      23: 2300002
-    second: Tree1Small
-  - first:
-      23: 2300004
-    second: Tree2Large
-  - first:
-      23: 2300006
-    second: Tree2Small
-  - first:
-      23: 2300008
-    second: Tree3Large
-  - first:
-      23: 2300010
-    second: Tree3Small
-  - first:
-      23: 2300012
-    second: Tree4Large
-  - first:
-      23: 2300014
-    second: Tree4Small
-  - first:
-      33: 3300000
-    second: Tree1Large
-  - first:
-      33: 3300002
-    second: Tree1Small
-  - first:
-      33: 3300004
-    second: Tree2Large
-  - first:
-      33: 3300006
-    second: Tree2Small
-  - first:
-      33: 3300008
-    second: Tree3Large
-  - first:
-      33: 3300010
-    second: Tree3Small
-  - first:
-      33: 3300012
-    second: Tree4Large
-  - first:
-      33: 3300014
-    second: Tree4Small
-  - first:
-      43: 4300000
-    second: Tree1Large
-  - first:
-      43: 4300002
-    second: Tree1Small
-  - first:
-      43: 4300004
-    second: Tree2Large
-  - first:
-      43: 4300006
-    second: Tree2Small
-  - first:
-      43: 4300008
-    second: Tree3Large
-  - first:
-      43: 4300010
-    second: Tree3Small
-  - first:
-      43: 4300012
-    second: Tree4Large
-  - first:
-      43: 4300014
-    second: Tree4Small
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -161,16 +35,16 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 0.01
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -179,18 +53,18 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 180
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -210,10 +84,10 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
