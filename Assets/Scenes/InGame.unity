@@ -55318,7 +55318,7 @@ GameObject:
   - component: {fileID: 1530744323}
   m_Layer: 0
   m_Name: SpawnPoints
-  m_TagString: Untagged
+  m_TagString: SpawnPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55351,7 +55351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca08ef8ee11ebe64b9f010521247adb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
   spawn1: {fileID: 407506633}
   spawn2: {fileID: 1167939824}
   base1: {fileID: 814726520}
@@ -55364,6 +55363,7 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 4276280504643031172, guid: f41118679aca40e459611cda8f2dc8ba, type: 3}
   length: 0
+  respawnEnemy: 
 --- !u!1001 &1531425394
 PrefabInstance:
   m_ObjectHideFlags: 0

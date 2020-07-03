@@ -20,11 +20,16 @@ public class Enemy : MonoBehaviour
 	public Slider healthSlider;
 	public Text healthText;
 
+	public int spawnId;
+	private bool timerOn = false;
+	private float timer = 5f;
+
 	private GameObject tPose;
 	private Collider[] colliders;
 	private Rigidbody[] rigid;
 	private EnemyAI enemyAI;
 	private NavMeshAgent agent;
+	private SpawnPoints spawnPoints = null;
 
 	// Start is called before the first frame update
 	void Start()
@@ -41,6 +46,7 @@ public class Enemy : MonoBehaviour
 		tPose.SetActive(false);
 		enemyAI = GetComponent<EnemyAI>();
 		agent = GetComponent<NavMeshAgent>();
+		spawnPoints = GameObject.FindGameObjectWithTag("SpawnPoints").GetComponent<SpawnPoints>();
 
 		RagDollOff();
 	}
@@ -63,6 +69,19 @@ public class Enemy : MonoBehaviour
 		healthSlider.value = curHealth;
 		healthText.text = (Mathf.RoundToInt(curHealth)).ToString() + " / " + (Mathf.RoundToInt(maxHealth)).ToString();
 
+		if (timerOn)
+		{
+			if (timer >= 0)
+			{
+				timer -= Time.deltaTime;
+			}
+			else
+			{
+				timerOn = false;
+				timer = 5f;
+				Respawn();
+			}
+		}
 	}
 
 	void RagDollOn()
@@ -95,6 +114,8 @@ public class Enemy : MonoBehaviour
 			force = false;
 		}
 
+		timerOn = true;
+
 		Destroy(gameObject, 10);
 	}
 
@@ -106,6 +127,12 @@ public class Enemy : MonoBehaviour
 		{
 			rb.isKinematic = true;
 		}
+	}
+
+	void Respawn()
+	{
+		spawnPoints.respawnEnemy[spawnId] = true;
+		spawnPoints.RespawnEnemyAfterDeath();
 	}
 }
 // This code is written by Peter Thompson

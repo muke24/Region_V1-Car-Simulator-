@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
-	public float team;
+	public static int team;
 
 	public GameObject spawn1;
 	public GameObject spawn2;
@@ -20,6 +20,9 @@ public class SpawnPoints : MonoBehaviour
 	public GameObject player;
 
 	public int length = 0;
+	public static int enemySpawningId = 0;
+
+	public bool[] respawnEnemy;
 
 	// Start is called before the first frame update
 	void Awake()
@@ -202,6 +205,31 @@ public class SpawnPoints : MonoBehaviour
 			Instantiate(enemyPlayer, enemySpawnPoints[2].transform.position, enemySpawnPoints[2].transform.rotation, null);
 			Instantiate(enemyPlayer, enemySpawnPoints[3].transform.position, enemySpawnPoints[3].transform.rotation, null);
 			Instantiate(enemyPlayer, enemySpawnPoints[4].transform.position, enemySpawnPoints[4].transform.rotation, null);
+
+			respawnEnemy = new bool[5];
+			for (int i = 0; i < respawnEnemy.Length; i++)
+			{
+				respawnEnemy[i] = false;
+			}
+
+			Enemy[] enemies = new Enemy[5];
+			for (int i = 0; i < enemies.Length; i++)
+			{
+				enemies[i] = GameObject.FindGameObjectsWithTag("Enemy")[i].GetComponent<Enemy>();
+				enemies[i].spawnId = i;
+			}
+		}		
+	}
+
+	public void RespawnEnemyAfterDeath()
+	{
+		for (int i = 0; i < respawnEnemy.Length; i++)
+		{
+			if (respawnEnemy[i] == true)
+			{
+				Instantiate(enemyPlayer, enemySpawnPoints[i].transform.position, enemySpawnPoints[i].transform.rotation, null);
+				respawnEnemy[i] = false;
+			}
 		}		
 	}
 }

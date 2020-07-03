@@ -6,9 +6,16 @@ public class DestroyCollidersAtStart : MonoBehaviour
 	{
 		foreach (Collider col in FindObjectsOfType<Collider>())
 		{
-			if (!col.CompareTag("DontDestroyAtStart"))
+			if (!col.transform.CompareTag("DontDestroyAtStart"))
 			{
 				Destroy(col);
+			}
+		}
+		foreach (Rigidbody rigid in FindObjectsOfType<Rigidbody>())
+		{
+			if (!rigid.transform.CompareTag("DontDestroyAtStart"))
+			{
+				Destroy(rigid);
 			}
 		}
 	}
