@@ -21,6 +21,7 @@ TagManager:
   - Error
   - PlayerPanel
   - PlayerPanelParent
+  - DontDestroyAtStart
   layers:
   - Default
   - TransparentFX
