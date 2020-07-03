@@ -1,17 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSpawnPoint : MonoBehaviour
 {
 	private void Awake()
 	{
-		PlayerSpawnSystem.AddSpawnPoint(transform);
+		if (GameMode.multiplayer)
+		{
+			PlayerSpawnSystem.AddSpawnPoint(transform);
+		}
 	}
 
 	private void OnDestroy()
 	{
-		PlayerSpawnSystem.RemoveSpawnPoint(transform);
+		if (GameMode.multiplayer)
+		{
+			PlayerSpawnSystem.RemoveSpawnPoint(transform);
+		}		
 	}
 
 	private void OnDrawGizmos()
