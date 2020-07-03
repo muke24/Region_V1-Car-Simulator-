@@ -76776,11 +76776,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1938654754}
     m_Modifications:
-    - target: {fileID: 4444606574563549487, guid: 9cf05b35a06a8e843b95662a10575dab,
-        type: 3}
-      propertyPath: m_ScaleInLightmap
-      value: 0.8353703
-      objectReference: {fileID: 0}
     - target: {fileID: 5027715295158532668, guid: 9cf05b35a06a8e843b95662a10575dab,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -65,7 +65,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1.0049475
+  m_ScaleInLightmap: 0.8353703
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 773967818673983554}
   - component: {fileID: 1729068442}
   - component: {fileID: 8907452485944141770}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Building_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
