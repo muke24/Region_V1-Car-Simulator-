@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 3311348}
   - component: {fileID: 2305914}
   - component: {fileID: 7590797337508151490}
+  - component: {fileID: 1048747767109635381}
   m_Layer: 0
   m_Name: Tree4Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 9
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &495554
 Transform:
@@ -95,6 +96,29 @@ CapsuleCollider:
   m_Height: 10.672903
   m_Direction: 1
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &1048747767109635381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadcc2d9a34a1a34f93d4962ec37e6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_data: {fileID: 11400000, guid: 53860584dca0334499d49bce517940ab, type: 2}
+  m_rootTransform: {fileID: 495554}
+  m_lodGroup: {fileID: 0}
+  m_renderers:
+  - {fileID: 2305914}
+  m_lodReplacement: 2
+  m_renderPipelineInUse: 0
+  m_insertIndex: 0
+  m_lastImpostor: {fileID: 0}
+  m_folderPath: Assets/Prefabs/LODs/Trees/Tree4Large/
+  m_cutMode: 0
 --- !u!1 &9193751253648488173
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +135,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7929799353467942195
 Transform:
