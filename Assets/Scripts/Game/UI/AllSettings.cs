@@ -569,6 +569,8 @@ public class AllSettings : MonoBehaviour
 
 	public void PostProcessingToggle()
 	{
+		//GameObject.FindGameObjectWithTag("Player").GetComponent<SingleCamRenderText>().CamModeChange();
+
 		if (!postProcessingToggle.isOn)
 		{
 			colourGradingToggle.interactable = false;

@@ -8,8 +8,6 @@ public class QualityManager : MonoBehaviour
 {
     public string[] qualityNames;
 
-    public GameObject pausePanel;
-
     public bool low;
     public bool lowMedium;
     public bool medium;
@@ -210,14 +208,6 @@ public class QualityManager : MonoBehaviour
             medium = false;
             highMedium = false;
             high = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (pausePanel.activeSelf)
-        {
-            pausePanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width * 20f, Screen.height * 20f);            
         }
     }
 

@@ -6,15 +6,6 @@ public class CarObjectCollision : MonoBehaviour
 {
 	private Rigidbody rigid;
 
-	[SerializeField]
-	private Light spotLight = null;
-	[SerializeField]
-	private GameObject halo = null;
-	[SerializeField]
-	private MeshRenderer lightObject = null;
-	[SerializeField]
-	private Material lightOff = null;
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -33,12 +24,11 @@ public class CarObjectCollision : MonoBehaviour
 			{
 				rigid.isKinematic = false;
 				rigid.AddForce(collision.relativeVelocity * 5, ForceMode.Force);
-				lightObject.material = lightOff;
 
-				Destroy(spotLight);
-				Destroy(halo);
+				gameObject.isStatic = false;
+
 				Destroy(this, 0.1f);
 			}
 		}
-	}	
+	}
 }

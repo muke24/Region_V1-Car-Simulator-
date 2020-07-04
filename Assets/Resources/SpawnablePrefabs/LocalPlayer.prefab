@@ -12958,7 +12958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf2ea72bafe8b54ebc5b1714950f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleCamMode: 0
   playerCam: {fileID: 4276280504595284993}
+  scopeCam: {fileID: 4276280503679876499}
   scopeRenderTexture: {fileID: 8400000, guid: 795a2a9e9e41cb14c9b7371980eeae98, type: 2}
 --- !u!1 &4276280504678786922
 GameObject:

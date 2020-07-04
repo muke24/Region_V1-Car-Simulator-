@@ -7,12 +7,21 @@ public class Scroll : MonoBehaviour
 {
 	public GameObject allSettings;
 	public Scrollbar scrollbar;
+	public RectTransform settings;
 
 	public Vector3 scroll;
+	public Vector3 startPos;
 	public float scrollY;
 
 	public float scrollSensitivity = 0.1f;
 	public int scrollMaxValue = 1000;
+
+	private void Start()
+	{
+		startPos = settings.localPosition;
+		scrollY = scrollbar.value;
+		scrollMaxValue = (int)settings.rect.height - ((int)settings.rect.height / 4);
+	}
 
 	void Update()
 	{
@@ -42,7 +51,7 @@ public class Scroll : MonoBehaviour
 
 	public void ScrollToPosition()
 	{
-		allSettings.transform.localPosition = scroll * scrollMaxValue;
+		allSettings.transform.localPosition = startPos + (scroll * scrollMaxValue);
 		scrollY = scrollbar.value;
 	}
 }

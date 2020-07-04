@@ -18,7 +18,7 @@ Mesh:
     vertexCount: 5
     localAABB:
       m_Center: {x: -0.0057606697, y: 0, z: 0}
-      m_Extent: {x: 0.7492425, y: 2.6575022, z: 0}
+      m_Extent: {x: 0.7492424, y: 2.657502, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -97,7 +97,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 160
-    _typelessdata: e34741bf9a0d2a40000000000000000000000000000080bf0e45b73eccfa7f3fd3543ebf84142ac0000000000000000000000000000080bf2e61b83e00000000d3543e3f84142ac0000000000000000000000000000080bf69cf233f00000000d3543e3f84142a40000000000000000000000000000080bf69cf233f0000803f229a34bf84142a40000000000000000000000000ffff7fbf690abc3e0000803f
+    _typelessdata: e24741bf990d2a40000000000000000000000000000080bf0e45b73eccfa7f3fd2543ebf83142ac0000000000000000000000000000080bf2e61b83e00000000d2543e3f83142ac0000000000000000000000000ffff7fbf69cf233f00000000d2543e3f83142a40000000000000000000000000000080bf69cf233f0000803f219a34bf83142a40000000000000000000000000000080bf690abc3e0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -151,8 +151,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0.61065525, y: 0.5720954, z: 0}
-    m_Extent: {x: 0.6625953, y: 2.5720954, z: 0.1}
+    m_Center: {x: 0.610637, y: 0.5720954, z: 0.00000834465}
+    m_Extent: {x: 0.6625926, y: 2.5720954, z: 0.10000005}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -237,14 +237,14 @@ Material:
     - _AI_ShadowBias: 0.25
     - _AI_ShadowView: 1
     - _ClipMask: 0.5
-    - _DepthSize: 5.308772
+    - _DepthSize: 5.3087716
     - _Frames: 16
     - _Hemi: 0
     - _Hue: 0
-    - _ImpostorSize: 5.3150043
+    - _ImpostorSize: 5.315004
     - _Parallax: 1
     - _TextureBias: -1
     m_Colors:
-    - _AI_SizeOffset: {r: 5.3150043, g: 5.308772, b: 0, a: 0}
+    - _AI_SizeOffset: {r: 5.315004, g: 5.3087716, b: 0, a: 0}
     - _HueVariation: {r: 0, g: 0, b: 0, a: 0}
-    - _Offset: {r: 0.61065525, g: 0.5720954, b: 0, a: -0}
+    - _Offset: {r: 0.610637, g: 0.5720954, b: 0.00000834465, a: -0}
