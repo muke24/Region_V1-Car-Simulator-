@@ -1,4 +1,5 @@
 ﻿#region This code is written by Peter Thompson
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,15 +12,13 @@ public class UIManager : MonoBehaviour
 
 	public Text ammoText;
 
-	[SerializeField]
-	private Sniper sniper = null;
-
 	private float fpsTimer = 0.2f;
+	private WaitForSeconds waitForSeconds = new WaitForSeconds(0.3f);
 
 	private void Start()
 	{
 		currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
-		sniper = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").Find("GunPivot").Find("ScopePivot").Find("L96_Black_Full").GetComponent<Sniper>();
+		StartCoroutine(DoCheck());
 	}
 
 	public void ChangeText(float speed)
@@ -42,11 +41,12 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
-	private void FixedUpdate()
+	IEnumerator DoCheck()
 	{
-		if (sniper != null)
+		while (true)
 		{
 			AmmoCheck();
+			yield return waitForSeconds;
 		}
 	}
 
@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
 		{
 			if (!Console._cheat1)
 			{
-				ammoText.text = sniper.iammoCount.ToString() + " / " + sniper.imaxAmmo.ToString();
+				ammoText.text = Sniper.ammoCount.ToString() + " / " + Sniper.maxAmmo.ToString();
 			}
 			if (Console._cheat1)
 			{

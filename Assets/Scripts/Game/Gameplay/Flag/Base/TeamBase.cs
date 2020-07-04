@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TeamBase : MonoBehaviour
 {
-	public CurrentWeapon currentWeapon;
-	public GameObject flag;
-
-	public Material teamMat;
+	private Material teamMat;
+	private GameObject flag;
+	private GameObject player;
+	private CurrentWeapon currentWeapon;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,39 +22,21 @@ public class TeamBase : MonoBehaviour
 			Renderer renderer = GetComponent<Renderer>();
 			renderer.material = teamMat;
 
-			currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
+			flag = GameObject.FindGameObjectWithTag("Flag");
 
-			if (GameMode.captureTheFlag)
-			{
-				flag = GameObject.FindGameObjectWithTag("Flag");
-			}
-			if (!GameMode.captureTheFlag)
-			{
-				flag = null;
-			}
+			player = GameObject.FindGameObjectWithTag("Player");
+			currentWeapon = player.GetComponent<CurrentWeapon>();
 		}		
 	}
 
-	// Update is called once per frame
-	void Update()
+	private void OnTriggerEnter(Collider other)
 	{
-		if (GameMode.captureTheFlag)
+		if (other.CompareTag("Player"))
 		{
-			if (currentWeapon == null)
-			{
-				currentWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrentWeapon>();
-			}
-
-			if (currentWeapon.currentWeapon == currentWeapon.secondaryWeapon && currentWeapon.flag)
-			{
-				if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 3)
-				{
-					currentWeapon.currentWeapon = currentWeapon.mainWeapon;
-					currentWeapon.changeWeapon = true;
-					currentWeapon.flag = false;
-					flag.SetActive(true);
-				}
-			}
+			currentWeapon.currentWeapon = currentWeapon.mainWeapon;
+			currentWeapon.changeWeapon = true;
+			currentWeapon.flag = false;
+			flag.SetActive(true);
 		}
-	}
+	}	
 }

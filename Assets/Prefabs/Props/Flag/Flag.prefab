@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8661896911183570110}
   - component: {fileID: 8936736946171632722}
+  - component: {fileID: 8132784659995548856}
   m_Layer: 0
   m_Name: Flag
   m_TagString: Flag
@@ -44,6 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f38ecd8e0be81e46b00b4861d95a797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  currentWeapon: {fileID: 0}
+--- !u!135 &8132784659995548856
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429759668714306690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.75
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8936736945166322943
 GameObject:
   m_ObjectHideFlags: 0

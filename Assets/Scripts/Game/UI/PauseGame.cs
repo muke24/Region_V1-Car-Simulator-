@@ -1,6 +1,4 @@
 ﻿#region This code is written by Peter Thompson
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -109,11 +107,21 @@ public class PauseGame : MonoBehaviour
 			settings.SetActive(false);
 			custCar.SetActive(false);
 			skins.SetActive(false);
+			if (Cursor.lockState != CursorLockMode.Locked)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
+			}			
 		}
 		else
 		{
 			// Toggles on pause if all sub-pause screens are toggled off
 			pauseMenu.gameObject.SetActive(true);
+			if (Cursor.lockState != CursorLockMode.None)
+			{
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+			}			
 		}
 	}
 

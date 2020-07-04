@@ -1,36 +1,39 @@
 ﻿#region This code is written by Peter Thompson
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarFind : MonoBehaviour
 {
+	public static bool inCarTrigger = false;
+
 	public Car closestCar;
 
-	// Start is called before the first frame update
+	private Car[] allCars;
+
 	void Awake()
 	{
+		allCars = FindObjectsOfType<Car>();
 		FindClosestCar();
 	}
 
-	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
-		if (!Car.inCar)
+		if (inCarTrigger)
 		{
-			FindClosestCar();
-		}
+			if (!Car.inCar)
+			{
+				FindClosestCar();
+			}
+		}		
 	}
 
 	void FindClosestCar()
 	{
 		float distanceToClosestCar = Mathf.Infinity;
-		closestCar = null;
-		Car[] allCars = FindObjectsOfType<Car>();
+		closestCar = null;		
 
 		foreach (Car currentCar in allCars)
 		{
-			float distanceToCar = (currentCar.transform.position - this.transform.position).sqrMagnitude;
+			float distanceToCar = (currentCar.transform.position - transform.position).sqrMagnitude;
 			if (distanceToCar < distanceToClosestCar)
 			{
 				distanceToClosestCar = distanceToCar;
@@ -38,7 +41,7 @@ public class CarFind : MonoBehaviour
 			}
 		}
 
-		Debug.DrawLine(this.transform.position, closestCar.transform.position, Color.red);
+		Debug.DrawLine(transform.position, closestCar.transform.position, Color.red);
 	}
 }
 // This code is written by Peter Thompson

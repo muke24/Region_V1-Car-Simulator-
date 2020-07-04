@@ -66,11 +66,20 @@ public class CarCameraManager : MonoBehaviour
 		if (Car.inCar)
 		{
 			// Sets the current car that you are driving to the last closest car that you were in before you got in the car.
-			car = carFind.closestCar.gameObject;
-			// Enables the carCam Audio Listener
-			aL.enabled = true;
-			//originalRotation = rb.transform.rotation;
-			rb = currentCar.currentCar.GetComponent<Rigidbody>();
+			if (car != carFind.closestCar.gameObject)
+			{
+				car = carFind.closestCar.gameObject;
+			}
+			if (aL.enabled == false)
+			{
+				// Enables the carCam Audio Listener
+				aL.enabled = true;
+			}
+			if (rb != currentCar.currentCar.GetComponent<Rigidbody>())
+			{
+				//originalRotation = rb.transform.rotation;
+				rb = currentCar.currentCar.GetComponent<Rigidbody>();
+			}
 
 			if (Input.GetKeyDown(KeyCode.C))
 			{
@@ -82,8 +91,11 @@ public class CarCameraManager : MonoBehaviour
 			// If cam is in fps mode
 			if (camMode == 1)
 			{
-				// Sets the carCam to inside the car
-				transform.position = car.transform.position + car.transform.TransformDirection(new Vector3(l, h2, d2));
+				if (car != null)
+				{
+					// Sets the carCam to inside the car
+					transform.position = car.transform.position + car.transform.TransformDirection(new Vector3(l, h2, d2));
+				}
 
 				// If not paused
 				if (!pause.activeSelf)
@@ -93,7 +105,7 @@ public class CarCameraManager : MonoBehaviour
 					{
 						Cursor.lockState = CursorLockMode.Locked;
 						Cursor.visible = false;
-					}					
+					}
 				}
 
 				// If paused
@@ -104,7 +116,7 @@ public class CarCameraManager : MonoBehaviour
 						// Unlock cursor
 						Cursor.lockState = CursorLockMode.None;
 						Cursor.visible = true;
-					}					
+					}
 				}
 			}
 		}
@@ -112,14 +124,20 @@ public class CarCameraManager : MonoBehaviour
 		// If you are not in a car;
 		if (!Car.inCar)
 		{
-			// Sets the current car to null so the carCam doesn't try to set its position to multiple cars position if the player gets into another car
-			car = null;
-			// Disables the carCam Audio Listener to ensure you aren't hearing sound from both the player's fps camera Audio Listener and CarCam Audio Listener
-			aL.enabled = false;
+			if (car != null)
+			{
+				// Sets the current car to null so the carCam doesn't try to set its position to multiple cars position if the player gets into another car
+				car = null;
+			}
+
+			if (aL.enabled)
+			{
+				// Disables the carCam Audio Listener to ensure you aren't hearing sound from both the player's fps camera Audio Listener and CarCam Audio Listener
+				aL.enabled = false;
+			}
 		}
 	}
 
-	// FixedUpdate each fixed update time rate occurs. Fixed update is set to 30 frames but can be changed in the editor
 	void FixedUpdate()
 	{
 		// If you are in a car
@@ -128,25 +146,28 @@ public class CarCameraManager : MonoBehaviour
 			// If camMode is 
 			if (camMode == 0)
 			{
-				// Sets the objDistance float to the distance inbetween the camera and the car
-				objDistance = Vector3.Distance(car.transform.position, transform.position);
-				// Set the carCamera rotation to look at the car
-				transform.LookAt(car.transform);
-				// If in third person then reduce the car cameras field of view to 60 degrees
-				GetComponent<Camera>().fieldOfView = 60f;
-				// Makes the camera give the gradually change its position due to the car speed. 
-				// eg. If the car suddenly accelerates the camera will be further out
-				transform.position = Vector3.Lerp(transform.position, car.transform.position + car.transform.TransformDirection(new Vector3(0f, height, -distance)), dampening * Time.deltaTime);
+				if (car != null)
+				{
+					// Sets the objDistance float to the distance inbetween the camera and the car
+					objDistance = Vector3.Distance(car.transform.position, transform.position);
+					// Set the carCamera rotation to look at the car
+					transform.LookAt(car.transform);
+					// If in third person then reduce the car cameras field of view to 60 degrees
+					GetComponent<Camera>().fieldOfView = 60f;
+					// Makes the camera give the gradually change its position due to the car speed. 
+					// eg. If the car suddenly accelerates the camera will be further out
+					transform.position = Vector3.Lerp(transform.position, car.transform.position + car.transform.TransformDirection(new Vector3(0f, height, -distance)), dampening * Time.deltaTime);
 
-				// Changes the dampening to a higher amount to reduce the effect of the lerp when the distance from the car is over the max distance float
-				if (objDistance >= maxDistance)
-				{
-					dampening = 13f;
-				}
-				// Normal dampening float when below max distance for the car and the camera
-				else
-				{
-					dampening = 12.5f;
+					// Changes the dampening to a higher amount to reduce the effect of the lerp when the distance from the car is over the max distance float
+					if (objDistance >= maxDistance)
+					{
+						dampening = 13f;
+					}
+					// Normal dampening float when below max distance for the car and the camera
+					else
+					{
+						dampening = 12.5f;
+					}
 				}
 			}
 
@@ -191,7 +212,7 @@ public class CarCameraManager : MonoBehaviour
 					{
 						/* Lock the camera rotation to the car rigidbody rotation (Originally had it in Update and had it locked the the cars rotation, 
 						 * but tried a few stuff out and found that this way gives the camera a nice look when turning around corners, 
-						 * as it pretty much doesnt fully lock to the cars rotation, but it keeps the camera a little behind time and has a nice look to it) */					
+						 * as it pretty much doesnt fully lock to the cars rotation, but it keeps the camera a little behind time and has a nice look to it) */
 						Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
 						transform.localRotation = originalRotation * xQuaternion;
 						originalRotation = rb.transform.rotation;

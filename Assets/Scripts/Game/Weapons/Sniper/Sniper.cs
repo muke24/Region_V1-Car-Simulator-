@@ -44,9 +44,6 @@ public class Sniper : MonoBehaviour
 
 	public static int maxAmmo = 5;
 	public static int ammoCount = 5;
-
-	public int imaxAmmo = 5;   // non-static int to show in inspector
-	public int iammoCount = 5; // non-static int to show in inspector
 	#endregion
 
 	#region Deal Damage
@@ -72,7 +69,7 @@ public class Sniper : MonoBehaviour
 	private GameObject impactEffect = null;
 	#endregion
 
-	private void Start()
+	private void Awake()
 	{
 		// Sets the players gameobject to the player in the scene at the start
 		player = transform.root.gameObject;
@@ -98,7 +95,7 @@ public class Sniper : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		if (hitEnemy)
 		{
@@ -110,11 +107,6 @@ public class Sniper : MonoBehaviour
 		{
 			HitMarkerDead();
 		}
-
-		// Sets the inspector max ammo int to the static int to see what the max ammo is in the inspector
-		imaxAmmo = maxAmmo;
-		// Sets the inspector ammo count int to the static int to see what the ammo count is in the inspector
-		iammoCount = ammoCount;
 
 		// If is not paused
 		if (!pause.activeInHierarchy)

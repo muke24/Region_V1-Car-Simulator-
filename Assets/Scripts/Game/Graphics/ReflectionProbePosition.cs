@@ -1,50 +1,59 @@
 ﻿#region This code is written by Peter Thompson
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReflectionProbePosition : MonoBehaviour
 {
-	[SerializeField]
-	private Interact interact;
-
 	public Transform seat1Pos;
-	public ReflectionProbe reflectionProbe;
 	public GameObject carCam;
-	public GameObject playerCam;
+	private ReflectionProbe reflectionProbe;
+	private GameObject playerCam;
+	private WaitForSeconds waitForSeconds = new WaitForSeconds(0.3f);
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		// Retrieves the interact script
-		interact = GetComponent<Interact>();
 		// Retrieves the reflection probe
 		reflectionProbe = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
 		// Retrieves the player's camera
 		playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+		StartCoroutine(DoCheck());
 	}
 
-	// Update is called once per frame
-	void Update()
+	IEnumerator DoCheck()
 	{
-		if (reflectionProbe == null)
+		while (true)
 		{
-			reflectionProbe = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
-			// Retrieves the player's camera
-			playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
-		}
+			if (reflectionProbe == null)
+			{
+				// Throw an error
+				//
 
-		// Sets the reflection probe to the car's camera position
-		if (interact.inCar)
-		{
-			reflectionProbe.transform.parent = carCam.transform;
-			reflectionProbe.transform.localPosition = Vector3.zero;
-		}
-		// Sets the reflection probe to the player's camera position
-		if (!interact.inCar)
-		{
-			reflectionProbe.transform.parent = playerCam.transform;
-			reflectionProbe.transform.localPosition = Vector3.zero;
+				reflectionProbe = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").transform.Find("Reflection Probe").GetComponent<ReflectionProbe>();
+				// Retrieves the player's camera
+				playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+			}
+
+			// Sets the reflection probe to the car's camera position
+			if (Car.inCar)
+			{
+				if (reflectionProbe.transform.parent != carCam.transform)
+				{
+					reflectionProbe.transform.parent = carCam.transform;
+					reflectionProbe.transform.localPosition = Vector3.zero;
+				}
+			}
+
+			// Sets the reflection probe to the player's camera position
+			if (!Car.inCar)
+			{
+				if (reflectionProbe.transform.parent != playerCam.transform)
+				{
+					reflectionProbe.transform.parent = playerCam.transform;
+					reflectionProbe.transform.localPosition = Vector3.zero;
+				}
+			}
+			yield return waitForSeconds;
 		}
 	}
 }

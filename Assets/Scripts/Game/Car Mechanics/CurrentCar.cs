@@ -8,14 +8,8 @@ public class CurrentCar : MonoBehaviour
     public GameObject currentCar = null;
     public CarFind carFind;
 
-    private void Start()
-    {
-        carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
-        currentCar = carFind.closestCar.gameObject;
-    }
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (carFind == null)
         {

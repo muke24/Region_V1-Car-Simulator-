@@ -172,6 +172,63 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.010000001, y: 0.20789541, z: 0.110575356}
   m_Center: {x: -0.00000041436058, y: -0.091051936, z: -0.6591328}
+--- !u!1 &1144728203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144728204}
+  - component: {fileID: 1144728206}
+  - component: {fileID: 1144728205}
+  m_Layer: 2
+  m_Name: Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144728204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144728203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2782650460721092705}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1144728206
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144728203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1144728205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144728203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40110b24b2eff104e87d7bf9e9ff54d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1786922555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,11 +1505,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 26720.13
-    damper: 3643.6543
+    spring: 27007.408
+    damper: 3682.8286
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.08932343
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: -0.09604716
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1510,11 +1567,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27944.482
-    damper: 3810.6113
+    spring: 27826.227
+    damper: 3794.4854
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.08932343
+  m_SuspensionDistance: 0.16214879
+  m_ForceAppPointDistance: -0.09604716
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1875,11 +1932,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 33778.29
-    damper: 4606.131
+    spring: 33491.53
+    damper: 4567.027
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: -0.09767553
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: -0.104399234
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1937,11 +1994,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 32557.102
-    damper: 4439.605
+    spring: 32674.832
+    damper: 4455.6587
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: -0.09767553
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: -0.104399234
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2557,7 +2614,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: -0.15}
+  m_ConnectedAnchor: {x: 0.71500254, y: 0.25, z: -0.1499999}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3141,7 +3198,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.71500266, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3441,7 +3498,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.7150025, y: 0.25, z: 0.8750002}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3759,7 +3816,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2782650460721092705}
-  - component: {fileID: 2864301447170760789}
   - component: {fileID: 2779763339696154218}
   - component: {fileID: 2779763339696154213}
   - component: {fileID: 2779763339696154212}
@@ -3796,28 +3852,10 @@ Transform:
   - {fileID: 2779763340804187581}
   - {fileID: 2779763341164315828}
   - {fileID: 2779763339562694298}
+  - {fileID: 1144728204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2864301447170760789
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780423566793949867}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &2779763339696154218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4905,7 +4943,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.24999999, z: -0.14999984}
+  m_ConnectedAnchor: {x: -0.71500254, y: 0.25, z: -0.1500001}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5204,7 +5242,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.645, z: -1.6525}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525}
+  m_ConnectedAnchor: {x: 0.00000019073487, y: 0.645, z: -1.6525027}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5690,7 +5728,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.525, z: 1.17}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.52500004, z: 1.17}
+  m_ConnectedAnchor: {x: -0.00000009536743, y: 0.52500004, z: 1.1699952}
   m_UseSpring: 1
   m_Spring:
     spring: 0
