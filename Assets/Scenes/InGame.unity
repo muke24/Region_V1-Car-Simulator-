@@ -9140,16 +9140,16 @@ Terrain:
   m_TreeBillboardDistance: 75
   m_TreeCrossFadeLength: 25
   m_TreeMaximumFullLODCount: 30
-  m_DetailObjectDistance: 18.2
+  m_DetailObjectDistance: 0
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
+  m_HeightmapPixelError: 20
+  m_SplatMapDistance: 10
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_MaterialTemplate: {fileID: 2100000, guid: dda80f0b80c2c88469e0c940817ff18b, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
