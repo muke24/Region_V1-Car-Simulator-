@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CurrentWeapon : MonoBehaviour
 {
 	public Animator animator;
-	public AnimatorController sniperAnim;
-	public AnimatorController pistolAnim;
-	public AnimatorController meleeAnim;
+	public RuntimeAnimatorController sniperAnim;
+	public RuntimeAnimatorController pistolAnim;
+	public RuntimeAnimatorController meleeAnim;
 
 	public int currentWeapon = 0;
 

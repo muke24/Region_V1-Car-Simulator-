@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
-using UnityScript.Steps;
 
 public class AllSettings : MonoBehaviour
 {
