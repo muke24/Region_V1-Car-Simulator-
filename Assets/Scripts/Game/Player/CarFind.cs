@@ -12,6 +12,10 @@ public class CarFind : MonoBehaviour
 	void Awake()
 	{
 		allCars = FindObjectsOfType<Car>();
+	}
+
+	private void Start()
+	{
 		FindClosestCar();
 	}
 
@@ -23,13 +27,12 @@ public class CarFind : MonoBehaviour
 			{
 				FindClosestCar();
 			}
-		}		
+		}
 	}
 
 	void FindClosestCar()
 	{
 		float distanceToClosestCar = Mathf.Infinity;
-		closestCar = null;		
 
 		foreach (Car currentCar in allCars)
 		{

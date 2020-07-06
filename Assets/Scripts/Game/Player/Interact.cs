@@ -32,19 +32,17 @@ public class Interact : MonoBehaviour
 	public CarInputManager im;
 	public GameObject door1;
 
-	private WaitForSeconds waitForSeconds = new WaitForSeconds(0.2f);
-
 	private void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-		playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
-		carFind = GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>();
-		playerModel = GameObject.FindGameObjectWithTag("Player").transform.Find("Model").gameObject;
-		mouse = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLook>();
-		charC = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
-		pMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-		pMoveNet = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerNetworkMovement>();
-		cCol = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>();
+		playerCam = player.transform.Find("Camera").gameObject;
+		carFind = player.GetComponent<CarFind>();
+		playerModel = player.transform.Find("Model").gameObject;
+		mouse = player.GetComponent<MouseLook>();
+		charC = player.GetComponent<CharacterController>();
+		pMove = player.GetComponent<PlayerMovement>();
+		pMoveNet = player.GetComponent<PlayerNetworkMovement>();
+		cCol = player.GetComponent<CapsuleCollider>();
 		Car.inCar = false;
 		carCam.enabled = false;
 
@@ -52,8 +50,6 @@ public class Interact : MonoBehaviour
 		{
 			playerEnable();
 		}
-
-		StartCoroutine("DoCheck");
 	}
 
 	private void Update()
@@ -62,10 +58,66 @@ public class Interact : MonoBehaviour
 		{
 			intTimer -= Time.deltaTime;
 		}
-	}
 
-	private void FixedUpdate()
-	{
+		if (CarFind.inCarTrigger)
+		{
+			if (Car.inCar)
+			{
+				if (playerCam.activeSelf)
+				{
+					playerDisable();
+				}
+
+				car.GetComponent<CarInputManager>().enabled = true;
+				car.GetComponent<CarController>().enabled = true;
+
+				im.enabled = true;
+
+				carCam.enabled = true;
+
+				carCanv.SetActive(true);
+				fpsCanv.SetActive(false);
+			}
+
+			if (!Car.inCar)
+			{
+				if (!playerCam.activeSelf)
+				{
+					playerEnable();
+				}
+
+				if (carFind.closestCar == null)
+				{
+					car = carFind.closestCar.gameObject;
+				}
+				
+				door1 = carFind.closestCar.door1;
+
+				car.GetComponent<CarInputManager>().enabled = false;
+				car.GetComponent<CarController>().enabled = false;
+
+				carCam.enabled = false;
+
+				im.enabled = false;
+
+				carCanv.SetActive(false);
+				fpsCanv.SetActive(true);
+
+				//////
+
+				intText.gameObject.SetActive(true);
+				intText.text = "Press " + "E" + " to get into car";
+			}
+		}
+
+		if (!CarFind.inCarTrigger)
+		{
+			if (!Car.inCar)
+			{
+				intText.gameObject.SetActive(false);
+			}			
+		}
+
 		if (Car.inCar)
 		{
 			if (Input.GetButtonDown("Interact") && intTimer <= 0)
@@ -84,67 +136,6 @@ public class Interact : MonoBehaviour
 				Car.inCar = true;
 				GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>().closestCar.ToggleDrivingPlayer();
 			}
-		}
-	}
-
-	IEnumerator DoCheck()
-	{
-		while (true)
-		{
-			if (CarFind.inCarTrigger)
-			{
-				if (Car.inCar)
-				{
-					if (playerCam.activeSelf)
-					{
-						playerDisable();
-					}
-
-					car.GetComponent<CarInputManager>().enabled = true;
-					car.GetComponent<CarController>().enabled = true;
-
-					im.enabled = true;
-
-					carCam.enabled = true;
-
-					carCanv.SetActive(true);
-					fpsCanv.SetActive(false);
-				}
-
-				if (!Car.inCar)
-				{
-					if (!playerCam.activeSelf)
-					{
-						playerEnable();
-					}
-
-					car = carFind.closestCar.gameObject;
-					door1 = carFind.closestCar.door1;
-
-					car.GetComponent<CarInputManager>().enabled = false;
-					car.GetComponent<CarController>().enabled = false;
-
-					carCam.enabled = false;
-
-					im.enabled = false;
-
-					carCanv.SetActive(false);
-					fpsCanv.SetActive(true);
-
-					//////
-
-					intText.gameObject.SetActive(true);
-					intText.text = "Press " + "E" + " to get into car";
-				}
-
-
-				if (!CarFind.inCarTrigger)
-				{
-					intText.gameObject.SetActive(false);
-				}
-			}
-
-			yield return waitForSeconds;
 		}
 	}
 
