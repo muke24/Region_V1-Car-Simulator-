@@ -11479,7 +11479,7 @@ GameObject:
   - component: {fileID: 4118610584327734139}
   - component: {fileID: 2035169575}
   m_Layer: 13
-  m_Name: EnemyPlayer
+  m_Name: EnemyAIPlayer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11590,6 +11590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d30f2dba1dd19f4db2b3162006b7f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   eArmRot: {fileID: 0}
   player: {fileID: 0}
   anim: {fileID: 1418833979990445894}
@@ -11601,6 +11602,7 @@ MonoBehaviour:
   force: 0
   healthSlider: {fileID: 32643069}
   healthText: {fileID: 2684881797806638694}
+  spawnId: 0
 --- !u!114 &4118610584327734139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13165,6 +13167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: L96_Black_Full
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011996258104690145, guid: 53c58882db62d3140af26deba11b5ff2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c58882db62d3140af26deba11b5ff2, type: 3}

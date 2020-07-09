@@ -1,22 +1,19 @@
 ﻿#region This code is written by Peter Thompson
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class Sniper : MonoBehaviour
 {
 	public static GameObject player;
 	public static GameObject thisWeapon;
-	public Image[] reticle;
-	public Image[] hitMarkerHit;
-	public Image[] hitMarkerDead;
+	private Image[] reticle;
+	private Image[] hitMarkerHit;
+	private Image[] hitMarkerDead;
 	private bool hitEnemy = false;
 	private bool deadEnemy = false;
 	private float hitMarkerTimer = 0.2f;
 	private float deadMarkerTimer = 0.2f;
-	public float maxRays = 10;
+	public float maxRays = 10f;
 
 	#region Sniper
 	[SerializeField] // Makes Unity show the private field in inspector
@@ -38,9 +35,10 @@ public class Sniper : MonoBehaviour
 	[SerializeField] // Makes Unity show the private field in inspector
 	private bool reload;
 
-	public int ragdollForce = 2;
+	//private int ragdollForce = 2;
 
-	public GameObject gunshotDecal;
+	[SerializeField]
+	private GameObject gunshotDecal = null;
 
 	public static int maxAmmo = 5;
 	public static int ammoCount = 5;
@@ -50,15 +48,20 @@ public class Sniper : MonoBehaviour
 	public Enemy enemy;
 	public Collisions collisions;
 
+	[Range(0.1f, 200f)]
 	public float damage = 100f;
 
 	[SerializeField] // Makes Unity show the private field in inspector
+	[Range(0.1f, 5)]
 	private float headShotMultiplier = 2f;
 	[SerializeField] // Makes Unity show the private field in inspector
+	[Range(0.1f, 5)]
 	private float bodyShotMultiplier = 0.99f;
 	[SerializeField] // Makes Unity show the private field in inspector
+	[Range(0.1f, 5)]
 	private float legShotMultiplier = 0.75f;
 	[SerializeField] // Makes Unity show the private field in inspector
+	[Range(0.1f, 5)]
 	private float footShotMultiplier = 0.5f;
 	#endregion
 
