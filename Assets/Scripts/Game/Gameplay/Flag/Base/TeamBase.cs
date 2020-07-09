@@ -6,6 +6,7 @@ public class TeamBase : MonoBehaviour
 	private GameObject flag;
 	private GameObject player;
 	private CurrentWeapon currentWeapon;
+	private NetworkManagerLobby nml;
 
 	// Start is called before the first frame update
 	void Start()
@@ -23,9 +24,17 @@ public class TeamBase : MonoBehaviour
 			renderer.material = teamMat;
 
 			flag = GameObject.FindGameObjectWithTag("Flag");
-
-			player = GameObject.FindGameObjectWithTag("Player");
-			currentWeapon = player.GetComponent<CurrentWeapon>();
+			if (GameMode.singleplayer)
+			{
+				player = GameObject.FindGameObjectWithTag("Player");
+				currentWeapon = player.GetComponent<CurrentWeapon>();
+			}
+			if (GameMode.multiplayer)
+			{
+				nml = FindObjectOfType<NetworkManagerLobby>();
+				player = nml.playerPrefab;
+				currentWeapon = player.GetComponent<CurrentWeapon>();
+			}
 		}		
 	}
 

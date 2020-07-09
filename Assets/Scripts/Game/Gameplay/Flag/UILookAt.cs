@@ -11,9 +11,22 @@ public class UILookAt : MonoBehaviour
 	public GameObject flag;
 	public float scaleMultiplier = 2;
 
+	private GameObject player;
+	private NetworkManagerLobby nml;
+
 	private void Start()
 	{
-		playerCam = GameObject.FindGameObjectWithTag("Player").transform.Find("Camera").gameObject;
+		if (GameMode.singleplayer)
+		{
+			player = GameObject.FindGameObjectWithTag("Player");
+			playerCam = player.transform.Find("Camera").gameObject;
+		}
+		if (GameMode.multiplayer)
+		{
+			nml = FindObjectOfType<NetworkManagerLobby>();
+			player = nml.playerPrefab;
+			playerCam = player.transform.Find("Camera").gameObject;
+		}
 		carCam = GameObject.FindGameObjectWithTag("CarCam");
 	}
 

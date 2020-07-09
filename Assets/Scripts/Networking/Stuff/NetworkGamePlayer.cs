@@ -26,13 +26,18 @@ public class NetworkGamePlayer : NetworkBehaviour
     public override void OnStartClient()
     {
         DontDestroyOnLoad(gameObject);
-
-        Room.GamePlayers.Add(this);
+        if (!GameMode.hosting)
+        {
+            Room.GamePlayers.Add(this);
+        }        
     }
 
     public override void OnStopClient()
     {
-        Room.GamePlayers.Remove(this);
+        if (!GameMode.hosting)
+        {
+            Room.GamePlayers.Remove(this);
+        }        
     }
 
     [Server]

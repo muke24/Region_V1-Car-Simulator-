@@ -1,16 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlagPickup : MonoBehaviour
 {
 	public GameObject player;
 	public CurrentWeapon currentWeapon;
+	private NetworkManagerLobby nml;
 
 	private void Start()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
-		currentWeapon = player.GetComponent<CurrentWeapon>();
+		if (GameMode.singleplayer)
+		{
+			player = GameObject.FindGameObjectWithTag("Player");
+			currentWeapon = player.GetComponent<CurrentWeapon>();
+		}
+		if (GameMode.multiplayer)
+		{
+			nml = FindObjectOfType<NetworkManagerLobby>();
+			player = nml.playerPrefab;
+			currentWeapon = player.GetComponent<CurrentWeapon>();
+		}
 	}
 
 	//void Update()
