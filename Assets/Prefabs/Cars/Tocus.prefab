@@ -215,7 +215,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.25
+  m_Radius: 1.999
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1144728205
 MonoBehaviour:
@@ -1025,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.3
@@ -2495,6 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.3
@@ -2674,6 +2676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.1
@@ -3270,6 +3273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.1
@@ -3570,6 +3574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.1
@@ -4003,6 +4008,10 @@ MonoBehaviour:
   door3: {fileID: 2779763339653052953}
   door4: {fileID: 2779763341168716653}
   _currentCar: {fileID: 0}
+  floating: 0
+  depthBeforeSubmerged: 1
+  displacementAmount: 2
+  dragForce: 1
 --- !u!208 &4054563762720002756
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -4319,6 +4328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.1
@@ -4557,6 +4567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.5
@@ -5003,6 +5014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.1
@@ -5290,6 +5302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.2
@@ -5804,6 +5817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
   damagePerHit: 0.2

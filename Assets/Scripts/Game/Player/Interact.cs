@@ -90,7 +90,7 @@ public class Interact : MonoBehaviour
 				{
 					car = carFind.closestCar.gameObject;
 				}
-				
+
 				door1 = carFind.closestCar.door1;
 
 				car.GetComponent<CarInputManager>().enabled = false;
@@ -115,7 +115,7 @@ public class Interact : MonoBehaviour
 			if (!Car.inCar)
 			{
 				intText.gameObject.SetActive(false);
-			}			
+			}
 		}
 
 		if (Car.inCar)
@@ -130,12 +130,15 @@ public class Interact : MonoBehaviour
 		}
 		else
 		{
-			if (Input.GetButtonDown("Interact") && intTimer <= 0)
+			if (CarFind.inCarTrigger)
 			{
-				intTimer = intDelay;
-				Car.inCar = true;
-				GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>().closestCar.ToggleDrivingPlayer();
-			}
+				if (Input.GetButtonDown("Interact") && intTimer <= 0)
+				{
+					intTimer = intDelay;
+					Car.inCar = true;
+					GameObject.FindGameObjectWithTag("Player").GetComponent<CarFind>().closestCar.ToggleDrivingPlayer();
+				}
+			}			
 		}
 	}
 
@@ -145,7 +148,7 @@ public class Interact : MonoBehaviour
 		{
 			// Draw a yellow sphere at the transform's position
 			Gizmos.color = Color.yellow;
-			Gizmos.DrawWireSphere(car.transform.position, interactDist);
+			Gizmos.DrawWireSphere(carFind.closestCar.transform.position, interactDist);
 		}
 	}
 
