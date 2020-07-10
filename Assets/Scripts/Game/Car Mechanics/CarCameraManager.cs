@@ -66,10 +66,7 @@ public class CarCameraManager : MonoBehaviour
 		if (Car.inCar)
 		{
 			// Sets the current car that you are driving to the last closest car that you were in before you got in the car.
-			if (car != carFind.closestCar.gameObject)
-			{
-				car = carFind.closestCar.gameObject;
-			}
+			car = carFind.closestCar.gameObject;
 			if (aL.enabled == false)
 			{
 				// Enables the carCam Audio Listener

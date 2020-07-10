@@ -14,7 +14,7 @@ public class Interact : MonoBehaviour
 	public GameObject pauseCanv;
 
 	private CarFind carFind;
-	public GameObject car;
+	//public GameObject car;
 	private GameObject player;
 
 	private GameObject playerCam;
@@ -54,6 +54,8 @@ public class Interact : MonoBehaviour
 
 	private void Update()
 	{
+		GameObject car = carFind.closestCar.gameObject;
+
 		if (intTimer >= 0)
 		{
 			intTimer -= Time.deltaTime;
@@ -84,11 +86,6 @@ public class Interact : MonoBehaviour
 				if (!playerCam.activeSelf)
 				{
 					playerEnable();
-				}
-
-				if (carFind.closestCar == null)
-				{
-					car = carFind.closestCar.gameObject;
 				}
 
 				door1 = carFind.closestCar.door1;
@@ -146,9 +143,12 @@ public class Interact : MonoBehaviour
 	{
 		if (CarFind.inCarTrigger)
 		{
-			// Draw a yellow sphere at the transform's position
-			Gizmos.color = Color.yellow;
-			Gizmos.DrawWireSphere(carFind.closestCar.transform.position, interactDist);
+			if (Application.isPlaying)
+			{
+				// Draw a yellow sphere at the transform's position
+				Gizmos.color = Color.yellow;
+				Gizmos.DrawWireSphere(carFind.closestCar.transform.position, interactDist);
+			}			
 		}
 	}
 

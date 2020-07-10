@@ -25,11 +25,14 @@ public class Car : MonoBehaviour
 
 	private void Awake()
 	{
-		_currentCar = GameObject.FindGameObjectWithTag("Manager").GetComponent<CurrentCar>();
-
 		inCarPlayer.SetActive(false);
 
 		rigid = GetComponent<Rigidbody>();
+	}
+
+	private void Start()
+	{
+		_currentCar = GameObject.FindGameObjectWithTag("Manager").GetComponent<CurrentCar>();
 	}
 
 	public void ToggleDrivingPlayer()

@@ -809,7 +809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802440532233791945
 MeshFilter:
@@ -1030,7 +1030,7 @@ MonoBehaviour:
   colliders: []
   damagePerHit: 0.3
   areaToDeform: 0.2
-  maximumDistance: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2779763339472713400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,11 +1506,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27007.408
-    damper: 3682.8286
+    spring: 27007.564
+    damper: 3682.8496
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: -0.09604716
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: -0.09604713
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1568,11 +1568,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27826.227
-    damper: 3794.4854
+    spring: 27826.055
+    damper: 3794.462
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214879
-  m_ForceAppPointDistance: -0.09604716
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: -0.09604713
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1678,8 +1678,6 @@ Transform:
   - {fileID: 2775104135874300637}
   - {fileID: 2775120148516244739}
   - {fileID: 2782343375061744637}
-  - {fileID: 2782635160035820273}
-  - {fileID: 2782129880053389233}
   - {fileID: 2775244200187644179}
   - {fileID: 2774996640690603371}
   - {fileID: 2775011673644694951}
@@ -1697,6 +1695,7 @@ Transform:
   - {fileID: 2775252556944535497}
   - {fileID: 2782595730779294833}
   - {fileID: 2782119836054347859}
+  - {fileID: 2782129880053389233}
   m_Father: {fileID: 2782650460721092705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1933,11 +1932,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 33491.53
-    damper: 4567.027
+    spring: 33491.375
+    damper: 4567.006
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.104399234
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: -0.104399204
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1995,11 +1994,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 32674.832
-    damper: 4455.6587
+    spring: 32674.998
+    damper: 4455.6816
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.104399234
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: -0.104399204
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2496,12 +2495,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepColliderSameAsMesh: 0
+  keepColliderSameAsMesh: 1
   meshes: []
   colliders: []
   damagePerHit: 0.3
   areaToDeform: 0.2
-  maximumDistance: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780180342868079541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,7 +2538,7 @@ Transform:
   m_Children:
   - {fileID: 2774976818652163111}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802812100451861177
 MeshFilter:
@@ -2616,7 +2615,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.71500254, y: 0.25, z: -0.1499999}
+  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: -0.15}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -2834,7 +2833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802442496047524841
 MeshFilter:
@@ -2928,7 +2927,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2803195955555614761
 MeshFilter:
@@ -3002,7 +3001,6 @@ GameObject:
   - component: {fileID: 2775011673644694951}
   - component: {fileID: 2804519110165200991}
   - component: {fileID: 2792364954077945439}
-  - component: {fileID: 2780287760752787878}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Left
   m_TagString: Car
@@ -3022,7 +3020,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2804519110165200991
 MeshFilter:
@@ -3071,20 +3069,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780287760752787878
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780287760752787879}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300104, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780299139923649939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,7 +3107,7 @@ Transform:
   m_Children:
   - {fileID: 2782290256732965045}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802906409611686939
 MeshFilter:
@@ -3201,7 +3185,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.71500266, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3337,7 +3321,7 @@ Transform:
   m_Children:
   - {fileID: 1787762216}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2804380131663508391
 MeshFilter:
@@ -3424,7 +3408,7 @@ Transform:
   m_Children:
   - {fileID: 2775007657825432691}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 20
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802790900199578755
 MeshFilter:
@@ -3502,7 +3486,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7150025, y: 0.25, z: 0.8750002}
+  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3638,7 +3622,7 @@ Transform:
   m_Children:
   - {fileID: 1786922556}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802471379446904307
 MeshFilter:
@@ -3720,7 +3704,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2803015560035928623
 MeshFilter:
@@ -4109,7 +4093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2803169420740250083
 MeshFilter:
@@ -4331,9 +4315,9 @@ MonoBehaviour:
   keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
-  damagePerHit: 0.1
+  damagePerHit: 100
   areaToDeform: 0.2
-  maximumDistance: 0.5
+  maximumDistance: 0.14
 --- !u!114 &1048736991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4358,7 +4342,6 @@ GameObject:
   - component: {fileID: 2775129871371048673}
   - component: {fileID: 2804544725485865503}
   - component: {fileID: 2792571736766734471}
-  - component: {fileID: 2780579106784290724}
   m_Layer: 9
   m_Name: Tocus_Light_Back_Right
   m_TagString: Car
@@ -4378,7 +4361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2804544725485865503
 MeshFilter:
@@ -4427,20 +4410,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2780579106784290724
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780579106784290725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300106, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
 --- !u!1 &2780593670883035823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,7 +4443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 4
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802438835664856817
 MeshFilter:
@@ -4570,9 +4539,9 @@ MonoBehaviour:
   keepColliderSameAsMesh: 0
   meshes: []
   colliders: []
-  damagePerHit: 0.5
-  areaToDeform: 0.01
-  maximumDistance: 1
+  damagePerHit: 5
+  areaToDeform: 0.02
+  maximumDistance: 0.2
 --- !u!1 &2780625185356207407
 GameObject:
   m_ObjectHideFlags: 0
@@ -4604,7 +4573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2804561052547471635
 MeshFilter:
@@ -4877,7 +4846,7 @@ Transform:
   m_Children:
   - {fileID: 9031724147112992042}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802923617713362945
 MeshFilter:
@@ -4954,7 +4923,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.71500254, y: 0.25, z: -0.1500001}
+  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: -0.15}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5162,7 +5131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802652920035864053
 MeshFilter:
@@ -5254,7 +5223,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.645, z: -1.6525}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000019073487, y: 0.645, z: -1.6525027}
+  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5307,7 +5276,7 @@ MonoBehaviour:
   colliders: []
   damagePerHit: 0.2
   areaToDeform: 0.2
-  maximumDistance: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2780846131944652229
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,7 +5387,7 @@ Transform:
   m_Children:
   - {fileID: 1935408587}
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802407639294380209
 MeshFilter:
@@ -5549,85 +5518,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &2780905576756896017
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2782635160035820273}
-  - component: {fileID: 2803038361788113007}
-  - component: {fileID: 2792544293580390297}
-  m_Layer: 9
-  m_Name: Tocus_Body_Physics
-  m_TagString: Car
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2782635160035820273
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780905576756896017}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99, y: 0.99, z: 0.99}
-  m_Children: []
-  m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2803038361788113007
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780905576756896017}
-  m_Mesh: {fileID: 4300062, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
---- !u!23 &2792544293580390297
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780905576756896017}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 2
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 595e12d85144c7e47920445346303859, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1 &2780960048260541245
 GameObject:
   m_ObjectHideFlags: 0
@@ -5664,7 +5554,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2779763340760511179}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2802892081326520517
 MeshFilter:
@@ -5741,7 +5631,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.525, z: 1.17}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000009536743, y: 0.52500004, z: 1.1699952}
+  m_ConnectedAnchor: {x: 0, y: 0.52500004, z: 1.17}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5822,7 +5712,7 @@ MonoBehaviour:
   colliders: []
   damagePerHit: 0.2
   areaToDeform: 0.2
-  maximumDistance: 0.2
+  maximumDistance: 0.1
 --- !u!1 &2918501166945775486
 GameObject:
   m_ObjectHideFlags: 0
