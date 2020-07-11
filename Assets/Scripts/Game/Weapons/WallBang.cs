@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class WallBang : MonoBehaviour
 {
     // The higher the value the less the damage is cut off

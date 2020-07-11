@@ -1506,11 +1506,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27007.564
-    damper: 3682.8496
+    spring: 27217.785
+    damper: 3711.516
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.09604713
+  m_SuspensionDistance: 0.16214874
+  m_ForceAppPointDistance: -0.099098295
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1568,11 +1568,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27826.055
-    damper: 3794.462
+    spring: 28045.93
+    damper: 3824.4453
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.09604713
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: -0.099098295
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1932,11 +1932,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 33491.375
-    damper: 4567.006
+    spring: 33281.164
+    damper: 4538.34
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: -0.104399204
+  m_SuspensionDistance: 0.16214874
+  m_ForceAppPointDistance: -0.107450366
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1994,11 +1994,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 32674.998
-    damper: 4455.6816
+    spring: 32455.13
+    damper: 4425.699
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: -0.104399204
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: -0.107450366
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2615,7 +2615,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: -0.15}
+  m_ConnectedAnchor: {x: 0.71500254, y: 0.25, z: -0.1499999}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3185,7 +3185,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.71500266, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3486,7 +3486,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.715, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: 0.7150025, y: 0.25, z: 0.8750002}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -4295,7 +4295,7 @@ MeshCollider:
   m_GameObject: {fileID: 2780485546922951131}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: -1
@@ -4923,7 +4923,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.715, y: 0.25, z: -0.15}
+  m_ConnectedAnchor: {x: -0.71500254, y: 0.25, z: -0.1500001}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5223,7 +5223,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.645, z: -1.6525}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.645, z: -1.6525}
+  m_ConnectedAnchor: {x: 0.00000019073487, y: 0.645, z: -1.6525027}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5631,7 +5631,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.525, z: 1.17}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.52500004, z: 1.17}
+  m_ConnectedAnchor: {x: -0.00000009536743, y: 0.52500004, z: 1.1699952}
   m_UseSpring: 1
   m_Spring:
     spring: 0

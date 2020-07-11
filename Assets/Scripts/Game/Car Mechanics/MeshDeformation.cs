@@ -24,8 +24,12 @@ public class MeshDeformation : MonoBehaviour
 	void Awake()
 	{
 		rigid = GetComponent<Rigidbody>();
-
-		meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
+		
+		if (GetComponent<MeshFilter>() != null)
+		{
+			meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
+		}
+		
 		colliders = new Collider[GetComponents<Collider>().Length];
 
 		for (int i = 0; i < colliders.Length; i++)

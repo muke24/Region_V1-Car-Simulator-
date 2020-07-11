@@ -16,7 +16,7 @@ public class CarPlayerCollision : MonoBehaviour
 	{
 		if (rigid.mass > 1f)
 		{
-			if (collision.transform.root.gameObject.tag == "Enemy")
+			if (collision.transform.root.gameObject.CompareTag("Enemy"))
 			{
 				Enemy enemy = collision.transform.root.GetComponent<Enemy>();
 				enemy.curHealth -= (int)rigid.velocity.magnitude * (int)rigid.mass / 2;
