@@ -24,12 +24,8 @@ public class MeshDeformation : MonoBehaviour
 	void Awake()
 	{
 		rigid = GetComponent<Rigidbody>();
-		
-		if (GetComponent<MeshFilter>() != null)
-		{
-			meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
-		}
-		
+
+		meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
 		colliders = new Collider[GetComponents<Collider>().Length];
 
 		for (int i = 0; i < colliders.Length; i++)
@@ -39,7 +35,7 @@ public class MeshDeformation : MonoBehaviour
 		for (int i = 0; i < meshes.Length; i++)
 		{
 			meshes[i] = GetComponents<MeshFilter>()[i];
-		}		
+		}
 	}
 
 	void OnEnable()
@@ -53,6 +49,16 @@ public class MeshDeformation : MonoBehaviour
 			meshesOriginals[i] = mesh.vertices;
 			mesh.MarkDynamic();
 		}
+
+		//if (meshes.Length == 0)
+		//{
+			
+		//}
+
+		//if (colliders.Length == 0)
+		//{
+			
+		//}
 
 		meshes = new MeshFilter[GetComponents<MeshFilter>().Length];
 		colliders = new Collider[GetComponents<Collider>().Length];
@@ -233,7 +239,7 @@ public class MeshDeformation : MonoBehaviour
 					Debug.Log("Cannot deform mesh on " + transform.name);
 				}
 			}
-		}		
+		}
 
 		return damagedVertices > 0 ? totalDamage / damagedVertices : 0.0f;
 	}

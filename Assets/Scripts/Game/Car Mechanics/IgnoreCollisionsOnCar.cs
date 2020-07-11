@@ -15,16 +15,16 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 	{
 		carColliders = GetComponentsInChildren<Collider>();
 
-		foreach (var item in carColliders)
+		foreach (Collider col1 in carColliders)
 		{
-			for (int i = 0; i < carColliders.Length; i++)
+			foreach (Collider col2 in carColliders)
 			{
-				if (item != carColliders[i])
+				if (col1 != col2)
 				{
-					Physics.IgnoreCollision(item, carColliders[i], true);
+					Physics.IgnoreCollision(col1, col2, true);
 				}
 			}
-		}
+		}		
 
 		//for (int i = 0; i < carColliders.Length; i++)
 		//{

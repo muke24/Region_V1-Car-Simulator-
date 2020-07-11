@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepColliderSameAsMesh: 0
+  keepColliderSameAsMesh: 1
   meshes: []
   colliders: []
   damagePerHit: 0.3
@@ -1506,11 +1506,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 27217.785
-    damper: 3711.516
+    spring: 24071.355
+    damper: 3282.4575
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214874
-  m_ForceAppPointDistance: -0.099098295
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: 0.3634279
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1568,11 +1568,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 28045.93
-    damper: 3824.4453
+    spring: 24044.938
+    damper: 3278.855
     targetPosition: 0.5
   m_SuspensionDistance: 0.16214877
-  m_ForceAppPointDistance: -0.099098295
+  m_ForceAppPointDistance: 0.3634279
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1932,11 +1932,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 33281.164
-    damper: 4538.34
+    spring: 36428.676
+    damper: 4967.547
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214874
-  m_ForceAppPointDistance: -0.107450366
+  m_SuspensionDistance: 0.16214876
+  m_ForceAppPointDistance: 0.3550758
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -1994,11 +1994,11 @@ WheelCollider:
   m_Center: {x: 0, y: 0.05, z: 0}
   m_Radius: 0.3075
   m_SuspensionSpring:
-    spring: 32455.13
-    damper: 4425.699
+    spring: 36455.02
+    damper: 4971.139
     targetPosition: 0.5
-  m_SuspensionDistance: 0.16214876
-  m_ForceAppPointDistance: -0.107450366
+  m_SuspensionDistance: 0.16214877
+  m_ForceAppPointDistance: 0.3550758
   m_Mass: 10
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -2615,7 +2615,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.71500254, y: 0.25, z: -0.1499999}
+  m_ConnectedAnchor: {x: 0.7149995, y: 0.25, z: -0.1500001}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3185,7 +3185,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.71500266, y: 0.25, z: 0.875}
+  m_ConnectedAnchor: {x: -0.7150009, y: 0.25, z: 0.8750002}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3486,7 +3486,7 @@ HingeJoint:
   m_Anchor: {x: 0.715, y: 0.25, z: 0.875}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7150025, y: 0.25, z: 0.8750002}
+  m_ConnectedAnchor: {x: 0.7149996, y: 0.25, z: 0.875}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -3817,6 +3817,8 @@ GameObject:
   - component: {fileID: 1610265679340000}
   - component: {fileID: 1610265679340001}
   - component: {fileID: 1610265679340002}
+  - component: {fileID: 1919469412}
+  - component: {fileID: 1919469411}
   m_Layer: 9
   m_Name: Tocus
   m_TagString: Car
@@ -4060,6 +4062,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carColliders: []
+--- !u!64 &1919469412
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300060, guid: df7495afdce80f54694ff3d2fae828ac, type: 3}
+--- !u!114 &1919469411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780423566793949867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keepColliderSameAsMesh: 0
+  meshes:
+  - {fileID: 2804392651989628919}
+  colliders: []
+  damagePerHit: 0.5
+  areaToDeform: 0.1
+  maximumDistance: 0.4
 --- !u!1 &2780470758779515165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,7 +4319,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 3
 --- !u!64 &2108274625
 MeshCollider:
@@ -4295,7 +4330,7 @@ MeshCollider:
   m_GameObject: {fileID: 2780485546922951131}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: -1
@@ -4923,7 +4958,7 @@ HingeJoint:
   m_Anchor: {x: -0.715, y: 0.25, z: -0.15}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.71500254, y: 0.25, z: -0.1500001}
+  m_ConnectedAnchor: {x: -0.7149995, y: 0.25, z: -0.1499999}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5223,7 +5258,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.645, z: -1.6525}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000019073487, y: 0.645, z: -1.6525027}
+  m_ConnectedAnchor: {x: -0.00000019073487, y: 0.645, z: -1.6524996}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5271,7 +5306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepColliderSameAsMesh: 0
+  keepColliderSameAsMesh: 1
   meshes: []
   colliders: []
   damagePerHit: 0.2
@@ -5631,7 +5666,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.525, z: 1.17}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000009536743, y: 0.52500004, z: 1.1699952}
+  m_ConnectedAnchor: {x: 0.00000009536743, y: 0.52500004, z: 1.1700014}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -5707,7 +5742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fd1f8449501634091edc556f480c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keepColliderSameAsMesh: 0
+  keepColliderSameAsMesh: 1
   meshes: []
   colliders: []
   damagePerHit: 0.2
