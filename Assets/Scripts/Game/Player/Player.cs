@@ -39,13 +39,22 @@ public class Player : MonoBehaviour
 
 	private void Awake()
 	{
+		if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
+
 		if (GameMode.singleplayer)
 		{
 			username = "";
 		}
 
 		if (!GameMode.multiplayer)
-		{			
+		{
 			Destroy(GetComponent<PlayerNetworkMovement>());
 			Destroy(GetComponent<NetworkIdentity>());
 		}

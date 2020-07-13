@@ -16,7 +16,7 @@ public class NetworkManagerLobby : NetworkManager
 	[Header("Game")]
 	[SerializeField] private NetworkGamePlayer gamePlayerPrefab = null;
 	[SerializeField] private NetworkGamePlayer gamePlayerPrefabTeam = null;
-	[SerializeField] private NetworkGamePlayer gamePlayerPrefabEnemy = null;
+	//[SerializeField] private NetworkGamePlayer gamePlayerPrefabEnemy = null;
 
 	[SerializeField] private GameObject playerSpawnSystem = null;
 
