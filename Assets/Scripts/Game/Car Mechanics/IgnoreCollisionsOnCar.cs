@@ -5,7 +5,6 @@ public class IgnoreCollisionsOnCar : MonoBehaviour
 {
 	public Collider[] carColliders;
 
-	// Start is called before the first frame update
 	void Awake()
 	{
 		FindAndIgnoreColliders();

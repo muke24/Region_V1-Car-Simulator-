@@ -11,15 +11,14 @@ GameObject:
   - component: {fileID: 3595768058543944333}
   - component: {fileID: 3595768058543944320}
   - component: {fileID: 3595768058543944323}
-  - component: {fileID: 3595768058543944322}
   - component: {fileID: 141081544}
   - component: {fileID: 6956130609491839133}
   m_Layer: 4
   m_Name: WaterPlanePond
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3595768058543944333
 Transform:
@@ -82,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3595768058543944322
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3595768058543944332}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &141081544
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ TagManager:
   - DontDestroyAtStart
   - SpawnPoints
   - Terrain
+  - Water
   layers:
   - Default
   - TransparentFX

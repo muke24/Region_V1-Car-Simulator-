@@ -70,6 +70,8 @@ public class Sniper : MonoBehaviour
 	private ParticleSystem muzzelFlash = null;
 	[SerializeField] // Makes Unity show the private field in inspector
 	private GameObject impactEffect = null;
+	[SerializeField] // Makes Unity show the private field in inspector
+	private GameObject waterImpactEffect = null;
 	#endregion
 
 	private void Awake()
@@ -104,7 +106,6 @@ public class Sniper : MonoBehaviour
 		{
 			HitMarkerHit();
 		}
-
 
 		if (deadEnemy)
 		{
@@ -245,16 +246,19 @@ public class Sniper : MonoBehaviour
 		{
 			if (!hit.transform.gameObject.CompareTag("Player") || hit.transform.name == "Environment")
 			{
-				if (!hit.transform.root.gameObject.CompareTag("Enemy"))
+				if (!hit.transform.gameObject.CompareTag("Water"))
 				{
-					if (!hit.transform.root.gameObject.CompareTag("TeamPlayer"))
+					if (!hit.transform.root.gameObject.CompareTag("Enemy"))
 					{
-						var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-						GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
-						gunShot.transform.SetParent(hit.transform);
-						GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-						Destroy(impactGO, 2f);
-						Destroy(gunShot, 20f);
+						if (!hit.transform.root.gameObject.CompareTag("TeamPlayer"))
+						{
+							var hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+							GameObject gunShot = Instantiate(gunshotDecal, hit.point, hitRotation);
+							gunShot.transform.SetParent(hit.transform);
+							GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+							Destroy(impactGO, 2f);
+							Destroy(gunShot, 20f);
+						}
 					}
 				}
 			}
@@ -265,6 +269,23 @@ public class Sniper : MonoBehaviour
 			if (hit.transform.GetComponent<WallBang>() != null && wallbangMultiplier > 0.5f || hit.transform.CompareTag("Wall-Bangable") && wallbangMultiplier > 0.5f)
 			{
 				Wallbang(hit, raycastCount, wallbangMultiplier, distance);
+			}
+
+			if (hit.transform.gameObject.CompareTag("Water"))
+			{
+				RaycastHit hit2;
+				//var heading = hit.point - gunCam.transform.forward;
+				//var hitdistance = heading.magnitude;
+				//var direction = heading / hitdistance;
+
+				if (Physics.Raycast(gunCam.transform.position, hit.point, out hit2, range))
+				{
+					GameObject impactGO = Instantiate(waterImpactEffect, hit2.point, Quaternion.LookRotation(hit.normal));
+					Destroy(impactGO, 2f);
+					RaycastShot(hit2, raycastCount, wallbangMultiplier);
+				}
+
+				return;
 			}
 
 			if (hit.transform.gameObject.CompareTag("Player"))

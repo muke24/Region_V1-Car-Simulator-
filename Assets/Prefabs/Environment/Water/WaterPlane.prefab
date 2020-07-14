@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 5934533694489424641}
   m_Layer: 4
   m_Name: WaterPlane
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1918164287091811778
 Transform:
@@ -92,8 +92,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 137.52217, z: 10}
-  m_Center: {x: 0, y: -68.20005, z: 0}
+  m_Size: {x: 10, y: 138.6728, z: 10}
+  m_Center: {x: 0, y: -67.62473, z: 0}
 --- !u!114 &5934533694489424641
 MonoBehaviour:
   m_ObjectHideFlags: 0
