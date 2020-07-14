@@ -20,26 +20,26 @@ public class Floater : MonoBehaviour
 		currentCar = FindObjectOfType<CurrentCar>();
 	}
 
-	void FixedUpdate()
-	{
-		//// Makes the car float up and down when its reached the water submerge depth
-		//if (transform.position.y > 0)
-		//{
-		//	float displacementMultiplier = Mathf.Clamp01((transform.position.y) / depthBeforeSubmerged) * displacementAmount;
-		//	foreach (Rigidbody rigidbody in rigidList)
-		//	{
-		//		rigidbody.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), ForceMode.Acceleration);
-		//	}
-		//}
-		//if (transform.position.y <= 0)
-		//{
-		//	float displacementMultiplier = Mathf.Clamp01((-transform.position.y) / depthBeforeSubmerged) * displacementAmount;
-		//	foreach (Rigidbody rigidbody in rigidList)
-		//	{
-		//		rigidbody.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), ForceMode.Acceleration);
-		//	}
-		//}
-	}
+	//void FixedUpdate()
+	//{
+	//	//// Makes the car float up and down when its reached the water submerge depth
+	//	//if (transform.position.y > 0)
+	//	//{
+	//	//	float displacementMultiplier = Mathf.Clamp01((transform.position.y) / depthBeforeSubmerged) * displacementAmount;
+	//	//	foreach (Rigidbody rigidbody in rigidList)
+	//	//	{
+	//	//		rigidbody.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), ForceMode.Acceleration);
+	//	//	}
+	//	//}
+	//	//if (transform.position.y <= 0)
+	//	//{
+	//	//	float displacementMultiplier = Mathf.Clamp01((-transform.position.y) / depthBeforeSubmerged) * displacementAmount;
+	//	//	foreach (Rigidbody rigidbody in rigidList)
+	//	//	{
+	//	//		rigidbody.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), ForceMode.Acceleration);
+	//	//	}
+	//	//}
+	//}
 
 	private void OnTriggerEnter(Collider other)
 	{
