@@ -18,7 +18,7 @@ public class CarObjectCollision : MonoBehaviour
 		{
 			float otherMass = collision.rigidbody.mass;
 
-			var force = collision.relativeVelocity.magnitude * otherMass;
+			float force = collision.relativeVelocity.magnitude * otherMass;
 
 			if (force > 400f)
 			{

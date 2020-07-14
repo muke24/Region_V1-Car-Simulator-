@@ -23,6 +23,7 @@ TagManager:
   - PlayerPanelParent
   - DontDestroyAtStart
   - SpawnPoints
+  - Terrain
   layers:
   - Default
   - TransparentFX

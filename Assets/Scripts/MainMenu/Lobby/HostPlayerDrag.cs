@@ -10,12 +10,11 @@ public class HostPlayerDrag : MonoBehaviour
 	private Transform firstParent;
 	private Vector3 firstPos = Vector3.zero;
 	private Vector3 mOffset;
-	public GameObject lastDragParent = null;
-	public GameObject dragParent = null;
-
+	private GameObject lastDragParent = null;
+	private GameObject dragParent = null;
 	private bool playerOnSpot = false;
 
-	public List<RaycastResult> RaycastMouse()
+	private List<RaycastResult> RaycastMouse()
 	{
 		PointerEventData pointerData = new PointerEventData(EventSystem.current)
 		{
@@ -32,69 +31,7 @@ public class HostPlayerDrag : MonoBehaviour
 		return results;
 	}
 
-	private void FixedUpdate()
-	{
-		if (Input.GetMouseButton(0))
-		{
-			HighlightParentPanel();
-		}
-	}
-
-	private void Update()
-	{
-		// I could of used Unity's "OnMouseDown()", "OnMouseDrag()" and "OnMouseUp()", 
-		// but for some reason when I tried they weren't even being called for some reason. 
-
-		if (GameMode.hosting || !GameMode.hosting && !GameMode.joining)
-		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				MouseDown();
-			}
-			if (Input.GetMouseButton(0))
-			{
-				MouseDrag();
-			}
-			if (Input.GetMouseButtonUp(0))
-			{
-				MouseUp();
-			}
-		}
-	}
-
-	private void MouseDown()
-	{
-		var mousePos = Input.mousePosition;
-		mousePos.x -= Screen.width / 2;
-		mousePos.y -= Screen.height / 2;
-
-		foreach (RaycastResult item in RaycastMouse())
-		{
-			if (item.gameObject.CompareTag("PlayerPanel"))
-			{
-				selectedDragGameObject = item.gameObject;
-				firstPos = selectedDragGameObject.transform.localPosition;
-				firstParent = selectedDragGameObject.transform.parent;
-				mOffset = selectedDragGameObject.transform.position - mousePos;
-				item.gameObject.GetComponent<Image>().raycastTarget = false;
-				selectedDragGameObject.transform.SetParent(transform);
-			}
-		}
-	}
-
-	private void MouseDrag()
-	{
-		var mousePos = Input.mousePosition;
-		mousePos.x -= Screen.width / 2;
-		mousePos.y -= Screen.height / 2;
-
-		if (selectedDragGameObject != null)
-		{
-			selectedDragGameObject.transform.position = mousePos + mOffset;
-		}
-	}
-
-	private void HighlightParentPanel()
+	public void HighlightParentPanel()
 	{
 		if (RaycastMouse().Count > 0)
 		{
@@ -144,92 +81,133 @@ public class HostPlayerDrag : MonoBehaviour
 		}
 	}
 
-	private void MouseUp()
+	public void MouseDown()
 	{
-		if (RaycastMouse().Count == 0)
+		if (GameMode.hosting || !GameMode.hosting && !GameMode.joining)
 		{
-			selectedDragGameObject.transform.SetParent(firstParent);
-			selectedDragGameObject.transform.localPosition = firstPos;
-			selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+			var mousePos = Input.mousePosition;
+			mousePos.x -= Screen.width / 2;
+			mousePos.y -= Screen.height / 2;
 
-			firstPos = Vector3.zero;
-			firstParent = null;
-			selectedDragGameObject = null;
-			mOffset = Vector3.zero;
-		}
-
-		else
-		{
 			foreach (RaycastResult item in RaycastMouse())
 			{
-				if (selectedDragGameObject != null)
+				if (item.gameObject.CompareTag("PlayerPanel"))
 				{
-					if (dragParent != null)
+					selectedDragGameObject = item.gameObject;
+					firstPos = selectedDragGameObject.transform.localPosition;
+					firstParent = selectedDragGameObject.transform.parent;
+					mOffset = selectedDragGameObject.transform.position - mousePos;
+					item.gameObject.GetComponent<Image>().raycastTarget = false;
+					selectedDragGameObject.transform.SetParent(transform);
+				}
+			}
+		}		
+	}
+
+	public void MouseDrag()
+	{
+		if (GameMode.hosting || !GameMode.hosting && !GameMode.joining)
+		{
+			var mousePos = Input.mousePosition;
+			mousePos.x -= Screen.width / 2;
+			mousePos.y -= Screen.height / 2;
+
+			if (selectedDragGameObject != null)
+			{
+				selectedDragGameObject.transform.position = mousePos + mOffset;
+			}
+		}		
+	}
+
+	public void MouseUp()
+	{
+		if (GameMode.hosting || !GameMode.hosting && !GameMode.joining)
+		{
+			if (RaycastMouse().Count == 0)
+			{
+				selectedDragGameObject.transform.SetParent(firstParent);
+				selectedDragGameObject.transform.localPosition = firstPos;
+				selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+
+				firstPos = Vector3.zero;
+				firstParent = null;
+				selectedDragGameObject = null;
+				mOffset = Vector3.zero;
+			}
+
+			else
+			{
+				foreach (RaycastResult item in RaycastMouse())
+				{
+					if (selectedDragGameObject != null)
 					{
-						dragParent.GetComponent<Outline>().enabled = false;
-						dragParent = null;
-					}
+						if (dragParent != null)
+						{
+							dragParent.GetComponent<Outline>().enabled = false;
+							dragParent = null;
+						}
 
-					if (lastDragParent != null)
-					{
-						lastDragParent.GetComponent<Outline>().enabled = false;
-						lastDragParent = null;
-					}
+						if (lastDragParent != null)
+						{
+							lastDragParent.GetComponent<Outline>().enabled = false;
+							lastDragParent = null;
+						}
 
-					if (item.gameObject.CompareTag("PlayerPanel") && item.gameObject != selectedDragGameObject)
-					{
-						playerOnSpot = true;
-						Debug.Log("Switching player '" + selectedDragGameObject.GetComponentInChildren<Text>().text + "' with player '" + item.gameObject.GetComponentInChildren<Text>().text + "'");
-					}
+						if (item.gameObject.CompareTag("PlayerPanel") && item.gameObject != selectedDragGameObject)
+						{
+							playerOnSpot = true;
+							Debug.Log("Switching player '" + selectedDragGameObject.GetComponentInChildren<Text>().text + "' with player '" + item.gameObject.GetComponentInChildren<Text>().text + "'");
+						}
 
-					if (!item.gameObject.CompareTag("PlayerPanelParent") && !playerOnSpot)
-					{
-						selectedDragGameObject.transform.SetParent(firstParent);
-						selectedDragGameObject.transform.localPosition = firstPos;
-						selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+						if (!item.gameObject.CompareTag("PlayerPanelParent") && !playerOnSpot)
+						{
+							selectedDragGameObject.transform.SetParent(firstParent);
+							selectedDragGameObject.transform.localPosition = firstPos;
+							selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
 
-						firstPos = Vector3.zero;
-						firstParent = null;
-						selectedDragGameObject = null;
-						mOffset = Vector3.zero;
-						return;
-					}
+							firstPos = Vector3.zero;
+							firstParent = null;
+							selectedDragGameObject = null;
+							mOffset = Vector3.zero;
+							return;
+						}
 
-					if (item.gameObject.CompareTag("PlayerPanelParent") && !playerOnSpot)
-					{
-						selectedDragGameObject.transform.SetParent(item.gameObject.transform);
-						selectedDragGameObject.transform.localPosition = Vector3.zero;
-						selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+						if (item.gameObject.CompareTag("PlayerPanelParent") && !playerOnSpot)
+						{
+							selectedDragGameObject.transform.SetParent(item.gameObject.transform);
+							selectedDragGameObject.transform.localPosition = Vector3.zero;
+							selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
 
-						firstPos = Vector3.zero;
-						firstParent = null;
-						selectedDragGameObject = null;
-						mOffset = Vector3.zero;
-						return;
-					}
+							firstPos = Vector3.zero;
+							firstParent = null;
+							selectedDragGameObject = null;
+							mOffset = Vector3.zero;
+							return;
+						}
 
-					if (playerOnSpot)
-					{
-						Transform transform1 = item.gameObject.transform.parent;
-						Transform transform2 = firstParent;
+						if (playerOnSpot)
+						{
+							Transform transform1 = item.gameObject.transform.parent;
+							Transform transform2 = firstParent;
 
-						selectedDragGameObject.transform.SetParent(transform1);
-						selectedDragGameObject.transform.localPosition = firstPos;
-						selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
+							selectedDragGameObject.transform.SetParent(transform1);
+							selectedDragGameObject.transform.localPosition = firstPos;
+							selectedDragGameObject.GetComponent<Image>().raycastTarget = true;
 
-						item.gameObject.transform.SetParent(transform2);
-						item.gameObject.transform.localPosition = firstPos;
+							item.gameObject.transform.SetParent(transform2);
+							item.gameObject.transform.localPosition = firstPos;
 
-						firstPos = Vector3.zero;
-						firstParent = null;
-						selectedDragGameObject = null;
-						mOffset = Vector3.zero;
-						playerOnSpot = false;
-						return;
+							firstPos = Vector3.zero;
+							firstParent = null;
+							selectedDragGameObject = null;
+							mOffset = Vector3.zero;
+							playerOnSpot = false;
+							return;
+						}
 					}
 				}
 			}
-		}
+		}		
 	}
 }
 // This code is written by Peter Thompson
