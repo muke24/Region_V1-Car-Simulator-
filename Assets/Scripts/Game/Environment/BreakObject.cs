@@ -91,6 +91,10 @@ public class BreakObject : MonoBehaviour
 #region Extension class to change material transparency
 public static class MaterialExtensions
 {
+	/// <summary>
+	/// Sets the material's render mode to "Opaque"
+	/// </summary>
+	/// <param name="material"></param>
 	public static void ToOpaqueMode(this Material material)
 	{
 		material.SetOverrideTag("RenderType", "");
@@ -102,7 +106,10 @@ public static class MaterialExtensions
 		material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
 		material.renderQueue = -1;
 	}
-
+/// <summary>
+/// Sets the material's render mode to "Fade"
+/// </summary>
+/// <param name="material"></param>
 	public static void ToFadeMode(this Material material)
 	{
 		material.SetOverrideTag("RenderType", "Transparent");
