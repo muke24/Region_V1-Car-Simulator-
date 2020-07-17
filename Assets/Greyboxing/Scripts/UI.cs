@@ -3,8 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-	[SerializeField]
-	private GameObject pause;
+	public GameObject pause;
 
 	private void Update()
 	{
@@ -13,11 +12,13 @@ public class UI : MonoBehaviour
 			if (pause.activeInHierarchy)
 			{
 				pause.SetActive(false);
+				Look.isPaused = false;
 				Cursor.lockState = CursorLockMode.Locked;
 			}
 			else
 			{
 				pause.SetActive(true);
+				Look.isPaused = true;
 				Cursor.lockState = CursorLockMode.None;
 			}
 		}

@@ -1,6 +1,4 @@
 ﻿#region This code is written by Peter Thompson
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
@@ -82,7 +80,14 @@ public class MouseLook : MonoBehaviour
 		}
 	}
 
-	public static float ClampAngle(float angle, float min, float max)
+	/// <summary>
+	/// Limits the angle
+	/// </summary>
+	/// <param name="angle">Float angle to limit</param>
+	/// <param name="min">Minimum angle</param>
+	/// <param name="max">Maximum angle</param>
+	/// <returns></returns>
+	private static float ClampAngle(float angle, float min, float max)
 	{
 		// If the angle exceeds -360 degrees then set it to +360 degrees
 		if (angle < -360f)
