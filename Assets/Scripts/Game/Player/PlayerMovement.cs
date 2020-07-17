@@ -36,10 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		if (GameMode.singleplayer)
-		{
-			controller = GetComponent<CharacterController>();
-		}
+		controller = GetComponent<CharacterController>();
 	}
 
 	void Update()
