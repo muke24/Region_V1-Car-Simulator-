@@ -26,6 +26,7 @@ public class UI : MonoBehaviour
 
 	public void BackToMainMenu()
 	{
+		Look.isPaused = false;
 		SceneManager.LoadScene(0);
 	}
 }
