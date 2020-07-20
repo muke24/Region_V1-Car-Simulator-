@@ -12658,7 +12658,6 @@ GameObject:
   - component: {fileID: -4868157570048500183}
   - component: {fileID: 2919195104346072458}
   - component: {fileID: -4220209990506240036}
-  - component: {fileID: 1654295340377238340}
   - component: {fileID: 6818874456555837768}
   - component: {fileID: 9011704123449099479}
   m_Layer: 0
@@ -12948,22 +12947,6 @@ MonoBehaviour:
   airBornMultiplier: 1
   aimMoveSpeed: 1
   pA: {fileID: 4276280504643031226}
---- !u!114 &1654295340377238340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276280504643031172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf2ea72bafe8b54ebc5b1714950f16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  singleCamMode: 0
-  playerCam: {fileID: 4276280504595284993}
-  scopeCam: {fileID: 4276280503679876499}
-  scopeRenderTexture: {fileID: 8400000, guid: 795a2a9e9e41cb14c9b7371980eeae98, type: 2}
 --- !u!114 &6818874456555837768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14516,15 +14499,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b73c5bd09e0af5e48a81b829614fca32, type: 3}
---- !u!4 &4271974990597971401 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4922413645337816, guid: b73c5bd09e0af5e48a81b829614fca32,
-    type: 3}
-  m_PrefabInstance: {fileID: 4276280503301392657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4277885760067508069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1825296570637940, guid: b73c5bd09e0af5e48a81b829614fca32,
+    type: 3}
+  m_PrefabInstance: {fileID: 4276280503301392657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4271974990597971401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4922413645337816, guid: b73c5bd09e0af5e48a81b829614fca32,
     type: 3}
   m_PrefabInstance: {fileID: 4276280503301392657}
   m_PrefabAsset: {fileID: 0}
