@@ -1,0 +1,28 @@
+var class_amplify_shader_editor_1_1_duplicate_prevention_buffer =
+[
+    [ "CheckUniformNameOwner", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a48243c7a18bcc10e1299c60d6030e3bc", null ],
+    [ "DumpLocalVariableNames", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#abf463b1192ae9f4759549850a4613280", null ],
+    [ "DumpUniformNames", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#ac8e8caaa6907478213117d66f4ba9372", null ],
+    [ "GetChannelName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a9c001db531bce55b5e5ccfd617b0c055", null ],
+    [ "GetFirstAvailableName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a05cbe043ecb53e587c499b99cf437b58", null ],
+    [ "GetFirstOccupiedChannel", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#afcb7841f4da58d4eac3c5b4e7c3ebc9a", null ],
+    [ "GetPropertyName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a99c64731d04348fad8f70865e2d1b0f1", null ],
+    [ "IsChannelAvailable", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#ae47e2d6f9ba64848f9602392424c8691", null ],
+    [ "IsLocalvariableNameAvailable", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a7a9c30fe4486020eb2029cab8fa2c5d2", null ],
+    [ "IsPropertyNameAvailable", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#af3892f7fe59f2e0af9a5e3bc68b58fca", null ],
+    [ "IsUniformNameAvailable", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#aa96d2b35da34ff8aa520365198581de7", null ],
+    [ "RegisterFirstAvailableChannel", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a2a2e818bb737b1f80a96dfa7e30a6625", null ],
+    [ "RegisterLocalVariableName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a567adb5d6a64bef414f1e8a59d596f31", null ],
+    [ "RegisterUniformName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a247d6878855a389093e77bc22feb8a6a", null ],
+    [ "RegisterUVChannel", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a6b4de637f4e0afa5ca3f06c7234b3fda", null ],
+    [ "ReleaseAllData", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a214317a9ee6635cf0a1870685c53407d", null ],
+    [ "ReleaseAllLocalVariableNames", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#aa8d5ea02dc629fed8d9b717c684725d9", null ],
+    [ "ReleaseAllPropertyNames", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a307cb7632757b8569b5bec99697f5324", null ],
+    [ "ReleaseAllUniformNames", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a015890a22ec2c0cc6b2730a397d83d32", null ],
+    [ "ReleaseAllUVChannels", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a6d409e7c15d8d7690b19c1bae386c974", null ],
+    [ "ReleaseLocalVariableName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a0e4cfe348c5eb6008a4da4231a6c14f6", null ],
+    [ "ReleasePropertyName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a3e061913aa06911500dcaec8c37de3cf", null ],
+    [ "ReleaseUniformName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#afdd555eb5d6eef1b8b11bad9ac157d34", null ],
+    [ "ReleaseUVChannel", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#ae9bdfba3ed00a4100676387d1681cc6a", null ],
+    [ "SetChannelName", "class_amplify_shader_editor_1_1_duplicate_prevention_buffer.html#a46fbb7877ceb6a0d444fc9f73b8b118d", null ]
+];

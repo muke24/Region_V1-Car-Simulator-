@@ -1,0 +1,27 @@
+var class_amplify_shader_editor_1_1_screen_color_node =
+[
+    [ "ScreenColorNode", "class_amplify_shader_editor_1_1_screen_color_node.html#a78cb3601102f3d8075fc19e132449843", null ],
+    [ "ScreenColorNode", "class_amplify_shader_editor_1_1_screen_color_node.html#a8848d42e9c17a83fb2c8d3d09e0b7653", null ],
+    [ "ChangeSizeFinished", "class_amplify_shader_editor_1_1_screen_color_node.html#aea2e250cdeae19a71c4be456f64eb94f", null ],
+    [ "CheckIfAutoRegister", "class_amplify_shader_editor_1_1_screen_color_node.html#a7b2770f4a47694e442b5650993bcde86", null ],
+    [ "CommonInit", "class_amplify_shader_editor_1_1_screen_color_node.html#a1c91ed3d711fca76d07bbb96fb45e1cd", null ],
+    [ "Destroy", "class_amplify_shader_editor_1_1_screen_color_node.html#ad7ee24d3b827c353c491018e6d42a4a8", null ],
+    [ "Draw", "class_amplify_shader_editor_1_1_screen_color_node.html#a13d5c3e458ecf16b3319fe0187449e52", null ],
+    [ "DrawMainPropertyBlock", "class_amplify_shader_editor_1_1_screen_color_node.html#a5f48eb17f1a071500ae9e57a6c733696", null ],
+    [ "DrawTitle", "class_amplify_shader_editor_1_1_screen_color_node.html#a2bdcd7b09498407ac2017df470dd100b", null ],
+    [ "GenerateShaderForOutput", "class_amplify_shader_editor_1_1_screen_color_node.html#aaac0cf9d2de410e035666ef23d299f0c", null ],
+    [ "GetPropertyValStr", "class_amplify_shader_editor_1_1_screen_color_node.html#a9ba5a14fcf1049e1c1cadee5c8a74d82", null ],
+    [ "GetUniformData", "class_amplify_shader_editor_1_1_screen_color_node.html#a09ab849084b61eae477ce250d79081ab", null ],
+    [ "GetUniformValue", "class_amplify_shader_editor_1_1_screen_color_node.html#a45fa3f497dbf1983968bc82ef485e715", null ],
+    [ "OnNodeLogicUpdate", "class_amplify_shader_editor_1_1_screen_color_node.html#a9d187de347bc6e20ff623cb8fb2e61cf", null ],
+    [ "OnPropertyNameChanged", "class_amplify_shader_editor_1_1_screen_color_node.html#a82360c792c09b174a9202cd71f3f30c0", null ],
+    [ "OnUniqueIDAssigned", "class_amplify_shader_editor_1_1_screen_color_node.html#ada84682848f25fe02a5c7e44889940d0", null ],
+    [ "ReadFromString", "class_amplify_shader_editor_1_1_screen_color_node.html#a42e7d91ccae779cea1bbf05dc1a4594f", null ],
+    [ "RefreshExternalReferences", "class_amplify_shader_editor_1_1_screen_color_node.html#a9a0e416fa4817cc00e9ed856e30111f7", null ],
+    [ "SetFetchedData", "class_amplify_shader_editor_1_1_screen_color_node.html#a98683a9db5ff9e12a6682d256772cf8b", null ],
+    [ "WriteToString", "class_amplify_shader_editor_1_1_screen_color_node.html#a1e462a87b0884291e60b22ed70b1efa8", null ],
+    [ "CurrentPropertyReference", "class_amplify_shader_editor_1_1_screen_color_node.html#a87a53e54f61d1c256aad73b969b55d8d", null ],
+    [ "DataToArray", "class_amplify_shader_editor_1_1_screen_color_node.html#af5a3e8f5926595d08257b0b126ef4db5", null ],
+    [ "PropertyName", "class_amplify_shader_editor_1_1_screen_color_node.html#a1cdd4cfa52ee14ce833addde43be3b54", null ],
+    [ "SoftValidReference", "class_amplify_shader_editor_1_1_screen_color_node.html#ae0ff2a9d4121b049ae57f44d1ff0dd64", null ]
+];

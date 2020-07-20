@@ -1,0 +1,27 @@
+var class_mirror_1_1_client_scene =
+[
+    [ "AddPlayer", "class_mirror_1_1_client_scene.html#a5e51ad9059beb7de4a5efdf16c2e9426", null ],
+    [ "ClearSpawners", "class_mirror_1_1_client_scene.html#aa3dac6d3741a2425f140afacd547a8bc", null ],
+    [ "DestroyAllClientObjects", "class_mirror_1_1_client_scene.html#a79a63029dfa7ee2c98d80d1be7cb3ded", null ],
+    [ "GetPrefab", "class_mirror_1_1_client_scene.html#a4ef42ac9a0099dc4dbaeeea45f690834", null ],
+    [ "LocalplayerChanged", "class_mirror_1_1_client_scene.html#a0ec24c3d8498bf68893e084dade44a92", null ],
+    [ "PrepareToSpawnSceneObjects", "class_mirror_1_1_client_scene.html#a486324279ace7f5474ab1aea0c7cb1ed", null ],
+    [ "Ready", "class_mirror_1_1_client_scene.html#a00f241600d6e44ebe2524c6000e217be", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#aac8548e32dd75fa589a1134b5de6998c", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#a54acea3c13c6852e140752fc134851cb", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#a998ed08bd810b4261760adb315e73610", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#a4a5d11243ddd07188dc7546c08eed022", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#a5810d672ac4847a50433867e24a280b0", null ],
+    [ "RegisterPrefab", "class_mirror_1_1_client_scene.html#a60e170a4221862d0851d0dc1a94608d6", null ],
+    [ "RegisterSpawnHandler", "class_mirror_1_1_client_scene.html#afd66222ab6b4bff49f0f55e137f425dc", null ],
+    [ "RegisterSpawnHandler", "class_mirror_1_1_client_scene.html#a486bf483c9d68f99c61cf12c9cdd75f5", null ],
+    [ "RemovePlayer", "class_mirror_1_1_client_scene.html#a31f1156454383fedefd46493217ed5dd", null ],
+    [ "UnregisterPrefab", "class_mirror_1_1_client_scene.html#a08c2f3261272e5b569cff0e08d757fd3", null ],
+    [ "UnregisterSpawnHandler", "class_mirror_1_1_client_scene.html#a49456bb6aff33f4b90a7bb773f477d76", null ],
+    [ "prefabs", "class_mirror_1_1_client_scene.html#ab6cc513f2c2e52c5fed84846f3110da7", null ],
+    [ "spawnableObjects", "class_mirror_1_1_client_scene.html#a95058943044ba4ff8ee2fc39ff0b7672", null ],
+    [ "localPlayer", "class_mirror_1_1_client_scene.html#a546ea3200f93885a512e583312f8d6a4", null ],
+    [ "ready", "class_mirror_1_1_client_scene.html#a550f1a3e836a8133e7eb8d380e85d713", null ],
+    [ "readyConnection", "class_mirror_1_1_client_scene.html#ae22ac6678ed9255b44e590188c041f85", null ],
+    [ "onLocalPlayerChanged", "class_mirror_1_1_client_scene.html#a2152a5498dd0870ffaadaa45c6935746", null ]
+];

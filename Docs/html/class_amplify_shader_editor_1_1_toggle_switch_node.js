@@ -1,0 +1,26 @@
+var class_amplify_shader_editor_1_1_toggle_switch_node =
+[
+    [ "CommonInit", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a4bfff9f3c892f1e4b4923dcb129c0fb4", null ],
+    [ "Draw", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a058dd40f312ed9f659ef83d418fb1ea9", null ],
+    [ "DrawGUIControls", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a14eb98ff25d12526ad30c4a0a5cb3ed1", null ],
+    [ "DrawMainPropertyBlock", "class_amplify_shader_editor_1_1_toggle_switch_node.html#acf073369f92e13d2384a245c46901a2e", null ],
+    [ "DrawProperties", "class_amplify_shader_editor_1_1_toggle_switch_node.html#aba1f746bc4baa95b84a7451d6a502f31", null ],
+    [ "ForceUpdateFromMaterial", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a9e53e0f2858bb95fa9173b3e41b53df9", null ],
+    [ "GenerateShaderForOutput", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a60a22b6eb503734ae40fb84cf12b2b5f", null ],
+    [ "GetPropertyValStr", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a5b9ee492a7f3f8d69f9c5005c7f45039", null ],
+    [ "GetPropertyValue", "class_amplify_shader_editor_1_1_toggle_switch_node.html#aa6821e9165513c6cda372e97d94622bf", null ],
+    [ "GetUniformData", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a37365a56c19df931bb886266e12fd358", null ],
+    [ "GetUniformValue", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a800a13cac1046f899a398d3745a0ef50", null ],
+    [ "OnConnectedOutputNodeChanges", "class_amplify_shader_editor_1_1_toggle_switch_node.html#ab13c680f8657e03f564bd159fa9048fb", null ],
+    [ "OnInputPortConnected", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a74ce95d7ed895d84bff46d3ac4ef5719", null ],
+    [ "OnInputPortDisconnected", "class_amplify_shader_editor_1_1_toggle_switch_node.html#ac6ac71e27c8b0042a8f899eb84fa4e78", null ],
+    [ "OnNodeLayout", "class_amplify_shader_editor_1_1_toggle_switch_node.html#ad63af5ae57941d4b00ce79f5b2a37c9a", null ],
+    [ "OnNodeRepaint", "class_amplify_shader_editor_1_1_toggle_switch_node.html#ab0b9524261f4930e92f6bd46f4b2864e", null ],
+    [ "OnUniqueIDAssigned", "class_amplify_shader_editor_1_1_toggle_switch_node.html#af461304dac86d1d9abb4980c82b4d7f9", null ],
+    [ "ReadFromString", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a05375f04157401047341baca4d846cf6", null ],
+    [ "RefreshExternalReferences", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a3a9edbf5111901c4f386fac17a63760a", null ],
+    [ "SetMaterialMode", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a1491f04fcdbba9fd0b429fc331826af3", null ],
+    [ "SetPreviewInputs", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a3d006c9084120bbd65bf52cf5b931f30", null ],
+    [ "UpdateMaterial", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a7eaf02a935dbff555309d76d7a6b7e2d", null ],
+    [ "WriteToString", "class_amplify_shader_editor_1_1_toggle_switch_node.html#a69648ae0a8a7d0503399df5db0e7c21a", null ]
+];

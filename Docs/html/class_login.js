@@ -1,0 +1,27 @@
+var class_login =
+[
+    [ "GoBack", "class_login.html#aa3410a2c94f2d77bdf4f205e1a251531", null ],
+    [ "LogInPanel", "class_login.html#a56ead1de8005a16840ad9be31230f6ba", null ],
+    [ "LogOut", "class_login.html#ac8dab3f4b716554a33482e093d4acf77", null ],
+    [ "MainPanel", "class_login.html#a9008a2a11f188c4b2022c3a24fdfbe0a", null ],
+    [ "RegisterPanel", "class_login.html#ac1c0ccac03e151e40f9231d59e3eba2c", null ],
+    [ "RegOrLogin", "class_login.html#a0a1e37186fb9fc1bbe828b3407f31858", null ],
+    [ "SetPlayerName", "class_login.html#ab38a506370e5731af2c5d8047c88c4b2", null ],
+    [ "backButton", "class_login.html#a2ba215b7f5487e2d78f98639e755e387", null ],
+    [ "loggedIn", "class_login.html#a5a74967766012937634651cdee25b9a5", null ],
+    [ "loggedInText", "class_login.html#a206daf964019fe381ce7f11c8262cc9d", null ],
+    [ "logInButton", "class_login.html#a86b5d9e5b45e2383c65723f77be0a391", null ],
+    [ "loginButton", "class_login.html#af88b7e42072b22889ec843077105f940", null ],
+    [ "logInPanelInt", "class_login.html#a2c89fb1d2d36fb68edebcba99c3de649", null ],
+    [ "logOutButton", "class_login.html#a4af1aa83c39d67c8ec8e85545bba027e", null ],
+    [ "mainGO", "class_login.html#ab49e4373a12a7ae59a68077506f4413e", null ],
+    [ "passwordField", "class_login.html#a662b55b621f947fb2d38173de9cf2e43", null ],
+    [ "registerButton", "class_login.html#a0b7caabd8348e7ab48c310ca57216eaa", null ],
+    [ "regLogGO", "class_login.html#af2ded060a62192bf2d922d0bc49cc39b", null ],
+    [ "rememberMe", "class_login.html#a9380223fe65623051509445df9362fea", null ],
+    [ "typeText", "class_login.html#a02088228e28f32ac0790333255fa237e", null ],
+    [ "username", "class_login.html#a26ae7d87cecec86dd95aaa76fe2ec985", null ],
+    [ "usernameField", "class_login.html#aa86365983ce3cfb852cd5acb6c11ebe7", null ],
+    [ "openedOnce", "class_login.html#ae83b690f82d411a9441572473a33116e", null ],
+    [ "playerUsername", "class_login.html#a6f5a4659575a273af5fbc440e2cbec63", null ]
+];

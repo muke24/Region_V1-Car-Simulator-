@@ -1,0 +1,25 @@
+var class_amplify_shader_editor_1_1_vector4_node =
+[
+    [ "Vector4Node", "class_amplify_shader_editor_1_1_vector4_node.html#adf9288eef5b3f11ea93ee9bcf4eae7ec", null ],
+    [ "Vector4Node", "class_amplify_shader_editor_1_1_vector4_node.html#aec47fdc5f103ba4ed68a4d0d93813e63", null ],
+    [ "CommonInit", "class_amplify_shader_editor_1_1_vector4_node.html#a1ea6ec2f4a5ed81861c204ccd6dec978", null ],
+    [ "ConfigureLocalVariable", "class_amplify_shader_editor_1_1_vector4_node.html#a3948dcb048d9ac971a6de716608c6d56", null ],
+    [ "CopyDefaultsToMaterial", "class_amplify_shader_editor_1_1_vector4_node.html#a851a363dec90e3d147ce4e10b84c5c18", null ],
+    [ "Draw", "class_amplify_shader_editor_1_1_vector4_node.html#a089fa00ddaf166d83bd26eea6b8bfa52", null ],
+    [ "DrawGUIControls", "class_amplify_shader_editor_1_1_vector4_node.html#acde43c53a0a44025ace0a18bfc8d84e8", null ],
+    [ "DrawMaterialProperties", "class_amplify_shader_editor_1_1_vector4_node.html#a7d3a5fdadafb72c7d3433dadf751ebcb", null ],
+    [ "DrawSubProperties", "class_amplify_shader_editor_1_1_vector4_node.html#a1ba11479d8206e241e7d9063b7eaa0e6", null ],
+    [ "FetchGlobalValue", "class_amplify_shader_editor_1_1_vector4_node.html#ab984efb6249ae45537699f54460fffb5", null ],
+    [ "ForceUpdateFromMaterial", "class_amplify_shader_editor_1_1_vector4_node.html#ad0467ebf8a4f7fe5172a4c136148264f", null ],
+    [ "GenerateShaderForOutput", "class_amplify_shader_editor_1_1_vector4_node.html#adda3809e42e943a6268cc3c90448fbd1", null ],
+    [ "GetPropertyValStr", "class_amplify_shader_editor_1_1_vector4_node.html#ae6ebc32439546c7de5146e8f6f2269b8", null ],
+    [ "GetPropertyValue", "class_amplify_shader_editor_1_1_vector4_node.html#a0449ecec4d15604572992edc3831cb9d", null ],
+    [ "OnNodeLayout", "class_amplify_shader_editor_1_1_vector4_node.html#a4472527eab082f0e3793f516fec54538", null ],
+    [ "ReadFromString", "class_amplify_shader_editor_1_1_vector4_node.html#afeaaac633485713d1f4f30ef52cb502d", null ],
+    [ "SetGlobalValue", "class_amplify_shader_editor_1_1_vector4_node.html#a87881cdfe3d1be3f840c70f7eda61dec", null ],
+    [ "SetMaterialMode", "class_amplify_shader_editor_1_1_vector4_node.html#ac0f08d23a2b1ee46f428840b0b5eb9ec", null ],
+    [ "SetPreviewInputs", "class_amplify_shader_editor_1_1_vector4_node.html#af7eaa7d0edb90341bff9b18c9e83f24d", null ],
+    [ "UpdateMaterial", "class_amplify_shader_editor_1_1_vector4_node.html#accfef89a324a52837456afc52ebb5b67", null ],
+    [ "WriteToString", "class_amplify_shader_editor_1_1_vector4_node.html#a37d92029f65607edec5d493b11dc0159", null ],
+    [ "Value", "class_amplify_shader_editor_1_1_vector4_node.html#adb80e4fd3e26b7ba1dba96dbbe0de3e7", null ]
+];

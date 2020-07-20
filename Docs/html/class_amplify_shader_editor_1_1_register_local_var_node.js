@@ -1,0 +1,25 @@
+var class_amplify_shader_editor_1_1_register_local_var_node =
+[
+    [ "ActivateNode", "class_amplify_shader_editor_1_1_register_local_var_node.html#a3c6629f46664a4ba4a268f0e201c030e", null ],
+    [ "AfterDuplication", "class_amplify_shader_editor_1_1_register_local_var_node.html#afd088f90c24f834401a0133d4f7304f4", null ],
+    [ "CheckReferenceSelection", "class_amplify_shader_editor_1_1_register_local_var_node.html#a307a646a6f66206a9a93e884a39d7c1c", null ],
+    [ "CommonInit", "class_amplify_shader_editor_1_1_register_local_var_node.html#a5e673f4e0dc8e5a9393a1209f886798a", null ],
+    [ "Destroy", "class_amplify_shader_editor_1_1_register_local_var_node.html#aa74cc0b940b6f0d1bb482c18b07e8761", null ],
+    [ "Draw", "class_amplify_shader_editor_1_1_register_local_var_node.html#a958593ff22dd16188955f4a8ecbff357", null ],
+    [ "DrawProperties", "class_amplify_shader_editor_1_1_register_local_var_node.html#a741951014e9135dbbef7539d17879c08", null ],
+    [ "GenerateShaderForOutput", "class_amplify_shader_editor_1_1_register_local_var_node.html#a77619a864b2ceb4d989768311ad69e06", null ],
+    [ "OnConnectedOutputNodeChanges", "class_amplify_shader_editor_1_1_register_local_var_node.html#af1b4c481b4de112df93079f65c1756d2", null ],
+    [ "OnEnable", "class_amplify_shader_editor_1_1_register_local_var_node.html#a624a2b3470d6c1e02db6c32c0830801d", null ],
+    [ "OnInputPortConnected", "class_amplify_shader_editor_1_1_register_local_var_node.html#a5b29a8d1ba45a7f3d3367030ad5c8da9", null ],
+    [ "OnNodeLogicUpdate", "class_amplify_shader_editor_1_1_register_local_var_node.html#a9ad4a367a5ef577b68eff1cd2b8dfbfb", null ],
+    [ "OnNodeRepaint", "class_amplify_shader_editor_1_1_register_local_var_node.html#ad4081468d422162ebb6c5b2328eac6fa", null ],
+    [ "OnUniqueIDAssigned", "class_amplify_shader_editor_1_1_register_local_var_node.html#a68e9b33801d295f55336d1b424ccc8fc", null ],
+    [ "PropagateNodeData", "class_amplify_shader_editor_1_1_register_local_var_node.html#a3dbfdae10777b0f9bf769c62b0da74ae", null ],
+    [ "ReadFromString", "class_amplify_shader_editor_1_1_register_local_var_node.html#ac4b9bd3e1bf654c1650281e54f3e977a", null ],
+    [ "RegisterGetLocalVar", "class_amplify_shader_editor_1_1_register_local_var_node.html#adb6cb4c01b5ab14e1767d6abcd26a844", null ],
+    [ "ResetNodeData", "class_amplify_shader_editor_1_1_register_local_var_node.html#a85a9c2f2f7f4d54b81687ce273dec05e", null ],
+    [ "UnregisterGetLocalVar", "class_amplify_shader_editor_1_1_register_local_var_node.html#a98434912c845e6e47a25d1883a79204b", null ],
+    [ "WriteToString", "class_amplify_shader_editor_1_1_register_local_var_node.html#afbc7769ef8e4da05cbc10f47199c36f4", null ],
+    [ "DataToArray", "class_amplify_shader_editor_1_1_register_local_var_node.html#a4b5300f04b50db6ee3f5ab279044cf85", null ],
+    [ "NodeReferences", "class_amplify_shader_editor_1_1_register_local_var_node.html#acc4115e9d06c91da9897205c41eb5afb", null ]
+];

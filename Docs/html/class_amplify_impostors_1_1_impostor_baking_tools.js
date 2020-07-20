@@ -1,0 +1,25 @@
+var class_amplify_impostors_1_1_impostor_baking_tools =
+[
+    [ "PrefDataDecoupledFrames", "class_amplify_impostors_1_1_impostor_baking_tools.html#acc2429a626c5d0b4027b0fd132287e22", null ],
+    [ "PrefDataImpType", "class_amplify_impostors_1_1_impostor_baking_tools.html#a471941203fa00e409209b2439baea0c1", null ],
+    [ "PrefDataMaxVertices", "class_amplify_impostors_1_1_impostor_baking_tools.html#a08ba33135ac000854c3c068d05412fca", null ],
+    [ "PrefDataNormalScale", "class_amplify_impostors_1_1_impostor_baking_tools.html#a1b10c16bfa8d68cd9ee70e86946878c3", null ],
+    [ "PrefDataPixelBleeding", "class_amplify_impostors_1_1_impostor_baking_tools.html#a3f4ed24cad28e0d90d05222097acb096", null ],
+    [ "PrefDataTexSizeLocked", "class_amplify_impostors_1_1_impostor_baking_tools.html#a4cd7b75fe279ad0f1b242137befd83d8", null ],
+    [ "PrefDataTexSizeSelected", "class_amplify_impostors_1_1_impostor_baking_tools.html#af000aa02210f6d8f354bc82926ef67de", null ],
+    [ "PrefDataTexSizeX", "class_amplify_impostors_1_1_impostor_baking_tools.html#aa27eb28b907b3da5107cdbab5986265a", null ],
+    [ "PrefDataTexSizeY", "class_amplify_impostors_1_1_impostor_baking_tools.html#a6ce82299dc379eda5a39e7d1dd5aa0fa", null ],
+    [ "PrefDataTolerance", "class_amplify_impostors_1_1_impostor_baking_tools.html#ad1c6da24e514322801b5dbe3b8883f84", null ],
+    [ "PrefDataXFrames", "class_amplify_impostors_1_1_impostor_baking_tools.html#aa764ba78f975743c850109de168ed408", null ],
+    [ "PrefDataYFrames", "class_amplify_impostors_1_1_impostor_baking_tools.html#a84d3b285afaded2bde5def742b111eb2", null ],
+    [ "PrefGlobalBakingOptions", "class_amplify_impostors_1_1_impostor_baking_tools.html#a2517882cfed7e2e5b5e2f17584143f52", null ],
+    [ "PrefGlobalCreateLodGroup", "class_amplify_impostors_1_1_impostor_baking_tools.html#a95562393c05c8ae9acdb00d2398cf0f4", null ],
+    [ "PrefGlobalDefault", "class_amplify_impostors_1_1_impostor_baking_tools.html#a1c18ede8ed8b6587994532299e259df8", null ],
+    [ "PrefGlobalFolder", "class_amplify_impostors_1_1_impostor_baking_tools.html#ab671c823206e136156dbbd0b14a78ffe", null ],
+    [ "PrefGlobalGBuffer0Name", "class_amplify_impostors_1_1_impostor_baking_tools.html#a5e60ae823e000f33b93b22bac06b1170", null ],
+    [ "PrefGlobalGBuffer1Name", "class_amplify_impostors_1_1_impostor_baking_tools.html#a0386b0c8b176c9469566b0c14fc5fc97", null ],
+    [ "PrefGlobalGBuffer2Name", "class_amplify_impostors_1_1_impostor_baking_tools.html#a08caf6093047c64a5589aab99ca14485", null ],
+    [ "PrefGlobalGBuffer3Name", "class_amplify_impostors_1_1_impostor_baking_tools.html#afd1f8488f243e2d7a8af94beecb7b4bc", null ],
+    [ "PrefGlobalRelativeFolder", "class_amplify_impostors_1_1_impostor_baking_tools.html#a8c7d9c7ca0ea379c6a93242764f1020a", null ],
+    [ "PrefGlobalTexImport", "class_amplify_impostors_1_1_impostor_baking_tools.html#acd1f97d93429d8cea0d7b8ccf31efbe0", null ]
+];
