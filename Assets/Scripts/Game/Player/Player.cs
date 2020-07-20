@@ -131,6 +131,9 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Kill's player
+	/// </summary>
 	public void Die()
 	{
 		if (curHealth == 0)
@@ -141,8 +144,8 @@ public class Player : MonoBehaviour
 				createPlayerRagdoll = true;
 				if (createPlayerRagdoll)
 				{
-					Instantiate<GameObject>(playerRagdoll, playerGO.transform.position, playerGO.transform.rotation);
-					Instantiate<GameObject>(weapon, oldWeapon.transform.position, oldWeapon.transform.rotation);
+					Instantiate(playerRagdoll, playerGO.transform.position, playerGO.transform.rotation);
+					Instantiate(weapon, oldWeapon.transform.position, oldWeapon.transform.rotation);
 
 					createPlayerRagdoll = false;
 					destroyPlayer = true;

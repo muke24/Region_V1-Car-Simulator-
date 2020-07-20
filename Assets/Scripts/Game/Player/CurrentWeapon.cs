@@ -125,6 +125,9 @@ public class CurrentWeapon : MonoBehaviour
 		#endregion
 	}
 
+	/// <summary>
+	/// Switch to primary weapon
+	/// </summary>
 	void MainSwitch()
 	{
 		animator.SetBool("Exit", true);
@@ -146,6 +149,9 @@ public class CurrentWeapon : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Switch to secondary weapon
+	/// </summary>
 	void SecondarySwitch()
 	{
 		animator.SetBool("Exit", true);
@@ -167,6 +173,9 @@ public class CurrentWeapon : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Switch to flag
+	/// </summary>
 	void FlagSwitch()
 	{
 		animator.SetBool("Exit", true);
@@ -188,6 +197,9 @@ public class CurrentWeapon : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Switch to melee
+	/// </summary>
 	void MeleeSwitch()
 	{
 		animator.SetBool("Exit", true);

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿#region This code is written by Peter Thompson
 using UnityEngine;
 
 public class WeaponSway : MonoBehaviour
@@ -56,3 +55,5 @@ public class WeaponSway : MonoBehaviour
         }        
     }
 }
+// This code is written by Peter Thompson
+#endregion

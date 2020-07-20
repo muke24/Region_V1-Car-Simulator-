@@ -1,6 +1,4 @@
 ﻿#region This code is written by Peter Thompson
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collisions : MonoBehaviour
@@ -49,11 +47,6 @@ public class Collisions : MonoBehaviour
 
 		// Ignore upper right leg and lower right leg collisions ↓ 
 		Physics.IgnoreCollision(rightLowerLeg.GetComponent<Collider>(), rightUpperLeg.GetComponent<Collider>());
-	}
-	
-	void Update()
-	{
-		
 	}
 }
 // This code is written by Peter Thompson

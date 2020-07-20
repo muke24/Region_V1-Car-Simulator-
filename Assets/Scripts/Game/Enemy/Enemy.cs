@@ -84,6 +84,9 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Enemy turns into ragdoll
+	/// </summary>
 	void RagDollOn()
 	{
 		healthSlider.gameObject.SetActive(false);
@@ -119,6 +122,9 @@ public class Enemy : MonoBehaviour
 		Destroy(gameObject, 10);
 	}
 
+	/// <summary>
+	/// Makes sure enemy is not in ragdoll mode
+	/// </summary>
 	void RagDollOff()
 	{
 		eArmRot.enabled = true;
@@ -129,6 +135,9 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Respawns the enemy
+	/// </summary>
 	void Respawn()
 	{
 		spawnPoints.respawnEnemy[spawnId] = true;

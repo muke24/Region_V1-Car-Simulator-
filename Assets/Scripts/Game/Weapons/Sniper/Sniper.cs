@@ -100,7 +100,7 @@ public class Sniper : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
 		if (hitEnemy)
 		{
@@ -129,6 +129,9 @@ public class Sniper : MonoBehaviour
 		SetReticleTransparency();
 	}
 
+	/// <summary>
+	/// Checks whether the player can shoot the sniper
+	/// </summary>
 	void CheckIfCanShoot()
 	{
 		if (Input.GetButtonDown("Fire1"))
@@ -193,6 +196,9 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Fires the sniper
+	/// </summary>
 	void Shoot()
 	{
 		// When void Shoot is called set shootBool to true. ShootBool then sets a timer (shootTimer) for when the sniper can shoot again
@@ -237,6 +243,13 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Shoots ray
+	/// </summary>
+	/// <param name="hit">Ray data</param>
+	/// <param name="raycastCount">Total amount of rays that has been casted</param>
+	/// <param name="wallbangMultiplier">Damage multiplier of the bullet</param>
+	/// <param name="distance">Total distance travelled</param>
 	void RaycastShot(RaycastHit hit, int raycastCount, float wallbangMultiplier)
 	{
 		raycastCount++;
@@ -400,6 +413,13 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Wallbang sniper shot
+	/// </summary>
+	/// <param name="hit">Ray data</param>
+	/// <param name="raycastCount">Total amount of rays that has been casted</param>
+	/// <param name="wallbangMultiplier">Damage multiplier of the bullet</param>
+	/// <param name="distance">Total distance travelled</param>
 	void Wallbang(RaycastHit hit, int raycastCount, float wallbangMultiplier, float distance)
 	{
 		wallbangMultiplier *= hit.transform.GetComponent<WallBang>().damageCutOffMultiplier;
@@ -419,6 +439,9 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Shooting animation
+	/// </summary>
 	void ShootAnimation()
 	{
 		#region Shoot Animation
@@ -473,6 +496,9 @@ public class Sniper : MonoBehaviour
 		#endregion
 	}
 
+	/// <summary>
+	/// Shoot if aiming animation
+	/// </summary>
 	void ShootWhileZoomedAnimation()
 	{
 		#region Shoot While Zoomed Animation
@@ -492,6 +518,9 @@ public class Sniper : MonoBehaviour
 		#endregion
 	}
 
+	/// <summary>
+	/// Reload sniper animation
+	/// </summary>
 	void Reload()
 	{
 		// If the sniper ammo count is 0 then set the reload bool to true
@@ -526,6 +555,9 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Reticle transparency on aim
+	/// </summary>
 	void SetReticleTransparency()
 	{
 		// Local variables
@@ -585,6 +617,9 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Show yellow hitmarker if bullet hit enemy
+	/// </summary>
 	void HitMarkerHit()
 	{
 		Color hitMarkerColour = hitMarkerHit[0].color;
@@ -617,6 +652,9 @@ public class Sniper : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Show red hitmarker if bullet killed enemy
+	/// </summary>
 	void HitMarkerDead()
 	{
 		Color hitMarkerColour = hitMarkerDead[0].color;
@@ -650,21 +688,38 @@ public class Sniper : MonoBehaviour
 	}
 
 	#region Hitboxes
+
+	/// <summary>
+	/// Sniper shot has hit enemy in head
+	/// </summary>
+	/// <param name="wallbangMultiplier">Damage of the bullet if there was a wallbang</param>
 	void HeadShotHit(float wallbangMultiplier)
 	{
 		enemy.curHealth -= damage * wallbangMultiplier * headShotMultiplier;
 	}
 
+	/// <summary>
+	/// Sniper shot has hit enemy in the body
+	/// </summary>
+	/// <param name="wallbangMultiplier">Damage of the bullet if there was a wallbang</param>
 	void BodyShotHit(float wallbangMultiplier)
 	{
 		enemy.curHealth -= damage * wallbangMultiplier * bodyShotMultiplier;
 	}
 
+	/// <summary>
+	/// Sniper shot has hit enemy in the leg
+	/// </summary>
+	/// <param name="wallbangMultiplier">Damage of the bullet if there was a wallbang</param>
 	void LegShotHit(float wallbangMultiplier)
 	{
 		enemy.curHealth -= damage * wallbangMultiplier * legShotMultiplier;
 	}
 
+	/// <summary>
+	/// Sniper shot has hit enemy in the foot
+	/// </summary>
+	/// <param name="wallbangMultiplier">Damage of the bullet if there was a wallbang</param>
 	void FootShotHit(float wallbangMultiplier)
 	{
 		enemy.curHealth -= damage * wallbangMultiplier * footShotMultiplier;
