@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		if (!Console._cheat2)
+		if (!GameConsole._cheat2)
 		{
 			Gravity();
 		}
