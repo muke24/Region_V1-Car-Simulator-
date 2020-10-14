@@ -6,6 +6,9 @@ public class PlaneDoorOpenTrigger : MonoBehaviour
 {
 	private void OnTriggerEnter(Collider other)
 	{
-		
+		if (!other.GetComponent<PlaneDoorOpen>().doorOpened)
+		{
+
+		}
 	}
 }
