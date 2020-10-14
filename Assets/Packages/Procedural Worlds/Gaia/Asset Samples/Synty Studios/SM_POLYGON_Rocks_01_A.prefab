@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4114213144435296}
   - component: {fileID: 33328421717610980}
   - component: {fileID: 23777426604841874}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: SM_POLYGON_Rocks_01_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -32,8 +32,8 @@ MonoBehaviour:
   m_bending: 0.1
   m_grassTint: {r: 0.75294125, g: 0.75294125, b: 0.75294125, a: 1}
   m_terrainSize: 2048
-  m_terrainHeight: 1000
-  m_spawnDensity: 1
+  m_terrainHeight: 2048
+  m_spawnDensity: 0.4
   m_heightmapResolution: 33
   m_detailResolution: 256
   m_detailResolutionPerPatch: 16

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2323116}
   - component: {fileID: 6521524}
   - component: {fileID: 20532868}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: fi_vil_GaiaForge01
   m_TagString: PW - Building
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3397640}
   - component: {fileID: 2305658}
   - component: {fileID: 6480610593259762714}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: fi_vil_stair02_long_B 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

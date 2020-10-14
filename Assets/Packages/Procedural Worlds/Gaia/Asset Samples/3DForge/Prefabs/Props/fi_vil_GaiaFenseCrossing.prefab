@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3387606}
   - component: {fileID: 2361704}
   - component: {fileID: 6510020}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: fi_vil_GaiaFenseCrossing
   m_TagString: PW - Prop
   m_Icon: {fileID: 0}

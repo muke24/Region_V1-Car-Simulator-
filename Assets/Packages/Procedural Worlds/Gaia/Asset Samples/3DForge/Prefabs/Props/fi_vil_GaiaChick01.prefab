@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2332186}
   - component: {fileID: 6564680}
   - component: {fileID: 20517534}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: fi_vil_GaiaChick01
   m_TagString: PW - Prop
   m_Icon: {fileID: 0}

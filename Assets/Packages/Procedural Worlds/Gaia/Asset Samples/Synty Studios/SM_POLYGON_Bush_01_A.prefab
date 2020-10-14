@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33595887707945152}
   - component: {fileID: 23210987760322766}
   - component: {fileID: 135810827436921386}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: SM_POLYGON_Bush_01_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

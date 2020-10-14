@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4010736544256796}
   - component: {fileID: 33910704722560030}
   - component: {fileID: 23952978719262592}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: SM_POLYGON_Grass_01_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

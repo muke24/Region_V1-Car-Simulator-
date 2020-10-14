@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2341528}
   - component: {fileID: 6591490}
   - component: {fileID: 20546276}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: fi_vil_GaiaFenseFull
   m_TagString: PW - Prop
   m_Icon: {fileID: 0}

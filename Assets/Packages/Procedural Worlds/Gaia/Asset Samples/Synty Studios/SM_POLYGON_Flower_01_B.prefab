@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4234601769815112}
   - component: {fileID: 33739860721918462}
   - component: {fileID: 23324418380873672}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: SM_POLYGON_Flower_01_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}

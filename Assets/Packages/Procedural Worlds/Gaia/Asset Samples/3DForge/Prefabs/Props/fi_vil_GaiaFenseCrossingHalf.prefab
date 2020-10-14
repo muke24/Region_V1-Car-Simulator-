@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2383444}
   - component: {fileID: 6585954}
   - component: {fileID: 205017325546277232}
-  m_Layer: 10
+  m_Layer: 20
   m_Name: fi_vil_GaiaFenseCrossingHalf
   m_TagString: PW - Prop
   m_Icon: {fileID: 0}

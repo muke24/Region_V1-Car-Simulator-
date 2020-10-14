@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2397936}
   - component: {fileID: 6557888}
   - component: {fileID: 20533610}
-  m_Layer: 9
+  m_Layer: 19
   m_Name: fi_vil_GaiaWood13
   m_TagString: PW - Prop
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33035729075266896}
   - component: {fileID: 23980127117469390}
   - component: {fileID: 136001997061051774}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: SM_POLYGON_Tree_01_A
   m_TagString: Synty Tree
   m_Icon: {fileID: 0}

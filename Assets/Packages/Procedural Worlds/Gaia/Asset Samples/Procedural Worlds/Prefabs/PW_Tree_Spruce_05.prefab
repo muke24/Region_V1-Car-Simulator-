@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5523818168522331695}
   - component: {fileID: 1882925735416437056}
   - component: {fileID: 1159947709319982096}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: PW_Tree_Spruce_01_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 975845267025194966}
   - component: {fileID: 3801795437436351387}
   - component: {fileID: 1453180114535006321}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: PW_Tree_Spruce_01_05_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 92302998168370089}
   - component: {fileID: 663282039084903789}
   - component: {fileID: 9210624343872499905}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: PW_Tree_Spruce_05
   m_TagString: PW - Nature
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6784555828192749571}
   - component: {fileID: 8931775054732959058}
   - component: {fileID: 603501681296825317}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: PW_Tree_Spruce_01_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 7870201292889807718}
   - component: {fileID: 5130332119500996209}
   - component: {fileID: 101639433642864242}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: PW_Tree_Spruce_01_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

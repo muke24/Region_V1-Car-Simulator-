@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2346374}
   - component: {fileID: 6544138}
   - component: {fileID: 20588806}
-  m_Layer: 11
+  m_Layer: 21
   m_Name: fi_vil_GaiaHouse04C
   m_TagString: PW - Building
   m_Icon: {fileID: 0}
