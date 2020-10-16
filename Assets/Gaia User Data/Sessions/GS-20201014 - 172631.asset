@@ -116,16 +116,84 @@ MonoBehaviour:
     sessionPlaybackState: 1
     m_terrainsFoldedOut: 0
     m_serializedExternalAction: 
+  - m_description: RaiseHeight - No Masks
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 17/10/2020 2:58:06 AM
+    scriptableObjectAssetGUID: 9961eabaf0c054644ae3f481cfa50e31
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: Spawning - Multiple Spawners (4)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 17/10/2020 2:58:07 AM
+    scriptableObjectAssetGUID: 3adf369e3401b794485f25dab2074819
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: Spawning - Gaia Pro Sample-Texture(Clone)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 17/10/2020 2:58:31 AM
+    scriptableObjectAssetGUID: ed7a573d283f92f4b99f11478754283a
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
   m_terrainMinMaxCache:
   - guid: 42c71b7b6d735ac43aea22e39853e1eb
     isWorldmap: 0
     recalculate: 0
     min: 0
-    max: 198.12802
+    max: 0.5000076
   - guid: c8a1cc2945e3dfd4bb187c3e4475016d
     isWorldmap: 1
     recalculate: 0
     min: 0
     max: 321.8799
-  m_bakedMaskCacheEntries: []
+  m_bakedMaskCacheEntries:
+  - fileName: Terrain_0_0-20201014 - 172632_Tag_PW - Building_12
+    assetPath: Assets/Packages/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014
+      - 172632/Terrain_0_0-20201014 - 172632_Tag_PW - Building_12
+    fullPath: C:/Users/Peter/Documents/GitHub/CarSimulator/Assets/Packages/Procedural
+      Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014 - 172632/Terrain_0_0-20201014
+      - 172632_Tag_PW - Building_12
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20201014 - 172632_Tag_PW - Prop_1.19
+    assetPath: Assets/Packages/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014
+      - 172632/Terrain_0_0-20201014 - 172632_Tag_PW - Prop_1.19
+    fullPath: C:/Users/Peter/Documents/GitHub/CarSimulator/Assets/Packages/Procedural
+      Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014 - 172632/Terrain_0_0-20201014
+      - 172632_Tag_PW - Prop_1.19
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20201014 - 172632_Tag_PW - Building_10
+    assetPath: Assets/Packages/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014
+      - 172632/Terrain_0_0-20201014 - 172632_Tag_PW - Building_10
+    fullPath: C:/Users/Peter/Documents/GitHub/CarSimulator/Assets/Packages/Procedural
+      Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014 - 172632/Terrain_0_0-20201014
+      - 172632_Tag_PW - Building_10
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20201014 - 172632_Tag_PW - Prop_3
+    assetPath: Assets/Packages/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014
+      - 172632/Terrain_0_0-20201014 - 172632_Tag_PW - Prop_3
+    fullPath: C:/Users/Peter/Documents/GitHub/CarSimulator/Assets/Packages/Procedural
+      Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014 - 172632/Terrain_0_0-20201014
+      - 172632_Tag_PW - Prop_3
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20201014 - 172632_Tag_PW - Building_3.69
+    assetPath: Assets/Packages/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014
+      - 172632/Terrain_0_0-20201014 - 172632_Tag_PW - Building_3.69
+    fullPath: C:/Users/Peter/Documents/GitHub/CarSimulator/Assets/Packages/Procedural
+      Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20201014 - 172632/Terrain_0_0-20201014
+      - 172632_Tag_PW - Building_3.69
+    texture: {fileID: 0}
   m_worldBiomeMaskSettings: {fileID: 0}
