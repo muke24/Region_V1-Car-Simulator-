@@ -36,7 +36,7 @@ MonoBehaviour:
     m_affectedTerrainNames: []
     m_operationDateTime: 14/10/2020 5:26:33 PM
     scriptableObjectAssetGUID: 14a31b03226fb264d8e48519b2bd5208
-    m_isFoldedOut: 0
+    m_isFoldedOut: 1
     sessionPlaybackState: 1
     m_terrainsFoldedOut: 0
     m_serializedExternalAction: 
@@ -62,11 +62,70 @@ MonoBehaviour:
     sessionPlaybackState: 1
     m_terrainsFoldedOut: 0
     m_serializedExternalAction: 
+  - m_description: 'Creating World: 1 x 1 tiles, tile size: 4096'
+    m_operationType: 0
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 15/10/2020 3:49:45 PM
+    scriptableObjectAssetGUID: 742010f9443ea014faaef3c1942b45da
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: RaiseHeight - No Masks
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 15/10/2020 4:21:32 PM
+    scriptableObjectAssetGUID: 5b23eba36c867274bb8f01525cca93c0
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: Spawning - Gaia Pro Sample-Texture(Clone)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 15/10/2020 4:21:33 PM
+    scriptableObjectAssetGUID: 31fc592c516fdca4baebfd36a0d1c615
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: RaiseHeight - No Masks
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 15/10/2020 4:24:41 PM
+    scriptableObjectAssetGUID: 6b38cf8cdff426e47a3811f367710d98
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
+  - m_description: Spawning - Multiple Spawners (4)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20201014 - 172632
+    m_operationDateTime: 15/10/2020 4:24:43 PM
+    scriptableObjectAssetGUID: 0ad1c302ebc768144aaaa05fcc962ec5
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
   m_terrainMinMaxCache:
   - guid: 42c71b7b6d735ac43aea22e39853e1eb
     isWorldmap: 0
     recalculate: 0
     min: 0
-    max: 122.25187
+    max: 198.12802
+  - guid: c8a1cc2945e3dfd4bb187c3e4475016d
+    isWorldmap: 1
+    recalculate: 0
+    min: 0
+    max: 321.8799
   m_bakedMaskCacheEntries: []
   m_worldBiomeMaskSettings: {fileID: 0}

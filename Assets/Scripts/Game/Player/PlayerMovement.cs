@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool isCrouching;
 	public bool isAirBorn;
 	public bool isAiming;
+	public bool skyDiving = false;
 
 	public float walkMultiplier = 1.3f;
 	public float runMultiplier = 1.4f;

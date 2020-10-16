@@ -12770,6 +12770,7 @@ MonoBehaviour:
   isCrouching: 0
   isAirBorn: 0
   isAiming: 0
+  skyDiving: 0
   walkMultiplier: 1.1
   runMultiplier: 1.2
   crouchMultiplier: 0.8
