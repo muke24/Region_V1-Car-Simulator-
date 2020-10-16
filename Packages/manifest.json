@@ -10,6 +10,7 @@
     "com.unity.postprocessing": "2.2.2",
     "com.unity.probuilder": "4.1.2",
     "com.unity.progrids": "3.0.3-preview.6",
+    "com.unity.render-pipelines.high-definition": "7.1.8",
     "com.unity.render-pipelines.lightweight": "7.1.8",
     "com.unity.shadergraph": "7.1.8",
     "com.unity.test-framework": "1.1.9",
