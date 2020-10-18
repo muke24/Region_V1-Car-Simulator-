@@ -36327,7 +36327,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1807639995}
-        m_MethodName: ToGreyboxLevel
+        m_MethodName: ToBattleRoyale
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
