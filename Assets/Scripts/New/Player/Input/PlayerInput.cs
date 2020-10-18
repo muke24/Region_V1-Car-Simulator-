@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 namespace New
@@ -22,6 +24,9 @@ namespace New
 		private bool aimDown = false;
 		private bool isAiming = false;
 		private bool shoot = false;
+		Vector2 value;
+		InputControl control;
+		ButtonControl button;
 
 		public Vector2 Input
 		{
@@ -29,9 +34,7 @@ namespace New
 			{
 				inputs.Player.WASD.performed += ctx =>
 				{
-					Vector2 value = ctx.ReadValue<Vector2>();
-
-					i = value;
+					i = ctx.ReadValue<Vector2>();
 					i *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;
 				};
 
@@ -55,20 +58,21 @@ namespace New
 			{
 				inputs.Player.WASD.performed += ctx =>
 				{
-					var value = ctx.ReadValue<Vector2>();   // Read value from control.
-					var control = ctx.control;
-					var button = control as ButtonControl;
+					// Read value from control.
+					value = ctx.ReadValue<Vector2>();
+					control = ctx.control;
+					button = control as ButtonControl;
 
 					if (value.x > 0)
 						iRaw.x = 1;
 
-					if (value.x < 0)
+					else if (value.x < 0)
 						iRaw.x = -1;
 
 					if (value.y > 0)
 						iRaw.y = 1;
 
-					if (value.y < 0)
+					else if (value.y < 0)
 						iRaw.y = -1;
 
 					iRaw *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;

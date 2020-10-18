@@ -7,4 +7,9 @@ public class ToGreyBoxLevel : MonoBehaviour
 	{
 		SceneManager.LoadScene(3);
 	}
+
+	public void ToBattleRoyale()
+	{
+		SceneManager.LoadScene(4);
+	}
 }
