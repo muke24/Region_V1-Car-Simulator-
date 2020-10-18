@@ -21,5 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/GreyBox.unity
     guid: 7f552ad1b007ec84d956e1362a27009d
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 50e3fe19a1323d842b6a413ed6daa1b0,
+    com.unity.input.settings: {fileID: 11400000, guid: fd2dc8e6fd046b64fbd3d0d0532f72a4,
       type: 2}

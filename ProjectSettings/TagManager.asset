@@ -44,16 +44,16 @@ TagManager:
   - Car
   - Player
   - Weapon
-  - Hands
-  - Enemy
-  - Post Processing Weapon
-  - TeamPlayer
   - MapUI
   - Terrain
   - PW_VFX
   - PW_Object_Small
   - PW_Object_Medium
   - PW_Object_Large
+  - Ladder
+  - Ledge
+  - Vault
+  - 
   - 
   - 
   - 
