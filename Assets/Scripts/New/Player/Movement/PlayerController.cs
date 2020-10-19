@@ -101,23 +101,30 @@ namespace New
 				Camera.main.GetComponent<CameraMovement>().characterBody = gameObject;
 				Camera.main.transform.localPosition = cameraOffset;
 				Camera.main.transform.rotation = Quaternion.identity;
+
+				playerInput = GetComponent<PlayerInput>();
+
+				movement = GetComponent<PlayerMovement>();
+				movement.AddToReset(() => { status = Status.walking; });
+
+				camera = GetComponentInChildren<CameraMovement>();
+
+				if (GetComponentInChildren<AnimateLean>())
+					animateLean = GetComponentInChildren<AnimateLean>();
+				if (GetComponentInChildren<AnimateCameraLevel>())
+					animateCamLevel = GetComponentInChildren<AnimateCameraLevel>();
+
+				info = new PlayerInfo(movement.controller.radius, movement.controller.height);
+				crouchCamAdjust = (crouchHeight - info.height) / 2f;
+				stamina = sprintTime;
 			}
-
-			playerInput = GetComponent<PlayerInput>();
-
-			movement = GetComponent<PlayerMovement>();
-			movement.AddToReset(() => { status = Status.walking; });
-
-			camera = GetComponentInChildren<CameraMovement>();
-
-			if (GetComponentInChildren<AnimateLean>())
-				animateLean = GetComponentInChildren<AnimateLean>();
-			if (GetComponentInChildren<AnimateCameraLevel>())
-				animateCamLevel = GetComponentInChildren<AnimateCameraLevel>();
-
-			info = new PlayerInfo(movement.controller.radius, movement.controller.height);
-			crouchCamAdjust = (crouchHeight - info.height) / 2f;
-			stamina = sprintTime;
+			else
+			{
+				Destroy(this);
+				Destroy(GetComponent<PlayerMovement>());
+				Destroy(GetComponent<InterpolatedTransformUpdater>());
+				Destroy(GetComponent<PlayerInput>());
+			}			
 		}
 
 		void Update()

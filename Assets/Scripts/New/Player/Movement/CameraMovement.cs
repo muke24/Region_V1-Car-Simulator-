@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Vector2 sensitivity = new Vector2(2, 2);
     [SerializeField]
-    private Vector2 smoothing = new Vector2(3, 3);
+    private Vector2 smoothing = new Vector2(1, 1);
     [SerializeField]
     private Vector2 targetDirection;
     [SerializeField]
