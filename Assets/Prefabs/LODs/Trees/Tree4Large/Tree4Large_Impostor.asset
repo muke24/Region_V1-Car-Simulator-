@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Tree4Large_Impostor
   m_Shader: {fileID: 4800000, guid: 572f9be5706148142b8da6e9de53acdb, type: 3}
-  m_ShaderKeywords: EFFECT_HUE_VARIATION _HEMI_ON
+  m_ShaderKeywords: EFFECT_HUE_VARIATION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -40,20 +40,20 @@ Material:
     - _AI_ShadowBias: 0.25
     - _AI_ShadowView: 0.95
     - _ClipMask: 0.5
-    - _DepthSize: 10.862966
+    - _DepthSize: 10.928249
     - _Frames: 16
     - _FramesX: 16
     - _FramesY: 16
-    - _Hemi: 1
+    - _Hemi: 0
     - _Hue: 1
-    - _ImpostorSize: 10.933227
+    - _ImpostorSize: 10.902019
     - _Parallax: 1
     - _TextureBias: -1
     - _Use_Parallax: 0
     m_Colors:
-    - _AI_SizeOffset: {r: 10.933227, g: 10.862966, b: 0, a: 0}
+    - _AI_SizeOffset: {r: 10.902019, g: 10.928249, b: 0, a: -0.00015394088}
     - _HueVariation: {r: 0, g: 0, b: 0, a: 0}
-    - _Offset: {r: 0.14092696, g: 5.324683, b: 0.08058858, a: -0}
+    - _Offset: {r: 0.14092696, g: 5.324683, b: 0.08058858, a: 0.0024630541}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   Material: {fileID: -139727933651347362}
   Mesh: {fileID: 2067844136228669956}
   Version: 9701
-  ImpostorType: 2
+  ImpostorType: 1
   LockedSizes: 1
   SelectedSize: 2048
   TexSize: {x: 2048, y: 2048}
@@ -81,14 +81,14 @@ MonoBehaviour:
   Tolerance: 0.15
   NormalScale: 0.01
   ShapePoints:
-  - {x: 0.19350556, y: 0.43306297}
-  - {x: 0.1942049, y: 0.9029577}
-  - {x: 0.33318138, y: 1}
-  - {x: 0.5817941, y: 1}
-  - {x: 0.8049261, y: 0.9348106}
-  - {x: 0.80649537, y: 0.43315452}
-  - {x: 0.53520864, y: 0}
-  - {x: 0.465153, y: 0}
+  - {x: 0.1895943, y: 0.43704677}
+  - {x: 0.19090988, y: 0.9134229}
+  - {x: 0.41156384, y: 1}
+  - {x: 0.59698147, y: 1}
+  - {x: 0.80908376, y: 0.91750574}
+  - {x: 0.8104382, y: 0.45560646}
+  - {x: 0.5401486, y: 0}
+  - {x: 0.46386412, y: 0}
   Preset: {fileID: 11400000, guid: e4786beb7716da54dbb02a632681cc37, type: 2}
   OverrideOutput: []
 --- !u!43 &2067844136228669956
@@ -108,8 +108,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 8
     localAABB:
-      m_Center: {x: 0.0000051259995, y: 0, z: 0}
-      m_Extent: {x: 3.3509784, y: 5.4666133, z: 0}
+      m_Center: {x: 0.00017726421, y: -0.02685213, z: 0}
+      m_Extent: {x: 3.3842258, y: 5.4510093, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -188,7 +188,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 256
-    _typelessdata: 587656c0b7593b3f000000000000000000000000000080bf5226463ec922113f12f955c0e7fa8cc0000000000000000000000000000080bfa6dd463e20bec63d6f74e9bf7feeaec0000000000000000000000000000080bfc096aa3e0000000017ef643f7feeaec0000000000000000000000000000080bf75f0143f00000000685d5540ce1f98c0000000000000000000000000000080bfa30f4e3f0882853d837656401e183b3f000000000000000000000000000080bf7b764e3fc91c113f6317c53e7feeae40000000000000000000000000000080bf6f03093f0000803f2111c3be7feeae40000000000000000000000000000080bf8928ee3e0000803f
+    _typelessdata: 419458c0b4d2283f000000000000000000000000000080bf0225423eb41d103f44a957c07f1691c0000000000000000000000000000080bfe17d433e584fb13d65d176bfa44aafc0000000000000000000000000000080bf7fb8d23e000000006755873fa44aafc0000000000000000000000000000080bfc7d3183f0000000021a85740228392c0000000000000000000000000000080bf1d204f3fc0f2a83d109a58408a0cea3e000000000000000000000000000080bfe1784f3f605d0b3f571ae03eb292ad40000000000000000000000000000080bf2e470a3f0000803f59b4c9beb292ad40000000000000000000000000000080bf997fed3e0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0

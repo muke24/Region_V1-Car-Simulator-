@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Mirror;
 
 namespace New
 {
@@ -17,6 +18,7 @@ namespace New
         private float gravity = 20.0f;
         [SerializeField]
         private float antiBumpFactor = .75f;
+        
         [HideInInspector]
         public Vector3 moveDirection = Vector3.zero;
         [HideInInspector]
@@ -27,7 +29,9 @@ namespace New
         public bool playerControl = false;
 
         public bool grounded = false;
+        
         public Vector3 jump = Vector3.zero;
+        
         Vector3 jumpedDir;
 
         private bool forceGravity;

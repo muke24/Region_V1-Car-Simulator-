@@ -46,11 +46,6 @@ namespace New
 		WallrunMovement wallrun;
 		SurfaceSwimmingMovement swimming;
 
-		//private Thread thread1;
-		//private Thread thread2;
-		//private bool executeAtFrame = false;
-		//private bool executeAtFixedFrame = false;
-
 		public void ChangeStatus(Status s)
 		{
 			if (status == s) return;
@@ -58,6 +53,7 @@ namespace New
 			if (onStatusChange != null)
 				onStatusChange.Invoke(status, null);
 		}
+
 		public void ChangeStatus(Status s, Func<IKData> call)
 		{
 			if (status == s) return;
@@ -120,10 +116,10 @@ namespace New
 			}
 			else
 			{
-				Destroy(this);
 				Destroy(GetComponent<PlayerMovement>());
 				Destroy(GetComponent<InterpolatedTransformUpdater>());
 				Destroy(GetComponent<PlayerInput>());
+				Destroy(this);
 			}			
 		}
 
@@ -145,65 +141,6 @@ namespace New
 			UpdateLean();
 			UpdateCamLevel();
 		}
-
-		//void UpdateInThread()
-		//{
-		//	while (executeAtFrame)
-		//	{
-		//		//Updates
-		//		UpdateInteraction();
-		//		UpdateMovingStatus();
-
-		//		//Checks
-		//		CheckCrouching();
-		//		foreach (MovementType moveType in movements)
-		//		{
-		//			if (moveType.enabled)
-		//				moveType.Check(canInteract);
-		//		}
-
-		//		//Misc
-		//		UpdateLean();
-		//		UpdateCamLevel();
-		//	}
-		//}
-
-		//void FixedUpdateInThread()
-		//{
-		//	while (executeAtFixedFrame)
-		//	{
-		//		foreach (MovementType moveType in movements)
-		//		{
-		//			if (status == moveType.changeTo)
-		//			{
-		//				moveType.Movement();
-		//				return;
-		//			}
-		//		}
-		//		Debug.Log("YeahNah");
-		//		DefaultMovement();
-		//	}
-		//}
-
-		//IEnumerator FrameTime()
-		//{
-		//	while (true)
-		//	{
-		//		executeAtFrame = true;
-		//		yield return null;
-		//		executeAtFrame = false;
-		//	}
-		//}
-
-		//IEnumerator FixedFrameTime()
-		//{
-		//	while (true)
-		//	{
-		//		executeAtFixedFrame = true;
-		//		yield return new WaitForFixedUpdate();
-		//		executeAtFixedFrame = false;
-		//	}
-		//}
 
 		void UpdateInteraction()
 		{
@@ -323,6 +260,7 @@ namespace New
 			}
 		}
 
+		
 		public bool IsSprinting()
 		{
 			return (status == Status.sprinting && movement.grounded);

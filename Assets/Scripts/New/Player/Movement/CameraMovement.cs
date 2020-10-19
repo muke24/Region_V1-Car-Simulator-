@@ -20,6 +20,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Vector2 targetCharacterDirection;
 
+
     void Start()
     {
         // Set target direction to the camera's initial orientation.
