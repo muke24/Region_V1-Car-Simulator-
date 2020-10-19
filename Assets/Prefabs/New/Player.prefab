@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerSpeed: 1
+  playerSpeed: 5
   playerMaxSpeed: 10
   mouseSensitivity: 0
   cameraOffset: {x: 0, y: 0.6, z: 0}
