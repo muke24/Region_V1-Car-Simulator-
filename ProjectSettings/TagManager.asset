@@ -44,26 +44,26 @@ TagManager:
   - Car
   - Player
   - Weapon
+  - Hands
+  - Enemy
+  - Post Processing Weapon
+  - TeamPlayer
   - MapUI
   - Terrain
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Ladder
+  - Ledge
+  - Vault
   - PW_VFX
   - PW_Object_Small
   - PW_Object_Medium
   - PW_Object_Large
-  - Ladder
-  - Ledge
-  - Vault
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

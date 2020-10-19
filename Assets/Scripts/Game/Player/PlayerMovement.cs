@@ -1,7 +1,8 @@
 ﻿#region This code is written by Peter Thompson
 using UnityEngine;
+using Mirror;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
 	public static float speed = 4.5f;
 	public static float runSpeed = 7.0f;
@@ -29,10 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		if (GameMode.multiplayer)
-		{
-			Destroy(this);
-		}
+		
 	}
 
 	private void Start()
@@ -42,11 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		if (GameMode.singleplayer)
-		{
-			Movements();
-			AnimatorMultipliers();
-		}		
+		Movements();
+		AnimatorMultipliers();
 	}
 
 	void Movements()

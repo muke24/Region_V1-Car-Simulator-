@@ -337,7 +337,7 @@ MonoBehaviour:
   changeTo: 5
   ladderLayer:
     serializedVersion: 2
-    m_Bits: 262144
+    m_Bits: 33554432
 --- !u!114 &-7462356887817993745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   changeTo: 8
   ledgeLayer:
     serializedVersion: 2
-    m_Bits: 524288
+    m_Bits: 67108864
   pushFrom: {x: 0, y: 0, z: 0}
   canGrabLedge: 1
 --- !u!114 &9116191575687146983
@@ -384,7 +384,7 @@ MonoBehaviour:
   changeTo: 7
   vaultLayer:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 134217728
 --- !u!114 &-3199460871020435477
 MonoBehaviour:
   m_ObjectHideFlags: 0

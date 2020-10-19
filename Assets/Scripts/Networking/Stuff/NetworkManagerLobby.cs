@@ -15,7 +15,7 @@ public class NetworkManagerLobby : NetworkManager
 
 	[Header("Game")]
 	[SerializeField] private NetworkGamePlayer gamePlayerPrefab = null;
-	[SerializeField] private NetworkGamePlayer gamePlayerPrefabTeam = null;
+	//[SerializeField] private NetworkGamePlayer gamePlayerPrefabTeam = null;
 	//[SerializeField] private NetworkGamePlayer gamePlayerPrefabEnemy = null;
 
 	[SerializeField] private GameObject playerSpawnSystem = null;
@@ -159,24 +159,33 @@ public class NetworkManagerLobby : NetworkManager
 		// From menu to game
 		if (SceneManager.GetActiveScene().path == menuScene && newSceneName.StartsWith("InGame"))
 		{
+			//for (int i = 0; i < RoomPlayers.Count; i++)
+			//{
+			//	var conn = RoomPlayers[i].connectionToClient;
+			//	NetworkGamePlayer gamePlayerInstance = Instantiate(gamePlayerPrefab);
+			//	gamePlayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
+
+			//	if (RoomPlayers[i].isLocalPlayer)
+			//	{
+			//		NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, true);
+			//	}
+
+			//	NetworkServer.Destroy(conn.identity.gameObject);
+			//}
+
 			for (int i = RoomPlayers.Count - 1; i >= 0; i--)
 			{
 				var conn = RoomPlayers[i].connectionToClient;
 				NetworkGamePlayer gamePlayerInstance = Instantiate(gamePlayerPrefab);
-				NetworkGamePlayer gamePlayerInstanceTeam = Instantiate(gamePlayerPrefabTeam);
 				gamePlayerInstance.SetDisplayName(RoomPlayers[i].DisplayName);
 
-				NetworkServer.Destroy(conn.identity.gameObject);
-
-				//NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, true);
-				if (!RoomPlayers[i].isLocalPlayer)
-				{
-					NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstanceTeam.gameObject, true);
-				}
 				if (RoomPlayers[i].isLocalPlayer)
 				{
+					Debug.Log("Local Player found, trying to replace menu player with in-game player");
 					NetworkServer.ReplacePlayerForConnection(conn, gamePlayerInstance.gameObject, true);
 				}
+
+				NetworkServer.Destroy(conn.identity.gameObject);
 			}
 		}
 
