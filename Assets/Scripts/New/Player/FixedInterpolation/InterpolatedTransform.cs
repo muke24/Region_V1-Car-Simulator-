@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Mirror;
 
 /*
  * Credit To : Scott Sewell, developer at KinematicSoup
@@ -11,7 +12,7 @@ using System.Collections;
  * It is critical this script's execution order is set before all other scripts that modify a transform from FixedUpdate.
  */
 [RequireComponent(typeof(InterpolatedTransformUpdater))]
-public class InterpolatedTransform : MonoBehaviour
+public class InterpolatedTransform : NetworkBehaviour
 {
     [HideInInspector]
     public Vector3[] m_lastPositions; // Stores the transform of the object from the last two FixedUpdates
