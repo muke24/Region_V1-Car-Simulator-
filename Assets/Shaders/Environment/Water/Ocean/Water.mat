@@ -10,7 +10,7 @@ Material:
   m_Name: Water
   m_Shader: {fileID: 4800000, guid: 413345b2c34d5a5448ba9bd4e63d7577, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -36,9 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _ASEOutlineWidth: 1
     - _EdgeDistance: 1
     - _EdgeLength: 15
-    - _EdgePower: 0.4
+    - _EdgePower: 0.25
     - _Float0: 0.299
     - _Float2: 0.4
     - _Float3: 0.1
@@ -50,7 +51,7 @@ Material:
     - _NormalSpeed2: 10
     - _NormalStrength: 0.13
     - _NormalTile: 0.25
-    - _NormalTile1: 0.01
+    - _NormalTile1: 0.21
     - _NormalTile2: 0.009
     - _Smoothness: 1.25
     - _SpecularHighlights: 1
@@ -67,8 +68,9 @@ Material:
     - _WaveTile: 0.3
     - __dirty: 0
     m_Colors:
+    - _ASEOutlineColor: {r: 0.6981132, g: 0.35893556, b: 0.35893556, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _VTInfoBlock: {r: 0, g: 0, b: 0, a: 0}
     - _Vector2: {r: 1, g: 0.3, b: 0, a: 0}
-    - _WaterA: {r: 0.012682448, g: 0.15842485, b: 0.1792452, a: 1}
-    - _WaterB: {r: 0, g: 0.3887503, b: 0.45283002, a: 1}
+    - _WaterA: {r: 0.012682448, g: 0.1584248, b: 0.17924514, a: 1}
+    - _WaterB: {r: 0, g: 0.38875026, b: 0.4528299, a: 1}
