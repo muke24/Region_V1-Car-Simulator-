@@ -24,7 +24,7 @@ MonoBehaviour:
   AuroraInnerColor: {r: 0, g: 1, b: 0, a: 1}
   MinimumFogLevel: 300
   MaximumFogLevel: 600
-  FogDensity: 0.0012
+  FogDensity: 0.0006
   FogLightFalloff: 0.65
   FogHeight: 0.75
   CameraFogHeight: 0.85
