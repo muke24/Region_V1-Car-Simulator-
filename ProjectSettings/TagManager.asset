@@ -31,6 +31,9 @@ TagManager:
   - Synty Medium Farm
   - Synty Small Farm
   - Synty Tree
+  - Fire
+  - PlaneTrigger
+  - Plane
   layers:
   - Default
   - TransparentFX
