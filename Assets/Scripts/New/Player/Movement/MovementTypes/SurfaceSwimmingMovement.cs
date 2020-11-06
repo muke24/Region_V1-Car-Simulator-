@@ -35,7 +35,7 @@ namespace New
         {
             foreach (WaterHelper water in waterHelpers)
             {
-                if (water.type != type) continue; //Do not check for other types
+                if (water.type != type) continue; // Do not check for other types
                 if (water.PlayerIsInWater) return true;
             }
             return false;
@@ -76,7 +76,7 @@ namespace New
 
         public float getWaterLevel()
         {
-            float waterLevel = transform.position.y; //This is just a default y value
+            float waterLevel = transform.position.y; // This is just a default y value
             Vector3 pos = transform.position; pos.y += player.info.height;
             if (Physics.Raycast(pos, Vector3.down, out var hit, Mathf.Infinity, topWaterLayer))
                 waterLevel = hit.point.y - (player.info.halfheight / 2f);
@@ -146,17 +146,17 @@ namespace New
                 float wantedYPos = getWaterLevel();
                 float dif = transform.position.y - wantedYPos;
                 Debug.Log(dif);
-                if (playerStatus != changeTo) //If we are not swimming
+                if (playerStatus != changeTo) // If we are not swimming
                 {
-                    bool swim = (dif <= 0.1f && movement.controller.velocity.y <= 0); //Check to see if we can swim down
+                    bool swim = (dif <= 0.1f && movement.controller.velocity.y <= 0); // Check to see if we can swim down
                     if (!swim && playerStatus == Status.underwaterSwimming)
-                        swim = (dif >= 0f && movement.controller.velocity.y >= 0); //Check the other way too if the first is false and we are swimming underwater
+                        swim = (dif >= 0f && movement.controller.velocity.y >= 0); // Check the other way too if the first is false and we are swimming underwater
 
                     if (swim) StartSwim();
                 }
                 else
                 {
-                    //If we are already in the water swimming, then only go back to surface swimming when heading upwards
+                    // If we are already in the water swimming, then only go back to surface swimming when heading upwards
                     if (dif >= -0.1f)
                     {
                         if (movement.grounded)

@@ -1,48 +1,40 @@
 ﻿using UnityEngine;
 using Mirror;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class PlaneController : MonoBehaviour
 {
-	public bool jumping = false;
+	[Header("Plane Characteristics")]
 	[SerializeField]
-	private float speed = 50f;
-	private bool doorOpened = false;
-	private Vector3 camRotation;
-	private float mouseSensitivity = 10000f;
+	private float planeSpeed = 75f;
 	[SerializeField]
 	private GameObject planeCamera;
 
-	public bool oldRotateCam = true;
+
+	[Header("Gameplay")]
+	public bool canJump = false;
 
 	#region MouseLook
-	// Enum holding three values - mouse X and mouse Y, mouse X, mouse Y
-	public enum RotationAxes
-	{
-		MouseXAndY = 0 /* MouseXAndY isnt needed but I kept it just in case */, MouseX = 1, MouseY = 2
-	}
-
-	// Sets default enum to mouseXandY (MouseXandY rotates the object this script is attached to both the X and Y axis, 
-	// which having MouseX would only rotate it on the X axis and same goes with the MouseY)
+	[Header("Mouse Look")]
+	/* Sets default enum to mouseXandY (MouseXandY rotates the object this script is attached to both the X and Y axis, 
+	   which having MouseX would only rotate it on the X axis and same goes with the MouseY) */
 	public RotationAxes axes = RotationAxes.MouseXAndY;
-
 	public float sensitivityX = 100f;
 	public float sensitivityY = 100f;
-	public float sensitivityXads = 50f;
-	public float sensitivityYads = 50f;
 	public float minimumX = -360f;  // Minimum X rotation
 	public float maximumX = 360f;   // Maximum X rotation
 	public float minimumY = -60f;   // Minimum Y rotation
 	public float maximumY = 60f;    // Maximum Y rotation
-	public GameObject sniper;
-	public Animator anim;
-
 	private float rotationX = 0f;
 	private float rotationY = 0f;
-
 	Quaternion originalRotation;
-
+	// Enum holding three values - mouse X and mouse Y, mouse X, mouse Y
+	public enum RotationAxes
+	{
+		MouseXAndY = 0
+	}
 	#endregion
 
 	private static float ClampAngle(float angle, float min, float max)
@@ -61,29 +53,7 @@ public class PlaneController : MonoBehaviour
 		return Mathf.Clamp(angle, min, max);
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "PlaneTrigger")
-		{
-
-		}
-	}
-
 	private void Awake()
-	{
-		foreach (Collider collider1 in FindObjectsOfType<Collider>())
-		{
-			if (collider1.tag != "PlaneTrigger" || collider1.tag != "Plane")
-			{
-				foreach (Collider collider2 in GetComponentsInChildren<Collider>())
-				{
-					Physics.IgnoreCollision(collider1, collider2);
-				}
-			}
-		}
-	}
-
-	private void Start()
 	{
 		originalRotation = transform.localRotation;
 	}
@@ -91,49 +61,13 @@ public class PlaneController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (oldRotateCam)
-		{
-			RotateCam();
-		}
-		else
-		{
-			MouseLook();
-		}
-
+		MouseLook();
 
 		MovePlane();
-
-		#region Old
-		//transform.rotation = Quaternion.AngleAxis(camRotation.y * Time.deltaTime * sensitivity, Vector3.right);
-		//transform.rotation = Quaternion.AngleAxis(camRotation.x * Time.deltaTime * sensitivity, Vector3.up) * transform.rotation;
-
-		//Quaternion xQuaternion = Quaternion.AngleAxis(camRotation.x, Vector3.up);
-		//Quaternion yQuaternion = Quaternion.AngleAxis(camRotation.y, Vector3.right);
-		//transform.rotation = transform.rotation * xQuaternion * yQuaternion;
-		#endregion
-
-	}
-
-	void RotateCam()
-	{
-		camRotation.x = -Input.GetAxis("Mouse Y") * Time.deltaTime;
-		camRotation.y = Input.GetAxis("Mouse X") * Time.deltaTime;
-
-		ClampAngle(camRotation.x, -60, 60);
-		ClampAngle(camRotation.y, -360, 360);
-
-		planeCamera.transform.Rotate(camRotation.x * mouseSensitivity, camRotation.y * mouseSensitivity, 0);
-
-		//var c = Camera.main.transform;
-		//c.Rotate(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0);
-		//c.Rotate(-Input.GetAxis("Mouse Y") * mouseSensitivity, 0, 0);
-		//c.Rotate(0, 0, -Input.GetAxis("QandE") * 90 * Time.deltaTime);
 	}
 
 	void MouseLook()
 	{
-
-		// If MouseXandY is selected in inspector
 		if (axes == RotationAxes.MouseXAndY)
 		{
 			// Read the mouse input axis
@@ -144,16 +78,16 @@ public class PlaneController : MonoBehaviour
 			rotationY = ClampAngle(rotationY, minimumY, maximumY);
 			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
 			Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
-			transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+			planeCamera.transform.localRotation = originalRotation * xQuaternion * yQuaternion;
 		}
-
 	}
+
 	void MovePlane()
 	{
-		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		transform.Translate(Vector3.forward * planeSpeed * Time.deltaTime);
 	}
 
-	void ChangeToPlayerCam()
+	public void ChangeToPlayerCam()
 	{
 
 	}

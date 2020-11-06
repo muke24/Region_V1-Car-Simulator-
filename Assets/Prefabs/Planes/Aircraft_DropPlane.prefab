@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197471714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0.00000035762787}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2741314730957054639}
@@ -7620,6 +7620,8 @@ GameObject:
   m_Component:
   - component: {fileID: 976181712093951427}
   - component: {fileID: 6655906479331732220}
+  - component: {fileID: 8435695514868114744}
+  - component: {fileID: 562036906}
   m_Layer: 0
   m_Name: Aircraft_DropPlane
   m_TagString: Plane
@@ -7636,7 +7638,7 @@ Transform:
   m_GameObject: {fileID: 976181712093951428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 700, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 976181711581032090}
   - {fileID: 976181711949432123}
@@ -7656,9 +7658,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6214a49a0424bd048a0a80d24af83e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumping: 0
-  speed: 75
+  planeSpeed: 75
   planeCamera: {fileID: 197471714}
+  doorOpened: 0
+  jumping: 0
+  axes: 0
+  sensitivityX: 100
+  sensitivityY: 100
+  minimumX: -360
+  maximumX: 360
+  minimumY: -75
+  maximumY: 60
+--- !u!65 &8435695514868114744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976181712093951428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7483993, y: 4.781433, z: 35.6261}
+  m_Center: {x: 1.8930085, y: 2.462738, z: 1.9974976}
+--- !u!54 &562036906
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976181712093951428}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &976181712130081169
 GameObject:
   m_ObjectHideFlags: 0
@@ -13899,6 +13938,7 @@ GameObject:
   - component: {fileID: 2741314730957054639}
   - component: {fileID: 2106536139892309896}
   - component: {fileID: 3053921014676210626}
+  - component: {fileID: 1262810120}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -13971,6 +14011,47 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3561509767744223410}
   m_Enabled: 1
+--- !u!114 &1262810120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561509767744223410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab00a14ace35229489189437f4636a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showScreenMask: 0
+  doTransition: 0
+  cancelTransition: 0
+  useUnderSurfaceView: 0
+  distanceFog: 1
+  useRadialDistance: 1
+  heightFog: 0
+  height: 1
+  heightDensity: 2
+  startDistance: 0
+  fogStart: 0
+  fogEnd: 20
+  refractAmt: 0.005
+  refractSpd: 1.5
+  refractScale: 0.5
+  lightFactor: 1
+  underwaterColor: {r: 0, g: 0, b: 0, a: 0}
+  dropsTime: 2
+  wipeTime: 1
+  transitionStrength: 1
+  iterations: 2
+  blurSpread: 1
+  darkRange: 40
+  heightDepth: 1
+  hFac: 0
+  distortTex: {fileID: 0}
+  mask2Tex: {fileID: 0}
+  fogShader: {fileID: 0}
+  fogMaterial: {fileID: 0}
 --- !u!1 &3708767137974057310
 GameObject:
   m_ObjectHideFlags: 0

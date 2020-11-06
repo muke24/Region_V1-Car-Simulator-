@@ -8,7 +8,7 @@ using Mirror;
 
 namespace New
 {
-	public enum Status { idle, walking, crouching, sprinting, sliding, climbingLadder, wallRunning, vaulting, grabbedLedge, climbingLedge, surfaceSwimming, underwaterSwimming }
+	public enum Status { idle, walking, crouching, sprinting, sliding, climbingLadder, wallRunning, vaulting, grabbedLedge, climbingLedge, surfaceSwimming, underwaterSwimming, skyDiving, gliding }
 	public class StatusEvent : UnityEvent<Status, Func<IKData>> { }
 	[RequireComponent(typeof(PlayerInput))]
 	[RequireComponent(typeof(PlayerMovement))]
@@ -75,9 +75,9 @@ namespace New
 			if (movements == null) movements = new List<MovementType>();
 			move.SetPlayerComponents(movement, playerInput);
 
-			if ((move as WallrunMovement) != null) //If this move type is a Wallrunning
+			if ((move as WallrunMovement) != null) // If this move type is a Wallrunning
 				wallrun = (move as WallrunMovement);
-			else if ((move as SurfaceSwimmingMovement) != null) //If this move type is a Surface Swimming
+			else if ((move as SurfaceSwimmingMovement) != null) // If this move type is a Surface Swimming
 				swimming = (move as SurfaceSwimmingMovement);
 
 			movements.Add(move);

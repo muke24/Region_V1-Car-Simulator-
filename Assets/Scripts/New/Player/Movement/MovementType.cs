@@ -34,12 +34,12 @@ namespace New
 
         public virtual void Movement()
         {
-            //Movement info
+            // Movement info
         }
 
         public virtual void Check(bool canInteract)
         {
-            //Check info
+            // Check info
         }
 
         public virtual IKData IK()
