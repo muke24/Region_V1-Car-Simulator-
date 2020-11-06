@@ -14,6 +14,61 @@ public class PlaneController : MonoBehaviour
 	[SerializeField]
 	private GameObject planeCamera;
 
+	public bool oldRotateCam = true;
+
+	#region MouseLook
+	// Enum holding three values - mouse X and mouse Y, mouse X, mouse Y
+	public enum RotationAxes
+	{
+		MouseXAndY = 0 /* MouseXAndY isnt needed but I kept it just in case */, MouseX = 1, MouseY = 2
+	}
+
+	// Sets default enum to mouseXandY (MouseXandY rotates the object this script is attached to both the X and Y axis, 
+	// which having MouseX would only rotate it on the X axis and same goes with the MouseY)
+	public RotationAxes axes = RotationAxes.MouseXAndY;
+
+	public float sensitivityX = 100f;
+	public float sensitivityY = 100f;
+	public float sensitivityXads = 50f;
+	public float sensitivityYads = 50f;
+	public float minimumX = -360f;  // Minimum X rotation
+	public float maximumX = 360f;   // Maximum X rotation
+	public float minimumY = -60f;   // Minimum Y rotation
+	public float maximumY = 60f;    // Maximum Y rotation
+	public GameObject sniper;
+	public Animator anim;
+
+	private float rotationX = 0f;
+	private float rotationY = 0f;
+
+	Quaternion originalRotation;
+
+	#endregion
+
+	private static float ClampAngle(float angle, float min, float max)
+	{
+		// If the angle exceeds -360 degrees then set it to +360 degrees
+		if (angle < -360f)
+		{
+			angle += 360f;
+		}
+		// If the angle exceeds +360 degrees then set it to -360 degrees
+		if (angle > 360f)
+		{
+			angle -= 360f;
+		}
+
+		return Mathf.Clamp(angle, min, max);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "PlaneTrigger")
+		{
+
+		}
+	}
+
 	private void Awake()
 	{
 		foreach (Collider collider1 in FindObjectsOfType<Collider>())
@@ -28,26 +83,23 @@ public class PlaneController : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void Start()
 	{
-		if (other.tag == "PlaneTrigger")
-		{
-
-		}
+		originalRotation = transform.localRotation;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		camRotation.x = -Input.GetAxis("Mouse Y") * Time.deltaTime;
-		camRotation.y = Input.GetAxis("Mouse X") * Time.deltaTime;
+		if (oldRotateCam)
+		{
+			RotateCam();
+		}
+		else
+		{
+			MouseLook();
+		}
 
-		planeCamera.transform.Rotate(camRotation.x * mouseSensitivity, camRotation.y * mouseSensitivity, 0);
-
-		//var c = Camera.main.transform;
-		//c.Rotate(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0);
-		//c.Rotate(-Input.GetAxis("Mouse Y") * mouseSensitivity, 0, 0);
-		//c.Rotate(0, 0, -Input.GetAxis("QandE") * 90 * Time.deltaTime);
 
 		MovePlane();
 
@@ -60,15 +112,48 @@ public class PlaneController : MonoBehaviour
 		//transform.rotation = transform.rotation * xQuaternion * yQuaternion;
 		#endregion
 
-
 	}
 
+	void RotateCam()
+	{
+		camRotation.x = -Input.GetAxis("Mouse Y") * Time.deltaTime;
+		camRotation.y = Input.GetAxis("Mouse X") * Time.deltaTime;
+
+		ClampAngle(camRotation.x, -60, 60);
+		ClampAngle(camRotation.y, -360, 360);
+
+		planeCamera.transform.Rotate(camRotation.x * mouseSensitivity, camRotation.y * mouseSensitivity, 0);
+
+		//var c = Camera.main.transform;
+		//c.Rotate(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0);
+		//c.Rotate(-Input.GetAxis("Mouse Y") * mouseSensitivity, 0, 0);
+		//c.Rotate(0, 0, -Input.GetAxis("QandE") * 90 * Time.deltaTime);
+	}
+
+	void MouseLook()
+	{
+
+		// If MouseXandY is selected in inspector
+		if (axes == RotationAxes.MouseXAndY)
+		{
+			// Read the mouse input axis
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			// Maximum rotation the camera can rotate
+			rotationX = ClampAngle(rotationX, minimumX, maximumX);
+			rotationY = ClampAngle(rotationY, minimumY, maximumY);
+			Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+			Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
+			transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+		}
+
+	}
 	void MovePlane()
 	{
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 
-	public void ChangeToPlayerCam()
+	void ChangeToPlayerCam()
 	{
 
 	}
