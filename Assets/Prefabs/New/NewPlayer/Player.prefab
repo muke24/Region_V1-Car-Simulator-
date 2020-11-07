@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 8040310697611438762}
   - component: {fileID: 1894399729340568584}
   - component: {fileID: 5458585245285592406}
+  - component: {fileID: 6224508459629296204}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -551,6 +552,22 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+--- !u!54 &6224508459629296204
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085721664118310506}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &681664573
 PrefabInstance:
   m_ObjectHideFlags: 0

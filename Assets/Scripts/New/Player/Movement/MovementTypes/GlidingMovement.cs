@@ -9,7 +9,12 @@ namespace New
     [RequireComponent(typeof(SkyDivingMovement))]
     public class GlidingMovement : MovementType
     {
-        
-    }
+        private new Rigidbody rigidbody;
+
+		private void Awake()
+		{
+			rigidbody = GetComponent<Rigidbody>();
+		}
+	}
 }
 

@@ -176,4 +176,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092d35dd405f06a4b8d948ae6750cf11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCutOffMultiplier: 1
+  damageCutOffMultiplier: 0.995

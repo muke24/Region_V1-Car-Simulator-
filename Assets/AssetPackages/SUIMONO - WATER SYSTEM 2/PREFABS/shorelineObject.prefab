@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2086124}
   - component: {fileID: 11451318}
   - component: {fileID: 11436392}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: cam_LocalShore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 100
+  far clip plane: 12
   field of view: 50
   orthographic: 1
   orthographic size: 196.51437
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3e75e8d0ded04498b0389ee50b63b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneDepth: 14
-  _shoreDepth: 27.7
+  _sceneDepth: 2.5
+  _shoreDepth: 12
 --- !u!114 &11436392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 3374468}
   - component: {fileID: 2321916}
   - component: {fileID: 11423896}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: shorelineObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dcad98490f175a444ac06a402cfd218a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   sceneDepth: 2.5
   shoreDepth: 12
   debug: 0
-  suimonoVersionNumber: 2.1.2
+  suimonoVersionNumber: 2.1.9
   depthLayer: 2049
   suiLayerMasks:
   - Default
@@ -237,6 +237,16 @@ MonoBehaviour:
   - UI
   - 
   - 
+  - Post Processing
+  - Car
+  - Player
+  - Weapon
+  - Hands
+  - Enemy
+  - Post Processing Weapon
+  - TeamPlayer
+  - MapUI
+  - Terrain
   - Suimono_Water
   - Suimono_Depth
   - Suimono_Screen
@@ -244,23 +254,13 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ladder
+  - Ledge
+  - Vault
+  - PW_VFX
+  - PW_Object_Small
+  - PW_Object_Medium
+  - PW_Object_Large
   customDepthTex: {fileID: 2800000, guid: e6828602b41b1b6408b4d72037e9d927, type: 3}
   useResolution: 512
   moduleObject: {fileID: 0}

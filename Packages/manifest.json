@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "3.0.9",
     "com.unity.cinemachine": "2.5.0",
@@ -48,5 +49,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.mybox": {
+      "revision": "HEAD",
+      "hash": "900922be56cf6d547df65650037da21ef3ba54d1"
+    }
   }
 }

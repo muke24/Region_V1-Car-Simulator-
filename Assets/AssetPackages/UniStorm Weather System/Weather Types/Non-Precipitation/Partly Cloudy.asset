@@ -15,7 +15,7 @@ MonoBehaviour:
   WeatherTypeName: Partly Cloudy
   CloudProfileComponent: {fileID: 11400000, guid: 2abfa647742d6174bacc9b765f51f9c3,
     type: 2}
-  SunIntensity: 1
+  SunIntensity: 1.5
   CloudShadowIntensity: 0.75
   MoonIntensity: 0.9
   UseAuroras: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   AuroraInnerColor: {r: 0, g: 1, b: 0, a: 1}
   MinimumFogLevel: 300
   MaximumFogLevel: 600
-  FogDensity: 0.0006
+  FogDensity: 0.0002
   FogLightFalloff: 0.65
   FogHeight: 0.75
   CameraFogHeight: 0.85

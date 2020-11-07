@@ -41,9 +41,9 @@ TagManager:
   - UI
   - 
   - 
-  - Post Processing
-  - Car
-  - Player
+  - Suimono_Water
+  - Suimono_Depth
+  - Suimono_Screen
   - Weapon
   - Hands
   - Enemy
@@ -51,9 +51,9 @@ TagManager:
   - TeamPlayer
   - MapUI
   - Terrain
-  - Suimono_Water
-  - Suimono_Depth
-  - Suimono_Screen
+  - Post Processing
+  - Car
+  - Player
   - 
   - 
   - 

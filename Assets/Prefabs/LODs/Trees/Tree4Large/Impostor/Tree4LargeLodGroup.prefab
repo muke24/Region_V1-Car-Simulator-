@@ -95,7 +95,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 123
   m_IsActive: 1
 --- !u!4 &7811975502258563276
 Transform:
@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree4Large_LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 198398, guid: 658fc03792b0f3e419a7b07c4c81feef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
+      objectReference: {fileID: 0}
     - target: {fileID: 495554, guid: 658fc03792b0f3e419a7b07c4c81feef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -213,6 +217,11 @@ PrefabInstance:
     - target: {fileID: 495554, guid: 658fc03792b0f3e419a7b07c4c81feef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193751253648488173, guid: 658fc03792b0f3e419a7b07c4c81feef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658fc03792b0f3e419a7b07c4c81feef, type: 3}
