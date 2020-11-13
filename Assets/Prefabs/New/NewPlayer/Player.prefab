@@ -429,8 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f030344419af3204dbbe544722643965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   m_lastPositions: []
   m_newTransformIndex: 0
   walkSpeed: 8

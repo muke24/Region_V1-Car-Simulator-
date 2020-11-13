@@ -22,15 +22,15 @@ namespace New
             ""actions"": [
                 {
                     ""name"": ""WASD"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""002a6c71-1b1b-4d3f-8cb3-24cf837f6bcd"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""cae619bc-93d5-4733-a8e9-a91d242ed1c6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -86,9 +86,9 @@ namespace New
                 },
                 {
                     ""name"": ""Scroll"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""4338edda-46cc-4c75-8876-d76c25a7516f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
                 }

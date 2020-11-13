@@ -11,6 +11,7 @@ public class PlaneSpawner : NetworkBehaviour
 	private GameObject dropPlane;
 	[SerializeField]
 	private PlaneTrigger planeTrigger;
+
 #if !UNITY_EDITOR
 	[SyncVar]
 #endif
@@ -44,7 +45,7 @@ public class PlaneSpawner : NetworkBehaviour
 		spawnLocation.localRotation = spawnRotation;
 
 		Instantiate(dropPlane, spawnLocation.position, spawnLocation.rotation);
-		planeTrigger.planeSpawned = true;
+		PlaneTrigger.planeSpawned = true;
 		planeTrigger.DetectAndIgnoreTriggers();
 	}
 }

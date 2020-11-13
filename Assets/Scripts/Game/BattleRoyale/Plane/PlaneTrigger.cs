@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using MyBox;
 
 public class PlaneTrigger : MonoBehaviour
 {
-	public bool planeSpawned = false;
+	public static bool planeSpawned = false;
 
 	private PlaneController planeController;
 	private Collider planeCollider;
@@ -13,8 +13,26 @@ public class PlaneTrigger : MonoBehaviour
 	[SerializeField]
 	private bool debugColliders = false;
 
-	[SerializeField]
-	private Collider[] collidersNotIgnored;
+	[ConditionalField("debugColliders")]
+	[SerializeField] 
+	private Debugging debugging;
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other == planeCollider)
+		{
+			planeController.GetComponent<Animator>().SetInteger("DoorState", 1);
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other == planeCollider)
+		{
+			planeController.GetComponent<Animator>().SetInteger("DoorState", 2);
+			Destroy(this);
+		}
+	}
 
 	private void Awake()
 	{
@@ -70,9 +88,9 @@ public class PlaneTrigger : MonoBehaviour
 					}
 				}
 
-				collidersNotIgnored = new Collider[notIgnoredColliders];
-				collidersNotIgnored[0] = collider1;
-				collidersNotIgnored[1] = collider2;
+				debugging.collidersNotIgnored = new Collider[notIgnoredColliders];
+				debugging.collidersNotIgnored[0] = collider1;
+				debugging.collidersNotIgnored[1] = collider2;
 			}
 			#endregion
 		}
@@ -90,21 +108,10 @@ public class PlaneTrigger : MonoBehaviour
 			}
 		}
 	}
+}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other == planeCollider)
-		{
-			planeController.canJump = true;
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		if (other == planeCollider)
-		{
-			planeController.canJump = false;
-			Destroy(this);
-		}
-	}
+[Serializable]
+class Debugging
+{
+	public Collider[] collidersNotIgnored;
 }

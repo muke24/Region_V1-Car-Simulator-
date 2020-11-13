@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -8,8 +9,6 @@ namespace New
 	public class PlayerInput : MonoBehaviour
 	{
 		private Inputs inputs;
-		private Vector2 i;
-		private Vector2 iRaw;
 		private Vector2 previous;
 		private Vector2 _down;
 		private float scrollValue = 0f;
@@ -17,33 +16,23 @@ namespace New
 		private int jumpTimer;
 		private bool jump = false;
 		private bool sprinting = false;
-		private bool _crouch = false;
 		private bool _crouching = false;
 		private bool interacting = false;
 		private bool reloading = false;
 		private bool aimDown = false;
 		private bool isAiming = false;
 		private bool shoot = false;
-		Vector2 value;
-		InputControl control;
-		ButtonControl button;
+		private Action<InputAction.CallbackContext> callback;
 
 		public Vector2 Input
 		{
 			get
 			{
-				inputs.Player.WASD.performed += ctx =>
-				{
-					i = ctx.ReadValue<Vector2>();
-					i *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;
-				};
-
-				inputs.Player.WASD.canceled += ctx =>
-				{
-					i = ctx.ReadValue<Vector2>();
-				};
-
-				return i;
+				inputs.Player.WASD
+				
+				Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+				WASD *= (WASD.x != 0.0f && WASD.y != 0.0f) ? .7071f : 1.0f;
+				return WASD;
 			}
 		}
 
@@ -56,48 +45,25 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.WASD.performed += ctx =>
+				Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+
+				WASD *= (WASD.x != 0.0f && WASD.y != 0.0f) ? .7071f : 1.0f;
+
+				_down = Vector2.zero;
+				if (WASD.x != previous.x)
 				{
-					// Read value from control.
-					value = ctx.ReadValue<Vector2>();
-					control = ctx.control;
-					button = control as ButtonControl;
-
-					if (value.x > 0)
-						iRaw.x = 1;
-
-					else if (value.x < 0)
-						iRaw.x = -1;
-
-					if (value.y > 0)
-						iRaw.y = 1;
-
-					else if (value.y < 0)
-						iRaw.y = -1;
-
-					iRaw *= (i.x != 0.0f && i.y != 0.0f) ? .7071f : 1.0f;
-
-					_down = Vector2.zero;
-					if (Raw.x != previous.x)
-					{
-						previous.x = Raw.x;
-						if (previous.x != 0)
-							_down.x = previous.x;
-					}
-					if (Raw.y != previous.y)
-					{
-						previous.y = Raw.y;
-						if (previous.y != 0)
-							_down.y = previous.y;
-					}
-				};
-
-				inputs.Player.WASD.canceled += ctx =>
+					previous.x = WASD.x;
+					if (previous.x != 0)
+						_down.x = previous.x;
+				}
+				if (WASD.y != previous.y)
 				{
-					iRaw = ctx.ReadValue<Vector2>();
-				};
+					previous.y = WASD.y;
+					if (previous.y != 0)
+						_down.y = previous.y;
+				}
 
-				return iRaw;
+				return WASD;
 			}
 		}
 
@@ -105,15 +71,8 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Jump.performed += ctx =>
-				{
-					jumping = 1;
-				};
-				inputs.Player.Jump.canceled += ctx =>
-				{
-					jumping = 0;
-				};
-				return jumping;
+
+				inputs.Player.Jump.performed += callback;
 			}
 		}
 
@@ -121,11 +80,12 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Sprint.started += ctx =>
+				InputAction Sprint = inputs.Player.Sprint;
+				Sprint.started += ctx =>
 				{
 					sprinting = true;
 				};
-				inputs.Player.Sprint.canceled += ctx =>
+				Sprint.canceled += ctx =>
 				{
 					sprinting = false;
 				};
@@ -137,15 +97,16 @@ namespace New
 		{
 			get
 			{
-				if (inputs.Player.Crouch.triggered)
-				{
-					_crouch = true;
-				}
-				else
-				{
-					_crouch = false;
-				}
-				return _crouch;
+				//InputAction Crouch = inputs.Player.Crouch;
+				//if (inputs.Player.Crouch.triggered)
+				//{
+				//	_crouch = true;
+				//}
+				//else
+				//{
+				//	_crouch = false;
+				//}
+				return inputs.Player.Crouch.triggered;
 			}
 		}
 
@@ -299,6 +260,24 @@ namespace New
 		private void Awake()
 		{
 			inputs = new Inputs();
+
+			var actions = inputs.Player;
+
+			BindAction(actions.Aim, Aim_performed);
+		}
+
+		private void Aim_performed(InputAction.CallbackContext obj)
+		{
+			if (obj.performed)
+			{
+
+			}
+		}
+
+		void BindAction(InputAction action, Action<InputAction.CallbackContext> method)
+		{
+			action.performed += method;
+			action.canceled += method;
 		}
 
 		void Start()
@@ -316,19 +295,16 @@ namespace New
 
 		public bool Jump()
 		{
-			inputs.Player.Jump.performed += ctx =>
+			if (inputs.Player.Jump.triggered)
 			{
-				if (jumpTimer > 0)
-				{
-					jump = true;
-				}
-			};
-			inputs.Player.Jump.canceled += ctx =>
+				jump = true;
+				return true;
+			}
+			else
 			{
 				jump = false;
-			};
-
-			return jump;
+				return false;
+			}
 		}
 
 		public void ResetJump()

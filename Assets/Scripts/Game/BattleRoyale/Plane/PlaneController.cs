@@ -58,8 +58,6 @@ public class PlaneController : MonoBehaviour
 		mouseLookNew.targetDirection = planeCamera.transform.localRotation.eulerAngles;
 
 		GetMainCamera();
-
-
 	}
 
 	// Update is called once per frame
@@ -132,12 +130,10 @@ public class PlaneController : MonoBehaviour
 		transform.Translate(Vector3.forward * planeSpeed * Time.deltaTime);
 	}
 
-
-
-	//void ChangeToPlayerCam()
-	//{
-
-	//}
+	public void AllowJump()
+	{
+		canJump = true;
+	}
 }
 
 [Serializable]
