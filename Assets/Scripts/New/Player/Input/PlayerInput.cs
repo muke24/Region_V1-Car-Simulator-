@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 
 namespace New
 {
-	public class PlayerInput : MonoBehaviour
+	public class PlayerInput : InputManager
 	{
 		private Inputs inputs;
 		private Vector2 previous;
@@ -16,7 +16,7 @@ namespace New
 		private int jumpTimer;
 		private bool jump = false;
 		private bool sprinting = false;
-		private bool _crouching = false;
+		private bool _crouching = false; //////
 		private bool interacting = false;
 		private bool reloading = false;
 		private bool aimDown = false;
@@ -28,10 +28,11 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.WASD
-				
-				Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+				//Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+
+				Vector2 WASD = GetAxis2D("Move");
 				WASD *= (WASD.x != 0.0f && WASD.y != 0.0f) ? .7071f : 1.0f;
+
 				return WASD;
 			}
 		}
@@ -45,7 +46,8 @@ namespace New
 		{
 			get
 			{
-				Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+				//Vector2 WASD = inputs.Player.WASD.ReadValue<Vector2>();
+				Vector2 WASD = GetAxis2D("Move");
 
 				WASD *= (WASD.x != 0.0f && WASD.y != 0.0f) ? .7071f : 1.0f;
 
@@ -71,8 +73,28 @@ namespace New
 		{
 			get
 			{
+				if (OnButton.Hold("Jump"))
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
 
-				inputs.Player.Jump.performed += callback;
+				//bool elev = false;
+				//inputs.Player.Jump.performed += callback =>
+				//{
+				//	elev = true;
+				//};
+				//if (elev)
+				//{
+				//	return 1;
+				//}
+				//else
+				//{
+				//	return 0;
+				//}
 			}
 		}
 
@@ -260,24 +282,6 @@ namespace New
 		private void Awake()
 		{
 			inputs = new Inputs();
-
-			var actions = inputs.Player;
-
-			BindAction(actions.Aim, Aim_performed);
-		}
-
-		private void Aim_performed(InputAction.CallbackContext obj)
-		{
-			if (obj.performed)
-			{
-
-			}
-		}
-
-		void BindAction(InputAction action, Action<InputAction.CallbackContext> method)
-		{
-			action.performed += method;
-			action.canceled += method;
 		}
 
 		void Start()
@@ -295,7 +299,7 @@ namespace New
 
 		public bool Jump()
 		{
-			if (inputs.Player.Jump.triggered)
+			if (OnButton.Hold("Jump"))
 			{
 				jump = true;
 				return true;
@@ -305,6 +309,17 @@ namespace New
 				jump = false;
 				return false;
 			}
+
+			//if (inputs.Player.Jump.triggered)
+			//{
+			//	jump = true;
+			//	return true;
+			//}
+			//else
+			//{
+			//	jump = false;
+			//	return false;
+			//}
 		}
 
 		public void ResetJump()
@@ -313,4 +328,3 @@ namespace New
 		}
 	}
 }
-
