@@ -299,7 +299,7 @@ namespace New
 
 		public bool Jump()
 		{
-			if (OnButton.Hold("Jump"))
+			if (OnButton.Down("Jump"))
 			{
 				jump = true;
 				return true;

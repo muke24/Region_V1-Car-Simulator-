@@ -22,6 +22,7 @@ namespace New
 		private static bool[] buttonHold;
 		private static bool[] buttonUp;
 		private static bool[] buttonNull;
+		private static CallbackContext[] callbackContexts;
 		#endregion
 
 		private void OnEnable()
@@ -41,6 +42,7 @@ namespace New
 			buttonHold = new bool[totalControls];
 			buttonUp = new bool[totalControls];
 			buttonNull = new bool[totalControls];
+			callbackContexts = new CallbackContext[totalControls];
 			SetDefaults();
 
 			inputs = new Inputs();
@@ -63,6 +65,7 @@ namespace New
 
 		void BindAction(InputAction action, Action<CallbackContext> method)
 		{
+			//action.cal
 			action.started += method;
 			action.performed += method;
 			action.canceled += method;
@@ -136,15 +139,7 @@ namespace New
 				{
 					if (ButtonName == actionMethods[i].Method.Name)
 					{
-						if (buttonDown[i])
-						{
-							buttonDown[i] = false;
-							return true;
-						}
-						else
-						{
-							return false;
-						}
+						return buttonDown[i];
 					}
 				}
 				Debug.LogError("Button name is incorrect. Please check if you have misspelled the button name.");
@@ -195,19 +190,60 @@ namespace New
 
 		private void Jump(CallbackContext obj)
 		{
-			if (obj.started)
+			ButtonControl button = obj.control as ButtonControl;
+			//buttonDown[1] = button.wasPressedThisFrame;
+			//buttonHold[1] = button.isPressed;
+			//buttonUp[1] = button.wasReleasedThisFrame;
+
+			if (button.wasPressedThisFrame)
 			{
 				buttonDown[1] = true;
 			}
-			else if (obj.performed)
+			else
 			{
 				buttonDown[1] = false;
+			}
+
+			if (button.isPressed)
+			{
 				buttonHold[1] = true;
 			}
-			else if(obj.canceled)
+			else
 			{
-				buttonHold[1] = false;
+				buttonHold[1] = true;
 			}
+
+			if (button.wasReleasedThisFrame)
+			{
+
+			}
+			else
+			{
+
+			}
+
+			#region OldCode
+			//if (button.wasPressedThisFrame)
+			//{
+			//	buttonDown[1] = true;
+			//}
+			//if (obj.started)
+			//{
+			//	buttonDown[1] = true;
+			//}
+			//else
+			//{
+			//	buttonDown[1] = false;
+			//}
+			//if (obj.performed)
+			//{
+			//	buttonHold[1] = true;
+			//}
+			//else
+			//{
+			//	buttonHold[1] = false;
+			//}
+			#endregion
 		}
 
 		private void Sprint(CallbackContext obj)
