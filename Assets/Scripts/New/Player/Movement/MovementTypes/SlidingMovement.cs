@@ -51,7 +51,7 @@ namespace New
 		public override void Check(bool canInteract)
 		{
 			if (!canInteract) return;
-			if (Physics.Raycast(transform.position, -Vector3.up, out var hit, player.info.rayDistance, player.collisionLayer)) //Don't hit the player
+			if (Physics.Raycast(transform.position, -Vector3.up, out var hit, player.info.rayDistance, player.collisionLayer)) // Don't hit the player
 			{
 				float angle = Vector3.Angle(hit.normal, Vector3.up);
 				Vector3 hitNormal = hit.normal;
@@ -59,7 +59,7 @@ namespace New
 				Vector3 slopeDir = Vector3.ClampMagnitude(new Vector3(hitNormal.x, -hitNormal.y, hitNormal.z), 1f);
 				Vector3.OrthoNormalize(ref hitNormal, ref slopeDir);
 
-				if (angle > 0 && playerStatus == changeTo) //Adjust to slope direction
+				if (angle > 0 && playerStatus == changeTo) // Adjust to slope direction
 				{
 					Debug.DrawRay(transform.position - Vector3.up * player.info.halfheight, slideDir, Color.green);
 					slideDir = Vector3.RotateTowards(slideDir, slopeDir, slideSpeed.min * Time.deltaTime / 2f, 0.0f);
@@ -83,7 +83,7 @@ namespace New
 				slideDownward = 0f;
 			}
 
-			//Check to slide when running
+			// Check to slide when running
 			if (playerInput.Crouch && canSlide())
 			{
 				player.ChangeStatus(changeTo, IK);
@@ -94,7 +94,7 @@ namespace New
 				slideTime = 1f;
 			}
 
-			//Lower slidetime
+			// Lower slidetime
 			if (slideTime > 0)
 			{
 				if (slideDir.y < 0)
@@ -119,8 +119,8 @@ namespace New
 			{
 				if (playerInput.Crouching)
 					player.Crouch(true);
-				else if (!player.Uncrouch()) //Try to uncrouch, if this is false then we cannot uncrouch
-					player.Crouch(true); //So just keep crouched
+				else if (!player.Uncrouch()) // Try to uncrouch, if this is false then we cannot uncrouch
+					player.Crouch(true); // So just keep crouched
 			}
 		}
 

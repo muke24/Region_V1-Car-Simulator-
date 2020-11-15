@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimateCameraLevel : MonoBehaviour
+namespace New
 {
-    public float adjustSpeed = 15f;
-    Vector3 offset;
-
-    private void Start()
+    public class AnimateCameraLevel : MonoBehaviour
     {
-        offset = transform.localPosition;
-    }
+        public float adjustSpeed = 15f;
+        Vector3 offset;
 
-    public void UpdateLevel(float level)
-    {
-        Vector3 camLevel = offset;
-        camLevel.y += level;
-        transform.localPosition = Vector3.Lerp(transform.localPosition, camLevel, Time.deltaTime * adjustSpeed);
+        private void Start()
+        {
+            offset = transform.localPosition;
+        }
+
+        public void UpdateLevel(float level)
+        {
+            Vector3 camLevel = offset;
+            camLevel.y += level;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, camLevel, Time.deltaTime * adjustSpeed);
+        }
     }
 }

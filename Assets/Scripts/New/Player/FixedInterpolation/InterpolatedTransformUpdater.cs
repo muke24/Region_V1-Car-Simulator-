@@ -11,17 +11,21 @@ using System.Collections;
  * It is critical this script runs after all other scripts that modify a transform from FixedUpdate.
  */
 
-public class InterpolatedTransformUpdater : MonoBehaviour
+namespace New
 {
-    private InterpolatedTransform m_interpolatedTransform;
+	public class InterpolatedTransformUpdater : MonoBehaviour
+	{
+		private InterpolatedTransform m_interpolatedTransform;
     
-	void Awake()
-    {
-        m_interpolatedTransform = GetComponent<InterpolatedTransform>();
-    }
+		void Awake()
+		{
+			m_interpolatedTransform = GetComponent<InterpolatedTransform>();
+		}
 	
-	void FixedUpdate()
-    {
-        m_interpolatedTransform.LateFixedUpdate();
-    }
+		void FixedUpdate()
+		{
+			m_interpolatedTransform.LateFixedUpdate();
+		}
+	}
 }
+

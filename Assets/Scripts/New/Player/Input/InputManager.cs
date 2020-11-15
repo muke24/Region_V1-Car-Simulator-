@@ -21,7 +21,7 @@ namespace New
 		private static bool[] buttonDown;
 		private static bool[] buttonHold;
 		private static bool[] buttonUp;
-		private static bool[] buttonNull;
+		//private static bool[] buttonNull;
 		private static CallbackContext[] callbackContexts;
 		#endregion
 
@@ -41,7 +41,7 @@ namespace New
 			buttonDown = new bool[totalControls];
 			buttonHold = new bool[totalControls];
 			buttonUp = new bool[totalControls];
-			buttonNull = new bool[totalControls];
+			//buttonNull = new bool[totalControls];
 			callbackContexts = new CallbackContext[totalControls];
 			SetDefaults();
 
@@ -198,6 +198,7 @@ namespace New
 			if (button.wasPressedThisFrame)
 			{
 				buttonDown[1] = true;
+				return;
 			}
 			else
 			{
@@ -207,6 +208,7 @@ namespace New
 			if (button.isPressed)
 			{
 				buttonHold[1] = true;
+				return;
 			}
 			else
 			{

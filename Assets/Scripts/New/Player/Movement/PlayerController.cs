@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Threading;
 using Mirror;
 
 namespace New
@@ -15,7 +13,7 @@ namespace New
 	public class PlayerController : NetworkBehaviour
 	{
 		public Status status;
-		public LayerMask collisionLayer; //Default
+		public LayerMask collisionLayer; // Default
 		public float crouchHeight = 1f;
 		public PlayerInfo info;
 		[SerializeField]
