@@ -18,6 +18,7 @@ namespace New
 
 		#region Variables
 		private static Vector2[] axis2ds;
+		private static float[] axis;
 		private static bool[] buttonDown;
 		private static bool[] buttonHold;
 		private static bool[] buttonUp;
@@ -38,10 +39,10 @@ namespace New
 		void Awake()
 		{
 			axis2ds = new Vector2[totalControls];
+			axis = new float[totalControls];
 			buttonDown = new bool[totalControls];
 			buttonHold = new bool[totalControls];
 			buttonUp = new bool[totalControls];
-			//buttonNull = new bool[totalControls];
 			callbackContexts = new CallbackContext[totalControls];
 			SetDefaults();
 
@@ -110,29 +111,21 @@ namespace New
 			return Vector2.zero;
 		}
 
+		public static float GetAxis(string AxisName)
+		{
+			for (int i = 0; i < actionMethods.Length; i++)
+			{
+				if (AxisName == actionMethods[i].Method.Name)
+				{
+					return axis[i];
+				}
+			}
+			Debug.LogError("2D axis name is incorrect. Please check if you have misspelled the 2D axis name.");
+			return 0;
+		}
+
 		protected static class OnButton
 		{
-			//public static bool Null(string ButtonName)
-			//{
-			//	for (int i = 0; i < actionMethods.Length; i++)
-			//	{
-			//		if (ButtonName == actionMethods[i].Method.Name)
-			//		{
-			//			if (!buttonDown[i] && !buttonHold[i] && !buttonUp[i])
-			//			{
-			//				return true;
-			//			}
-			//			else
-			//			{
-			//				return false;
-			//			}
-			//		}
-			//	}
-			//	return false;
-			//	//Debug.LogError("Button down name is incorrect. Please check if you have misspelled the button down name.");
-			//	//return false;
-			//}
-
 			public static bool Down(string ButtonName)
 			{
 				for (int i = 0; i < actionMethods.Length; i++)
@@ -191,9 +184,6 @@ namespace New
 		private void Jump(CallbackContext obj)
 		{
 			ButtonControl button = obj.control as ButtonControl;
-			//buttonDown[1] = button.wasPressedThisFrame;
-			//buttonHold[1] = button.isPressed;
-			//buttonUp[1] = button.wasReleasedThisFrame;
 
 			if (button.wasPressedThisFrame)
 			{
@@ -212,17 +202,17 @@ namespace New
 			}
 			else
 			{
-				buttonHold[1] = true;
+				buttonHold[1] = false;
 			}
 
-			if (button.wasReleasedThisFrame)
-			{
+			//if (button.wasReleasedThisFrame)
+			//{
 
-			}
-			else
-			{
+			//}
+			//else
+			//{
 
-			}
+			//}
 
 			#region OldCode
 			//if (button.wasPressedThisFrame)
@@ -250,37 +240,157 @@ namespace New
 
 		private void Sprint(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[2] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[2] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[2] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[2] = false;
+			}
 		}
 
 		private void Crouch(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[3] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[3] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[3] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[3] = false;
+			}
 		}
 
 		private void Interact(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[4] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[4] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[4] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[4] = false;
+			}
 		}
 
 		private void Reload(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[5] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[5] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[5] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[5] = false;
+			}
 		}
 
 		private void Aim(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[6] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[6] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[6] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[6] = false;
+			}
 		}
 
 		private void Shoot(CallbackContext obj)
 		{
+			ButtonControl button = obj.control as ButtonControl;
 
+			if (button.wasPressedThisFrame)
+			{
+				buttonDown[7] = true;
+				return;
+			}
+			else
+			{
+				buttonDown[7] = false;
+			}
+
+			if (button.isPressed)
+			{
+				buttonHold[7] = true;
+				return;
+			}
+			else
+			{
+				buttonHold[7] = false;
+			}
 		}
 
 		private void Scroll(CallbackContext obj)
 		{
-
+			axis[8] = obj.ReadValue<float>();
 		}
 	}
 }

@@ -8,21 +8,21 @@ namespace New
 {
 	public class PlayerInput : InputManager
 	{
-		private Inputs inputs;
+		//private Inputs inputs;
 		private Vector2 previous;
 		private Vector2 _down;
-		private float scrollValue = 0f;
-		private int jumping = 0;
+		//private float scrollValue = 0f;
+		//private int jumping = 0;
 		private int jumpTimer;
 		private bool jump = false;
-		private bool sprinting = false;
-		private bool _crouching = false; //////
-		private bool interacting = false;
-		private bool reloading = false;
-		private bool aimDown = false;
-		private bool isAiming = false;
-		private bool shoot = false;
-		private Action<InputAction.CallbackContext> callback;
+		//private bool sprinting = false;
+		//private bool _crouching = false; //////
+		//private bool interacting = false;
+		//private bool reloading = false;
+		//private bool aimDown = false;
+		//private bool isAiming = false;
+		//private bool shoot = false;
+		//private Action<InputAction.CallbackContext> callback;
 
 		public Vector2 Input
 		{
@@ -102,16 +102,17 @@ namespace New
 		{
 			get
 			{
-				InputAction Sprint = inputs.Player.Sprint;
-				Sprint.started += ctx =>
-				{
-					sprinting = true;
-				};
-				Sprint.canceled += ctx =>
-				{
-					sprinting = false;
-				};
-				return sprinting;
+				return OnButton.Hold("Sprint");
+				//InputAction Sprint = inputs.Player.Sprint;
+				//Sprint.started += ctx =>
+				//{
+				//	sprinting = true;
+				//};
+				//Sprint.canceled += ctx =>
+				//{
+				//	sprinting = false;
+				//};
+				//return sprinting;
 			}
 		}
 
@@ -128,7 +129,8 @@ namespace New
 				//{
 				//	_crouch = false;
 				//}
-				return inputs.Player.Crouch.triggered;
+				//return inputs.Player.Crouch.triggered;
+				return OnButton.Down("Crouch");
 			}
 		}
 
@@ -136,16 +138,17 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Crouch.started += ctx =>
-				{
-					_crouching = true;
-				};
-				inputs.Player.Crouch.canceled += ctx =>
-				{
-					_crouching = false;
-				};
+				//inputs.Player.Crouch.started += ctx =>
+				//{
+				//	_crouching = true;
+				//};
+				//inputs.Player.Crouch.canceled += ctx =>
+				//{
+				//	_crouching = false;
+				//};
 
-				return _crouching;
+				//return _crouching;
+				return OnButton.Hold("Crouch");
 			}
 		}
 
@@ -153,42 +156,44 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Interact.started += ctx =>
-				{
-					interacting = true;
-					Debug.Log(interacting);
-				};
-				inputs.Player.Interact.canceled += ctx =>
-				{
-					interacting = false;
-					Debug.Log(interacting);
-				};
+				//inputs.Player.Interact.started += ctx =>
+				//{
+				//	interacting = true;
+				//	Debug.Log(interacting);
+				//};
+				//inputs.Player.Interact.canceled += ctx =>
+				//{
+				//	interacting = false;
+				//	Debug.Log(interacting);
+				//};
 
-				return interacting;
+				//return interacting;
+				return OnButton.Hold("Interact");
 			}
 		}
 
-		public bool Interact
-		{
-			get
-			{
-				return InteractKey;
-			}
-		}
+		//public bool Interact
+		//{
+		//	get
+		//	{
+		//		return InteractKey;
+		//	}
+		//}
 
 		public bool Reload
 		{
 			get
 			{
-				inputs.Player.Reload.started += ctx =>
-				{
-					reloading = true;
-				};
-				inputs.Player.Reload.canceled += ctx =>
-				{
-					reloading = false;
-				};
-				return reloading;
+				//inputs.Player.Reload.started += ctx =>
+				//{
+				//	reloading = true;
+				//};
+				//inputs.Player.Reload.canceled += ctx =>
+				//{
+				//	reloading = false;
+				//};
+				//return reloading;
+				return OnButton.Down("Reload");
 			}
 		}
 
@@ -196,16 +201,17 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Aim.started += ctx =>
-				{
-					aimDown = true;
-				};
-				inputs.Player.Aim.canceled += ctx =>
-				{
-					aimDown = false;
-				};
+				//inputs.Player.Aim.started += ctx =>
+				//{
+				//	aimDown = true;
+				//};
+				//inputs.Player.Aim.canceled += ctx =>
+				//{
+				//	aimDown = false;
+				//};
 
-				return aimDown;
+				//return aimDown;
+				return OnButton.Down("Aim");
 			}
 		}
 
@@ -213,15 +219,16 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Aim.performed += ctx =>
-				{
-					isAiming = true;
-				};
-				inputs.Player.Aim.canceled += ctx =>
-				{
-					isAiming = false;
-				};
-				return isAiming;
+				//inputs.Player.Aim.performed += ctx =>
+				//{
+				//	isAiming = true;
+				//};
+				//inputs.Player.Aim.canceled += ctx =>
+				//{
+				//	isAiming = false;
+				//};
+				//return isAiming;
+				return OnButton.Hold("Aim");
 			}
 		}
 
@@ -229,15 +236,16 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Shoot.performed += ctx =>
-				{
-					shoot = true;
-				};
-				inputs.Player.Shoot.canceled += ctx =>
-				{
-					shoot = false;
-				};
-				return shoot;
+				//inputs.Player.Shoot.performed += ctx =>
+				//{
+				//	shoot = true;
+				//};
+				//inputs.Player.Shoot.canceled += ctx =>
+				//{
+				//	shoot = false;
+				//};
+				//return shoot;
+				return OnButton.Down("Shoot");
 			}
 		}
 
@@ -245,43 +253,29 @@ namespace New
 		{
 			get
 			{
-				inputs.Player.Scroll.performed += ctx =>
-				{
-					if (ctx.ReadValue<float>() != 0f)
-					{
-						if (scrollValue > 0f)
-						{
-							scrollValue = 1f;
-						}
-						else
-						{
-							scrollValue = -1f;
-						}
-					}
-				};
+				//inputs.Player.Scroll.performed += ctx =>
+				//{
+				//	if (ctx.ReadValue<float>() != 0f)
+				//	{
+				//		if (scrollValue > 0f)
+				//		{
+				//			scrollValue = 1f;
+				//		}
+				//		else
+				//		{
+				//			scrollValue = -1f;
+				//		}
+				//	}
+				//};
 
-				inputs.Player.Scroll.canceled += ctx =>
-				{
-					scrollValue = 0f;
-				};
+				//inputs.Player.Scroll.canceled += ctx =>
+				//{
+				//	scrollValue = 0f;
+				//};
 
-				return scrollValue;
+				//return scrollValue;
+				return GetAxis("Scroll");
 			}
-		}
-
-		public void OnEnable()
-		{
-			inputs.Enable();
-		}
-
-		public void OnDisable()
-		{
-			inputs.Disable();
-		}
-
-		private void Awake()
-		{
-			inputs = new Inputs();
 		}
 
 		void Start()
