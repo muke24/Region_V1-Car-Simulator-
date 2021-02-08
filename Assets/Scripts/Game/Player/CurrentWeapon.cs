@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#region This code is written by Peter Thompson
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CurrentWeapon : MonoBehaviour
@@ -221,3 +222,4 @@ public class CurrentWeapon : MonoBehaviour
 		}
 	}
 }
+#endregion
