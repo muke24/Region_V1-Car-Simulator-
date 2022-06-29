@@ -1,5 +1,5 @@
 # CarSimulator
 
-This is just a "discontinued" project made for learning and practicing ways of making a first person shooter. Check out Region_V3 for the current project I am working on.
+Started as a car sim. Ended up as a first person shooter.
 
-Yes it is a very messy project, but it was made for just trying out new things.
+I had stopped working on this project for a while. I have learnt a lot more since and I am currently fixing a lot of stuff. I have looked back onto this project and can see some potential.
